@@ -1,0 +1,1 @@
+declare module "dbme/w/lib/core/library" {}
