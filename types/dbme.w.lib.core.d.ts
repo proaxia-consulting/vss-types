@@ -1,5 +1,7 @@
-export namespace dbme.w.lib.core {
-    enum Entityset {
+declare module "dbme/w/lib/core/library" {
+    import ResourceBundle from "sap/base/i18n/ResourceBundle";
+
+    enum EntitySet {
         App = "CMNAppSet",
         AbsenceType = "CMNAbsenceTypeSet",
         AddressTitle = "CMNAddrTitleSet",
@@ -81,12 +83,11 @@ export namespace dbme.w.lib.core {
         DecisionTree = "TDT",
         WorkshopPlanner = "WPL"
     }
-}
-
-declare module "dbme/w/lib/core/library" {
-    import ResourceBundle from "sap/base/i18n/ResourceBundle";
 
     export default class library {
+        public static Entityset: EntitySet;
+        public static ModelName: ModelName;
+        public static DBMEComponent: DBMEComponent;
         public static getResourceBundle(): ResourceBundle;
     }
 }
