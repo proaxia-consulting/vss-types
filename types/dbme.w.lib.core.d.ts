@@ -9,5 +9,7 @@ declare module "dbme/w/lib/core" {
 declare module "dbme/w/lib/core/ui/UIComponent" {
     import { default as UICom } from "sap/ui/core/UIComponent";
 
-    export class UIComponent extends UICom {}
+    export default class UIComponent extends UICom {
+        public static getDBMEComponent(): string;
+    }
 }
