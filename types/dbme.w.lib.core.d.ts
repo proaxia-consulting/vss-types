@@ -1,4 +1,6 @@
-declare namespace dbme.w.lib.core {
+declare module "dbme/w/lib/core/library" {
+    import ResourceBundle from "sap/base/i18n/ResourceBundle";
+
     export enum Entityset {
         App = "CMNAppSet",
         AbsenceType = "CMNAbsenceTypeSet",
@@ -80,18 +82,9 @@ declare namespace dbme.w.lib.core {
         TodoBasket = "TDO",
         DecisionTree = "TDT",
         WorkshopPlanner = "WPL"
-    }    
-}
-
-declare module "dbme/w/lib/core/library" {
-    import ResourceBundle from "sap/base/i18n/ResourceBundle";
-
-    export default class library {
-        public static Entityset: dbme.w.lib.core.Entityset;
-        public static ModelName: dbme.w.lib.core.ModelName;
-        public static DBMEComponent: dbme.w.lib.core.DBMEComponent;
-        public static getResourceBundle(): ResourceBundle;
     }
+
+    export function getResourceBundle(): ResourceBundle;
 }
 
 declare module "dbme/w/lib/core/ui/UIComponent" {

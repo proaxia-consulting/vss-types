@@ -1,17 +1,12 @@
-declare namespace dbme.c {
-    export enum HttpHeaderName {
-        DBMEMessage = "dbme-message"
-    }    
-}
-
 declare module "dbme/c/library" {
     import ResourceBundle from "sap/base/i18n/ResourceBundle";
 
-    export default class library {
-        public static HttpHeaderName: dbme.c.HttpHeaderName;
-        public static getResourceBundle(): ResourceBundle;
-        public static getVersion(): number;
-    }    
+    export enum HttpHeaderName {
+        DBMEMessage = "dbme-message"
+    }
+
+    export function getResourceBundle(): ResourceBundle;
+    export function getVersion(): number;
 }
 
 declare module "dbme/c/Log" {
