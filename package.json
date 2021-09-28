@@ -8,5 +8,8 @@
   "types": "types/index.d.ts",
   "scripts": {
     "test": "tsc"
+  },
+  "dependencies": {
+    "@sapui5/ts-types-esm": "^1.93.1"
   }
 }
