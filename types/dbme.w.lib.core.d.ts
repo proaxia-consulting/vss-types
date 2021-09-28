@@ -90,8 +90,8 @@ declare module "dbme/w/lib/core/library" {
 declare module "dbme/w/lib/core/ui/UIComponent" {
     import { default as UICom } from "sap/ui/core/UIComponent";
 
-    export default class UIComponent extends UICom {
-        public static getDBMEComponent(): string;
+    export default abstract class UIComponent extends UICom {
+        public abstract getDBMEComponent(): string;
         public getCurrentRouteName(): string;
         public setCurrentRouteName(name: string): void;
     }
