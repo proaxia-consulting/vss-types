@@ -1,7 +1,5 @@
-declare module "dbme/w/lib/core/library" {
-    import ResourceBundle from "sap/base/i18n/ResourceBundle";
-
-    enum EntitySet {
+declare namespace dbme.w.lib.core {
+    export enum Entityset {
         App = "CMNAppSet",
         AbsenceType = "CMNAbsenceTypeSet",
         AddressTitle = "CMNAddrTitleSet",
@@ -70,24 +68,28 @@ declare module "dbme/w/lib/core/library" {
         WorkingHours = "CMNWorkingHoursSet"
     }
 
-    enum ModelName {
+    export enum ModelName {
         SAPOData = "SAPOData",
         HierarchyAssignment = "HAS"
     }
 
-    enum DBMEComponent {
+    export enum DBMEComponent {
         HierarchyAssignment = "HAS",
         ResourcePlanner = "RPL",
         Settings = "STS",
         TodoBasket = "TDO",
         DecisionTree = "TDT",
         WorkshopPlanner = "WPL"
-    }
+    }    
+}
+
+declare module "dbme/w/lib/core/library" {
+    import ResourceBundle from "sap/base/i18n/ResourceBundle";
 
     export default class library {
-        public static Entityset: EntitySet;
-        public static ModelName: ModelName;
-        public static DBMEComponent: DBMEComponent;
+        public static Entityset: dbme.w.lib.core.Entityset;
+        public static ModelName: dbme.w.lib.core.ModelName;
+        public static DBMEComponent: dbme.w.lib.core.DBMEComponent;
         public static getResourceBundle(): ResourceBundle;
     }
 }
