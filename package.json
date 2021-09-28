@@ -9,7 +9,7 @@
   "scripts": {
     "test": "tsc"
   },
-  "dependencies": {
+  "devDependencies": {
     "@sapui5/ts-types-esm": "^1.93.1"
   }
 }
