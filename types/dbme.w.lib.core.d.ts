@@ -1,5 +1,5 @@
 export namespace dbme.w.lib.core {
-    export enum Entityset {
+    enum Entityset {
         App = "CMNAppSet",
         AbsenceType = "CMNAbsenceTypeSet",
         AddressTitle = "CMNAddrTitleSet",
@@ -68,12 +68,12 @@ export namespace dbme.w.lib.core {
         WorkingHours = "CMNWorkingHoursSet"
     }
 
-    export enum ModelName {
+    enum ModelName {
         SAPOData = "SAPOData",
         HierarchyAssignment = "HAS"
     }
 
-    export enum DBMEComponent {
+    enum DBMEComponent {
         HierarchyAssignment = "HAS",
         ResourcePlanner = "RPL",
         Settings = "STS",
