@@ -66,6 +66,10 @@ declare module "dbme/w/lib/core/library" {
         TodoWorkshop = "TDOWorkshopSet",
         UIAppSettings = "CMNUISettingsSet", //LC based, app. backend configuration synchronousely read in Component.init()
         UserHierarchyAsgn = "CMNHierarchyAsgnSet", //user hierarchy assignment
+        VehicleContract = "TDOVehicleContractSet",
+        VehicleDeferredJob = "TDOVehicleDeferredJobSet",
+        VehicleRecall = "TDOVehicleRecallSet",
+        VehicleWarranty = "TDOVehicleWarrantySet",
         WorkingModel = "CMNWorkingModelSet",
         WorkingHours = "CMNWorkingHoursSet"
     }
