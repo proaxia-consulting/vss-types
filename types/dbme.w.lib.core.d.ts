@@ -114,7 +114,7 @@ declare module "dbme/w/lib/core/controller/Base" {
         public getHASModel(): JSONModel;
         public onRootHierarchyAssignmentChange(oEvent: Event): void;
         public _getModel(): ODataModel;
-        protected _getJSONModel(oData?: any, sModelName?: string): JSONModel;
+        public _getJSONModel(oData?: any, sModelName?: string): JSONModel;
         protected _getDialogFormData(oDialog: Dialog, bEnabled: boolean, bVisible: boolean): any;
         protected _validateDialogForm(oDialog: Dialog): boolean;
         protected _loadFiltersFromOData(sPath?: string): Array<Promise<any>>;
