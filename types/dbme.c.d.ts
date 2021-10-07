@@ -27,3 +27,13 @@ declare module "dbme/c/controller/Base" {
         public _(key: string, args?: any): string;
     }
 }
+
+declare module "dbme/c/odata/ODataQuery" {
+    import Model from "sap/ui/model/Model";
+    import Filter from "sap/ui/model/Filter";
+
+    export default class ODataQuery {
+        constructor(oModel: Model, sPath: string, aFilters: Array<Filter>);
+        public read(oUrlParams?: object): Promise<any>;
+    }
+}
