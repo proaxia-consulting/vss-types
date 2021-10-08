@@ -1,6 +1,75 @@
 declare module "dbme/w/lib/core/library" {
     import ResourceBundle from "sap/base/i18n/ResourceBundle";
 
+    export const LogComponent = "DBME";
+    export const CreateEntityGroup = "DBME";
+
+    export enum Route {
+        _default = "default",
+        nestedComponentDefault = "Nested"
+    }
+
+    export enum FioriSemanticObject {
+        defaultPrefix = "ZDBMESRS_",
+        defaultAction = "display"
+    }
+
+    export enum DBMEComponent {
+        HierarchyAssignment = "HAS",
+        ResourcePlanner = "RPL",
+        Settings = "STS",
+        TodoBasket = "TDO",
+        DecisionTree = "TDT",
+        WorkshopPlanner = "WPL"
+    }
+
+    export enum Uxfc {
+        Hidden = 0,
+        Readonly = 1,
+        Optional = 3,
+        Mandatory = 7
+    }
+
+    export enum Action {
+        Create = "",
+        Read = "R",
+        Update = "U",
+        Delete = "D"
+    }
+
+    export enum UnitOfMeasure {
+        Hours = "H",
+        Seconds = "SEC",
+        Mile = "mile",
+        Km = "km"
+    }
+
+    export enum CalendarIntervalType {
+        OneDay = "OneDay"
+    }
+
+    export enum IntervalType {
+        Absence = "A",
+        Demands = "D",
+        Holidays = "H",
+        Reservation = "R",
+        Availability = "V"
+    }
+
+    export enum ModelName {
+        SAPOData = "SAPOData",
+        HierarchyAssignment = "HAS"
+    }
+
+    export enum HttpHeaderName {
+        timezoneOffset = "dbme-timezone_offset_minutes",
+        timezoneName = "dbme-timezone_name",
+        DBMEComponent = "dbme-component",
+        DBMEMessage = "dbme-message",
+        HierarchyId = "dbme-hierarchy-id",
+        Data = "dbme-data"
+    }
+
     export enum Entityset {
         App = "CMNAppSet",
         AbsenceType = "CMNAbsenceTypeSet",
@@ -74,21 +143,33 @@ declare module "dbme/w/lib/core/library" {
         WorkingHours = "CMNWorkingHoursSet"
     }
 
-    export enum ModelName {
-        SAPOData = "SAPOData",
-        HierarchyAssignment = "HAS"
+    export enum EventChannel {
+        dbme = "dbme"
+    }    
+
+    export enum Event {
+        //TDT
+        ReloadFilter = "ReloadFilter",
+        SetFormData = "SetFormData",
+        ListItemSelect = "ListItemSelect",
+        ListUpdateFinished = "ListUpdateFinished",
+        //HAS
+        ResourceAtHierarchyDrop = "ResourceAtHierarchyDrop",
+        //RPL/WPL
+        AppointmentAtIntervalDrop = "AppointmentAtIntervalDrop",
+        //WPL
+        DemandAtIntervalDrop = "DemandAtIntervalDrop",
+        //Core
+        FilterLoaded = "DBMEFilterLoaded"
     }
 
-    export enum DBMEComponent {
-        HierarchyAssignment = "HAS",
-        ResourcePlanner = "RPL",
-        Settings = "STS",
-        TodoBasket = "TDO",
-        DecisionTree = "TDT",
-        WorkshopPlanner = "WPL"
+    export enum Flag {
+        yes = "yes",
+        no = "no"
     }
 
     export function getResourceBundle(): ResourceBundle;
+    export function getDBMEComponents(): Array<DBMEComponent>;
 }
 
 declare module "dbme/w/lib/core/ui/UIComponent" {
