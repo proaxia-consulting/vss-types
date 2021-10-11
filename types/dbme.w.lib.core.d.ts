@@ -200,14 +200,14 @@ declare module "dbme/w/lib/core/controller/Base" {
         public onRootHierarchyAssignmentChange(oEvent: Event): void;
         public _getModel(): ODataModel;
         public _getJSONModel(oData?: any, sModelName?: string): JSONModel;
+        public _getKnownFields(sEntityset: string): string[];
         protected _getDialogFormData(oDialog: Dialog, bEnabled: boolean, bVisible: boolean): any;
         protected _validateDialogForm(oDialog: Dialog): boolean;
-        protected _loadFiltersFromOData(sPath?: string): Array<Promise<any>>;
-        protected _ODataToJSON(sRemotePath: string, bForce?: boolean, aFilters?: Array<any>, oTargetModel?: JSONModel): Promise<any>;
+        protected _loadFiltersFromOData(sPath?: string): Promise<any>[];
+        protected _ODataToJSON(sRemotePath: string, bForce?: boolean, aFilters?: any[], oTargetModel?: JSONModel): Promise<any>;
         protected _getJSONDataPromises(): Array<Promise<any>>;
         protected _jsonDataLoaded(): Promise<JSONModel>;
-        protected _getConfirmDialog(confirm: CallableFunction, aArguments?: Array<any>): Dialog;
-        protected _loadUISettings(): Array<any> | Promise<any>;
-        protected _getKnownFields(sEntityset: string): Array<string>;        
+        protected _getConfirmDialog(confirm: CallableFunction, aArguments?: any[]): Dialog;
+        protected _loadUISettings(): any[] | Promise<any>;        
     }
 }
