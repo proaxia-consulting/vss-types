@@ -201,10 +201,10 @@ declare module "dbme/w/lib/core/controller/Base" {
         public _getModel(): ODataModel;
         public _getJSONModel(oData?: any, sModelName?: string): JSONModel;
         public _getKnownFields(sEntityset: string): string[];
+        public _ODataToJSON(sRemotePath: string, bForce?: boolean, aFilters?: any[], oTargetModel?: JSONModel): Promise<any>;
         protected _getDialogFormData(oDialog: Dialog, bEnabled: boolean, bVisible: boolean): any;
         protected _validateDialogForm(oDialog: Dialog): boolean;
         protected _loadFiltersFromOData(sPath?: string): Promise<any>[];
-        protected _ODataToJSON(sRemotePath: string, bForce?: boolean, aFilters?: any[], oTargetModel?: JSONModel): Promise<any>;
         protected _getJSONDataPromises(): Array<Promise<any>>;
         protected _jsonDataLoaded(): Promise<JSONModel>;
         protected _getConfirmDialog(confirm: CallableFunction, aArguments?: any[]): Dialog;

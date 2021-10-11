@@ -24,6 +24,9 @@ declare module "dbme/c/controller/Base" {
     export default abstract class Base extends Controller {
         public abstract _getModel(): ODataModel;
         public getLog(): Log;
+        /**
+         * @deprecated use i18n/Translate function instead 
+         */
         public _(key: string, args?: any): string;
     }
 }
