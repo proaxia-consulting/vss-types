@@ -40,3 +40,24 @@ declare module "dbme/c/odata/ODataQuery" {
         public read(oUrlParams?: object): Promise<any>;
     }
 }
+
+declare module "dbme/c/controller/DateFormat" {
+    export enum DateFormat {
+         DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss",
+         DATE_FORMAT = "yyyy-MM-dd",
+         TIME_FORMAT = "HH:mm:ss",
+         DATETIME_EMPTY_STRING = "0000-00-00T00:00:00",
+         DATE_EMPTY_STRING = "0000-00-00",
+         TIME_EMPTY_STRING = "00:00:00",        
+    }
+
+    export function dateTimeString(oDate: Date, bUTC?: boolean): string;
+    export function dateString(oDate: Date, bUTC?: boolean): string;
+    export function timeString(oDate: Date, bUTC?: boolean): string;
+    export function dateLocal(sDateTime: string, sStyle?: string): string;
+    export function duration(iSeconds: int): string;
+    export function jsDate(sDate: string): Date | null;
+    export function jsDateTime(sDate: string, bUTC?: boolean): Date | null;
+    export function getUTCDate(oDate?: Date): Date;
+    export function getLocalByUTCDate(oDate: Date): Date | null;
+}
