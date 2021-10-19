@@ -41,7 +41,7 @@ declare module "dbme/c/odata/ODataQuery" {
     }
 }
 
-declare module "dbme/c/controller/DateFormat" {
+declare module "dbme/c/format/DateFormat" {
     export enum DateFormat {
          DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss",
          DATE_FORMAT = "yyyy-MM-dd",
