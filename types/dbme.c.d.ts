@@ -54,10 +54,10 @@ declare module "dbme/c/format/DateFormat" {
     export function dateTimeString(oDate: Date, bUTC?: boolean): string;
     export function dateString(oDate: Date, bUTC?: boolean): string;
     export function timeString(oDate: Date, bUTC?: boolean): string;
-    export function dateLocal(sDateTime: string, sStyle?: string): string;
+    export function dateLocal(sDateTime: string | Date, sStyle?: string): string;
     export function duration(iSeconds: int): string;
-    export function jsDate(sDate: string): Date | null;
-    export function jsDateTime(sDate: string, bUTC?: boolean): Date | null;
+    export function jsDate(sDate: string | Date): Date | null;
+    export function jsDateTime(sDate: string | Date, bUTC?: boolean): Date | null;
     export function getUTCDate(oDate?: Date): Date;
     export function getLocalByUTCDate(oDate: Date): Date | null;
 }
