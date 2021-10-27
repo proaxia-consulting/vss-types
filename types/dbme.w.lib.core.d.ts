@@ -190,6 +190,12 @@ declare module "dbme/w/lib/core/controller/Base" {
     import Event from "sap/ui/base/Event";
 
     export default abstract class Base extends AbstractBase {
+        /**
+         * @deprecated in views - use core:require with single formatter
+         */
+        public static readonly formatter: any;       
+        public static readonly type: any;
+
         public abstract ODataToJSON(): void;
         public onDialogCancel(oDialog: Dialog, bAllPaths?: boolean): boolean;
         public onPageNavBack(oEvent: Event): void;
@@ -209,5 +215,27 @@ declare module "dbme/w/lib/core/controller/Base" {
         protected _jsonDataLoaded(): Promise<JSONModel>;
         protected _getConfirmDialog(confirm: CallableFunction, aArguments?: any[]): Dialog;
         protected _loadUISettings(): any[] | Promise<any>;        
+    }
+}
+
+declare module "dbme/w/lib/core/format/FormatUtils" {
+    import { ValueState } from "sap/ui/core/library";
+
+    export function matchingStatusToValueState(sValue: string): ValueState;
+    export function parseBoolean(sValue: any): boolean;
+    export function SplitCommaToInt(sValue: string): int[];
+}
+
+declare module "dbme/w/lib/core/util/DependentFragment" {
+    import Controller from "sap/ui/core/mvc/Controller";
+    import Control from "sap/ui/core/Control";
+
+    export default class DependentFragment {
+        constructor(sViewFragment: string, oCtrl: Controller);
+        clear(oSourceControl?: Control): this;
+        loadFragment(bReload?: boolean): Promise<Control>;
+        load(oSourceControl?: Control): Promise<Control>;
+        loaded(oSourceControl?: Control): Promise<Control>;
+        _key(oSourceControl?: Control): string;
     }
 }
