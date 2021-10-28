@@ -36,7 +36,7 @@ declare module "dbme/c/odata/ODataQuery" {
     import Filter from "sap/ui/model/Filter";
 
     export default class ODataQuery {
-        constructor(oModel: Model, sPath: string, aFilters: Array<Filter>);
+        constructor(oModel: Model, sPath: string, aFilters?: Filter[]);
         public read(oUrlParams?: object): Promise<any>;
     }
 }
