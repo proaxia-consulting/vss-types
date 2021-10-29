@@ -232,6 +232,8 @@ declare module "dbme/w/lib/core/util/DependentFragment" {
     import Control from "sap/ui/core/Control";
 
     export default class DependentFragment {
+        protected _oCtrl: Controller;
+
         constructor(sViewFragment: string, oCtrl: Controller);
         clear(oSourceControl?: Control): this;
         loadFragment(bReload?: boolean): Promise<Control>;
