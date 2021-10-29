@@ -31,16 +31,6 @@ declare module "dbme/c/controller/Base" {
     }
 }
 
-declare module "dbme/c/odata/ODataQuery" {
-    import Model from "sap/ui/model/Model";
-    import Filter from "sap/ui/model/Filter";
-
-    export default class ODataQuery {
-        constructor(oModel: Model, sPath: string, aFilters?: Filter[]);
-        public read(oUrlParams?: object): Promise<any>;
-    }
-}
-
 declare module "dbme/c/format/DateFormat" {
     export enum DateFormat {
          DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss",
@@ -60,4 +50,51 @@ declare module "dbme/c/format/DateFormat" {
     export function jsDateTime(sDate: string | Date, bUTC?: boolean): Date | null;
     export function getUTCDate(oDate?: Date): Date;
     export function getLocalByUTCDate(oDate: Date): Date | null;
+}
+
+declare module "dbme/c/model/EntityUtils" {
+    import Context from "sap/ui/model/Context";
+    import ODataModel from "sap/ui/model/odata/v2/ODataModel";
+
+    export default class EntityUtils {
+        static reset(aKeys: string[], oModel: ODataModel): void;
+
+        /**
+         * @deprecated instead - determine with sap.ui.model.odata.ODataMetaModel
+         */
+        static getEntityName(source: string | Context): string;
+
+        /**
+         * @deprecated do not use!
+         */
+        static getPathByMetadata(oMetadata: object): string;
+
+        /**
+         * @deprecated do not use!
+         */
+         static getNamespace(model: ODataModel): string;
+
+        /**
+         * @deprecated do not use!
+         */
+         static getTypeName(model: ODataModel, sEntityName: string | Context): string;
+
+        /**
+         * @deprecated do not use!
+         */
+         static getKeyByPath(path: string): string;   
+
+         static getProperties(model: ODataModel | Context, entitySet: string): string[];
+         static getData(source: Context | object, deep?: boolean, validKeys?: string | string[]): any;
+    }
+}
+
+declare module "dbme/c/odata/ODataQuery" {
+    import Model from "sap/ui/model/Model";
+    import Filter from "sap/ui/model/Filter";
+
+    export default class ODataQuery {
+        constructor(oModel: Model, sPath: string, aFilters?: Filter[]);
+        public read(oUrlParams?: object): Promise<any>;
+    }
 }
