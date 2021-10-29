@@ -98,3 +98,9 @@ declare module "dbme/c/odata/ODataQuery" {
         public read(oUrlParams?: object): Promise<any>;
     }
 }
+
+declare module "dbme/c/WatchDog" {
+    export default class WatchDog {
+        static await(sSelector: CallableFunction | string, iTime?: int, iTimeLimit?: int): Promise<any>;
+    }
+}
