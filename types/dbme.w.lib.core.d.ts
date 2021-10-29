@@ -195,6 +195,7 @@ declare module "dbme/w/lib/core/controller/Base" {
          */
         public static readonly formatter: any;       
         public static readonly type: any;
+        public UISettings: Record<string, any>;
 
         public abstract ODataToJSON(): void;
         public onDialogCancel(oDialog: Dialog, bAllPaths?: boolean): boolean;
