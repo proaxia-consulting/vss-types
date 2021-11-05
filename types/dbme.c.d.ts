@@ -90,7 +90,7 @@ declare module "dbme/c/model/EntityUtils" {
 }
 
 declare module "dbme/c/odata/ODataCommand" {
-    import Model from "sap/ui/model/Model";
+    import ODataModel from "sap/ui/model/odata/v2/ODataModel";
     import { MessageType } from "sap/ui/core/library";
     
     export type TResponseData = {
@@ -129,7 +129,9 @@ declare module "dbme/c/odata/ODataCommand" {
     }
 
     export default class ODataCommand {
-        constructor(oModel: Model);
+        protected oModel: ODataModel;
+
+        constructor(oModel: ODataModel);
         create(sPath: string, oCreateData: any): Promise<TODataCommandResult>;
         update(sPath: string, oUpdateData: any): Promise<TODataCommandResult>;
         submit(sBatchGroupId: string): Promise<TODataCommandResult>;
@@ -138,7 +140,7 @@ declare module "dbme/c/odata/ODataCommand" {
 }
 
 declare module "dbme/c/odata/ODataQuery" {
-    import Model from "sap/ui/model/Model";
+    import ODataModel from "sap/ui/model/odata/v2/ODataModel";
     import Filter from "sap/ui/model/Filter";
     import { TResponse } from "dbme/c/odata/ODataCommand";
 
@@ -148,7 +150,9 @@ declare module "dbme/c/odata/ODataQuery" {
     }
 
     export default class ODataQuery {
-        constructor(oModel: Model, sPath: string, aFilters?: Filter[]);
+        protected oModel: ODataModel;
+        
+        constructor(oModel: ODataModel, sPath: string, aFilters?: Filter[]);
         public read(oUrlParams?: object): Promise<TODataQueryResult>;
     }
 }
