@@ -89,13 +89,67 @@ declare module "dbme/c/model/EntityUtils" {
     }
 }
 
+declare module "dbme/c/odata/ODataCommand" {
+    import Model from "sap/ui/model/Model";
+    import { MessageType } from "sap/ui/core/library";
+    
+    export type TResponseData = {
+        __count: int,
+        results: any[]
+    }
+
+    export type TResponse = {
+        body: string,
+        data: TResponseData,
+        headers: Record<string, string>,
+        requestUri: string,
+        statusCode: int,
+        statusText: string
+    }
+
+    export type TODataMessage = {
+        code: string,
+        counter: int,
+        description?: string,
+        error: string,
+        hasError: boolean,
+        hasWarning: boolean,
+        message: string,
+        subtitle: string,
+        success: string,
+        title: string,
+        type: MessageType,
+        warning: string
+    }
+
+    export type TODataCommandResult = {
+        data: any | any[],
+        response: TResponse,
+        message: TODataMessage
+    }
+
+    export default class ODataCommand {
+        constructor(oModel: Model);
+        create(sPath: string, oCreateData: any): Promise<TODataCommandResult>;
+        update(sPath: string, oUpdateData: any): Promise<TODataCommandResult>;
+        submit(sBatchGroupId: string): Promise<TODataCommandResult>;
+        remove(sPath: string): Promise<TODataCommandResult>;
+    }
+}
+
 declare module "dbme/c/odata/ODataQuery" {
     import Model from "sap/ui/model/Model";
     import Filter from "sap/ui/model/Filter";
+    import { TResponse } from "dbme/c/odata/ODataCommand";
+
+    export type TODataQueryResult = {
+        data: any | any[],
+        response: TResponse
+    }
 
     export default class ODataQuery {
         constructor(oModel: Model, sPath: string, aFilters?: Filter[]);
-        public read(oUrlParams?: object): Promise<any>;
+        public read(oUrlParams?: object): Promise<TODataQueryResult>;
     }
 }
 
