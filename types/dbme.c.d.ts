@@ -162,3 +162,7 @@ declare module "dbme/c/WatchDog" {
         static await(sSelector: CallableFunction | string, iTime?: int, iTimeLimit?: int): Promise<any>;
     }
 }
+
+declare module "dbme/c/util/waitFor" {
+    export default function waitFor(callable: CallableFunction): Promise<any>;
+}
