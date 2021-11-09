@@ -219,6 +219,33 @@ declare module "dbme/w/lib/core/controller/Base" {
     }
 }
 
+declare module "dbme/w/lib/core/util/Form" {
+    import Control from "sap/ui/core/Control";
+    import SmartField from "sap/ui/comp/smartfield/SmartField";
+
+    export type IElementsContainer = Control | Control[];
+
+    export default class Form {
+        static getElements(oContainer: IElementsContainer, aElementName?: string | string[], bEnabled?: boolean, bVisible?: boolean): Control[];
+        static serializeObject(oContainer: IElementsContainer, bEnabled?: boolean, bVisible?: boolean): Record<string, Control>;
+        /**
+         * @deprecated get data via bound contexts instead
+         */
+        static getData(oContainer: IElementsContainer, bEnabled?: boolean, bVisible?: boolean): object;
+        static clearValueState(oContainer: IElementsContainer, bText?: boolean): void;
+        /**
+         * returns invalid fields
+         */
+        static validate(oContainer: IElementsContainer): Control[];
+        static setSmartFieldValue(oField: SmartField, vValue: any): void;
+        static smartFieldLoaded(oField: SmartField): Promise<SmartField>;
+        /**
+         * @deprecated replace with sap.ui.core.Control.getControlsByFieldGroupId() && dbme.w.lib.core.util.Form.smartFieldLoaded()
+         */
+        static smartFormLoaded(oContainer: IElementsContainer): Promise<SmartField[]>;
+    }
+}
+
 declare module "dbme/w/lib/core/format/FormatUtils" {
     import { ValueState } from "sap/ui/core/library";
 
