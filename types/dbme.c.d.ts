@@ -10,8 +10,25 @@ declare module "dbme/c/library" {
 }
 
 declare module "dbme/c/Log" {
+    import { MessageType } from "sap/ui/core/library";
+
+    export type TMessage = {
+        type: MessageType,
+        counter: number,
+        hasError: boolean,
+        hasWarning: boolean,
+        success: string,
+        warning: string,
+        error: string,
+        message: string,
+        code: string,
+        description: string,
+        title: string,
+        subtitle: string
+    };
+
     export default class Log {
-        public addResponse(oResponse: object, oDefaultSuccess: any, oDefaultError: any): any;
+        public addResponse(oResponse: object, oDefaultSuccess: any, oDefaultError: any): TMessage;
         public hasError(oResponse: object): boolean;
     }
 }
@@ -157,8 +174,20 @@ declare module "dbme/c/odata/ODataQuery" {
     }
 }
 
+declare module "dbme/c/odata/ODataMessageParser" {
+    import BaseODataMessageParser from "sap/ui/model/odata/ODataMessageParser";
+    import Message from "sap/ui/core/message/Message";
+
+    export default class ODataMessageParser extends BaseODataMessageParser {
+        getLastMessages(bUnique?: boolean, bClear ?: boolean): Message[];
+    }
+}
+
 declare module "dbme/c/WatchDog" {
     export default class WatchDog {
+        /**
+         * @deprecated use dbme.c.util.waitFor() instead
+         */        
         static await(sSelector: CallableFunction | string, iTime?: int, iTimeLimit?: int): Promise<any>;
     }
 }
