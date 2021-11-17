@@ -28,7 +28,7 @@ declare module "dbme/c/Log" {
     };
 
     export default class Log {
-        public addResponse(oResponse: object, oDefaultSuccess: any, oDefaultError: any): TMessage;
+        public addResponse(oResponse: object, oDefaultSuccess?: any, oDefaultError?: any): TMessage;
         public hasError(oResponse: object): boolean;
     }
 }
