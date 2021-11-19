@@ -269,3 +269,19 @@ declare module "dbme/w/lib/core/util/DependentFragment" {
         _key(oSourceControl?: Control): string;
     }
 }
+
+declare module "dbme/w/lib/core/util/RouteQueryFilter" {
+    import Event from "sap/ui/base/Event";
+
+    export default class RouteQueryFilter {
+        /**
+         * side-effects:
+         * - fill this._oQueryArgs: Record<string, sap.ui.model.Filter>
+         * - fill this._aRouteQueryFilters: sap.ui.model.Filter[]
+         * - if this._getFilter(): sap.ui.comp.smartfilterbar.SmartFilterBar|sap.m.FacetFilter exists - propagate query args into filter control
+         * 
+         * returns query args. that wasn't added into this._oQueryArgs
+         */
+        onRouteMatched(oEvent: Event, sEntitySet: string, aIgnoredQueryArgs?: string[]): Promise<Record<string, any>>;
+    }
+}
