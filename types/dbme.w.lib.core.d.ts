@@ -282,6 +282,6 @@ declare module "dbme/w/lib/core/util/RouteQueryFilter" {
          * 
          * returns query args. that wasn't added into this._oQueryArgs
          */
-        onRouteMatched(oEvent: Event, sEntitySet: string, aIgnoredQueryArgs?: string[]): Promise<Record<string, any>>;
+        public static onRouteMatched(oEvent: Event, sEntitySet: string, aIgnoredQueryArgs?: string[]): Promise<Record<string, any>>;
     }
 }
