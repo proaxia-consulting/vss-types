@@ -1,9 +1,19 @@
 declare module "dbme/c/library" {
     import ResourceBundle from "sap/base/i18n/ResourceBundle";
 
+    export enum ControlId {
+        LogOpener = "idDBMELogBtnMessagePopoverOpener",
+        LogPopover = "idDBMELogMessagePopover"
+    }
+
     export enum HttpHeaderName {
         DBMEMessage = "dbme-message"
     }
+
+    export enum ModelName {
+        i18n = "i18n",
+        log = "DBMELog"
+    }    
 
     export function getResourceBundle(): ResourceBundle;
     export function getVersion(): number;
@@ -11,15 +21,6 @@ declare module "dbme/c/library" {
 
 declare module "dbme/c/Log" {
     import { MessageType } from "sap/ui/core/library";
-
-    export enum ModelName {
-        Log = "DBMELog"
-    }
-
-    export enum ControlId {
-        LogOpener = "idDBMELogBtnMessagePopoverOpener",
-        LogPopover = "idDBMELogMessagePopover"
-    }
 
     export type TMessage = {
         type: MessageType,
