@@ -12,6 +12,15 @@ declare module "dbme/c/library" {
 declare module "dbme/c/Log" {
     import { MessageType } from "sap/ui/core/library";
 
+    export enum ModelName {
+        Log = "DBMELog"
+    }
+
+    export enum ControlId {
+        LogOpener = "idDBMELogBtnMessagePopoverOpener",
+        LogPopover = "idDBMELogMessagePopover"
+    }
+
     export type TMessage = {
         type: MessageType,
         counter: number,
