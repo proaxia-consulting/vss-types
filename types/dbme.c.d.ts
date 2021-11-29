@@ -79,6 +79,15 @@ declare module "dbme/c/format/DateFormat" {
     export function getLocalByUTCDate(oDate: Date): Date | null;
 }
 
+declare module "dbme/c/model/type/DateTime" {
+    import DateTimeBase from "sap/ui/model/odata/type/DateTime";
+    export default class DateTimeUTC extends DateTimeBase {}
+}
+declare module "dbme/c/model/type/DateTimeUTC" {
+    import DateTimeBase from "sap/ui/model/odata/type/DateTime";
+    export default class DateTimeUTC extends DateTimeBase {}
+}
+
 declare module "dbme/c/model/EntityUtils" {
     import Context from "sap/ui/model/Context";
     import ODataModel from "sap/ui/model/odata/v2/ODataModel";
