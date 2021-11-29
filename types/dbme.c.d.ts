@@ -193,6 +193,20 @@ declare module "dbme/c/odata/ODataMessageParser" {
     }
 }
 
+declare module "dbme/c/UrlUtils" {
+    export default class UrlUtils {
+        public static isUrl(sUrl: string): boolean;
+		/**
+		 * @param {?String} [sUrl=window.location.href]
+		 */        
+        public static getUrlParams(sUrl?: string): Record<string, any>
+		/**
+		 * @param {?String} [sUrl=window.location.href]
+		 */
+         public static baseUrl(sUrl?: string): string;
+    }
+}
+
 declare module "dbme/c/WatchDog" {
     export default class WatchDog {
         /**
@@ -204,4 +218,46 @@ declare module "dbme/c/WatchDog" {
 
 declare module "dbme/c/util/waitFor" {
     export default function waitFor(callable: CallableFunction): Promise<any>;
+}
+
+declare module "dbme/c/print/PrintHandler" {
+    import Controller from "sap/ui/core/mvc/Controller";
+    import ODataModel from "sap/ui/model/odata/v2/ODataModel";
+
+    export type TImports = {
+        imports: Record<string, any>
+    }
+
+    /**
+     * @link https://www.npmjs.com/package/@types/pdfmake
+     */
+    export interface TCreatedPdf {
+        print(): void;
+    }
+
+    export enum Entity {
+        PrintList = "PrintGetIDs",
+        PrintData = "PrintGetPDF"
+    }
+
+    export enum PrintoutType {
+        BackendPdf = "BPDF",
+        BackendPdfNoSapMessaging = "B1",
+        BackendPdfSapMessaging = "B2",
+        FrontendPdf = "FPDF",
+        FrontendHtml = "FHTM"
+    }
+
+    export default class PrintHandler {
+        public static getModel(): ODataModel;
+
+        public static printHtml(sUrl: string, oViewData?: any, oImports?: TImports, oController?: Controller): void;
+        public static printPdf(sUrl: string, oViewData?: any, oImports?: TImports, oController?: Controller): Promise<TCreatedPdf | Blob | string>;
+        public static printExcel(oViewData?: any): Promise<void>;
+
+        /**
+         * Print from BACKEND
+         */
+        public static print(sArea: string, sObject: string, sObjKey: string, oController?: Controller): Promise<void>;
+    }
 }

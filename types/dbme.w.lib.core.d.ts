@@ -285,3 +285,41 @@ declare module "dbme/w/lib/core/util/RouteQueryFilter" {
         public static onRouteMatched(oEvent: Event, sEntitySet: string, aIgnoredQueryArgs?: string[]): Promise<Record<string, any>>;
     }
 }
+
+declare module "dbme/w/lib/core/util/Url" {
+    import UrlUtils from "dbme/c/UrlUtils";
+    import { DBMEComponent } from "dbme/w/lib/core/library";
+
+    export type TAppEntity = {
+        UI5_APP: string
+    }
+
+    export type TWorkshopPlannerOrder = {
+        DISPLAY_WPO_DOCNR: string,
+        DISPLAY_CHARDT_FROM: string,
+        DISPLAY_CHARDT_TO: string
+    };
+
+    export const DBMEComponentUrl: {
+        LAUNCHPAD: "/sap/bc/ui5_ui5/dbme/wmf_webui",
+        [DBMEComponent.HierarchyAssignment]: "/sap/bc/ui5_ui5/dbme/wmf_has",
+        [DBMEComponent.ResourcePlanner]: "/sap/bc/ui5_ui5/dbme/wmf_rpl",
+        [DBMEComponent.Settings]: "/sap/bc/ui5_ui5/dbme/wmf_set",
+        [DBMEComponent.TodoBasket]: "/sap/bc/ui5_ui5/dbme/wmf_tdo",
+        [DBMEComponent.DecisionTree]: "/sap/bc/ui5_ui5/dbme/wmf_tdt",
+        [DBMEComponent.WorkshopPlanner]: "/sap/bc/ui5_ui5/dbme/wmf_wpl"
+    };
+
+    export default class Url extends UrlUtils {
+        public static Url: typeof DBMEComponentUrl;
+
+		/**
+		 * @param {?String} [sUrl=window.location.href]
+		 */        
+        public static isLocal(sUrl?:string);
+
+        public static navToWorkshopPlanner(oArgs: TWorkshopPlannerOrder, aApps: TAppEntity[]);
+        public static navToTodoBasketDetails(sOrderNumber: string, aApps: TAppEntity[]);
+        public static navBack(bBackCreateBrowerHistory?: boolean);
+    }
+}
