@@ -128,6 +128,7 @@ declare module "dbme/w/lib/core/library" {
         TodoStatusAction = "TDOStatusActionSet", //readonly
         TodoScreens = "TDOServiceScreenSet",
         TodoServiceSection = "TDOServiceSectionSet",
+        TodoServiceSectionField = "TDOServiceSectionFieldSet",
         TodoServiceItem = "TDOServiceItemSet",
         TodoTimeSlot = "TDOTimeSlotsSet",
         TodoUser = "TDOUserSet",
