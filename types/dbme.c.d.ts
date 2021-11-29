@@ -222,6 +222,7 @@ declare module "dbme/c/util/waitFor" {
 
 declare module "dbme/c/print/PrintHandler" {
     import Controller from "sap/ui/core/mvc/Controller";
+    import SelectDialog from "sap/m/SelectDialog";
     import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 
     export type TImports = {
@@ -252,12 +253,12 @@ declare module "dbme/c/print/PrintHandler" {
         public static getModel(): ODataModel;
 
         public static printHtml(sUrl: string, oViewData?: any, oImports?: TImports, oController?: Controller): void;
-        public static printPdf(sUrl: string, oViewData?: any, oImports?: TImports, oController?: Controller): Promise<TCreatedPdf | Blob | string>;
+        public static printPdf(sUrl: string, oViewData?: any, oImports?: TImports, oController?: Controller): TCreatedPdf | Blob | string;
         public static printExcel(oViewData?: any): Promise<void>;
 
         /**
          * Print from BACKEND
          */
-        public static print(sArea: string, sObject: string, sObjKey: string, oController?: Controller): Promise<void>;
+        public static print(sArea: string, sObject: string, sObjKey: string, oController?: Controller): Promise<SelectDialog | Blob | string>;
     }
 }
