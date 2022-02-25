@@ -1,4 +1,4 @@
-declare module "dbme.f.timeclocking.Component" {
+declare module "dbme/f/timeclocking/Component" {
     import { default as UICom } from "sap/ui/core/UIComponent";
     import Controller from "sap/ui/core/mvc/Controller";
 
@@ -10,7 +10,7 @@ declare module "dbme.f.timeclocking.Component" {
     }
 }
 
-declare module "dbme.f.timeclocking.controller.PersonalData" {
+declare module "dbme/f/timeclocking/controller/PersonalData.controller" {
     import Controller from "sap/ui/core/mvc/Controller";
     import Panel from "sap/m/Panel";
 
