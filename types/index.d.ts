@@ -1,2 +1,3 @@
 /// <reference path="./dbme.c.d.ts"/>
 /// <reference path="./dbme.w.lib.core.d.ts"/>
+/// <reference path="./dbme.f.timeclocking.d.ts"/>
