@@ -1,8 +1,8 @@
 declare module "dbme/f/timeclocking/Component" {
-    import { default as UICom } from "sap/ui/core/UIComponent";
+    import UIComponent from "sap/ui/core/UIComponent";
     import Controller from "sap/ui/core/mvc/Controller";
 
-    export default class UIComponent extends UICom {
+    export default class Component extends UIComponent {
         public getCurrentRouteName(): string;
         public setCurrentRouteName(name: string): void;
         public getCurrentController(): Controller | null;
