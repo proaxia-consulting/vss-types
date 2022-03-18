@@ -5,3 +5,4 @@
 /// <reference path="./dbme.w.lib.core.d.ts"/>
 /// <reference path="./dbme.f.timeclocking.d.ts"/>
 /// <reference path="./vss.com.fe.d.ts"/>
+/// <reference path="./pacg.com.rcm.share.d.ts"/>
