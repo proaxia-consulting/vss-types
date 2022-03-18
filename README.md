@@ -1,4 +1,4 @@
-# DBM|E TypeScript Definitions
+# DBM|E & VSS TypeScript Definitions
 
 ## Installation
 

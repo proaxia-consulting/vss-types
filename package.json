@@ -1,15 +1,15 @@
 {
-  "name": "@dbme/ts-types",
-  "version": "0.0.1",
-  "description": "DBM|E TypeScript Definitions",
-  "copyright": "proaxia consulting group ag",
-  "private": true,
-  "license": "UNLICENSED",
-  "types": "types/index.d.ts",
-  "scripts": {
-    "test": "tsc"
-  },
-  "devDependencies": {
-    "@sapui5/ts-types-esm": "^1.93.1"
-  }
+	"name": "@dbme/ts-types",
+	"version": "1.0.0",
+	"description": "DBM|E & VSS TypeScript Definitions",
+	"copyright": "proaxia consulting group ag",
+	"private": true,
+	"license": "UNLICENSED",
+	"types": "types/index.d.ts",
+	"scripts": {
+		"test": "tsc"
+	},
+	"devDependencies": {
+		"@sapui5/ts-types-esm": "^1.96.7"
+	}
 }
