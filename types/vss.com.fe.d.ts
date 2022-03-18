@@ -17,6 +17,15 @@ declare module "vss/com/fe/IAppContainer" {
 	}
 }
 
+declare module "vss/com/fe/IUIComponent" {
+	import IAppContainer from "vss/com/fe/IAppContainer";
+	import UIComponent from "sap/ui/core/UIComponent";
+
+	export default interface IUIComponent extends UIComponent {
+		getAppContainer(): IAppContainer;
+	}
+}
+
 declare module "vss/com/fe/IAppComponent" {
 	import AppComponent from "sap/fe/core/AppComponent";
 	import IAppContainer from "vss/com/fe/IAppContainer";
@@ -54,6 +63,7 @@ declare module "vss/com/fe/ObjectPage" {
 	import IAppComponent from "vss/com/fe/IAppComponent";
 	import PageController from "sap/fe/core/PageController";
 	import ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
+	import UIComponent from "./dbme.w.lib.core";
 
 	/**
 	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/fe/templates/ObjectPage/ObjectPageController-dbg.controller.js
