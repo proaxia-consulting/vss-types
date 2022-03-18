@@ -2,7 +2,11 @@
  * VSS - Rental
  */
 
-declare module "pacg/com/rs/cm/Enums" {
+declare module "pacg/com/rs/cm/Integration" {
+	import IAppComponent from "vss/com/fe/IAppComponent";
+	import { IListReportController } from "vss/com/fe/ListReport";
+	import { IAnyTable } from "vss/com/fe/IAppContainer";
+
 	export enum EventChannel {
 		RentalContractManagement = "RentalContractManagement"
 	}
@@ -16,5 +20,14 @@ declare module "pacg/com/rs/cm/Enums" {
 		MainListControllerOnAfterRendering = "MainListControllerOnAfterRendering",
 		MainListControllerOnBeforeRendering = "MainListControllerOnBeforeRendering",
 		MainListOnTableSelectionChange = "MainListOnTableSelectionChange"
+	}
+
+	export interface $MainListComponentOnInit {
+		component: IAppComponent;
+	}
+
+	export interface $MainListControllerOnInit {
+		controller: IListReportController;
+		table: IAnyTable;
 	}
 }
