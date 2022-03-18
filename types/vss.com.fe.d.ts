@@ -8,8 +8,10 @@ declare module "vss/com/fe/IAppContainer" {
 	import ListReportExtensionAPI from "sap/fe/templates/ListReport/ExtensionAPI";
 	import ObjectPageExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
 
+	export type IAnyTable = Table | ResponsiveTable;
+
 	export default interface IAppContainer {
-		get table(): Table | ResponsiveTable;
+		get table(): IAnyTable;
 		get listReportAPI(): ListReportExtensionAPI;
 		get objectPageAPI(): ObjectPageExtensionAPI;
 	}
