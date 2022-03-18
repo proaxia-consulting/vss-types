@@ -1,8 +1,8 @@
 /**
- * VSS - Rental Contract Management
+ * VSS - Rental
  */
 
-declare module "pacg/com/rcm/share/Enums" {
+declare module "pacg/com/rs/cm/Enums" {
 	export enum EventChannel {
 		RentalContractManagement = "RentalContractManagement"
 	}
