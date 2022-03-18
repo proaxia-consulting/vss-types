@@ -12,16 +12,19 @@ declare module "vss/com/fe/IAppContainer" {
 
 	export default interface IAppContainer {
 		get table(): IAnyTable;
+		set table(table: IAnyTable);
 		get listReportAPI(): ListReportExtensionAPI;
+		set listReportAPI(api: ListReportExtensionAPI);
 		get objectPageAPI(): ObjectPageExtensionAPI;
+		set objectPageAPI(api: ObjectPageExtensionAPI);
 	}
 }
 
-declare module "vss/com/fe/IUIComponent" {
+declare module "vss/com/fe/IContainerAwareComponent" {
 	import IAppContainer from "vss/com/fe/IAppContainer";
 	import UIComponent from "sap/ui/core/UIComponent";
 
-	export default interface IUIComponent extends UIComponent {
+	export default interface IContainerAwareComponent extends UIComponent {
 		getAppContainer(): IAppContainer;
 	}
 }
@@ -63,7 +66,6 @@ declare module "vss/com/fe/ObjectPage" {
 	import IAppComponent from "vss/com/fe/IAppComponent";
 	import PageController from "sap/fe/core/PageController";
 	import ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
-	import UIComponent from "./dbme.w.lib.core";
 
 	/**
 	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/fe/templates/ObjectPage/ObjectPageController-dbg.controller.js
