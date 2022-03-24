@@ -5,18 +5,18 @@
 declare module "vss/com/fe/IAppContainer" {
 	import ResponsiveTable from "sap/m/Table";
 	import Table from "sap/ui/table/Table";
-	import ListReportExtensionAPI from "sap/fe/templates/ListReport/ExtensionAPI";
-	import ObjectPageExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
+	import { IListReportExtensionAPI } from "vss/com/fe/ListReport";
+	import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 
 	export type IAnyTable = Table | ResponsiveTable;
 
 	export default interface IAppContainer {
 		get table(): IAnyTable;
 		set table(table: IAnyTable);
-		get listReportAPI(): ListReportExtensionAPI;
-		set listReportAPI(api: ListReportExtensionAPI);
-		get objectPageAPI(): ObjectPageExtensionAPI;
-		set objectPageAPI(api: ObjectPageExtensionAPI);
+		get listReportAPI(): IListReportExtensionAPI;
+		set listReportAPI(api: IListReportExtensionAPI);
+		get objectPageAPI(): IObjectPageExtensionAPI;
+		set objectPageAPI(api: IObjectPageExtensionAPI);
 	}
 }
 
@@ -38,17 +38,34 @@ declare module "vss/com/fe/IAppComponent" {
 	}
 }
 
+declare module "vss/com/fe/core/controllerextensions" {
+	import EditFlow from "sap/fe/core/controllerextensions/EditFlow";
+	import Context from "sap/ui/model/odata/v4/Context";
+
+	/**
+	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/fe/core/controllerextensions/EditFlow-dbg.js
+	 */
+	export interface IEditFlow extends EditFlow {
+		toggleDraftActive(context: Context): void;
+	}
+}
+
 declare module "vss/com/fe/ListReport" {
 	import ExtensionAPI from "sap/fe/templates/ListReport/ExtensionAPI";
 	import IAppComponent from "vss/com/fe/IAppComponent";
 	import PageController from "sap/fe/core/PageController";
+	import { IEditFlow } from "vss/com/fe/core/controllerextensions";
+
+	export interface IListReportExtensionAPI extends ExtensionAPI {
+		editFlow: IEditFlow;
+	}
 
 	/**
 	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/fe/templates/ListReport/ListReportController-dbg.controller.js
 	 * @see {sap.fe.templates.ListReport.ListReportController}
 	 */
 	export interface IListReportController extends PageController {
-		getExtensionAPI(): ExtensionAPI;
+		getExtensionAPI(): IListReportExtensionAPI;
 		getAppComponent(): IAppComponent;
 	}
 
@@ -66,13 +83,18 @@ declare module "vss/com/fe/ObjectPage" {
 	import IAppComponent from "vss/com/fe/IAppComponent";
 	import PageController from "sap/fe/core/PageController";
 	import ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
+	import { IEditFlow } from "vss/com/fe/core/controllerextensions";
+
+	export interface IObjectPageExtensionAPI extends ExtensionAPI {
+		editFlow: IEditFlow;
+	}
 
 	/**
 	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/fe/templates/ObjectPage/ObjectPageController-dbg.controller.js
 	 * @see {sap.fe.templates.ObjectPage.ObjectPageController}
 	 */
 	export interface IObjectPageController extends PageController {
-		getExtensionAPI(): ExtensionAPI;
+		getExtensionAPI(): IObjectPageExtensionAPI;
 		getAppComponent(): IAppComponent;
 	}
 }
