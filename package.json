@@ -8,12 +8,12 @@
 	"scripts": {
 		"test": "tsc"
 	},
-	"devDependencies": {
-		"@sapui5/ts-types-esm": "^1.96.7"
-	},
 	"keywords": [
 		"dbme",
 		"vss",
 		"typescript"
-	]
+	],
+	"devDependencies": {
+		"@sapui5/ts-types-esm": "1.96"
+	}
 }
