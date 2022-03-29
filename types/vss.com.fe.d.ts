@@ -32,9 +32,18 @@ declare module "vss/com/fe/IContainerAwareComponent" {
 declare module "vss/com/fe/IAppComponent" {
 	import AppComponent from "sap/fe/core/AppComponent";
 	import IAppContainer from "vss/com/fe/IAppContainer";
+	import Context from "sap/ui/model/odata/v4/Context";
+
+	/**
+	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/fe/core/services/RoutingServiceFactory-dbg.js
+	 */
+	export interface IRoutingService {
+		navigateTo(oContext: Context, sRouteName: string, mParameterMapping: Record<string, any>, bPreserveHistory: boolean): Promise<void>;
+	}
 
 	export default interface IAppComponent extends AppComponent {
 		getAppContainer(): IAppContainer;
+		getRoutingService(): IRoutingService;
 	}
 }
 
