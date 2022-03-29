@@ -50,7 +50,7 @@ declare module "vss/com/fe/IAppComponent" {
 	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/fe/core/services/RoutingServiceFactory-dbg.js
 	 */
 	export interface IRoutingService {
-		navigateTo(oContext: Context, sRouteName: string, mParameterMapping: Record<string, any>, bPreserveHistory: boolean): Promise<void>;
+		navigateTo(oContext: Context, sRouteName: string, mParameterMapping?: Record<string, any>, bPreserveHistory?: boolean): Promise<void>;
 		navigateToContext(oContext: Context, mParameters?: $TNavigateToContextParameters, oViewData?: any, oCurrentTargetInfo?: any): Promise<void>;
 	}
 
