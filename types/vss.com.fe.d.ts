@@ -34,11 +34,24 @@ declare module "vss/com/fe/IAppComponent" {
 	import IAppContainer from "vss/com/fe/IAppContainer";
 	import Context from "sap/ui/model/odata/v4/Context";
 
+	export type $TNavigateToContextParameters = {
+		checkNoHashChange: boolean;
+		asyncContext: boolean;
+		bDeferredContext: boolean;
+		editable: boolean;
+		bPersistOPScroll: boolean;
+		updateFCLLevel: boolean;
+		noPreservationCache: boolean;
+		bRecreateContext: boolean;
+		bForceFocus: boolean;
+	};
+
 	/**
 	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/fe/core/services/RoutingServiceFactory-dbg.js
 	 */
 	export interface IRoutingService {
 		navigateTo(oContext: Context, sRouteName: string, mParameterMapping: Record<string, any>, bPreserveHistory: boolean): Promise<void>;
+		navigateToContext(oContext: Context, mParameters?: $TNavigateToContextParameters, oViewData?: any, oCurrentTargetInfo?: any): Promise<void>;
 	}
 
 	export default interface IAppComponent extends AppComponent {
