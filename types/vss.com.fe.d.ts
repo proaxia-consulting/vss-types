@@ -69,6 +69,7 @@ declare module "vss/com/fe/core/controllerextensions" {
 	 */
 	export interface IEditFlow extends EditFlow {
 		toggleDraftActive(context: Context): void;
+		onBeforeSave(): Promise<void>;
 	}
 }
 
