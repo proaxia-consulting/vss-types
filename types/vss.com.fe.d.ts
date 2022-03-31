@@ -87,6 +87,7 @@ declare module "vss/com/fe/ListReport" {
 	 * @see {sap.fe.templates.ListReport.ListReportController}
 	 */
 	export interface IListReportController extends PageController {
+		editFlow: IEditFlow;
 		getExtensionAPI(): IListReportExtensionAPI;
 		getAppComponent(): IAppComponent;
 	}
@@ -116,6 +117,7 @@ declare module "vss/com/fe/ObjectPage" {
 	 * @see {sap.fe.templates.ObjectPage.ObjectPageController}
 	 */
 	export interface IObjectPageController extends PageController {
+		editFlow: IEditFlow;
 		getExtensionAPI(): IObjectPageExtensionAPI;
 		getAppComponent(): IAppComponent;
 	}
