@@ -293,7 +293,7 @@ declare module "dbme/c/util/RemoteMethodCall" {
 	export default class RemoteMethodCall<TInput, TOutput> {
 		private _model;
 		constructor(_model: ODataModel);
-		call(handlerName: string, methodName: string, input: TInput, fun?: boolean): Promise<TOutput>;
+		call(handlerName: string, methodName: string, input: TInput): Promise<TOutput>;
 	}
 }
 declare module "dbme/c/util/handleReturn" {
