@@ -307,7 +307,8 @@ declare module "dbme/c/util/RemoteMethodCall" {
 	export default class RemoteMethodCall<TInput, TOutput> {
 		private _model?;
 		private _displaySuccessMessages;
-		constructor(_model?: ODataModel, _displaySuccessMessages?: boolean);
+		private _displayErrorMessages;
+		constructor(_model?: ODataModel, _displaySuccessMessages?: boolean, _displayErrorMessages?: boolean);
 		call(handlerName: string, methodName: string, input: TInput): Promise<TOutput>;
 	}
 }
@@ -329,3 +330,4 @@ declare module "dbme/c/util/waitFor" {
 	 */
 	export default function (target: CallableFunction): Promise<any>;
 }
+//# sourceMappingURL=index.d.ts.map
