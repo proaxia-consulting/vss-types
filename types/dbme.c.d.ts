@@ -256,17 +256,6 @@ declare module "dbme/c/i18n/Translate" {
 	export default function (key: string, args?: any[]): string;
 }
 declare module "dbme/c/util/handleReturn" {
-	export enum ReturnMessageType {
-		Information = "I",
-		Error = "E",
-		Warning = "W"
-	}
-	export enum Severity {
-		info = "info",
-		error = "error",
-		success = "success",
-		warning = "warning"
-	}
 	export type TResponseSuccess = {
 		body: string;
 		data?: any;
@@ -281,13 +270,8 @@ declare module "dbme/c/util/handleReturn" {
 		message?: string;
 		responseText: string;
 	};
-	export type TLog = {
-		text: string;
-		type: ReturnMessageType;
-	};
 	export function handleError(e: any): void;
 	export function handleSuccess(response: TResponseSuccess): void;
-	export function handleLog(logs: TLog[]): void;
 }
 declare module "dbme/c/odata/ODataQuery" {
 	import Filter from "sap/ui/model/Filter";
@@ -321,7 +305,7 @@ declare module "dbme/c/util/RemoteMethodCall" {
 	 * @namespace dbme.c.util
 	 */
 	export default class RemoteMethodCall<TInput, TOutput> {
-		private _model;
+		private _model?;
 		private _displaySuccessMessages;
 		constructor(_model?: ODataModel, _displaySuccessMessages?: boolean);
 		call(handlerName: string, methodName: string, input: TInput): Promise<TOutput>;
