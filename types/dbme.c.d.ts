@@ -255,20 +255,50 @@ declare module "dbme/c/i18n/Translate" {
 	 */
 	export default function (key: string, args?: any[]): string;
 }
+declare module "dbme/c/util/handleReturn" {
+	export enum ReturnMessageType {
+		Information = "I",
+		Error = "E",
+		Warning = "W"
+	}
+	export enum Severity {
+		info = "info",
+		error = "error",
+		success = "success",
+		warning = "warning"
+	}
+	export type TResponseSuccess = {
+		body: string;
+		data?: any;
+		headers: Record<string, string>;
+		requestUri: string;
+		statusCode: number;
+		statusText: string;
+	};
+	export type TError = {
+		statusCode: number;
+		statusText: string;
+		message?: string;
+		responseText: string;
+	};
+	export type TLog = {
+		text: string;
+		type: ReturnMessageType;
+	};
+	export function handleError(e: any): void;
+	export function handleSuccess(response: TResponseSuccess): void;
+	export function handleLog(logs: TLog[]): void;
+}
 declare module "dbme/c/odata/ODataQuery" {
 	import Filter from "sap/ui/model/Filter";
 	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
+	import { TResponseSuccess } from "dbme/c/util/handleReturn";
 	export type TResponseData = {
 		__count: int;
 		results: any[];
 	};
-	export type TResponse = {
-		body: string;
-		data: TResponseData;
-		headers: Record<string, string>;
-		requestUri: string;
-		statusCode: int;
-		statusText: string;
+	export type TResponse = Omit<TResponseSuccess, "data"> & {
+		data: TResponseData | object;
 	};
 	export type TODataQueryResult = {
 		data: any | any[];
@@ -292,28 +322,10 @@ declare module "dbme/c/util/RemoteMethodCall" {
 	 */
 	export default class RemoteMethodCall<TInput, TOutput> {
 		private _model;
-		constructor(_model: ODataModel);
+		private _displaySuccessMessages;
+		constructor(_model: ODataModel, _displaySuccessMessages?: boolean);
 		call(handlerName: string, methodName: string, input: TInput): Promise<TOutput>;
 	}
-}
-declare module "dbme/c/util/handleReturn" {
-	export type TLog = {
-		text: string;
-		type: ReturnMessageType;
-	};
-	export enum ReturnMessageType {
-		Information = "I",
-		Error = "E",
-		Warning = "W"
-	}
-	export type TResponse = {
-		message: string;
-		responseText: string;
-		statusCode: number;
-		statusText: string;
-	};
-	export function handleError(err: any): void;
-	export function handleLog(logs: TLog[]): void;
 }
 declare module "dbme/c/util/minUI5VersionCheck" {
 	import Controller from "sap/ui/core/mvc/Controller";
