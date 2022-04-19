@@ -47,7 +47,7 @@ declare module "vss/com/fe/IAppComponent" {
 	};
 
 	/**
-	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/fe/core/services/RoutingServiceFactory-dbg.js
+	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/core/services/RoutingServiceFactory-dbg.js
 	 */
 	export interface IRoutingService {
 		navigateTo(oContext: Context, sRouteName: string, mParameterMapping?: Record<string, any>, bPreserveHistory?: boolean): Promise<void>;
@@ -65,7 +65,7 @@ declare module "vss/com/fe/core/controllerextensions" {
 	import Context from "sap/ui/model/odata/v4/Context";
 
 	/**
-	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/fe/core/controllerextensions/EditFlow-dbg.js
+	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/core/controllerextensions/EditFlow-dbg.js
 	 */
 	export interface IEditFlow extends EditFlow {
 		toggleDraftActive(context: Context): void;
@@ -83,7 +83,7 @@ declare module "vss/com/fe/ListReport" {
 	}
 
 	/**
-	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/fe/templates/ListReport/ListReportController-dbg.controller.js
+	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/templates/ListReport/ListReportController-dbg.controller.js
 	 * @see {sap.fe.templates.ListReport.ListReportController}
 	 */
 	export interface IListReportController extends PageController {
@@ -93,7 +93,7 @@ declare module "vss/com/fe/ListReport" {
 	}
 
 	/**
-	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/ui/mdc/Table-dbg.js
+	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/ui/mdc/Table-dbg.js
 	 */
 	export interface IListReportTable {
 		getFilter(): string;
@@ -113,7 +113,7 @@ declare module "vss/com/fe/ObjectPage" {
 	}
 
 	/**
-	 * @link https://sapui5.hana.ondemand.com/1.96.7/resources/sap/fe/templates/ObjectPage/ObjectPageController-dbg.controller.js
+	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/templates/ObjectPage/ObjectPageController-dbg.controller.js
 	 * @see {sap.fe.templates.ObjectPage.ObjectPageController}
 	 */
 	export interface IObjectPageController extends PageController {
