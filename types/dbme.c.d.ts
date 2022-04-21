@@ -196,7 +196,7 @@ declare module "dbme/c/print/PrintHandler" {
 		public static printExcel(oViewData?: any): Promise<void>;
 
 		/**
-		 * Print from BACKEND
+		 * Print from  BACKEND
 		 */
 		public static print(sArea: string, sObject: string, sObjKey: string, oController?: Controller): Promise<SelectDialog | Blob | string>;
 	}
