@@ -123,7 +123,7 @@ declare module "vss/com/fe/ObjectPage" {
 	}
 }
 
-declare module "vss/com/fe/TDraftAwareEntity" {
+declare module "vss/com/fe/DraftTypes" {
 	export type TDraftAdministrativeData = {
 		DraftEntityType: string;
 		DraftIsCreatedByMe: boolean;
@@ -131,9 +131,7 @@ declare module "vss/com/fe/TDraftAwareEntity" {
 		InProcessByUser: "";
 	};
 
-	type TDraftAwareEntity = {
+	export type TDraftAwareEntity = {
 		DraftAdministrativeData: TDraftAdministrativeData;
 	};
-
-	export default TDraftAwareEntity;
 }
