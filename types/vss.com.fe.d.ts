@@ -122,3 +122,18 @@ declare module "vss/com/fe/ObjectPage" {
 		getAppComponent(): IAppComponent;
 	}
 }
+
+declare module "vss/com/fe/TDraftAwareEntity" {
+	export type TDraftAdministrativeData = {
+		DraftEntityType: string;
+		DraftIsCreatedByMe: boolean;
+		DraftUUID: string;
+		InProcessByUser: "";
+	};
+
+	type TDraftAwareEntity = {
+		DraftAdministrativeData: TDraftAdministrativeData;
+	};
+
+	export default TDraftAwareEntity;
+}
