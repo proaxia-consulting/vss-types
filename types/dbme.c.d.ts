@@ -300,16 +300,17 @@ declare module "dbme/c/odata/ODataQuery" {
 	}
 }
 declare module "dbme/c/util/RemoteMethodCall" {
-	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 	/**
 	 * @namespace dbme.c.util
 	 */
 	export default class RemoteMethodCall<TInput, TOutput> {
-		private _model?;
+		private _handlerName;
+		private _methodName;
 		private _displaySuccessMessages;
 		private _displayErrorMessages;
-		constructor(_model?: ODataModel, _displaySuccessMessages?: boolean, _displayErrorMessages?: boolean);
-		call(handlerName: string, methodName: string, input: TInput): Promise<TOutput>;
+		private _model;
+		constructor(_handlerName: string, _methodName: string, _displaySuccessMessages?: boolean, _displayErrorMessages?: boolean);
+		call(input?: TInput): Promise<TOutput>;
 	}
 }
 declare module "dbme/c/util/minUI5VersionCheck" {
@@ -330,4 +331,3 @@ declare module "dbme/c/util/waitFor" {
 	 */
 	export default function (target: CallableFunction): Promise<any>;
 }
-//# sourceMappingURL=index.d.ts.map
