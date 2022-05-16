@@ -1,42 +1,3 @@
-declare module "dbme/c/Log" {
-	import { MessageType } from "sap/ui/core/library";
-
-	export type TMessage = {
-		type: MessageType;
-		counter: number;
-		hasError: boolean;
-		hasWarning: boolean;
-		success: string;
-		warning: string;
-		error: string;
-		message: string;
-		code: string;
-		description: string;
-		title: string;
-		subtitle: string;
-	};
-
-	export default class Log {
-		public addResponse(oResponse: object, oDefaultSuccess?: any, oDefaultError?: any): TMessage;
-		public hasError(oResponse: object): boolean;
-	}
-}
-
-declare module "dbme/c/controller/Base" {
-	import Controller from "sap/ui/core/mvc/Controller";
-	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-	import Log from "dbme/c/Log";
-
-	export default abstract class Base extends Controller {
-		public abstract _getModel(): ODataModel;
-		public getLog(): Log;
-		/**
-		 * @deprecated use i18n/Translate function instead
-		 */
-		public _(key: string, args?: any): string;
-	}
-}
-
 declare module "dbme/c/format/DateFormat" {
 	export enum DateFormat {
 		DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss",
@@ -104,52 +65,6 @@ declare module "dbme/c/model/EntityUtils" {
 	}
 }
 
-declare module "dbme/c/odata/ODataCommand" {
-	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-	import { MessageType } from "sap/ui/core/library";
-	import { TResponse } from "dbme/c/odata/ODataQuery";
-
-	export type TODataMessage = {
-		code: string;
-		counter: int;
-		description?: string;
-		error: string;
-		hasError: boolean;
-		hasWarning: boolean;
-		message: string;
-		subtitle: string;
-		success: string;
-		title: string;
-		type: MessageType;
-		warning: string;
-	};
-
-	export type TODataCommandResult = {
-		data: any | any[];
-		response: TResponse;
-		message: TODataMessage;
-	};
-
-	export default class ODataCommand {
-		protected oModel: ODataModel;
-
-		constructor(oModel: ODataModel);
-		create(sPath: string, oCreateData: any): Promise<TODataCommandResult>;
-		update(sPath: string, oUpdateData: any): Promise<TODataCommandResult>;
-		submit(sBatchGroupId: string): Promise<TODataCommandResult>;
-		remove(sPath: string): Promise<TODataCommandResult>;
-	}
-}
-
-declare module "dbme/c/odata/ODataMessageParser" {
-	import BaseODataMessageParser from "sap/ui/model/odata/ODataMessageParser";
-	import Message from "sap/ui/core/message/Message";
-
-	export default class ODataMessageParser extends BaseODataMessageParser {
-		getLastMessages(bUnique?: boolean, bClear?: boolean): Message[];
-	}
-}
-
 declare module "dbme/c/WatchDog" {
 	export default class WatchDog {
 		/**
@@ -203,33 +118,13 @@ declare module "dbme/c/print/PrintHandler" {
 }
 
 // ========================================== GENERATED >>>
-declare module "dbme/c/StringUtils" {
-	/**
-	 * Pad a string to a certain length with another string
-	 */
-	export function pad(s: string, len: number, c: string): string;
-	/**
-	 * Escape curly brackets
-	 */
-	export function escapeCurlyBrackets(sValue: string): string;
-	/**
-	 * Replace non-printable spaces with &nbsp;
-	 */
-	export function nbsp(sValue: string): string;
-	/**
-	 * Uppercase first character
-	 */
-	export function ucFirst(sValue: string): string;
-}
-declare module "dbme/c/UrlUtils" {
-	export function isUrl(sUrl: string): Boolean;
-	export function getUrlParams(sUrl?: string): Record<string, string>;
-	export function baseUrl(sUrl?: string): string;
-}
 declare module "dbme/c/library" {
 	import ResourceBundle from "sap/base/i18n/ResourceBundle";
+	interface ICommonLibrary {
+		version: string;
+	}
 	export const libraryNamespace = "dbme.c";
-	const thisLib: any;
+	const thisLib: ICommonLibrary;
 	export enum ControlId {
 		LogOpener = "idDBMELogBtnMessagePopoverOpener",
 		LogPopover = "idDBMELogMessagePopover"
@@ -249,6 +144,11 @@ declare module "dbme/c/library" {
 	 */
 	export default thisLib;
 }
+declare module "dbme/c/UrlUtils" {
+	export function isUrl(sUrl: string): boolean;
+	export function getUrlParams(sUrl?: string): Record<string, string>;
+	export function baseUrl(sUrl?: string): string;
+}
 declare module "dbme/c/i18n/Translate" {
 	/**
 	 * @name dbme.c.i18n.Translate
@@ -256,6 +156,12 @@ declare module "dbme/c/i18n/Translate" {
 	export default function (key: string, args?: any[]): string;
 }
 declare module "dbme/c/util/handleReturn" {
+	enum Severity {
+		info = "info",
+		error = "error",
+		success = "success",
+		warning = "warning"
+	}
 	export type TResponseSuccess = {
 		body: string;
 		data?: any;
@@ -263,6 +169,7 @@ declare module "dbme/c/util/handleReturn" {
 		requestUri: string;
 		statusCode: number;
 		statusText: string;
+		responseText?: string;
 	};
 	export type TError = {
 		statusCode: number;
@@ -270,8 +177,141 @@ declare module "dbme/c/util/handleReturn" {
 		message?: string;
 		responseText: string;
 	};
+	export type TResponseDetails = {
+		code?: string;
+		message: string;
+		severity: Severity;
+		target?: string;
+		transition?: boolean;
+	};
+	export type TResponseError = {
+		error: {
+			code: string;
+			innererror: {
+				errordetails?: TResponseDetails[];
+			};
+			message: {
+				value: string;
+			};
+		};
+	};
+	export type TResponseSuccessMessages = TResponseDetails & {
+		details: TResponseDetails[];
+	};
 	export function handleError(e: any): void;
 	export function handleSuccess(response: TResponseSuccess): void;
+}
+declare module "dbme/c/odata/ODataMessageParser" {
+	import Message from "sap/ui/core/message/Message";
+	import { TResponseSuccess } from "dbme/c/util/handleReturn";
+	import Parent from "sap/ui/model/odata/ODataMessageParser";
+	import ODataMetadata from "sap/ui/model/odata/ODataMetadata";
+	type TRequest = {
+		requestUri: string;
+	};
+	export default class ODataMessageParser extends Parent {
+		static metadata: {
+			publicMethods: ["getLastMessages", "parse", "setProcessor", "getHeaderField", "setHeaderField"];
+		};
+		private _metadata?;
+		private _lastMessages?;
+		private _processor?;
+		constructor(sServiceUrl: string, oMetadata: ODataMetadata);
+		parse(oResponse: TResponseSuccess, oRequest?: TRequest, mGetEntities?: any, mChangeEntities?: any): this;
+		getLastMessages(bUnique?: boolean, bClear?: boolean): Message[];
+		private _createTarget;
+		private _filterMessages;
+		private _regroupMessages;
+		private _getHtmlMessage;
+		private _parseCustomHeaders;
+		private _getCustomHeaders;
+	}
+}
+declare module "dbme/c/Log" {
+	import { MessageType } from "sap/ui/core/library";
+	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
+	import { TResponseSuccess } from "dbme/c/util/handleReturn";
+	export type TMessage = {
+		code: string;
+		counter: number;
+		description?: string;
+		error: string;
+		hasError: boolean;
+		hasWarning: boolean;
+		message: string;
+		subtitle: string;
+		success: string;
+		title: string;
+		type: MessageType;
+		warning: string;
+	};
+	type TMessageDefaults = {
+		code?: string;
+		message?: string;
+		subtitle?: string;
+		title?: string;
+	};
+	/**
+	 * @global
+	 * @namespace dbme.c
+	 */
+	export default class Log {
+		private oModel;
+		private aMessages;
+		constructor(oModel: ODataModel);
+		hasError(oResponse: TResponseSuccess): boolean;
+		/**
+		 * Returns last message
+		 */
+		addResponse(oResponse: TResponseSuccess, oDefaultSuccess?: TMessageDefaults, oDefaultError?: TMessageDefaults): TMessage;
+		private _extract;
+		private _getMessageTemplate;
+	}
+}
+declare module "dbme/c/StringUtils" {
+	/**
+	 * Pad a string to a certain length with another string
+	 */
+	export function pad(s: string, len: number, c: string): string;
+	/**
+	 * Escape curly brackets
+	 */
+	export function escapeCurlyBrackets(sValue: string): string;
+	/**
+	 * Replace non-printable spaces with &nbsp;
+	 */
+	export function nbsp(sValue: string): string;
+	/**
+	 * Uppercase first character
+	 */
+	export function ucFirst(sValue: string): string;
+}
+declare module "dbme/c/controller/Base" {
+	import Controller from "sap/ui/core/mvc/Controller";
+	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
+	import _Log from "dbme/c/Log";
+	/**
+	 * @global
+	 * @namespace dbme.c.controller
+	 */
+	export default class Base extends Controller {
+		private _oLog;
+		/**
+		 * Keep the interfce unchanged to avoid errors in child controllers
+		 */
+		onInit(): void;
+		/**
+		 * @deprecated use i18n/Translate function instead
+		 *
+		 * Translate given key
+		 */
+		_(sKey: string, aArgs?: string[]): string;
+		/**
+		 * Initialize message popover && OData message parser && response handler
+		 */
+		getLog(): _Log;
+		_getModel(): ODataModel;
+	}
 }
 declare module "dbme/c/odata/ODataQuery" {
 	import Filter from "sap/ui/model/Filter";
@@ -292,11 +332,51 @@ declare module "dbme/c/odata/ODataQuery" {
 	 * @namespace dbme.c.odata
 	 */
 	export default class ODataQuery {
-		private oModel;
-		private sPath;
-		private aFilters;
+		protected oModel: ODataModel;
+		protected sPath: string;
+		protected aFilters: Filter[];
 		constructor(oModel: ODataModel, sPath: string, aFilters?: Filter[]);
 		read(oUrlParams?: Record<string, string>): Promise<TODataQueryResult>;
+	}
+}
+declare module "dbme/c/odata/ODataCommand" {
+	import Log, { TMessage } from "dbme/c/Log";
+	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
+	import { TResponse } from "dbme/c/odata/ODataQuery";
+	export type TODataMessage = TMessage;
+	export type TODataCommandResult = {
+		data: any | any[];
+		response: TResponse;
+		message: TODataMessage;
+	};
+	/**
+	 * @namespace dbme.c.odata
+	 */
+	export default class ODataCommand {
+		protected oModel: ODataModel;
+		protected oLog: Log;
+		protected bResetChangesOnError: boolean;
+		constructor(oModel: ODataModel);
+		protected _getMessageFromResponse(oResponse: TResponse): TMessage;
+		submit(sBatchGroupId: string): Promise<TODataCommandResult>;
+		create(sPath: string, oCreateData: object): Promise<TODataCommandResult>;
+		update(sPath: string, oUpdateData: object): Promise<TODataCommandResult>;
+		remove(sPath: string): Promise<TODataCommandResult>;
+	}
+}
+declare module "dbme/c/odata/v4/ODataQuery" {
+	import Context from "sap/ui/model/Context";
+	import Filter from "sap/ui/model/Filter";
+	import ODataModel from "sap/ui/model/odata/v4/ODataModel";
+	/**
+	 * @namespace dbme.c.odata.v4
+	 */
+	export default class ODataQuery {
+		protected oModel: ODataModel;
+		protected sPath: string;
+		protected aFilters: Filter[];
+		constructor(oModel: ODataModel, sPath: string, aFilters?: Filter[]);
+		read(oUrlParams?: Record<string, string>): Promise<Context[]>;
 	}
 }
 declare module "dbme/c/util/RemoteMethodCall" {
