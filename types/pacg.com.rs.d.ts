@@ -6,6 +6,7 @@ declare module "pacg/com/rs/cm/Integration" {
 	import IAppComponent from "vss/com/fe/IAppComponent";
 	import { IListReportController } from "vss/com/fe/ListReport";
 	import { IAnyTable } from "vss/com/fe/IAppContainer";
+	import Event from "sap/ui/base/Event";
 
 	export enum EventChannel {
 		RentalContractManagement = "RentalContractManagement"
@@ -29,5 +30,10 @@ declare module "pacg/com/rs/cm/Integration" {
 	export interface $MainListControllerOnInit {
 		controller: IListReportController;
 		table: IAnyTable;
+	}
+
+	export interface $MainListOnTableSelectionChange {
+		controller: IListReportController;
+		event: Event;
 	}
 }
