@@ -21,6 +21,7 @@ declare module "pacg/com/rs/cm/Integration" {
 		MainListControllerOnAfterRendering = "MainListControllerOnAfterRendering",
 		MainListControllerOnBeforeRendering = "MainListControllerOnBeforeRendering",
 		MainListOnTableSelectionChange = "MainListOnTableSelectionChange",
+		MainListOnTableUpdateFinished = "MainListOnTableUpdateFinished",
 		MainListOnActionButtonAddToCartPress = "MainListOnActionButtonAddToCartPress"
 	}
 
