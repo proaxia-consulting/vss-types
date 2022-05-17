@@ -32,7 +32,7 @@ declare module "pacg/com/rs/cm/Integration" {
 		table: IAnyTable;
 	}
 
-	export interface $MainListOnTableSelectionChange {
+	export interface $MainListEvent {
 		controller: IListReportController;
 		event: Event;
 	}
