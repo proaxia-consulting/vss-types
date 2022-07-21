@@ -403,9 +403,9 @@ declare module "dbme/c/util/RemoteMethodCall" {
 		private _lastError?;
 		constructor(_appName: string, _messageId: string, _displaySuccessMessages?: boolean, _displayErrorMessages?: boolean);
 		call(input?: TInput): Promise<TOutput>;
-		getLastDialog(): Dialog;
-		getLastResponse(): TResponse;
-		getLastError(): unknown;
+		getLastDialog(): Dialog | undefined;
+		getLastResponse(): TResponse | undefined;
+		getLastError(): any;
 	}
 }
 declare module "dbme/c/util/minUI5VersionCheck" {
