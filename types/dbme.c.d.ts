@@ -156,6 +156,7 @@ declare module "dbme/c/i18n/Translate" {
 	export default function (key: string, args?: any[]): string;
 }
 declare module "dbme/c/util/handleReturn" {
+	import Dialog from "sap/m/Dialog";
 	enum Severity {
 		info = "info",
 		error = "error",
@@ -198,8 +199,8 @@ declare module "dbme/c/util/handleReturn" {
 	export type TResponseSuccessMessages = TResponseDetails & {
 		details: TResponseDetails[];
 	};
-	export function handleError(e: any): void;
-	export function handleSuccess(response: TResponseSuccess): void;
+	export function handleError(e: any): Dialog;
+	export function handleSuccess(response: TResponseSuccess): Dialog;
 }
 declare module "dbme/c/odata/ODataMessageParser" {
 	import Message from "sap/ui/core/message/Message";
@@ -380,17 +381,31 @@ declare module "dbme/c/odata/v4/ODataQuery" {
 	}
 }
 declare module "dbme/c/util/RemoteMethodCall" {
+	import { TResponseSuccess } from "dbme/c/util/handleReturn";
+	import Dialog from "sap/m/Dialog";
+	type TResponseData = {
+		jsonOut?: string;
+	};
+	type TResponse = Omit<TResponseSuccess, "data"> & {
+		data: TResponseData;
+	};
 	/**
 	 * @namespace dbme.c.util
 	 */
 	export default class RemoteMethodCall<TInput, TOutput> {
-		private _handlerName;
-		private _methodName;
+		private _appName;
+		private _messageId;
 		private _displaySuccessMessages;
 		private _displayErrorMessages;
 		private _model;
-		constructor(_handlerName: string, _methodName: string, _displaySuccessMessages?: boolean, _displayErrorMessages?: boolean);
+		private _lastDialog?;
+		private _lastResponse?;
+		private _lastError?;
+		constructor(_appName: string, _messageId: string, _displaySuccessMessages?: boolean, _displayErrorMessages?: boolean);
 		call(input?: TInput): Promise<TOutput>;
+		getLastDialog(): Dialog;
+		getLastResponse(): TResponse;
+		getLastError(): unknown;
 	}
 }
 declare module "dbme/c/util/minUI5VersionCheck" {
