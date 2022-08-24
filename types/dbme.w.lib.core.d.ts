@@ -220,6 +220,15 @@ declare module "dbme/w/lib/core/controller/Base" {
 	}
 }
 
+declare module "dbme/w/lib/core/controller/NotFound" {
+	import Controller from "sap/ui/core/mvc/Controller";
+	import Event from "sap/ui/base/Event";
+
+	export default class NotFound extends Controller {
+		public onLinkPressed(oEvent: Event): void;
+	}
+}
+
 declare module "dbme/w/lib/core/util/Form" {
 	import Control from "sap/ui/core/Control";
 	import SmartField from "sap/ui/comp/smartfield/SmartField";

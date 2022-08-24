@@ -1,10 +1,10 @@
-declare module "i18n/Translate" {
+declare module "dbme/srs/com/tdo/i18n/Translate" {
 	/**
 	 * @name dbme.srs.com.tdo.i18n.Translate
 	 */
 	export default function (key: string, args?: any[]): string;
 }
-declare module "model/Enums" {
+declare module "dbme/srs/com/tdo/model/Enums" {
 	export enum PlanningMode {
 		Automatic = "0",
 		Manual = "1",
@@ -117,7 +117,7 @@ declare module "model/Enums" {
 	const enums: {};
 	export default enums;
 }
-declare module "types/IEntity" {
+declare module "dbme/srs/com/tdo/types/IEntity" {
 	export type TUISettings = {
 		C_X_ATT_MAX_SIZE: string;
 	};
@@ -330,7 +330,7 @@ declare module "types/IEntity" {
 		EDITABLE?: boolean;
 	};
 }
-declare module "helper/AllocPropCalBridge" {
+declare module "dbme/srs/com/tdo/helper/AllocPropCalBridge" {
 	import HBox from "sap/m/HBox";
 	import PlanningCalendar from "sap/m/PlanningCalendar";
 	import CalendarAppointment from "sap/ui/unified/CalendarAppointment";
@@ -355,7 +355,7 @@ declare module "helper/AllocPropCalBridge" {
 		destroyItems(): this;
 	}
 }
-declare module "helper/TimeSlotsContainer" {
+declare module "dbme/srs/com/tdo/helper/TimeSlotsContainer" {
 	import IconTabBar from "sap/m/IconTabBar";
 	import List from "sap/m/List";
 	import VerticalLayout from "sap/ui/layout/VerticalLayout";
@@ -369,12 +369,12 @@ declare module "helper/TimeSlotsContainer" {
 		removeContent(child: List): void;
 	}
 }
-declare module "types/ITabsAware" {
+declare module "dbme/srs/com/tdo/types/ITabsAware" {
 	import IconTabFilter from "sap/m/IconTabFilter";
 	import Control from "sap/ui/core/Control";
 	import { CSSSize, IconColor } from "sap/ui/core/library";
-	import { SectionType, TabKey } from "model/Enums";
-	import { IEntity } from "types/IEntity";
+	import { SectionType, TabKey } from "dbme/srs/com/tdo/model/Enums";
+	import { IEntity } from "dbme/srs/com/tdo/types/IEntity";
 	type TSectionFactory = (oSectionData?: any) => Promise<Control> | Control;
 	export interface IScreenSection extends IEntity {
 		sectionFactory?: TSectionFactory;
@@ -404,20 +404,20 @@ declare module "types/ITabsAware" {
 		serializeTabs(): SerializedTabsType;
 	}
 }
-declare module "types/IController" {
+declare module "dbme/srs/com/tdo/types/IController" {
 	import Base from "dbme/w/lib/core/controller/Base";
-	import { IOrderEntity, TObject } from "types/IEntity";
+	import { IOrderEntity, TObject } from "dbme/srs/com/tdo/types/IEntity";
 	import List from "sap/m/List";
 	import Table from "sap/m/Table";
 	import Event from "sap/ui/base/Event";
 	import JSONModel from "sap/ui/model/json/JSONModel";
-	import AllocPropCalBridge from "helper/AllocPropCalBridge";
-	import TimeSlotsContainer from "helper/TimeSlotsContainer";
+	import AllocPropCalBridge from "dbme/srs/com/tdo/helper/AllocPropCalBridge";
+	import TimeSlotsContainer from "dbme/srs/com/tdo/helper/TimeSlotsContainer";
 	import ColumnListItem from "sap/m/ColumnListItem";
 	import Control from "sap/ui/core/Control";
 	import SmartForm from "sap/ui/comp/smartform/SmartForm";
 	import Context from "sap/ui/model/odata/v2/Context";
-	import ITabsAware from "types/ITabsAware";
+	import ITabsAware from "dbme/srs/com/tdo/types/ITabsAware";
 	export interface IFormAware {
 		_getForm(): SmartForm;
 		onFieldChange(event: Event): void;
@@ -467,17 +467,17 @@ declare module "types/IController" {
 		_setSaveEnabled(): void;
 	}
 }
-declare module "helper/bindingData" {
+declare module "dbme/srs/com/tdo/helper/bindingData" {
 	import ManagedObject from "sap/ui/base/ManagedObject";
 	import Controller from "sap/ui/core/mvc/Controller";
-	import { IEntity } from "types/IEntity";
+	import { IEntity } from "dbme/srs/com/tdo/types/IEntity";
 	/**
 	 * Get order data replacing all undefined properties with empty string
 	 * @name dbme.srs.com.tdo.helper.bindingData
 	 */
 	export default function bindingData(this: Controller | ManagedObject): IEntity;
 }
-declare module "helper/bindingFilters" {
+declare module "dbme/srs/com/tdo/helper/bindingFilters" {
 	import Controller from "dbme/w/lib/core/controller/Base";
 	import Filter from "sap/ui/model/Filter";
 	type TFilters = Filter[] | Record<string, Filter>;
@@ -488,13 +488,13 @@ declare module "helper/bindingFilters" {
 	 */
 	export default function bindingFilters(this: Controller, oDefault?: object, aKeys?: string | string[], asObject?: boolean): TFilters;
 }
-declare module "helper/Logger" {
+declare module "dbme/srs/com/tdo/helper/Logger" {
 	export function debug(message: string): void;
 	export function info(message: string): void;
 	export function warning(message: string): void;
 	export function error(message: string): void;
 }
-declare module "helper/orderTabs" {
+declare module "dbme/srs/com/tdo/helper/orderTabs" {
 	import IconTabBar from "sap/m/IconTabBar";
 	import Controller from "sap/ui/core/mvc/Controller";
 	/**
@@ -502,7 +502,7 @@ declare module "helper/orderTabs" {
 	 */
 	export default function orderTabs(this: Controller): IconTabBar;
 }
-declare module "helper/ScreenSectionTableFilter" {
+declare module "dbme/srs/com/tdo/helper/ScreenSectionTableFilter" {
 	import Base from "dbme/w/lib/core/controller/Base";
 	import Filter from "sap/ui/model/Filter";
 	/**
@@ -512,7 +512,7 @@ declare module "helper/ScreenSectionTableFilter" {
 		static filter(this: Base, oFilter: Filter): void;
 	}
 }
-declare module "helper/Form" {
+declare module "dbme/srs/com/tdo/helper/Form" {
 	import SmartField from "sap/ui/comp/smartfield/SmartField";
 	import Select from "sap/m/Select";
 	import ComboBox from "sap/ui/comp/smartfield/ComboBox";
@@ -520,8 +520,8 @@ declare module "helper/Form" {
 	import SmartForm from "sap/ui/comp/smartform/SmartForm";
 	import Event from "sap/ui/base/Event";
 	import ListBinding from "sap/ui/model/ListBinding";
-	import { IOrderAwareController } from "types/IController";
-	import { IOrderEntity } from "types/IEntity";
+	import { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
+	import { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
 	import Controller from "dbme/w/lib/core/controller/Base";
 	type TFieldWithItems = Select | ComboBox;
 	type TFilterKeys = Record<string, unknown | Filter>;
@@ -556,9 +556,9 @@ declare module "helper/Form" {
 		static reloadLocation(oSmartForm: SmartForm, oOrderData: IOrderEntity): Promise<ListBinding | void>;
 	}
 }
-declare module "eh/SectionListEventHandler" {
+declare module "dbme/srs/com/tdo/eh/SectionListEventHandler" {
 	import Event from "sap/ui/base/Event";
-	import ITabsAware from "types/ITabsAware";
+	import ITabsAware from "dbme/srs/com/tdo/types/ITabsAware";
 	export default class SectionListEventHandler {
 		/**
 		 * Hide tab if no list items been found.
@@ -569,10 +569,10 @@ declare module "eh/SectionListEventHandler" {
 		static onUpdateFinished(this: ITabsAware, oEvent: Event, sTabKey: string): void;
 	}
 }
-declare module "helper/Template" {
+declare module "dbme/srs/com/tdo/helper/Template" {
 	import List from "sap/m/List";
-	import { IOrderAwareController } from "types/IController";
-	import { TScreenFieldEntity } from "types/IEntity";
+	import { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
+	import { TScreenFieldEntity } from "dbme/srs/com/tdo/types/IEntity";
 	interface IController extends IOrderAwareController {
 		_oParametersList?: List;
 		_oAgreementsList?: List;
@@ -600,10 +600,10 @@ declare module "helper/Template" {
 		static _getListActionHistory(this: IController, oSectionData?: {}): Promise<List>;
 	}
 }
-declare module "model/OrderCreateCommand" {
+declare module "dbme/srs/com/tdo/model/OrderCreateCommand" {
 	import { TODataCommandResult } from "dbme/c/odata/ODataCommand";
 	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-	import { IOrderEntity } from "types/IEntity";
+	import { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
 	export type TCreateOrderResult = TODataCommandResult & {
 		order: IOrderEntity;
 	};
@@ -616,7 +616,7 @@ declare module "model/OrderCreateCommand" {
 		submit(sBatchGroupId: string): Promise<TCreateOrderResult>;
 	}
 }
-declare module "model/TimeStepReadModel" {
+declare module "dbme/srs/com/tdo/model/TimeStepReadModel" {
 	import Base from "dbme/w/lib/core/controller/Base";
 	export interface IStepData {
 		step: number;
@@ -629,12 +629,12 @@ declare module "model/TimeStepReadModel" {
 		static read(this: Base, hierarchyId?: string[]): Promise<IStepData>;
 	}
 }
-declare module "helper/DateFormTemplate" {
+declare module "dbme/srs/com/tdo/helper/DateFormTemplate" {
 	import SmartField from "sap/ui/comp/smartfield/SmartField";
 	import List from "sap/m/List";
 	import VerticalLayout from "sap/ui/layout/VerticalLayout";
-	import CreateApt from "controller/CreateApt.controller";
-	import { IOrderAwareController } from "types/IController";
+	import CreateApt from "dbme/srs/com/tdo/controller/CreateApt.controller";
+	import { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
 	interface IController extends IOrderAwareController {
 		_oLocationList?: List;
 	}
@@ -647,12 +647,12 @@ declare module "helper/DateFormTemplate" {
 		static getDateForm(this: CreateApt, bRecalc?: boolean): Promise<VerticalLayout>;
 	}
 }
-declare module "helper/Filter" {
+declare module "dbme/srs/com/tdo/helper/Filter" {
 	import Controller from "dbme/w/lib/core/controller/Base";
 	import Event from "sap/ui/base/Event";
 	import Context from "sap/ui/model/Context";
 	import ModelFilter from "sap/ui/model/Filter";
-	import { IOrderEntity } from "types/IEntity";
+	import { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
 	/**
 	 * @namespace dbme.srs.com.tdo.helper
 	 */
@@ -667,7 +667,7 @@ declare module "helper/Filter" {
 		static mapOrderListToOrder(oOrderListCtx: Context): IOrderEntity;
 	}
 }
-declare module "helper/DemandDialog" {
+declare module "dbme/srs/com/tdo/helper/DemandDialog" {
 	import Dialog from "sap/m/Dialog";
 	import Event from "sap/ui/base/Event";
 	import Context from "sap/ui/model/Context";
@@ -679,11 +679,11 @@ declare module "helper/DemandDialog" {
 		static onDemandDialogCancel(oEvent: Event): void;
 	}
 }
-declare module "types/EventParams" {
+declare module "dbme/srs/com/tdo/types/EventParams" {
 	import ListItemBase from "sap/m/ListItemBase";
 	import Filter from "sap/ui/model/Filter";
 	import Sorter from "sap/ui/model/Sorter";
-	import { TObject } from "types/IEntity";
+	import { TObject } from "dbme/srs/com/tdo/types/IEntity";
 	import UploadCollectionParameter from "sap/m/UploadCollectionParameter";
 	export type $TListSelectionChangeParams = {
 		listItem: ListItemBase;
@@ -722,9 +722,9 @@ declare module "types/EventParams" {
 		files: $TTypeMissmatchFile[];
 	};
 }
-declare module "helper/ScreenSectionBindingRefresh" {
+declare module "dbme/srs/com/tdo/helper/ScreenSectionBindingRefresh" {
 	import ODataListBinding from "sap/ui/model/odata/v2/ODataListBinding";
-	import { IScreenSection } from "types/ITabsAware";
+	import { IScreenSection } from "dbme/srs/com/tdo/types/ITabsAware";
 	/**
 	 * @namespace dbme.srs.com.tdo.helper
 	 */
@@ -734,15 +734,15 @@ declare module "helper/ScreenSectionBindingRefresh" {
 		refresh(): void;
 	}
 }
-declare module "helper/ScreenSectionTableTemplate" {
+declare module "dbme/srs/com/tdo/helper/ScreenSectionTableTemplate" {
 	import { Entityset } from "dbme/w/lib/core/library";
 	import Event from "sap/ui/base/Event";
 	import SmartTable from "sap/ui/comp/smarttable/SmartTable";
 	import Context from "sap/ui/model/Context";
-	import { IScreenSection } from "types/ITabsAware";
-	import { IOrderAwareController } from "types/IController";
+	import { IScreenSection } from "dbme/srs/com/tdo/types/ITabsAware";
+	import { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
 	import Dialog from "sap/m/Dialog";
-	import ScreenSectionBindingRefresh from "helper/ScreenSectionBindingRefresh";
+	import ScreenSectionBindingRefresh from "dbme/srs/com/tdo/helper/ScreenSectionBindingRefresh";
 	interface IController extends IOrderAwareController {
 		helper: {
 			demandTemplate?: any;
@@ -774,13 +774,13 @@ declare module "helper/ScreenSectionTableTemplate" {
 		static onScreenSectionTableSelectionChange(this: IController, oEvent: Event): void;
 	}
 }
-declare module "helper/DecissionTreeTemplate" {
+declare module "dbme/srs/com/tdo/helper/DecissionTreeTemplate" {
 	import Dialog from "sap/m/Dialog";
 	import Event from "sap/ui/base/Event";
 	import ComponentContainer from "sap/ui/core/ComponentContainer";
 	import Context from "sap/ui/model/Context";
-	import { IDemandsAwareController } from "types/IController";
-	import { IScreenSection } from "types/ITabsAware";
+	import { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
+	import { IScreenSection } from "dbme/srs/com/tdo/types/ITabsAware";
 	/**
 	 * @namespace dbme.srs.com.tdo.helper
 	 */
@@ -797,12 +797,12 @@ declare module "helper/DecissionTreeTemplate" {
 		static getCreateDemandDialog(this: IDemandsAwareController, oSectionCtx: Context): Promise<Dialog>;
 	}
 }
-declare module "helper/TabComponent" {
+declare module "dbme/srs/com/tdo/helper/TabComponent" {
 	import ComponentContainer from "sap/ui/core/ComponentContainer";
 	import Controller from "dbme/w/lib/core/controller/Base";
 	import Context from "sap/ui/model/Context";
 	import Dialog from "sap/m/Dialog";
-	import { IScreenSection } from "types/ITabsAware";
+	import { IScreenSection } from "dbme/srs/com/tdo/types/ITabsAware";
 	/**
 	 * @namespace dbme.srs.com.tdo.helper
 	 */
@@ -811,13 +811,13 @@ declare module "helper/TabComponent" {
 		static getCreateDemandDialog(this: Controller, oSectionCtx: Context): Promise<Dialog>;
 	}
 }
-declare module "helper/DemandMenu" {
+declare module "dbme/srs/com/tdo/helper/DemandMenu" {
 	import DependentFragment from "dbme/w/lib/core/util/DependentFragment";
 	import Event from "sap/ui/base/Event";
 	import Controller from "sap/ui/core/mvc/Controller";
 	import Menu from "sap/ui/unified/Menu";
 	import Control from "sap/ui/core/Control";
-	import { IDemandsAwareController } from "types/IController";
+	import { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
 	/**
 	 * @nonui5
 	 */
@@ -838,7 +838,7 @@ declare module "helper/DemandMenu" {
 		static onMenuItemSelect(this: IDemandsAwareController, oEvent: Event): void;
 	}
 }
-declare module "helper/OASUser" {
+declare module "dbme/srs/com/tdo/helper/OASUser" {
 	import Base from "dbme/w/lib/core/controller/Base";
 	import SelectDialog from "sap/m/SelectDialog";
 	import Context from "sap/ui/model/Context";
@@ -850,16 +850,16 @@ declare module "helper/OASUser" {
 	};
 	export default _default;
 }
-declare module "helper/SearchHelp" {
+declare module "dbme/srs/com/tdo/helper/SearchHelp" {
 	import SmartField from "sap/ui/comp/smartfield/SmartField";
 	import Event from "sap/ui/base/Event";
-	import { IOrderAwareController } from "types/IController";
+	import { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
 	import Input from "sap/m/Input";
 	import ValueHelpDialog from "sap/ui/comp/valuehelpdialog/ValueHelpDialog";
 	import Table from "sap/ui/table/Table";
 	import SmartForm from "sap/ui/comp/smartform/SmartForm";
 	import InputBase from "sap/m/InputBase";
-	import { TObject, TUserEntity } from "types/IEntity";
+	import { TObject, TUserEntity } from "dbme/srs/com/tdo/types/IEntity";
 	type THandlers = Record<string, any>;
 	interface IController extends IOrderAwareController {
 		_getForm(): SmartForm;
@@ -891,7 +891,7 @@ declare module "helper/SearchHelp" {
 		static _setOASUser(this: IController, oUserData: TUserEntity): void;
 	}
 }
-declare module "helper/DemandLongText" {
+declare module "dbme/srs/com/tdo/helper/DemandLongText" {
 	import Dialog from "sap/m/Dialog";
 	import Event from "sap/ui/base/Event";
 	/**
@@ -906,14 +906,14 @@ declare module "helper/DemandLongText" {
 		static cancel(oEvent: Event): void;
 	}
 }
-declare module "helper/DemandTemplate" {
+declare module "dbme/srs/com/tdo/helper/DemandTemplate" {
 	import SmartField from "sap/ui/comp/smartfield/SmartField";
 	import Input from "sap/m/Input";
 	import ValueHelpDialog from "sap/ui/comp/valuehelpdialog/ValueHelpDialog";
 	import HBox from "sap/m/HBox";
 	import ColumnListItem from "sap/m/ColumnListItem";
 	import Table from "sap/m/Table";
-	import { IDemandsAwareController } from "types/IController";
+	import { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
 	/**
 	 * @namespace dbme.srs.com.tdo.helper
 	 */
@@ -941,7 +941,7 @@ declare module "helper/DemandTemplate" {
 		): Promise<void | ValueHelpDialog>;
 	}
 }
-declare module "helper/ScreenSectionTable" {
+declare module "dbme/srs/com/tdo/helper/ScreenSectionTable" {
 	/**
 	 * @namespace dbme.srs.com.tdo.helper
 	 */
@@ -952,12 +952,12 @@ declare module "helper/ScreenSectionTable" {
 		destroy(): void;
 	}
 }
-declare module "helper/NotesList" {
+declare module "dbme/srs/com/tdo/helper/NotesList" {
 	import List from "sap/m/List";
 	import Event from "sap/ui/base/Event";
-	import { IOrderAwareController } from "types/IController";
-	import { TOrderNoteEntity } from "types/IEntity";
-	import ITabsAware from "types/ITabsAware";
+	import { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
+	import { TOrderNoteEntity } from "dbme/srs/com/tdo/types/IEntity";
+	import ITabsAware from "dbme/srs/com/tdo/types/ITabsAware";
 	interface IController extends IOrderAwareController, ITabsAware {
 		_oNotesList?: List;
 	}
@@ -976,7 +976,7 @@ declare module "helper/NotesList" {
 		static onBtnFormNoteOK(oEvent: Event): void;
 	}
 }
-declare module "model/Base64" {
+declare module "dbme/srs/com/tdo/model/Base64" {
 	/**
 	 * @namespace dbme.srs.com.tdo.model
 	 */
@@ -984,11 +984,11 @@ declare module "model/Base64" {
 		static encode(input: string): string;
 	}
 }
-declare module "helper/Attachment" {
+declare module "dbme/srs/com/tdo/helper/Attachment" {
 	import Event from "sap/ui/base/Event";
-	import { IAfterAction, IOrderAwareController } from "types/IController";
+	import { IAfterAction, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
 	import UploadCollection from "sap/m/UploadCollection";
-	import ITabsAware from "types/ITabsAware";
+	import ITabsAware from "dbme/srs/com/tdo/types/ITabsAware";
 	interface IController extends IOrderAwareController, ITabsAware, IAfterAction {
 		_uploadComplete?: NodeJS.Timeout;
 	}
@@ -1006,12 +1006,12 @@ declare module "helper/Attachment" {
 		static getAttachmetList(this: IController, oSectionData?: {}): Promise<UploadCollection>;
 	}
 }
-declare module "helper/TabsTemplate" {
+declare module "dbme/srs/com/tdo/helper/TabsTemplate" {
 	import IconTabFilter from "sap/m/IconTabFilter";
 	import ListBase from "sap/m/ListBase";
 	import Base from "dbme/w/lib/core/controller/Base";
-	import ITabsAware, { IScreen, SerializedTabsType } from "types/ITabsAware";
-	import { IOrderEntity } from "types/IEntity";
+	import ITabsAware, { IScreen, SerializedTabsType } from "dbme/srs/com/tdo/types/ITabsAware";
+	import { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
 	interface IController extends Base, ITabsAware {}
 	/**
 	 * @namespace dbme.srs.com.tdo.helper
@@ -1033,9 +1033,9 @@ declare module "helper/TabsTemplate" {
 		static getTable(tab: IconTabFilter): ListBase[];
 	}
 }
-declare module "model/AllocationProposalsQuery" {
+declare module "dbme/srs/com/tdo/model/AllocationProposalsQuery" {
 	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-	import { IAllocationProposalData } from "types/IEntity";
+	import { IAllocationProposalData } from "dbme/srs/com/tdo/types/IEntity";
 	type TProposal = {
 		proposals: IAllocationProposalData[];
 	};
@@ -1048,11 +1048,11 @@ declare module "model/AllocationProposalsQuery" {
 		submit(sBatchGroupId: string): Promise<TProposal>;
 	}
 }
-declare module "model/AllocationProposalData" {
+declare module "dbme/srs/com/tdo/model/AllocationProposalData" {
 	import JSONModel from "sap/ui/model/json/JSONModel";
 	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 	import { CalendarDayType } from "sap/ui/unified/library";
-	import { IAllocationProposalData } from "types/IEntity";
+	import { IAllocationProposalData } from "dbme/srs/com/tdo/types/IEntity";
 	export interface IAllocationProposalCalInterval {
 		SELECTABLE: boolean;
 		VISIT_START_TS: Date;
@@ -1093,7 +1093,7 @@ declare module "model/AllocationProposalData" {
 		private updateDefaultView;
 	}
 }
-declare module "helper/entitySet" {
+declare module "dbme/srs/com/tdo/helper/entitySet" {
 	import { Entityset } from "dbme/w/lib/core/library";
 	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 	export type TODataEntity = {
@@ -1103,14 +1103,14 @@ declare module "helper/entitySet" {
 	export function getEntityName(entitySet: Entityset, model?: ODataModel): string | Promise<string>;
 	export function pathToEntitySet(path: string): string;
 }
-declare module "helper/AllocationProposal" {
+declare module "dbme/srs/com/tdo/helper/AllocationProposal" {
 	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 	import Event from "sap/ui/base/Event";
 	import Context from "sap/ui/model/Context";
 	import List from "sap/m/List";
-	import IController from "controller/CreateApt.controller";
-	import AllocPropCalBridge from "helper/AllocPropCalBridge";
-	import { IReschedulingController } from "types/IController";
+	import IController from "dbme/srs/com/tdo/controller/CreateApt.controller";
+	import AllocPropCalBridge from "dbme/srs/com/tdo/helper/AllocPropCalBridge";
+	import { IReschedulingController } from "dbme/srs/com/tdo/types/IController";
 	import MessageParser from "sap/ui/core/message/MessageParser";
 	interface IODataModel extends ODataModel {
 		oMessageParser: MessageParser;
@@ -1142,12 +1142,12 @@ declare module "helper/AllocationProposal" {
 		private static clearSelectableAllocationProposalModel;
 	}
 }
-declare module "helper/TimeSlotsListFactory" {
+declare module "dbme/srs/com/tdo/helper/TimeSlotsListFactory" {
 	import List from "sap/m/List";
-	import { IOrderAwareController as IController } from "types/IController";
-	import TimeSlotsContainer from "helper/TimeSlotsContainer";
+	import { IOrderAwareController as IController } from "dbme/srs/com/tdo/types/IController";
+	import TimeSlotsContainer from "dbme/srs/com/tdo/helper/TimeSlotsContainer";
 	import Control from "sap/ui/core/Control";
-	import { IOrderParameterEntity } from "types/IEntity";
+	import { IOrderParameterEntity } from "dbme/srs/com/tdo/types/IEntity";
 	export const TIME_SLOTS_LIST_KEY = "list";
 	/**
 	 * @namespace dbme.srs.com.tdo.helper
@@ -1157,10 +1157,10 @@ declare module "helper/TimeSlotsListFactory" {
 		static destroy(oListContainer: TimeSlotsContainer, oParent: Control): void;
 	}
 }
-declare module "eh/ParametersListEventHandler" {
+declare module "dbme/srs/com/tdo/eh/ParametersListEventHandler" {
 	import ListItemBase from "sap/m/ListItemBase";
 	import Event from "sap/ui/base/Event";
-	import { IReschedulingController } from "types/IController";
+	import { IReschedulingController } from "dbme/srs/com/tdo/types/IController";
 	/**
 	 * @namespace dbme.srs.com.tdo.eh
 	 */
@@ -1190,11 +1190,11 @@ declare module "eh/ParametersListEventHandler" {
 		private static propagateToDemand;
 	}
 }
-declare module "controller/CreateApt.controller" {
+declare module "dbme/srs/com/tdo/controller/CreateApt.controller" {
 	import Base from "dbme/w/lib/core/controller/Base";
-	import { IDemandsAwareController, IReschedulingController } from "types/IController";
-	import DemandTemplate from "helper/DemandTemplate";
-	import ScreenSectionTable from "helper/ScreenSectionTable";
+	import { IDemandsAwareController, IReschedulingController } from "dbme/srs/com/tdo/types/IController";
+	import DemandTemplate from "dbme/srs/com/tdo/helper/DemandTemplate";
+	import ScreenSectionTable from "dbme/srs/com/tdo/helper/ScreenSectionTable";
 	import VerticalLayout from "sap/ui/layout/VerticalLayout";
 	import JSONModel from "sap/ui/model/json/JSONModel";
 	import Context from "sap/ui/model/Context";
@@ -1206,11 +1206,11 @@ declare module "controller/CreateApt.controller" {
 	import SmartField from "sap/ui/comp/smartfield/SmartField";
 	import Table from "sap/m/Table";
 	import IconTabFilter from "sap/m/IconTabFilter";
-	import AllocPropCalBridge from "helper/AllocPropCalBridge";
-	import { SerializedTabsType } from "types/ITabsAware";
-	import TimeSlotsContainer from "helper/TimeSlotsContainer";
-	import { IOrderEntity } from "types/IEntity";
-	import ScreenSectionBindingRefresh from "helper/ScreenSectionBindingRefresh";
+	import AllocPropCalBridge from "dbme/srs/com/tdo/helper/AllocPropCalBridge";
+	import { SerializedTabsType } from "dbme/srs/com/tdo/types/ITabsAware";
+	import TimeSlotsContainer from "dbme/srs/com/tdo/helper/TimeSlotsContainer";
+	import { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
+	import ScreenSectionBindingRefresh from "dbme/srs/com/tdo/helper/ScreenSectionBindingRefresh";
 	interface IContextAware {
 		context?: Context;
 	}
@@ -1380,12 +1380,12 @@ declare module "controller/CreateApt.controller" {
 		getDemandsTable(): Table;
 	}
 }
-declare module "helper/LocationList" {
+declare module "dbme/srs/com/tdo/helper/LocationList" {
 	import List from "sap/m/List";
 	import Event from "sap/ui/base/Event";
 	import Context from "sap/ui/model/Context";
 	import Filter from "sap/ui/model/Filter";
-	import IController from "controller/CreateApt.controller";
+	import IController from "dbme/srs/com/tdo/controller/CreateApt.controller";
 	/**
 	 * @namespace dbme.srs.com.tdo.helper
 	 */
@@ -1400,10 +1400,10 @@ declare module "helper/LocationList" {
 		static getFilters(this: IController): Filter[];
 	}
 }
-declare module "helper/Demand" {
+declare module "dbme/srs/com/tdo/helper/Demand" {
 	import ColumnListItem from "sap/m/ColumnListItem";
 	import Event from "sap/ui/base/Event";
-	import { IDemandsAwareController, TDemandOrigin } from "types/IController";
+	import { IDemandsAwareController, TDemandOrigin } from "dbme/srs/com/tdo/types/IController";
 	/**
 	 * @namespace dbme.srs.com.tdo.helper
 	 */
@@ -1440,10 +1440,10 @@ declare module "helper/Demand" {
 		static _destroy(this: IDemandsAwareController): void;
 	}
 }
-declare module "eh/ScreenSectionEventHandler" {
+declare module "dbme/srs/com/tdo/eh/ScreenSectionEventHandler" {
 	import Control from "sap/ui/core/Control";
-	import { IDemandsAwareController } from "types/IController";
-	import ITabsAware, { IScreenSection } from "types/ITabsAware";
+	import { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
+	import ITabsAware, { IScreenSection } from "dbme/srs/com/tdo/types/ITabsAware";
 	export interface ITableSelectionChangeParams {
 		controller: IDemandsAwareController;
 		items: Control[];
@@ -1470,13 +1470,14 @@ declare module "eh/ScreenSectionEventHandler" {
 		static onTableItemsLoaded(params: ITableItemsLoadedParams): void;
 	}
 }
-declare module "Component" {
+declare module "dbme/srs/com/tdo/Component" {
 	import UIComponent from "dbme/w/lib/core/ui/UIComponent";
 	import Event from "sap/ui/base/Event";
 	import Route from "sap/ui/core/routing/Route";
-	import { ComponentEvent } from "model/Enums";
+	import { ComponentEvent } from "dbme/srs/com/tdo/model/Enums";
 	/**
-	 * @namespace dbme.srs.com.tdo
+	 * @name dbme.srs.com.tdo.Component
+	 * @global
 	 */
 	export default class Component extends UIComponent {
 		/**
@@ -1507,12 +1508,12 @@ declare module "Component" {
 		protected initEventBus(): void;
 	}
 }
-declare module "index" {
+declare module "dbme/srs/com/tdo/index" {
 	import ComponentContainer from "sap/ui/core/ComponentContainer";
 	const _default_1: ComponentContainer;
 	export default _default_1;
 }
-declare module "control/EnabledCustomListItem" {
+declare module "dbme/srs/com/tdo/control/EnabledCustomListItem" {
 	import CustomListItem from "sap/m/CustomListItem";
 	import Control from "sap/ui/core/Control";
 	/**
@@ -1541,7 +1542,7 @@ declare module "control/EnabledCustomListItem" {
 	}
 	export default EnabledCustomListItem;
 }
-declare module "control/EnabledListItem" {
+declare module "dbme/srs/com/tdo/control/EnabledListItem" {
 	import StandardListItem from "sap/m/StandardListItem";
 	import Control from "sap/ui/core/Control";
 	/**
@@ -1570,14 +1571,14 @@ declare module "control/EnabledListItem" {
 	}
 	export default EnabledListItem;
 }
-declare module "controller/App.controller" {
+declare module "dbme/srs/com/tdo/controller/App.controller" {
 	import Controller from "sap/ui/core/mvc/Controller";
 	/**
 	 * @namespace dbme.srs.com.tdo.controller
 	 */
 	export default class App extends Controller {}
 }
-declare module "controller/Create.controller" {
+declare module "dbme/srs/com/tdo/controller/Create.controller" {
 	import Base from "dbme/w/lib/core/controller/Base";
 	import Event from "sap/ui/base/Event";
 	import SmartForm from "sap/ui/comp/smartform/SmartForm";
@@ -1586,8 +1587,8 @@ declare module "controller/Create.controller" {
 	import Context from "sap/ui/model/Context";
 	import JSONModel from "sap/ui/model/json/JSONModel";
 	import Control from "sap/ui/core/Control";
-	import { IOrderEntity, TVehicleCustomerEntity } from "types/IEntity";
-	import { IFormAware, IOrderAwareController } from "types/IController";
+	import { IOrderEntity, TVehicleCustomerEntity } from "dbme/srs/com/tdo/types/IEntity";
+	import { IFormAware, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
 	/**
 	 * @namespace dbme.srs.com.tdo.controller
 	 */
@@ -1634,7 +1635,7 @@ declare module "controller/Create.controller" {
 		onRootHierarchyAssignmentChange(oEvent: Event): void;
 	}
 }
-declare module "model/OrderSaveCommand" {
+declare module "dbme/srs/com/tdo/model/OrderSaveCommand" {
 	import { TODataCommandResult } from "dbme/c/odata/ODataCommand";
 	import Base from "dbme/w/lib/core/controller/Base";
 	interface IController extends Base {
@@ -1655,11 +1656,11 @@ declare module "model/OrderSaveCommand" {
 		private _getRequestData;
 	}
 }
-declare module "helper/OrderActionHandler" {
+declare module "dbme/srs/com/tdo/helper/OrderActionHandler" {
 	import Event from "sap/ui/base/Event";
-	import { OrderSelectionMode } from "model/Enums";
-	import { IOrderEntity } from "types/IEntity";
-	import { IOrderAwareController } from "types/IController";
+	import { OrderSelectionMode } from "dbme/srs/com/tdo/model/Enums";
+	import { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
+	import { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
 	type TRowData = {
 		data: IOrderEntity[];
 	};
@@ -1680,20 +1681,20 @@ declare module "helper/OrderActionHandler" {
 		protected static _getRows(this: IOrderAwareController, oActionData: TActionSettings): TRowData;
 	}
 }
-declare module "controller/Details.controller" {
+declare module "dbme/srs/com/tdo/controller/Details.controller" {
 	import Base from "dbme/w/lib/core/controller/Base";
-	import DemandTemplate from "helper/DemandTemplate";
-	import { SerializedTabsType } from "types/ITabsAware";
+	import DemandTemplate from "dbme/srs/com/tdo/helper/DemandTemplate";
+	import { SerializedTabsType } from "dbme/srs/com/tdo/types/ITabsAware";
 	import JSONModel from "sap/ui/model/json/JSONModel";
-	import ScreenSectionTable from "helper/ScreenSectionTable";
+	import ScreenSectionTable from "dbme/srs/com/tdo/helper/ScreenSectionTable";
 	import Event from "sap/ui/base/Event";
-	import { IDemandsAwareController, IOrderAwareController } from "types/IController";
-	import { IOrderEntity } from "types/IEntity";
+	import { IDemandsAwareController, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
+	import { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
 	import IconTabFilter from "sap/m/IconTabFilter";
 	import Toolbar from "sap/m/Toolbar";
 	import Table from "sap/m/Table";
 	import SmartForm from "sap/ui/comp/smartform/SmartForm";
-	import ScreenSectionBindingRefresh from "helper/ScreenSectionBindingRefresh";
+	import ScreenSectionBindingRefresh from "dbme/srs/com/tdo/helper/ScreenSectionBindingRefresh";
 	/**
 	 * @namespace dbme.srs.com.tdo.controller
 	 */
@@ -1769,15 +1770,15 @@ declare module "controller/Details.controller" {
 		_setLocationEnabled(): void;
 	}
 }
-declare module "controller/Index.controller" {
+declare module "dbme/srs/com/tdo/controller/Index.controller" {
 	import Base from "dbme/w/lib/core/controller/Base";
 	import IconTabFilter from "sap/m/IconTabFilter";
 	import Event from "sap/ui/base/Event";
 	import Filter from "sap/ui/model/Filter";
 	import JSONModel from "sap/ui/model/json/JSONModel";
 	import Table from "sap/ui/table/Table";
-	import { IOrderEntity } from "types/IEntity";
-	import { IOrderAwareController, IAfterAction } from "types/IController";
+	import { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
+	import { IOrderAwareController, IAfterAction } from "dbme/srs/com/tdo/types/IController";
 	/**
 	 * @namespace dbme.srs.com.tdo.controller
 	 */
@@ -1822,21 +1823,21 @@ declare module "controller/Index.controller" {
 		getSelectedOrder(): IOrderEntity[];
 	}
 }
-declare module "controller/NotFound.controller" {
-	import * as Controller from "dbme/w/lib/core/controller/NotFound";
+declare module "dbme/srs/com/tdo/controller/NotFound.controller" {
+	import Controller from "dbme/w/lib/core/controller/NotFound";
 	/**
 	 * @namespace dbme.srs.com.tdo.controller
 	 */
 	export default class NotFound extends Controller {}
 }
-declare module "controller/action/Replan.controller" {
+declare module "dbme/srs/com/tdo/controller/action/Replan.controller" {
 	import Base from "dbme/w/lib/core/controller/Base";
 	import Dialog from "sap/m/Dialog";
 	import JSONModel from "sap/ui/model/json/JSONModel";
 	import SmartField from "sap/ui/comp/smartfield/SmartField";
 	import Event from "sap/ui/base/Event";
 	import SmartForm from "sap/ui/comp/smartform/SmartForm";
-	import { IOrderParameterEntity } from "types/IEntity";
+	import { IOrderParameterEntity } from "dbme/srs/com/tdo/types/IEntity";
 	/**
 	 * @namespace dbme.srs.com.tdo.controller.action
 	 */
@@ -1862,7 +1863,7 @@ declare module "controller/action/Replan.controller" {
 		ODataToJSON(): void;
 	}
 }
-declare module "types/IContainer" {
+declare module "dbme/srs/com/tdo/types/IContainer" {
 	import Control from "sap/ui/core/Control";
 	/**
 	 * @namespace dbme.srs.com.tdo.types
@@ -1872,7 +1873,7 @@ declare module "types/IContainer" {
 		removeContent(item: Control): void;
 	}
 }
-declare module "helper/MessageDialog" {
+declare module "dbme/srs/com/tdo/helper/MessageDialog" {
 	import Dialog from "sap/m/Dialog";
 	type TMessageDialogSettings = {
 		title: string;
@@ -1885,23 +1886,23 @@ declare module "helper/MessageDialog" {
 		static error(settings: TMessageDialogSettings): Dialog;
 	}
 }
-declare module "controller/action/Reschedule.controller" {
+declare module "dbme/srs/com/tdo/controller/action/Reschedule.controller" {
 	import Controller from "dbme/w/lib/core/controller/Base";
 	import Event from "sap/ui/base/Event";
 	import Dialog from "sap/m/Dialog";
 	import List from "sap/m/List";
 	import JSONModel from "sap/ui/model/json/JSONModel";
 	import ListItemBase from "sap/m/ListItemBase";
-	import TimeSlotsContainer from "helper/TimeSlotsContainer";
+	import TimeSlotsContainer from "dbme/srs/com/tdo/helper/TimeSlotsContainer";
 	import Table from "sap/m/Table";
 	import Context from "sap/ui/model/Context";
-	import AllocPropCalBridge from "helper/AllocPropCalBridge";
+	import AllocPropCalBridge from "dbme/srs/com/tdo/helper/AllocPropCalBridge";
 	import CalendarAppointment from "sap/ui/unified/CalendarAppointment";
 	import IconTabBar from "sap/m/IconTabBar";
 	import IconTabFilter from "sap/m/IconTabFilter";
-	import IContainer from "types/IContainer";
-	import { IOrderEntity } from "types/IEntity";
-	import { IOrderAwareController, IReschedulingController } from "types/IController";
+	import IContainer from "dbme/srs/com/tdo/types/IContainer";
+	import { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
+	import { IOrderAwareController, IReschedulingController } from "dbme/srs/com/tdo/types/IController";
 	enum ActionTabKey {
 		Date = "Date",
 		Demands = "Demands",
@@ -1978,10 +1979,10 @@ declare module "controller/action/Reschedule.controller" {
 		getSelectedOrder(): IOrderEntity[];
 	}
 }
-declare module "eh/FieldMakeCodeEventHandler" {
+declare module "dbme/srs/com/tdo/eh/FieldMakeCodeEventHandler" {
 	import Event from "sap/ui/base/Event";
 	import Base from "dbme/w/lib/core/controller/Base";
-	import { IFormAware } from "types/IController";
+	import { IFormAware } from "dbme/srs/com/tdo/types/IController";
 	interface IController extends Base, IFormAware {}
 	/**
 	 * @namespace dbme.srs.com.tdo.eh
@@ -1990,10 +1991,10 @@ declare module "eh/FieldMakeCodeEventHandler" {
 		static onInnerControlsCreated(this: IController, event: Event): void;
 	}
 }
-declare module "eh/FieldModelCodeEventHandler" {
+declare module "dbme/srs/com/tdo/eh/FieldModelCodeEventHandler" {
 	import Base from "dbme/w/lib/core/controller/Base";
 	import Event from "sap/ui/base/Event";
-	import { IFormAware } from "types/IController";
+	import { IFormAware } from "dbme/srs/com/tdo/types/IController";
 	interface IController extends Base, IFormAware {}
 	/**
 	 * @namespace dbme.srs.com.tdo.eh
@@ -2002,7 +2003,7 @@ declare module "eh/FieldModelCodeEventHandler" {
 		static onInnerControlsCreated(this: IController, event: Event): void;
 	}
 }
-declare module "eh/OrderListPrintHandler" {
+declare module "dbme/srs/com/tdo/eh/OrderListPrintHandler" {
 	import Event from "sap/ui/base/Event";
 	/**
 	 * @namespace dbme.srs.com.tdo.eh
@@ -2016,7 +2017,7 @@ declare module "eh/OrderListPrintHandler" {
 		private static getExportUrl;
 	}
 }
-declare module "eh/OrderPrintHandler" {
+declare module "dbme/srs/com/tdo/eh/OrderPrintHandler" {
 	/**
 	 * @namespace dbme.srs.com.tdo.eh
 	 */
@@ -2024,10 +2025,10 @@ declare module "eh/OrderPrintHandler" {
 		static print(oEvent: Event): void;
 	}
 }
-declare module "eh/PreferredComEventHandler" {
+declare module "dbme/srs/com/tdo/eh/PreferredComEventHandler" {
 	import Event from "sap/ui/base/Event";
 	import Context from "sap/ui/model/odata/v2/Context";
-	import { IOrderAwareController } from "types/IController";
+	import { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
 	interface IController extends IOrderAwareController {
 		_setSaveEnabled(): void;
 	}
@@ -2039,9 +2040,9 @@ declare module "eh/PreferredComEventHandler" {
 		static onSelectionChange(this: IController, oEvent: Event, oCtx?: Context): void;
 	}
 }
-declare module "eh/RescheduleDemandTableHandler" {
+declare module "dbme/srs/com/tdo/eh/RescheduleDemandTableHandler" {
 	import Event from "sap/ui/base/Event";
-	import RescheduleController from "controller/action/Reschedule.controller";
+	import RescheduleController from "dbme/srs/com/tdo/controller/action/Reschedule.controller";
 	/**
 	 * @namespace dbme.srs.com.tdo.eh
 	 */
@@ -2055,27 +2056,27 @@ declare module "eh/RescheduleDemandTableHandler" {
 		static onDataReceived(this: RescheduleController, event: Event): void;
 	}
 }
-declare module "format/nl2br" {
+declare module "dbme/srs/com/tdo/format/nl2br" {
 	/**
 	 * @name dbme.srs.com.tdo.format.nl2br
 	 */
 	export default function (sString: string): string;
 }
-declare module "format/serviceItemIgnoredFields" {
+declare module "dbme/srs/com/tdo/format/serviceItemIgnoredFields" {
 	export const SERVICE_ITEM_IGNORED: string[];
 	/**
 	 * @name dbme.srs.com.tdo.format.serviceItemIgnoredFields
 	 */
 	export default function (aFields: string[]): string;
 }
-declare module "format/workItemIgnoredFields" {
+declare module "dbme/srs/com/tdo/format/workItemIgnoredFields" {
 	export const WORK_ITEM_IGNORED: string[];
 	/**
 	 * @name dbme.srs.com.tdo.format.workItemIgnoredFields
 	 */
 	export default function (aFields: string[]): string;
 }
-declare module "helper/WorkshopWorkingHours" {
+declare module "dbme/srs/com/tdo/helper/WorkshopWorkingHours" {
 	import Dialog from "sap/m/Dialog";
 	import Event from "sap/ui/base/Event";
 	import Controller from "sap/ui/core/mvc/Controller";
