@@ -1,6 +1,6 @@
 {
 	"name": "@dbme/ts-types",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"description": "DBM|E & VSS TypeScript Definitions",
 	"copyright": "proaxia consulting group ag",
 	"license": "SEE LICENSE IN LICENSE.txt",
@@ -14,7 +14,8 @@
 		"typescript"
 	],
 	"dependencies": {
-		"@sapui5/ts-types-esm": "1.96.1"
+		"@sapui5/ts-types-esm": "1.96.1",
+		"@types/node": "^18.7.12"
 	}
 }
 
