@@ -29,7 +29,7 @@ declare module "vss/com/rcl/cart/ICartModel" {
 		ValidityStartDate?: Date;
 		ValidityEndDate?: Date;
 	};
-	export default interface ICartModel {
+	export interface ICartModel {
 		add(...newItems: TCartItem[]): void;
 		remove(...forRemove: TCartItem[]): void;
 	}
@@ -221,7 +221,7 @@ declare module "vss/com/rcl/cc/ext/CartItemsToContract" {
 		private _api;
 		private _itemsBinding;
 		constructor(_api: IObjectPageExtensionAPI, _itemsBinding: ODataListBinding);
-		create(...cartItems: TCartItem[]): Promise<any>;
+		create(...cartItems: TCartItem[]): Promise<unknown>;
 	}
 }
 declare module "vss/com/rcl/cc/ext/OverrideSaveButton" {
@@ -430,4 +430,3 @@ declare module "vss/com/rcl/utils/waitFor" {
 	 */
 	export default function (target: CallableFunction, limit?: $waitForSettings): Promise<unknown>;
 }
-//# sourceMappingURL=vss.com.rcl.d.ts.map
