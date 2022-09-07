@@ -100,6 +100,14 @@ declare module "vss/com/fe/ListReport" {
 		getFilterConditions(): object;
 		setFilterConditions(conditions: object): void;
 	}
+
+	/**
+	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/ui/mdc/FilterBar-dbg.js
+	 */
+	export interface IFilterBar {
+		getFilterConditions(): object;
+		setFilterConditions(conditions: object): void;
+	}
 }
 
 declare module "vss/com/fe/ObjectPage" {
