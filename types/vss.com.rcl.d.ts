@@ -1,4 +1,4 @@
-declare module "src/vss/com/rcl/library" {
+declare module "vss/com/rcl/library" {
 	export enum EventChannel {
 		RentalContractManagement = "RentalContractManagement"
 	}
@@ -7,8 +7,8 @@ declare module "src/vss/com/rcl/library" {
 		MainDevice = "M"
 	}
 }
-declare module "src/vss/com/rcl/cart/ICartModel" {
-	import { RentalClassType } from "src/vss/com/rcl/library";
+declare module "vss/com/rcl/cart/ICartModel" {
+	import { RentalClassType } from "vss/com/rcl/library";
 	export type TContractItemData = {
 		Equipment: string;
 		SerialNumber: string;
@@ -24,15 +24,15 @@ declare module "src/vss/com/rcl/cart/ICartModel" {
 		ValidityEndDate?: Date;
 	};
 }
-declare module "src/vss/com/rcl/cart/ICart" {
-	import { TCartItem } from "src/vss/com/rcl/cart/ICartModel";
+declare module "vss/com/rcl/cart/ICart" {
+	import { TCartItem } from "vss/com/rcl/cart/ICartModel";
 	export interface ICart {
 		getItems(): TCartItem[];
 		isEmpty(): boolean;
 		flush(): void;
 	}
 }
-declare module "src/vss/com/rcl/cc/i18n/Translate" {
+declare module "vss/com/rcl/cc/i18n/Translate" {
 	import ResourceBundle from "sap/base/i18n/ResourceBundle";
 	export function setBundle(b: ResourceBundle): void;
 	/**
@@ -40,7 +40,7 @@ declare module "src/vss/com/rcl/cc/i18n/Translate" {
 	 */
 	export default function (key: string, args?: any[]): string;
 }
-declare module "src/vss/com/rcl/cc/Component" {
+declare module "vss/com/rcl/cc/Component" {
 	import AppComponent from "sap/fe/core/AppComponent";
 	/**
 	 * @link https://ui5.sap.com/1.96.1/resources/sap/fe/core/AppComponent-dbg.js
@@ -57,7 +57,7 @@ declare module "src/vss/com/rcl/cc/Component" {
 		}>;
 	}
 }
-declare module "src/vss/com/rcl/cc/model/Enums" {
+declare module "vss/com/rcl/cc/model/Enums" {
 	export enum FixedString {
 		eol = "\n\r"
 	}
@@ -114,7 +114,7 @@ declare module "src/vss/com/rcl/cc/model/Enums" {
 		Piece = "PC"
 	}
 }
-declare module "src/vss/com/rcl/cc/model/InvokeActionPrepare" {
+declare module "vss/com/rcl/cc/model/InvokeActionPrepare" {
 	import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 	/**
 	 * invoke validation
@@ -129,7 +129,7 @@ declare module "src/vss/com/rcl/cc/model/InvokeActionPrepare" {
 		invoke(): Promise<void>;
 	}
 }
-declare module "src/vss/com/rcl/cc/model/ContractCreateCommand" {
+declare module "vss/com/rcl/cc/model/ContractCreateCommand" {
 	import { TDraftAdministrativeData } from "vss/com/fe/DraftTypes";
 	type TDocCreateOut = void;
 	/**
@@ -142,7 +142,7 @@ declare module "src/vss/com/rcl/cc/model/ContractCreateCommand" {
 		messageDialog(): import("sap/m/Dialog").default | undefined;
 	}
 }
-declare module "src/vss/com/rcl/utils/Logger" {
+declare module "vss/com/rcl/utils/Logger" {
 	/**
 	 * @namespace vss.com.rcl.utils
 	 */
@@ -151,13 +151,13 @@ declare module "src/vss/com/rcl/utils/Logger" {
 	export function info(message: string): void;
 	export function warning(message: string): void;
 }
-declare module "src/vss/com/rcl/utils/Container" {
+declare module "vss/com/rcl/utils/Container" {
 	import { IListReportExtensionAPI } from "vss/com/fe/ListReport";
 	import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 	import IAppComponent from "vss/com/fe/IAppComponent";
 	import IAppContainer, { IAnyTable } from "vss/com/fe/IAppContainer";
 	import UIComponent from "sap/ui/core/UIComponent";
-	import { ICart } from "src/vss/com/rcl/cart/ICart";
+	import { ICart } from "vss/com/rcl/cart/ICart";
 	export interface IAppContainerExtended extends IAppContainer {
 		get cart(): ICart;
 		set cart(cart: ICart);
@@ -188,7 +188,7 @@ declare module "src/vss/com/rcl/utils/Container" {
 		set cart(cart: ICart);
 	}
 }
-declare module "src/vss/com/rcl/cc/eh/SaveHandler" {
+declare module "vss/com/rcl/cc/eh/SaveHandler" {
 	import { IObjectPageController } from "vss/com/fe/ObjectPage";
 	import Event from "sap/ui/base/Event";
 	/**
@@ -198,10 +198,10 @@ declare module "src/vss/com/rcl/cc/eh/SaveHandler" {
 		static onSave(this: IObjectPageController, event: Event): void;
 	}
 }
-declare module "src/vss/com/rcl/cc/ext/CartItemsToContract" {
+declare module "vss/com/rcl/cc/ext/CartItemsToContract" {
 	import ODataListBinding from "sap/ui/model/odata/v4/ODataListBinding";
 	import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
-	import { TCartItem } from "src/vss/com/rcl/cart/ICartModel";
+	import { TCartItem } from "vss/com/rcl/cart/ICartModel";
 	/**
 	 * @namespace vss.com.rcl.cc.ext
 	 */
@@ -212,7 +212,7 @@ declare module "src/vss/com/rcl/cc/ext/CartItemsToContract" {
 		create(...cartItems: TCartItem[]): Promise<any>;
 	}
 }
-declare module "src/vss/com/rcl/cc/ext/OverrideSaveButton" {
+declare module "vss/com/rcl/cc/ext/OverrideSaveButton" {
 	import { IObjectPageController } from "vss/com/fe/ObjectPage";
 	/**
 	 * replace save button in footer
@@ -228,7 +228,7 @@ declare module "src/vss/com/rcl/cc/ext/OverrideSaveButton" {
 		private createSaveButton;
 	}
 }
-declare module "src/vss/com/rcl/utils/FioriTable" {
+declare module "vss/com/rcl/utils/FioriTable" {
 	import ResponsiveTable from "sap/m/Table";
 	import Control from "sap/ui/core/Control";
 	import Table from "sap/ui/table/Table";
@@ -242,7 +242,7 @@ declare module "src/vss/com/rcl/utils/FioriTable" {
 	export function getResponsiveTable(table: IFioriTable): ResponsiveTable;
 	export function getTable(table: IFioriTable): Table;
 }
-declare module "src/vss/com/rcl/cc/ext/controller/ObjectPageExtension.controller" {
+declare module "vss/com/rcl/cc/ext/controller/ObjectPageExtension.controller" {
 	import { IObjectPageController } from "vss/com/fe/ObjectPage";
 	const override: {
 		onInit(this: IObjectPageController): void;
@@ -261,7 +261,7 @@ declare module "src/vss/com/rcl/cc/ext/controller/ObjectPageExtension.controller
 	 */
 	export default override;
 }
-declare module "src/vss/com/rcl/ml/model/Enums" {
+declare module "vss/com/rcl/ml/model/Enums" {
 	export enum EventId {
 		MainListComponentOnInit = "MainListComponentOnInit",
 		MainListControllerOnInit = "MainListControllerOnInit",
@@ -285,7 +285,24 @@ declare module "src/vss/com/rcl/ml/model/Enums" {
 		ColumnActions = "ColumnActions"
 	}
 }
-declare module "src/vss/com/rcl/ml/Component" {
+declare module "vss/com/rcl/ml/types/EventParams" {
+	import Event from "sap/ui/base/Event";
+	import IAppComponent from "vss/com/fe/IAppComponent";
+	import { IListReportController } from "vss/com/fe/ListReport";
+	import { IFioriTable } from "vss/com/rcl/utils/FioriTable";
+	export type $MainListComponentOnInit = {
+		component: IAppComponent;
+	};
+	export type $MainListEvent = {
+		controller: IListReportController;
+		event: Event;
+	};
+	export interface $MainListControllerOnInit {
+		controller: IListReportController;
+		controls: IFioriTable[];
+	}
+}
+declare module "vss/com/rcl/ml/Component" {
 	import AppComponent from "sap/fe/core/AppComponent";
 	import IAppComponent, { IRoutingService } from "vss/com/fe/IAppComponent";
 	import IAppContainer from "vss/com/fe/IAppContainer";
@@ -302,7 +319,7 @@ declare module "src/vss/com/rcl/ml/Component" {
 		getRoutingService(): IRoutingService;
 	}
 }
-declare module "src/vss/com/rcl/ml/eh/CartItemEventHandler" {
+declare module "vss/com/rcl/ml/eh/CartItemEventHandler" {
 	import Event from "sap/ui/base/Event";
 	import { IListReportController } from "vss/com/fe/ListReport";
 	import { IObjectPageController } from "vss/com/fe/ObjectPage";
@@ -313,7 +330,7 @@ declare module "src/vss/com/rcl/ml/eh/CartItemEventHandler" {
 		static onActionButtonAddToCartPressed(this: IListReportController | IObjectPageController, event: Event): void;
 	}
 }
-declare module "src/vss/com/rcl/ml/eh/MainListTableEventHandler" {
+declare module "vss/com/rcl/ml/eh/MainListTableEventHandler" {
 	import Event from "sap/ui/base/Event";
 	import { IListReportController } from "vss/com/fe/ListReport";
 	/**
@@ -323,8 +340,8 @@ declare module "src/vss/com/rcl/ml/eh/MainListTableEventHandler" {
 		static onTableUpdateFinished(this: IListReportController, event: Event): void;
 	}
 }
-declare module "src/vss/com/rcl/ml/ext/ListReportTableExtension" {
-	import { IFioriTable } from "src/vss/com/rcl/utils/FioriTable";
+declare module "vss/com/rcl/ml/ext/ListReportTableExtension" {
+	import { IFioriTable } from "vss/com/rcl/utils/FioriTable";
 	/**
 	 * @namespace vss.com.rcl.ml.ext
 	 */
@@ -335,7 +352,7 @@ declare module "src/vss/com/rcl/ml/ext/ListReportTableExtension" {
 		private initTableEvents;
 	}
 }
-declare module "src/vss/com/rcl/ml/ext/ObjectPageSectionExtension" {
+declare module "vss/com/rcl/ml/ext/ObjectPageSectionExtension" {
 	import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 	/**
 	 * @namespace vss.com.rcl.ml.ext
@@ -347,7 +364,7 @@ declare module "src/vss/com/rcl/ml/ext/ObjectPageSectionExtension" {
 		private bindAccessoriesVisibility;
 	}
 }
-declare module "src/vss/com/rcl/ml/ext/ObjectPageToolbarExtension" {
+declare module "vss/com/rcl/ml/ext/ObjectPageToolbarExtension" {
 	import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 	/**
 	 * @namespace vss.com.rcl.ml.ext
@@ -360,7 +377,7 @@ declare module "src/vss/com/rcl/ml/ext/ObjectPageToolbarExtension" {
 		private createActionAddToCart;
 	}
 }
-declare module "src/vss/com/rcl/ml/ext/controller/ListReportExtension.controller" {
+declare module "vss/com/rcl/ml/ext/controller/ListReportExtension.controller" {
 	import Event from "sap/ui/base/Event";
 	import { IListReportController } from "vss/com/fe/ListReport";
 	const override: {
@@ -376,7 +393,7 @@ declare module "src/vss/com/rcl/ml/ext/controller/ListReportExtension.controller
 	 */
 	export default override;
 }
-declare module "src/vss/com/rcl/ml/ext/controller/ObjectPageExtension.controller" {
+declare module "vss/com/rcl/ml/ext/controller/ObjectPageExtension.controller" {
 	import { IObjectPageController } from "vss/com/fe/ObjectPage";
 	const override: {
 		onInit(this: IObjectPageController): void;
@@ -396,7 +413,7 @@ declare var currentScript: HTMLElement | null;
 declare var manifestUri: string | null;
 declare var componentName: string | null;
 declare var useMockserver: string | null;
-declare module "src/vss/com/rcl/utils/waitFor" {
+declare module "vss/com/rcl/utils/waitFor" {
 	export type $waitForSettings = {
 		times: number;
 		timeout: number;
