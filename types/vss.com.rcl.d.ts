@@ -9,6 +9,12 @@ declare module "vss/com/rcl/library" {
 }
 declare module "vss/com/rcl/cart/ICartModel" {
 	import { RentalClassType } from "vss/com/rcl/library";
+	export enum IconUri {
+		CartAdd = "sap-icon://cart-3",
+		CartRemove = "sap-icon://cart-2",
+		CartEmpty = "sap-icon://cart",
+		CartFull = "sap-icon://cart-full"
+	}
 	export type TContractItemData = {
 		Equipment: string;
 		SerialNumber: string;
@@ -23,13 +29,19 @@ declare module "vss/com/rcl/cart/ICartModel" {
 		ValidityStartDate?: Date;
 		ValidityEndDate?: Date;
 	};
+	export default interface ICartModel {
+		add(...newItems: TCartItem[]): void;
+		remove(...forRemove: TCartItem[]): void;
+	}
 }
 declare module "vss/com/rcl/cart/ICart" {
 	import { TCartItem } from "vss/com/rcl/cart/ICartModel";
-	export interface ICart {
+	export default interface ICart {
 		getItems(): TCartItem[];
 		isEmpty(): boolean;
 		flush(): void;
+		add(...newItems: TCartItem[]): void;
+		remove(...forRemove: TCartItem[]): void;
 	}
 }
 declare module "vss/com/rcl/cc/i18n/Translate" {
@@ -157,7 +169,7 @@ declare module "vss/com/rcl/utils/Container" {
 	import IAppComponent from "vss/com/fe/IAppComponent";
 	import IAppContainer, { IAnyTable } from "vss/com/fe/IAppContainer";
 	import UIComponent from "sap/ui/core/UIComponent";
-	import { ICart } from "vss/com/rcl/cart/ICart";
+	import ICart from "vss/com/rcl/cart/ICart";
 	export interface IAppContainerExtended extends IAppContainer {
 		get cart(): ICart;
 		set cart(cart: ICart);
@@ -408,11 +420,6 @@ declare module "vss/com/rcl/ml/ext/controller/ObjectPageExtension.controller" {
 	 */
 	export default override;
 }
-declare var scripts: HTMLCollectionOf<HTMLScriptElement>;
-declare var currentScript: HTMLElement | null;
-declare var manifestUri: string | null;
-declare var componentName: string | null;
-declare var useMockserver: string | null;
 declare module "vss/com/rcl/utils/waitFor" {
 	export type $waitForSettings = {
 		times: number;
