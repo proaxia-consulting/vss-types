@@ -8,6 +8,7 @@ declare module "vss/com/rcl/library" {
 	}
 }
 declare module "vss/com/rcl/cart/ICartModel" {
+	import JSONModel from "sap/ui/model/json/JSONModel";
 	import { RentalClassType } from "vss/com/rcl/library";
 	export enum IconUri {
 		CartAdd = "sap-icon://cart-3",
@@ -32,16 +33,18 @@ declare module "vss/com/rcl/cart/ICartModel" {
 	export interface ICartModel {
 		add(...newItems: TCartItem[]): void;
 		remove(...forRemove: TCartItem[]): void;
+		model(): JSONModel;
 	}
 }
 declare module "vss/com/rcl/cart/ICart" {
-	import { TCartItem } from "vss/com/rcl/cart/ICartModel";
+	import { TCartItem, ICartModel } from "vss/com/rcl/cart/ICartModel";
 	export default interface ICart {
 		getItems(): TCartItem[];
 		isEmpty(): boolean;
 		flush(): void;
 		add(...newItems: TCartItem[]): void;
 		remove(...forRemove: TCartItem[]): void;
+		model(): ICartModel;
 	}
 }
 declare module "vss/com/rcl/cc/i18n/Translate" {
@@ -164,7 +167,7 @@ declare module "vss/com/rcl/utils/Logger" {
 	export function warning(message: string): void;
 }
 declare module "vss/com/rcl/utils/Container" {
-	import { IListReportExtensionAPI } from "vss/com/fe/ListReport";
+	import { IListReportExtensionAPI, IFilterBar } from "vss/com/fe/ListReport";
 	import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 	import IAppComponent from "vss/com/fe/IAppComponent";
 	import IAppContainer, { IAnyTable } from "vss/com/fe/IAppContainer";
@@ -184,6 +187,7 @@ declare module "vss/com/rcl/utils/Container" {
 		private _objectPageAPI?;
 		private _com?;
 		private _mainList?;
+		private _mainFilter?;
 		private _cart?;
 		static getInstance(): Container;
 		get com(): UIComponent;
@@ -198,6 +202,8 @@ declare module "vss/com/rcl/utils/Container" {
 		set mainList(com: IAppComponent);
 		get cart(): ICart;
 		set cart(cart: ICart);
+		get mainFilter(): IFilterBar;
+		set mainFilter(filter: IFilterBar);
 	}
 }
 declare module "vss/com/rcl/cc/eh/SaveHandler" {
@@ -286,12 +292,15 @@ declare module "vss/com/rcl/ml/model/Enums" {
 		MainListOnActionButtonAddToCartPress = "MainListOnActionButtonAddToCartPress"
 	}
 	export enum ModelName {
+		cart = "cart",
 		internal = "internal",
 		i18n = "i18n"
 	}
 	export enum ControlId {
-		rootTable = "fe::table::RootTab::LineItem",
-		materialTable = "fe::table::MaterialTab::LineItem"
+		accessoryTable = "fe::table::accessoryTab::LineItem",
+		materialTable = "fe::table::MaterialTab::LineItem",
+		rootFilter = "fe::FilterBar::Root",
+		rootTable = "fe::table::RootTab::LineItem"
 	}
 	export enum FieldGroupId {
 		ColumnActions = "ColumnActions"
@@ -333,13 +342,14 @@ declare module "vss/com/rcl/ml/Component" {
 }
 declare module "vss/com/rcl/ml/eh/CartItemEventHandler" {
 	import Event from "sap/ui/base/Event";
-	import { IListReportController } from "vss/com/fe/ListReport";
+	import { IListReportExtensionAPI } from "vss/com/fe/ListReport";
 	import { IObjectPageController } from "vss/com/fe/ObjectPage";
 	/**
 	 * @namespace vss.com.rcl.ml.eh
 	 */
 	export default class CartItemEventHandler {
-		static onActionButtonAddToCartPressed(this: IListReportController | IObjectPageController, event: Event): void;
+		static onActionButtonAddToCartPressed(this: IListReportExtensionAPI | IObjectPageController, event: Event): void;
+		private static propagateAccessoryToMainDeviceFilter;
 	}
 }
 declare module "vss/com/rcl/ml/eh/MainListTableEventHandler" {
