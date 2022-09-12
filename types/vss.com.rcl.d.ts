@@ -18,8 +18,10 @@ declare module "vss/com/rcl/cart/ICartModel" {
 	}
 	export type TContractItemData = {
 		Equipment: string;
+		Equipment_Text?: string;
 		SerialNumber: string;
 		Material: string;
+		Material_Text?: string;
 		Plant: string;
 		StorageLocation: string;
 		RentalClassType?: RentalClassType;
@@ -29,6 +31,10 @@ declare module "vss/com/rcl/cart/ICartModel" {
 		Quantity: number;
 		ValidityStartDate?: Date;
 		ValidityEndDate?: Date;
+	};
+	export type TCartData = {
+		items: TCartItem[];
+		enabled: boolean;
 	};
 	export interface ICartModel {
 		add(...newItems: TCartItem[]): void;
@@ -78,6 +84,7 @@ declare module "vss/com/rcl/cc/model/Enums" {
 	}
 	export enum ModelName {
 		action = "action",
+		cart = "cart",
 		device = "device",
 		i18n = "i18n",
 		local = "local",
@@ -349,7 +356,20 @@ declare module "vss/com/rcl/ml/eh/CartItemEventHandler" {
 	 */
 	export default class CartItemEventHandler {
 		static onActionButtonAddToCartPressed(this: IListReportExtensionAPI | IObjectPageController, event: Event): void;
-		private static propagateAccessoryToMainDeviceFilter;
+	}
+}
+declare module "vss/com/rcl/ml/eh/MainDeviceFilter" {
+	import Event from "sap/ui/base/Event";
+	import { IListReportController } from "vss/com/fe/ListReport";
+	import { TCartItem } from "vss/com/rcl/cart/ICartModel";
+	/**
+	 * @namespace vss.com.rcl.ml.eh
+	 */
+	export default class MainDeviceFilter {
+		static onSelectionChange(this: IListReportController, event: Event): void;
+		static onSelectionFinish(this: IListReportController, event: Event): void;
+		static formatEnabledForEquipment(this: IListReportController, cartItems: TCartItem[]): boolean;
+		static formatEnabledForMaterial(this: IListReportController, cartItems: TCartItem[]): boolean;
 	}
 }
 declare module "vss/com/rcl/ml/eh/MainListTableEventHandler" {
