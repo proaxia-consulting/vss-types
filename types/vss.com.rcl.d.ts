@@ -180,6 +180,7 @@ declare module "vss/com/rcl/utils/Container" {
 	import IAppContainer, { IAnyTable } from "vss/com/fe/IAppContainer";
 	import UIComponent from "sap/ui/core/UIComponent";
 	import ICart from "vss/com/rcl/cart/ICart";
+	import MenuButton from "sap/m/MenuButton";
 	export interface IAppContainerExtended extends IAppContainer {
 		get cart(): ICart;
 		set cart(cart: ICart);
@@ -196,7 +197,8 @@ declare module "vss/com/rcl/utils/Container" {
 		private _mainList?;
 		private _mainFilter?;
 		private _cart?;
-		static getInstance(): Container;
+		private _actionDropdown?;
+		static getInstance(reload?: boolean): Container;
 		get com(): UIComponent;
 		set com(com: UIComponent);
 		get listReportAPI(): IListReportExtensionAPI;
@@ -211,6 +213,8 @@ declare module "vss/com/rcl/utils/Container" {
 		set cart(cart: ICart);
 		get mainFilter(): IFilterBar;
 		set mainFilter(filter: IFilterBar);
+		get actionDropdown(): MenuButton;
+		set actionDropdown(control: MenuButton);
 	}
 }
 declare module "vss/com/rcl/cc/eh/SaveHandler" {
@@ -304,7 +308,6 @@ declare module "vss/com/rcl/ml/model/Enums" {
 		i18n = "i18n"
 	}
 	export enum ControlId {
-		accessoryTable = "fe::table::accessoryTab::LineItem",
 		materialTable = "fe::table::MaterialTab::LineItem",
 		rootFilter = "fe::FilterBar::Root",
 		rootTable = "fe::table::RootTab::LineItem"
@@ -358,18 +361,15 @@ declare module "vss/com/rcl/ml/eh/CartItemEventHandler" {
 		static onActionButtonAddToCartPressed(this: IListReportExtensionAPI | IObjectPageController, event: Event): void;
 	}
 }
-declare module "vss/com/rcl/ml/eh/MainDeviceFilter" {
+declare module "vss/com/rcl/ml/eh/FilterMainDevice" {
 	import Event from "sap/ui/base/Event";
 	import { IListReportController } from "vss/com/fe/ListReport";
-	import { TCartItem } from "vss/com/rcl/cart/ICartModel";
 	/**
 	 * @namespace vss.com.rcl.ml.eh
 	 */
-	export default class MainDeviceFilter {
+	export default class FilterMainDevice {
 		static onSelectionChange(this: IListReportController, event: Event): void;
 		static onSelectionFinish(this: IListReportController, event: Event): void;
-		static formatEnabledForEquipment(this: IListReportController, cartItems: TCartItem[]): boolean;
-		static formatEnabledForMaterial(this: IListReportController, cartItems: TCartItem[]): boolean;
 	}
 }
 declare module "vss/com/rcl/ml/eh/MainListTableEventHandler" {
