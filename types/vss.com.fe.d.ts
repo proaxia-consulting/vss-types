@@ -102,11 +102,13 @@ declare module "vss/com/fe/ListReport" {
 	}
 
 	/**
-	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/ui/mdc/FilterBar-dbg.js
+	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/core/controls/FilterBar-dbg.js
 	 */
 	export interface IFilterBar {
 		getFilterConditions(): object;
 		setFilterConditions(conditions: object): void;
+		attachFiltersChanged(fnFunction: Function, oListener?: object): void;
+		attachSearch(fnFunction: Function, oListener?: object): void;
 	}
 }
 
