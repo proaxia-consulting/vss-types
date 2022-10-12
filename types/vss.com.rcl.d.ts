@@ -1,3 +1,15 @@
+declare module "vss/com/rcl/model/type/CharacteristicValues" {
+	import Raw from "sap/ui/model/odata/type/Raw";
+	/**
+	 * @namespace vss.com.rcl.model.type
+	 */
+	export default class CharacteristicValues extends Raw {
+		private _typeDecimal;
+		constructor(oFormatOptions?: object, oConstraints?: object);
+		formatValue(vValue: any, sTargetType: string): any;
+		getName(): string;
+	}
+}
 declare module "vss/com/rcl/library" {
 	export enum EventChannel {
 		RentalContractManagement = "RentalContractManagement"
@@ -23,7 +35,9 @@ declare module "vss/com/rcl/cart/ICartModel" {
 		Material: string;
 		Material_Text?: string;
 		Plant: string;
+		Plant_Text?: string;
 		StorageLocation: string;
+		StorageLocationText?: string;
 		RentalClassType?: RentalClassType;
 	};
 	export type TCartItem = {
@@ -449,6 +463,13 @@ declare module "vss/com/rcl/ml/ext/controller/ObjectPageExtension.controller" {
 	 * @namespace vss.com.rcl.ml.ext.controller
 	 */
 	export default override;
+}
+declare module "vss/com/rcl/model/format/CharacteristicValuesFormat" {
+	import ODataPropertyBinding from "sap/ui/model/odata/v4/ODataPropertyBinding";
+	/**
+	 * @name vss.com.rcl.model.format.CharacteristicValuesFormat
+	 */
+	export default function (this: ODataPropertyBinding, value: unknown): string;
 }
 declare module "vss/com/rcl/utils/waitFor" {
 	export type $waitForSettings = {
