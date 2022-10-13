@@ -77,6 +77,7 @@ declare module "vss/com/fe/ListReport" {
 	import IAppComponent from "vss/com/fe/IAppComponent";
 	import PageController from "sap/fe/core/PageController";
 	import { IEditFlow } from "vss/com/fe/core/controllerextensions";
+	import FilterOperator from "sap/ui/model/FilterOperator";
 
 	export interface IListReportExtensionAPI extends ExtensionAPI {
 		editFlow: IEditFlow;
@@ -101,12 +102,21 @@ declare module "vss/com/fe/ListReport" {
 		setFilterConditions(conditions: object): void;
 	}
 
+	export type TFilterConditions = Record<string, TFilterCondition[]>;
+	export type TFilterCondition = {
+		operator: FilterOperator;
+		values: string[];
+	};
+
+	export interface IFilterConditionsAware {
+		getFilterConditions(): TFilterConditions;
+		setFilterConditions(conditions: TFilterConditions): void;
+	}
+
 	/**
 	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/core/controls/FilterBar-dbg.js
 	 */
-	export interface IFilterBar {
-		getFilterConditions(): object;
-		setFilterConditions(conditions: object): void;
+	export interface IFilterBar extends IFilterConditionsAware {
 		attachFiltersChanged(fnFunction: Function, oListener?: object): void;
 		attachSearch(fnFunction: Function, oListener?: object): void;
 	}
