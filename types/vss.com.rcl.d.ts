@@ -11,6 +11,20 @@ declare module "vss/com/rcl/model/type/CharacteristicValues" {
 	}
 }
 declare module "vss/com/rcl/library" {
+	export enum CharacteristicDataType {
+		Numeric = "NUM",
+		String = "CHAR",
+		Currency = "CURR",
+		Date = "DATE",
+		Time = "TIME",
+		UserDefined = "UDEF"
+	}
+	export enum EntitySet {
+		CharcFilter = "CharcFilter",
+		Charc = "CMCharc",
+		Contract = "Contract",
+		EquipmentHierarchyCustom = "EquipmentHierarchyCustom"
+	}
 	export enum EventChannel {
 		RentalContractManagement = "RentalContractManagement"
 	}
@@ -37,7 +51,7 @@ declare module "vss/com/rcl/cart/ICartModel" {
 		Plant: string;
 		Plant_Text?: string;
 		StorageLocation: string;
-		StorageLocationText?: string;
+		StorageLocation_Text?: string;
 		RentalClassType?: RentalClassType;
 	};
 	export type TCartItem = {
@@ -329,6 +343,10 @@ declare module "vss/com/rcl/ml/model/Enums" {
 	export enum FieldGroupId {
 		ColumnActions = "ColumnActions"
 	}
+	export enum RootSection {
+		Accessories = "Accessories",
+		EquipmentHierarchy = "EquipmentHierarchy"
+	}
 }
 declare module "vss/com/rcl/ml/types/EventParams" {
 	import Event from "sap/ui/base/Event";
@@ -408,6 +426,94 @@ declare module "vss/com/rcl/ml/ext/ListReportTableExtension" {
 		private initTableEvents;
 	}
 }
+declare module "vss/com/rcl/types/EntitySet" {
+	import { CharacteristicDataType, RentalClassType } from "vss/com/rcl/library";
+	export type TRootEntity = {
+		Equipment: string;
+		EquipmentName: string;
+		Material: string;
+		MaterialName: string;
+		Plant: string;
+		PlantName: string;
+		StorageLocation: string;
+		StorageLocationName: string;
+		RentalClassType: string;
+		RentalClassTypeText: string;
+		HierarchyLevel: number;
+		HierarchyRoot: string;
+	};
+	export type TCharcFilterEntity = {
+		CharcInternalID: string;
+		_Charc?: TCharcEntity;
+		_ClassCharc?: TClassCharcEntity[];
+	};
+	export type TClassCharcEntity = {
+		CharcInternalID: string;
+		ClassInternalID: string;
+		ClassDescription: string;
+		RentalClassType: RentalClassType;
+		_Charc?: TCharcEntity[];
+	};
+	export type TCharcEntity = {
+		AdditionalValueIsAllowed: boolean;
+		Characteristic: string;
+		Characteristic_Text: string;
+		CharcDataType: CharacteristicDataType;
+		CharcDecimals: number;
+		CharcExponentFormat: string;
+		CharcExponentValue: number;
+		CharcInternalID: string;
+		TimeIntervalNumber: string;
+		CharcLength: number;
+		CharcTemplate: string;
+		CharcValueUnit: string;
+		Currency: string;
+		EntryIsRequired: boolean;
+		MultipleValuesAreAllowed: boolean;
+		NegativeValueIsAllowed: boolean;
+		ValueIntervalIsAllowed: boolean;
+		ValueIsCaseSensitive: boolean;
+		_Values?: TCharcValEntity[];
+		_ClassCharc?: TClassCharcEntity;
+	};
+	export type TCharcValEntity = {
+		CharcInternalID: string;
+		CharcValuePositionNumber: number;
+		TimeIntervalNumber: number;
+		CharcValueParentPositionNumber: number;
+		CharcValueHasChild: boolean;
+		CharcValueIntervalType: string;
+		CharcValue: string;
+		CharcFromNumericValue: number;
+		CharcToNumericValue: number;
+		CharcFromNumericValueUnit: string;
+		CharcToNumericValueUnit: string;
+		CharcFromDate: string;
+		CharcToDate: string;
+		CharcFromTime: string;
+		CharcToTime: string;
+		CharcFromAmount: number;
+		CharcToAmount: number;
+		Currency: string;
+		IsDefaultValue: boolean;
+		CharcFromDecimalValue: string;
+		CharcToDecimalValue: string;
+		CharcValueDescription: string;
+	};
+	export type TEquipmentTextEntity = {
+		Equipment: string;
+		Language: string;
+		EquipmentName: string;
+	};
+	export type TEquipmentHierarchyCustomEntity = {
+		Equipment: string;
+		SuperordinateEquipment: string;
+		HierarchyRoot: string;
+		HierarchyLevel: number;
+		_EquipmentText?: TEquipmentTextEntity;
+		_Root?: TRootEntity[];
+	};
+}
 declare module "vss/com/rcl/ml/ext/ObjectPageSectionExtension" {
 	import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 	/**
@@ -418,6 +524,7 @@ declare module "vss/com/rcl/ml/ext/ObjectPageSectionExtension" {
 		private _pageLayout;
 		constructor(_api: IObjectPageExtensionAPI);
 		private bindAccessoriesVisibility;
+		private applyEquipmentHierarchyFilter;
 	}
 }
 declare module "vss/com/rcl/ml/ext/ObjectPageToolbarExtension" {
@@ -463,6 +570,20 @@ declare module "vss/com/rcl/ml/ext/controller/ObjectPageExtension.controller" {
 	 * @namespace vss.com.rcl.ml.ext.controller
 	 */
 	export default override;
+}
+declare module "vss/com/rcl/model/EquipmentHierarchyQuery" {
+	import ODataModel from "sap/ui/model/odata/v4/ODataModel";
+	import { TEquipmentHierarchyCustomEntity, TRootEntity } from "vss/com/rcl/types/EntitySet";
+	/**
+	 * @namespace vss.com.rcl.model
+	 */
+	export default class EquipmentHierarchyQuery {
+		private _model;
+		private _path;
+		constructor(_model: ODataModel);
+		run(rootEntity: TRootEntity[]): Promise<TEquipmentHierarchyCustomEntity[]>;
+		private createFilters;
+	}
 }
 declare module "vss/com/rcl/model/format/CharacteristicValuesFormat" {
 	import ODataPropertyBinding from "sap/ui/model/odata/v4/ODataPropertyBinding";
