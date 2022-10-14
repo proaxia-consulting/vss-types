@@ -120,11 +120,10 @@ declare module "dbme/c/print/PrintHandler" {
 // ========================================== GENERATED >>>
 declare module "dbme/c/library" {
 	import ResourceBundle from "sap/base/i18n/ResourceBundle";
-	interface ICommonLibrary {
-		version: string;
-	}
 	export const libraryNamespace = "dbme.c";
-	const thisLib: ICommonLibrary;
+	const thisLib: {
+		[key: string]: unknown;
+	};
 	export enum ControlId {
 		LogOpener = "idDBMELogBtnMessagePopoverOpener",
 		LogPopover = "idDBMELogMessagePopover"
@@ -199,8 +198,8 @@ declare module "dbme/c/util/handleReturn" {
 	export type TResponseSuccessMessages = TResponseDetails & {
 		details: TResponseDetails[];
 	};
-	export function handleError(e: any): Dialog;
-	export function handleSuccess(response: TResponseSuccess): Dialog;
+	export function handleError(e: any): Dialog | undefined;
+	export function handleSuccess(response: TResponseSuccess): Dialog | undefined;
 }
 declare module "dbme/c/odata/ODataMessageParser" {
 	import Message from "sap/ui/core/message/Message";
@@ -208,7 +207,7 @@ declare module "dbme/c/odata/ODataMessageParser" {
 	import Parent from "sap/ui/model/odata/ODataMessageParser";
 	import ODataMetadata from "sap/ui/model/odata/ODataMetadata";
 	type TRequest = {
-		requestUri: string;
+		requestUri?: string;
 	};
 	export default class ODataMessageParser extends Parent {
 		static metadata: {
@@ -217,7 +216,7 @@ declare module "dbme/c/odata/ODataMessageParser" {
 		private _metadata?;
 		private _lastMessages?;
 		private _processor?;
-		constructor(sServiceUrl: string, oMetadata: ODataMetadata);
+		constructor(sServiceUrl: string | undefined, oMetadata: ODataMetadata);
 		parse(oResponse: TResponseSuccess, oRequest?: TRequest, mGetEntities?: any, mChangeEntities?: any): this;
 		getLastMessages(bUnique?: boolean, bClear?: boolean): Message[];
 		private _createTarget;
@@ -296,7 +295,7 @@ declare module "dbme/c/controller/Base" {
 	 * @namespace dbme.c.controller
 	 */
 	export default class Base extends Controller {
-		private _oLog;
+		private _oLog?;
 		/**
 		 * Keep the interfce unchanged to avoid errors in child controllers
 		 */
@@ -313,6 +312,9 @@ declare module "dbme/c/controller/Base" {
 		getLog(): _Log;
 		_getModel(): ODataModel;
 	}
+}
+declare module "dbme/c/model/CommonType" {
+	export type TObject = Record<string, unknown>;
 }
 declare module "dbme/c/odata/ODataQuery" {
 	import Filter from "sap/ui/model/Filter";
@@ -366,6 +368,7 @@ declare module "dbme/c/odata/ODataCommand" {
 	}
 }
 declare module "dbme/c/odata/v4/ODataQuery" {
+	import { TObject } from "dbme/c/model/CommonType";
 	import Context from "sap/ui/model/Context";
 	import Filter from "sap/ui/model/Filter";
 	import ODataModel from "sap/ui/model/odata/v4/ODataModel";
@@ -377,8 +380,40 @@ declare module "dbme/c/odata/v4/ODataQuery" {
 		protected sPath: string;
 		protected aFilters: Filter[];
 		constructor(oModel: ODataModel, sPath: string, aFilters?: Filter[]);
-		read(oUrlParams?: Record<string, string>): Promise<Context[]>;
+		read(oUrlParams?: Record<string, string>, asContext?: boolean): Promise<Context[] | TObject[]>;
 	}
+}
+declare module "dbme/c/odata/v4/entityType" {
+	import ODataMetaModel from "sap/ui/model/odata/v4/ODataMetaModel";
+	export type TEntityTypeProperty = {
+		$kind: string;
+		$Type: string;
+		$Nullable?: boolean;
+		$MaxLength?: number;
+	};
+	export type TEntityType = Record<string, TEntityTypeProperty> & {
+		$Key: string[];
+		$kind: string;
+	};
+	/**
+	 * @name dbme.c.odata.v4.entityType
+	 */
+	export default function (metaModel: ODataMetaModel, entityName: string): Promise<TEntityType>;
+}
+declare module "dbme/c/odata/v4/createKey" {
+	import { TObject } from "dbme/c/model/CommonType";
+	import ODataMetaModel from "sap/ui/model/odata/v4/ODataMetaModel";
+	/**
+	 * @name dbme.c.odata.v4.createKey
+	 */
+	export default function (metaModel: ODataMetaModel, entityName: string, entityData: TObject): Promise<string>;
+}
+declare module "dbme/c/odata/v4/entityProperties" {
+	import ODataMetaModel from "sap/ui/model/odata/v4/ODataMetaModel";
+	/**
+	 * @name dbme.c.odata.v4.entityProperties
+	 */
+	export default function (metaModel: ODataMetaModel, entityName: string, withKey?: boolean): Promise<string[]>;
 }
 declare module "dbme/c/util/RemoteMethodCall" {
 	import { TResponseSuccess } from "dbme/c/util/handleReturn";
