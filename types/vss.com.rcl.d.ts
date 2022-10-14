@@ -501,7 +501,7 @@ declare module "vss/com/rcl/model/EquipmentHierarchyQuery" {
 		private _model;
 		private _path;
 		constructor(_model: ODataModel);
-		run(rootEntity: TRootEntity[]): Promise<unknown[] | import("sap/ui/model/Context").default[]>;
+		run(rootEntity: TRootEntity[]): Promise<TEquipmentHierarchyCustomEntity[]>;
 		asTree(rootEntity: TRootEntity[]): Promise<THierarchyItem[]>;
 		private createFilters;
 		private mapTree;
@@ -629,3 +629,4 @@ declare module "vss/com/rcl/utils/waitFor" {
 	 */
 	export default function (target: CallableFunction, limit?: $waitForSettings): Promise<unknown>;
 }
+//# sourceMappingURL=vss.com.rcl.d.ts.map
