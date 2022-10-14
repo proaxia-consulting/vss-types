@@ -320,15 +320,16 @@ declare module "dbme/c/odata/ODataQuery" {
 	import Filter from "sap/ui/model/Filter";
 	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 	import { TResponseSuccess } from "dbme/c/util/handleReturn";
+	import { TObject } from "dbme/c/model/CommonType";
 	export type TResponseData = {
 		__count: int;
-		results: any[];
+		results: TObject[];
 	};
 	export type TResponse = Omit<TResponseSuccess, "data"> & {
 		data: TResponseData | object;
 	};
 	export type TODataQueryResult = {
-		data: any | any[];
+		data: TObject | TObject[];
 		response: TResponse;
 	};
 	/**
@@ -368,19 +369,18 @@ declare module "dbme/c/odata/ODataCommand" {
 	}
 }
 declare module "dbme/c/odata/v4/ODataQuery" {
-	import { TObject } from "dbme/c/model/CommonType";
 	import Context from "sap/ui/model/Context";
 	import Filter from "sap/ui/model/Filter";
 	import ODataModel from "sap/ui/model/odata/v4/ODataModel";
 	/**
 	 * @namespace dbme.c.odata.v4
 	 */
-	export default class ODataQuery {
+	export default class ODataQuery<TEntityData> {
 		protected oModel: ODataModel;
 		protected sPath: string;
 		protected aFilters: Filter[];
 		constructor(oModel: ODataModel, sPath: string, aFilters?: Filter[]);
-		read(oUrlParams?: Record<string, string>, asContext?: boolean): Promise<Context[] | TObject[]>;
+		read(oUrlParams?: Record<string, string>, asContext?: boolean): Promise<Context[] | TEntityData[]>;
 	}
 }
 declare module "dbme/c/odata/v4/entityType" {
