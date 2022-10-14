@@ -118,7 +118,7 @@ declare module "dbme/c/print/PrintHandler" {
 }
 
 // ========================================== GENERATED >>>
-declare module "src/dbme/c/library" {
+declare module "dbme/c/library" {
 	import ResourceBundle from "sap/base/i18n/ResourceBundle";
 	export const libraryNamespace = "dbme.c";
 	const thisLib: {
@@ -143,18 +143,18 @@ declare module "src/dbme/c/library" {
 	 */
 	export default thisLib;
 }
-declare module "src/dbme/c/UrlUtils" {
+declare module "dbme/c/UrlUtils" {
 	export function isUrl(sUrl: string): boolean;
 	export function getUrlParams(sUrl?: string): Record<string, string>;
 	export function baseUrl(sUrl?: string): string;
 }
-declare module "src/dbme/c/i18n/Translate" {
+declare module "dbme/c/i18n/Translate" {
 	/**
 	 * @name dbme.c.i18n.Translate
 	 */
 	export default function (key: string, args?: any[]): string;
 }
-declare module "src/dbme/c/util/handleReturn" {
+declare module "dbme/c/util/handleReturn" {
 	import Dialog from "sap/m/Dialog";
 	enum Severity {
 		info = "info",
@@ -201,9 +201,9 @@ declare module "src/dbme/c/util/handleReturn" {
 	export function handleError(e: any): Dialog | undefined;
 	export function handleSuccess(response: TResponseSuccess): Dialog | undefined;
 }
-declare module "src/dbme/c/odata/ODataMessageParser" {
+declare module "dbme/c/odata/ODataMessageParser" {
 	import Message from "sap/ui/core/message/Message";
-	import { TResponseSuccess } from "src/dbme/c/util/handleReturn";
+	import { TResponseSuccess } from "dbme/c/util/handleReturn";
 	import Parent from "sap/ui/model/odata/ODataMessageParser";
 	import ODataMetadata from "sap/ui/model/odata/ODataMetadata";
 	type TRequest = {
@@ -227,10 +227,10 @@ declare module "src/dbme/c/odata/ODataMessageParser" {
 		private _getCustomHeaders;
 	}
 }
-declare module "src/dbme/c/Log" {
+declare module "dbme/c/Log" {
 	import { MessageType } from "sap/ui/core/library";
 	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-	import { TResponseSuccess } from "src/dbme/c/util/handleReturn";
+	import { TResponseSuccess } from "dbme/c/util/handleReturn";
 	export type TMessage = {
 		code: string;
 		counter: number;
@@ -268,7 +268,7 @@ declare module "src/dbme/c/Log" {
 		private _getMessageTemplate;
 	}
 }
-declare module "src/dbme/c/StringUtils" {
+declare module "dbme/c/StringUtils" {
 	/**
 	 * Pad a string to a certain length with another string
 	 */
@@ -286,10 +286,10 @@ declare module "src/dbme/c/StringUtils" {
 	 */
 	export function ucFirst(sValue: string): string;
 }
-declare module "src/dbme/c/controller/Base" {
+declare module "dbme/c/controller/Base" {
 	import Controller from "sap/ui/core/mvc/Controller";
 	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-	import _Log from "src/dbme/c/Log";
+	import _Log from "dbme/c/Log";
 	/**
 	 * @global
 	 * @namespace dbme.c.controller
@@ -313,14 +313,14 @@ declare module "src/dbme/c/controller/Base" {
 		_getModel(): ODataModel;
 	}
 }
-declare module "src/dbme/c/model/CommonType" {
+declare module "dbme/c/model/CommonType" {
 	export type TObject = Record<string, unknown>;
 }
-declare module "src/dbme/c/odata/ODataQuery" {
+declare module "dbme/c/odata/ODataQuery" {
 	import Filter from "sap/ui/model/Filter";
 	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-	import { TResponseSuccess } from "src/dbme/c/util/handleReturn";
-	import { TObject } from "src/dbme/c/model/CommonType";
+	import { TResponseSuccess } from "dbme/c/util/handleReturn";
+	import { TObject } from "dbme/c/model/CommonType";
 	export type TResponseData = {
 		__count: int;
 		results: TObject[];
@@ -343,10 +343,10 @@ declare module "src/dbme/c/odata/ODataQuery" {
 		read(oUrlParams?: Record<string, string>): Promise<TODataQueryResult>;
 	}
 }
-declare module "src/dbme/c/odata/ODataCommand" {
-	import Log, { TMessage } from "src/dbme/c/Log";
+declare module "dbme/c/odata/ODataCommand" {
+	import Log, { TMessage } from "dbme/c/Log";
 	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-	import { TResponse } from "src/dbme/c/odata/ODataQuery";
+	import { TResponse } from "dbme/c/odata/ODataQuery";
 	export type TODataMessage = TMessage;
 	export type TODataCommandResult = {
 		data: any | any[];
@@ -368,7 +368,7 @@ declare module "src/dbme/c/odata/ODataCommand" {
 		remove(sPath: string): Promise<TODataCommandResult>;
 	}
 }
-declare module "src/dbme/c/odata/v4/ODataQuery" {
+declare module "dbme/c/odata/v4/ODataQuery" {
 	import Filter from "sap/ui/model/Filter";
 	import Context from "sap/ui/model/odata/v4/Context";
 	import ODataModel from "sap/ui/model/odata/v4/ODataModel";
@@ -383,7 +383,7 @@ declare module "src/dbme/c/odata/v4/ODataQuery" {
 		read(oUrlParams?: Record<string, string>, asContext?: boolean): Promise<Context[] | TEntityData[]>;
 	}
 }
-declare module "src/dbme/c/odata/v4/entityType" {
+declare module "dbme/c/odata/v4/entityType" {
 	import ODataMetaModel from "sap/ui/model/odata/v4/ODataMetaModel";
 	export type TEntityTypeProperty = {
 		$kind: string;
@@ -400,23 +400,23 @@ declare module "src/dbme/c/odata/v4/entityType" {
 	 */
 	export default function (metaModel: ODataMetaModel, entityName: string): Promise<TEntityType>;
 }
-declare module "src/dbme/c/odata/v4/createKey" {
-	import { TObject } from "src/dbme/c/model/CommonType";
+declare module "dbme/c/odata/v4/createKey" {
+	import { TObject } from "dbme/c/model/CommonType";
 	import ODataMetaModel from "sap/ui/model/odata/v4/ODataMetaModel";
 	/**
 	 * @name dbme.c.odata.v4.createKey
 	 */
 	export default function (metaModel: ODataMetaModel, entityName: string, entityData: TObject): Promise<string>;
 }
-declare module "src/dbme/c/odata/v4/entityProperties" {
+declare module "dbme/c/odata/v4/entityProperties" {
 	import ODataMetaModel from "sap/ui/model/odata/v4/ODataMetaModel";
 	/**
 	 * @name dbme.c.odata.v4.entityProperties
 	 */
 	export default function (metaModel: ODataMetaModel, entityName: string, withKey?: boolean): Promise<string[]>;
 }
-declare module "src/dbme/c/util/RemoteMethodCall" {
-	import { TResponseSuccess } from "src/dbme/c/util/handleReturn";
+declare module "dbme/c/util/RemoteMethodCall" {
+	import { TResponseSuccess } from "dbme/c/util/handleReturn";
 	import Dialog from "sap/m/Dialog";
 	type TResponseData = {
 		jsonOut?: string;
@@ -443,7 +443,7 @@ declare module "src/dbme/c/util/RemoteMethodCall" {
 		getLastError(): any;
 	}
 }
-declare module "src/dbme/c/util/minUI5VersionCheck" {
+declare module "dbme/c/util/minUI5VersionCheck" {
 	import Controller from "sap/ui/core/mvc/Controller";
 	/**
 	 * Check loaded UI5 version against current component
@@ -453,7 +453,7 @@ declare module "src/dbme/c/util/minUI5VersionCheck" {
 	 */
 	export default function (this: Controller, bBlockUi?: boolean): void;
 }
-declare module "src/dbme/c/util/waitFor" {
+declare module "dbme/c/util/waitFor" {
 	/**
 	 * Wait until callable() will return non-falsy value
 	 *
