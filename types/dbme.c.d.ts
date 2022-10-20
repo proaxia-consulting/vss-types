@@ -476,7 +476,7 @@ declare module "dbme/c/util/RemoteMethodCall" {
 }
 declare module "dbme/c/att/AttachmentHandler" {
 	import Controller from "sap/ui/core/mvc/Controller";
-	interface IAttachnentOpenAttachmentPopupParams {
+	interface IAttachmentOpenAttachmentPopupParams {
 		parentController: Controller;
 		objectType: string;
 		objectKey: string;
