@@ -286,6 +286,306 @@ declare module "dbme/c/StringUtils" {
 	 */
 	export function ucFirst(sValue: string): string;
 }
+declare module "dbme/c/att/AVAttHandler" {
+	import JSONModel from "sap/ui/model/json/JSONModel";
+	interface IKeyValueString {
+		Id: string;
+		Descr: string;
+	}
+	export interface IMediaRecorderModel {
+		fileName: string;
+		objectKey: string;
+		objectType: string;
+		selectedAudioInput: string;
+		selectedVideoInput: string;
+		isEnabled: boolean;
+		isVideo: boolean;
+		isAudio: boolean;
+		isEnabledPlay: boolean;
+		isRecordingActive: boolean;
+		tAudioInput: IKeyValueString[];
+		tVideoInput: IKeyValueString[];
+		videoResolutionX: number;
+		videoResolutionY: number;
+		videoBitrate: number;
+		audioBitrate: number;
+	}
+	export enum MediaType {
+		video = "V",
+		audio = "A"
+	}
+	type TOnMediaStreamAvailable = (mediaStream: MediaStream) => void;
+	type TOnMediaStreamRelease = () => void;
+	export default class AVAttHandler {
+		private _mediaType;
+		private _mediaStream;
+		private _mediaRecorder;
+		private _tRecordedBlobs;
+		private _mediaRecorderModel;
+		private _onMediaStreamAvailable;
+		private _onMediaStreamRelease;
+		constructor();
+		init(mediaType: MediaType, mediaRecorderModel: JSONModel, onMediaStreamAvailable: TOnMediaStreamAvailable, onMediaStreamRelease: TOnMediaStreamRelease): void;
+		getMediaType(): MediaType;
+		mediaRecorderInit(): void;
+		recordingStart(onFinished: (data: Blob) => void): void;
+		mediaRecorderRelease(): void;
+		recordingStop(): void;
+		download(): void;
+		upload(): Promise<void>;
+	}
+}
+declare module "dbme/c/att/AttachmentFormatter" {
+	const result: {
+		modeFormatter: (isActiveEntity: string) => string;
+		objectKeyFormatter: (objectID: string, draftUUID: string) => string;
+	};
+	/**
+	 * @global
+	 * @namespace dbme.c.att
+	 */
+	export default result;
+}
+declare module "dbme/c/att/MediaRecorder.controller" {
+	import Controller from "sap/ui/core/mvc/Controller";
+	import { MediaType } from "dbme/c/att/AVAttHandler";
+	type TSaveCallback = () => void;
+	/**
+	 * @namespace dbme.c.att
+	 */
+	export default class MediaRecorderController {
+		private _avAttHandler;
+		private _mediaRecorderModel;
+		private _dialog;
+		private _parentController;
+		private _htmlCtrlVideoRec;
+		private _htmlCtrlVideoPrev;
+		private _htmlCtrlAudioRec;
+		private _htmlCtrlAudioPrev;
+		private _saveCallback;
+		private _reactToUIChangesCreateBindingDone;
+		/**
+		 * Constructor
+		 */
+		constructor(parentController: Controller, saveCallback: TSaveCallback);
+		/**
+		 * Initialize JSON  model
+		 */
+		private _initializeModel;
+		/**
+		 * Handle Save button
+		 */
+		private onSave;
+		/**
+		 * Handle Cancel button
+		 */
+		private onCancel;
+		/**
+		 * Open popup
+		 */
+		openPopup(): void;
+		/**
+		 * Initialize popup
+		 */
+		init(mediaType: MediaType, objectType: string, objectKey: string): Promise<void>;
+		/**
+		 * Initialize the dialog (once only)
+		 */
+		private _buildDialog;
+		/**
+		 * React to the UI input - create the bindings
+		 */
+		private _reactToUIChangesCreateBinding;
+		/**
+		 * Build UI Controls
+		 */
+		private _buildUIControls;
+		/**
+		 * Initialize the dialog
+		 */
+		private _initDialog;
+		/**
+		 * Init UI Controls
+		 */
+		private _initUIControls;
+		/**
+		 * Get Video control - recording
+		 */
+		private _getVideoRec;
+		/**
+		 * Get Audio control - recording
+		 */
+		private _getAudioRec;
+		/**
+		 * Get Video control - preview
+		 */
+		private _getVideoPrev;
+		/**
+		 * Get Audio control - preview
+		 */
+		private _getAudioPrev;
+		/**
+		 * Initalize Media Recorder
+		 */
+		private _mediaRecorderInit;
+		/**
+		 * Handle recording stop
+		 */
+		private onRecordingStop;
+		/**
+		 * Handle recording start
+		 */
+		private onRecordingStart;
+		/**
+		 * Play recording
+		 */
+		onPlay(): void;
+		/**
+		 * Download the recording
+		 */
+		onDownload(): void;
+	}
+}
+declare module "dbme/c/util/RemoteMethodCall" {
+	import { TResponseSuccess } from "dbme/c/util/handleReturn";
+	import Dialog from "sap/m/Dialog";
+	type TResponseData = {
+		jsonOut?: string;
+	};
+	type TResponse = Omit<TResponseSuccess, "data"> & {
+		data: TResponseData;
+	};
+	/**
+	 * @namespace dbme.c.util
+	 */
+	export default class RemoteMethodCall<TInput, TOutput> {
+		private _appName;
+		private _messageId;
+		private _displaySuccessMessages;
+		private _displayErrorMessages;
+		private _model;
+		private _lastDialog?;
+		private _lastResponse?;
+		private _lastError?;
+		constructor(_appName: string, _messageId: string, _displaySuccessMessages?: boolean, _displayErrorMessages?: boolean);
+		call(input?: TInput): Promise<TOutput>;
+		getLastDialog(): Dialog | undefined;
+		getLastResponse(): TResponse | undefined;
+		getLastError(): any;
+	}
+}
+declare module "dbme/c/att/AttachmentHandler" {
+	import Controller from "sap/ui/core/mvc/Controller";
+	interface IAttachnentOpenAttachmentPopupParams {
+		parentController: Controller;
+		objectType: string;
+		objectKey: string;
+		changeable: boolean;
+	}
+	/**
+	 * @namespace dbme.c.att
+	 */
+	export default class AttachmentHandler {
+		private static _this;
+		private _attachmentModel;
+		private _mediaRecorder;
+		private _dialog;
+		private _parentController;
+		private _attachmentContainer;
+		private _attachmentComponent;
+		/**
+		 * Constrtor
+		 */
+		constructor(parentController: Controller);
+		/**
+		 * Open the attachment popup
+		 */
+		static openAttachmentPopup(params: IAttachnentOpenAttachmentPopupParams): void;
+		/**
+		 * Initialize JSON  model
+		 */
+		private _initializeModel;
+		/**
+		 * Handle Save button
+		 */
+		onSave(): void;
+		/**
+		 * Handle Cancel button
+		 */
+		onCancel(): void;
+		/**
+		 * Initialize the popup
+		 */
+		private _init;
+		/**
+		 * Open popup
+		 */
+		openPopup(): void;
+		/**
+		 * Refresh the attachments list
+		 */
+		private _listRefresh;
+		/**
+		 * Initialize the popup
+		 */
+		private _initDialog;
+		/**
+		 * Build the content of the popup
+		 */
+		private _buildDialog;
+		/**
+		 * Handle Video Record button
+		 */
+		onRecordVideo(): void;
+		/**
+		 * Handle Audio Record button
+		 */
+		onRecordAudio(): void;
+		/**
+		 * Handle Video/Audio Record button
+		 */
+		private _attachmentPopupRecord;
+		/**
+		 * Create the component handling the attachments
+		 */
+		private _createAttachmentComponent;
+	}
+}
+declare module "dbme/c/att/Enums" {
+	export enum ModelName {
+		action = "action",
+		device = "device",
+		i18n = "i18n",
+		local = "local",
+		ui = "ui",
+		pageInternal = "pageInternal",
+		internal = "internal"
+	}
+	export enum ControlId {
+		mainTable = "fe::table::OrderHeader::LineItem"
+	}
+	export enum EntitySet {
+		returnSet = "returnSet"
+	}
+	export enum ODataFunctionName {
+		callEvent = "callEvent"
+	}
+	export enum VSSEventId {
+		BillingCancel = "BILLING_CANCEL",
+		BillingCreate = "BILLING_CREATE"
+	}
+	export enum HTTPMethod {
+		GET = "GET",
+		PUT = "PUT",
+		POST = "POST",
+		DELETE = "DELETE"
+	}
+	export enum ReturnMessageType {
+		Information = "I",
+		Error = "E",
+		Warning = "W"
+	}
+}
 declare module "dbme/c/controller/Base" {
 	import Controller from "sap/ui/core/mvc/Controller";
 	import ODataModel from "sap/ui/model/odata/v2/ODataModel";
@@ -414,34 +714,6 @@ declare module "dbme/c/odata/v4/entityProperties" {
 	 * @name dbme.c.odata.v4.entityProperties
 	 */
 	export default function (metaModel: ODataMetaModel, entityName: string, withKey?: boolean): Promise<string[]>;
-}
-declare module "dbme/c/util/RemoteMethodCall" {
-	import { TResponseSuccess } from "dbme/c/util/handleReturn";
-	import Dialog from "sap/m/Dialog";
-	type TResponseData = {
-		jsonOut?: string;
-	};
-	type TResponse = Omit<TResponseSuccess, "data"> & {
-		data: TResponseData;
-	};
-	/**
-	 * @namespace dbme.c.util
-	 */
-	export default class RemoteMethodCall<TInput, TOutput> {
-		private _appName;
-		private _messageId;
-		private _displaySuccessMessages;
-		private _displayErrorMessages;
-		private _model;
-		private _lastDialog?;
-		private _lastResponse?;
-		private _lastError?;
-		constructor(_appName: string, _messageId: string, _displaySuccessMessages?: boolean, _displayErrorMessages?: boolean);
-		call(input?: TInput): Promise<TOutput>;
-		getLastDialog(): Dialog | undefined;
-		getLastResponse(): TResponse | undefined;
-		getLastError(): any;
-	}
 }
 declare module "dbme/c/util/minUI5VersionCheck" {
 	import Controller from "sap/ui/core/mvc/Controller";
