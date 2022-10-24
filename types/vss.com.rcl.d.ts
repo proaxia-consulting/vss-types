@@ -485,8 +485,7 @@ declare module "vss/com/rcl/ml/model/Enums" {
 	export enum ControlId {
 		materialTable = "fe::table::MaterialTab::LineItem",
 		rootFilter = "fe::FilterBar::Root",
-		rootTable = "fe::table::RootTab::LineItem",
-		equipmentHierarchyTable = "idEquipmentHierarchyTable"
+		rootTable = "fe::table::RootTab::LineItem"
 	}
 	export enum FieldGroupId {
 		ColumnActions = "ColumnActions"
@@ -567,10 +566,11 @@ declare module "vss/com/rcl/ml/eh/EquipmentHierarchyHandler" {
 	 * @namespace vss.com.rcl.ml.eh
 	 */
 	export default class EquipmentHierarchyHandler {
+		private static _treeLoaded;
 		/**
 		 * Update items binding
 		 */
-		static onTreeupdateFinished(this: IObjectPageExtensionAPI, event: Event): void;
+		static onTreeUpdateFinished(this: IObjectPageExtensionAPI, event: Event): void;
 	}
 }
 declare module "vss/com/rcl/ml/eh/FilterMainDevice" {
