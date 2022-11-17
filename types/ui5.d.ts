@@ -1,0 +1,171 @@
+declare module "ui5" {
+	import ListItemBase from "sap/m/ListItemBase";
+	import FilterOperator from "sap/ui/model/FilterOperator";
+	import Item from "sap/ui/core/Item";
+
+	export type TObject = Record<string, unknown>;
+
+	export type $TRoute = {
+		pattern: string;
+		name: string;
+		target: string;
+	};
+	export type $TTargetSettingsNavigation = {
+		detail: {
+			route: string;
+		};
+	};
+	export type $TTargetSettings = {
+		entitySet: string;
+		editableHeaderContent: boolean;
+		sectionLayout: string;
+		navigation?: Record<string, $TTargetSettingsNavigation>;
+	};
+	export type $TTarget = {
+		type: string;
+		id: string;
+		name: string;
+		options: {
+			settings: $TTargetSettings;
+		};
+	};
+	export type $TRouting = {
+		routes: $TRoute[];
+		targets: Record<string, $TTarget>;
+	};
+
+	export type $TService = {
+		factoryName: string;
+		startup: string;
+		settings: TObject;
+	};
+
+	export type $TDataSource = {
+		uri: string;
+	};
+
+	export type $TManifest = {
+		"sap.app": {
+			dataSources: Record<string, $TDataSource>;
+			applicationVersion: {
+				version: number;
+			};
+		};
+		"sap.ui5": {
+			routing: $TRouting;
+			services: Record<string, $TService>;
+		};
+	};
+
+	export type $TMultiComboBoxSelectionChangeEventParams = {
+		selected: boolean;
+		changedItems?: Item[];
+		changedItem?: Item;
+	};
+
+	export type $TSelectionChangeEventParams = {
+		listItems: ListItemBase[];
+		selected: boolean;
+	};
+
+	export type TTokenDataRange = {
+		exclude: boolean;
+		keyField: string;
+		operation: FilterOperator;
+		value1: string;
+		value2?: string;
+	};
+	export type TTokenData = {
+		range?: TTokenDataRange;
+	};
+
+	export type TEntityTypeProperty = {
+		$kind: string;
+		$Type: string;
+		$Nullable?: boolean;
+		$MaxLength?: number;
+	};
+	export type TEntityType = Record<string, TEntityTypeProperty> & {
+		$Key: string[];
+		$kind: string;
+	};
+}
+
+declare module "sap/ui/core/XMLTemplateProcessor" {
+	export default class XMLTemplateProcessor {
+		public static loadTemplatePromise(sTemplateName: string, sExtension: string): Promise<Element>;
+	}
+}
+declare module "sap/ui/core/util/XMLPreprocessor" {
+	import Context from "sap/ui/model/Context";
+	import Model from "sap/ui/model/Model";
+
+	export type $XMLPreprocessorProcessViewInfo = {
+		caller?: string;
+		componentId?: string;
+		name?: string;
+		sync?: boolean;
+	};
+	export type $XMLPreprocessorProcessSettings = {
+		bindingContexts?: Record<string, Context>;
+		models?: Record<string, Model>;
+	};
+
+	export default class XMLPreprocessor {
+		public static process(oRootElement: Element, oViewInfo: $XMLPreprocessorProcessViewInfo, mSettings: $XMLPreprocessorProcessSettings): Element | Promise<Element>;
+	}
+}
+
+declare module "sap/ui/comp/smartfield/TextArrangementDelegate" {
+	export default class TextArrangementDelegate {
+		fetchIDAndDescriptionCollectionIfRequired();
+	}
+}
+
+declare module "sap/ui/comp/smartfield/ODataControlFactory" {
+	import TextArrangementDelegate from "sap/ui/comp/smartfield/TextArrangementDelegate";
+
+	export default class ODataControlFactory {
+		oTextArrangementDelegate: TextArrangementDelegate;
+	}
+}
+
+declare module "sap/ui/core/service/ServiceContext" {
+	import AppComponent from "sap/fe/core/AppComponent";
+
+	export default interface ServiceContext<TServiceSettings> {
+		scopeObject: AppComponent;
+		scopeType: string;
+		settings: TServiceSettings;
+	}
+}
+
+declare module "sap/ui/core/service/Service" {
+	import ServiceContext from "sap/ui/core/service/ServiceContext";
+
+	export default abstract class Service<TServiceSettings> {
+		initPromise: Promise<this>;
+
+		public constructor(context: ServiceContext<TServiceSettings>);
+		public getContext(): ServiceContext<TServiceSettings>;
+		abstract init(): void;
+	}
+}
+declare module "sap/ui/core/service/ServiceFactory" {
+	import ServiceContext from "sap/ui/core/service/ServiceContext";
+
+	export default class ServiceFactory<TServiceSettings> {
+		public createInstance(context: ServiceContext<TServiceSettings>);
+	}
+}
+
+/**
+ * @link https://ui5.sap.com/1.96.1/resources/sap/ui/core/service/ServiceFactoryRegistry-dbg.js
+ */
+declare module "sap/ui/core/service/ServiceFactoryRegistry" {
+	export default class ServiceFactoryRegistry {
+		public static register(sServiceFactoryName: string, oServiceFactory: any);
+		public static unregister(sServiceFactoryName: string);
+		public static get(sServiceFactoryName: string): any;
+	}
+}
