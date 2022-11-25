@@ -169,18 +169,3 @@ declare module "sap/ui/core/service/ServiceFactoryRegistry" {
 		public static get(sServiceFactoryName: string): any;
 	}
 }
-
-/**
- * @link https://ui5.sap.com/1.96.1/resources/sap/fe/core/library-dbg.js
- */
-declare module "sap/fe/core/library" {
-	export enum CreationMode {
-		Async = "Async",
-		CreationRow = "CreationRow",
-		Deferred = "Deferred",
-		External = "External",
-		Inline = "Inline",
-		NewPage = "NewPage",
-		Sync = "Sync"
-	}
-}

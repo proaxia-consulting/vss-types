@@ -155,3 +155,18 @@ declare module "vss/com/fe/DraftTypes" {
 		DraftAdministrativeData: TDraftAdministrativeData;
 	};
 }
+
+/**
+ * @link https://ui5.sap.com/1.96.1/resources/sap/fe/core/library-dbg.js
+ */
+declare module "vss/com/fe/core/library" {
+	export enum CreationMode {
+		Async = "Async",
+		CreationRow = "CreationRow",
+		Deferred = "Deferred",
+		External = "External",
+		Inline = "Inline",
+		NewPage = "NewPage",
+		Sync = "Sync"
+	}
+}
