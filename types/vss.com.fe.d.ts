@@ -106,6 +106,10 @@ declare module "vss/com/fe/ListReport" {
 	export type TFilterCondition = {
 		operator: FilterOperator;
 		values: string[];
+		isEmpty?: boolean;
+		inParameters?: object;
+		outParameters?: object;
+		validated?: string;
 	};
 
 	export interface IFilterConditionsAware {
@@ -119,6 +123,8 @@ declare module "vss/com/fe/ListReport" {
 	export interface IFilterBar extends IFilterConditionsAware {
 		attachFiltersChanged(fnFunction: Function, oListener?: object): void;
 		attachSearch(fnFunction: Function, oListener?: object): void;
+		addCondition(sFieldPath: string, oXCondition: TFilterCondition): Promise<void>;
+		removeCondition(sFieldPath: string, oXCondition: TFilterCondition): Promise<void>;
 	}
 }
 
