@@ -14,3 +14,21 @@ declare module "sap/ui/mdc/Table" {
 		getRowBinding(): ListBinding;
 	}
 }
+
+declare module "sap/ui/mdc/actiontoolbar/ActionToolbarAction" {
+	import Control from "sap/ui/core/Control";
+	import Button from "sap/m/Button";
+
+	export default class ActionToolbarAction extends Control {
+		getAction(): Button;
+	}
+}
+
+declare module "sap/ui/mdc/ActionToolbar" {
+	import OverflowToolbar from "sap/m/OverflowToolbar";
+	import ActionToolbarAction from "sap/ui/mdc/actiontoolbar/ActionToolbarAction";
+
+	export default class ActionToolbar extends OverflowToolbar {
+		getActions(): ActionToolbarAction[];
+	}
+}
