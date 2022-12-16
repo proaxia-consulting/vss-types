@@ -93,15 +93,6 @@ declare module "vss/com/fe/ListReport" {
 		getAppComponent(): IAppComponent;
 	}
 
-	/**
-	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/ui/mdc/Table-dbg.js
-	 */
-	export interface IListReportTable {
-		getFilter(): string;
-		getFilterConditions(): object;
-		setFilterConditions(conditions: object): void;
-	}
-
 	export type TFilterConditions = Record<string, TFilterCondition[]>;
 	export type TFilterCondition = {
 		operator: FilterOperator;

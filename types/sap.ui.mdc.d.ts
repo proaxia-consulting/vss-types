@@ -12,6 +12,9 @@ declare module "sap/ui/mdc/Table" {
 		initialized(): Promise<void>;
 		isTableBound(): boolean;
 		getRowBinding(): ListBinding;
+		getFilter(): string;
+		getFilterConditions(): object;
+		setFilterConditions(conditions: object): void;
 	}
 }
 
