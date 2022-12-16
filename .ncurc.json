@@ -1,0 +1,3 @@
+{
+	"reject": ["@sapui5/ts-types-esm"]
+}

@@ -92,6 +92,8 @@ declare module "ui5" {
 }
 
 declare module "sap/ui/core/XMLTemplateProcessor" {
+	import Element from "sap/ui/core/Element";
+
 	export default class XMLTemplateProcessor {
 		public static loadTemplatePromise(sTemplateName: string, sExtension: string): Promise<Element>;
 	}
@@ -99,6 +101,7 @@ declare module "sap/ui/core/XMLTemplateProcessor" {
 declare module "sap/ui/core/util/XMLPreprocessor" {
 	import Context from "sap/ui/model/Context";
 	import Model from "sap/ui/model/Model";
+	import Element from "sap/ui/core/Element";
 
 	export type $XMLPreprocessorProcessViewInfo = {
 		caller?: string;
