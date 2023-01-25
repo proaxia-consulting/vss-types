@@ -60,9 +60,9 @@ declare module "sap/ui/mdc/Control" {
 }
 
 declare module "sap/ui/mdc/field/FieldBase" {
+	import { TEventHandlerFunction } from "ui5";
 	import Control from "sap/ui/mdc/Control";
 	import InputBase from "sap/m/InputBase";
-	import Event from "sap/ui/base/Event";
 
 	export default class FieldBase extends Control {
 		/**
@@ -70,8 +70,8 @@ declare module "sap/ui/mdc/field/FieldBase" {
 		 */
 		_oCreateContentPromise: Promise<InputBase> | undefined;
 
-		attachSubmit(handler: (event: Event) => void, listener?: object): void;
-		attachSubmit(data: object, handler: (event: Event) => void, listener?: object): void;
+		attachSubmit(handler: TEventHandlerFunction, listener?: object): void;
+		attachSubmit(data: object, handler: TEventHandlerFunction, listener?: object): void;
 		getConditions(): object[];
 		setMaxConditions(max: int): void;
 		getMaxConditions(): int;
@@ -89,8 +89,8 @@ declare module "sap/ui/mdc/field/FieldBase" {
 }
 
 declare module "sap/ui/mdc/Field" {
+	import { TEventHandlerFunction } from "ui5";
 	import FieldBase from "sap/ui/mdc/field/FieldBase";
-	import Event from "sap/ui/base/Event";
 
 	export type $TChangeEventParams = {
 		value: string;
@@ -99,8 +99,8 @@ declare module "sap/ui/mdc/Field" {
 	};
 
 	export default class Field extends FieldBase {
-		attachChange(handler: (event: Event) => void, listener?: object): void;
-		attachChange(data: object, handler: (event: Event) => void, listener?: object): void;
+		attachChange(handler: TEventHandlerFunction, listener?: object): void;
+		attachChange(data: object, handler: TEventHandlerFunction, listener?: object): void;
 		setValue(value: unknown): void;
 		getValue(): unknown;
 		setAdditionalValue(value: unknown): void;
@@ -120,6 +120,7 @@ declare module "sap/ui/mdc/field/MultiValueFieldItem" {
 }
 
 declare module "sap/ui/mdc/MultiValueField" {
+	import { TEventHandlerFunction } from "ui5";
 	import FieldBase from "sap/ui/mdc/field/FieldBase";
 	import MultiValueFieldItem from "sap/ui/mdc/field/MultiValueFieldItem";
 
@@ -130,8 +131,8 @@ declare module "sap/ui/mdc/MultiValueField" {
 	};
 
 	export default class MultiValueField extends FieldBase {
-		attachChange(handler: (event: Event) => void, listener?: object): void;
-		attachChange(data: object, handler: (event: Event) => void, listener?: object): void;
+		attachChange(handler: TEventHandlerFunction, listener?: object): void;
+		attachChange(data: object, handler: TEventHandlerFunction, listener?: object): void;
 		getItems(): MultiValueFieldItem[];
 	}
 }

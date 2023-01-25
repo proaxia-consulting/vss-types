@@ -2,6 +2,7 @@ declare module "ui5" {
 	import ListItemBase from "sap/m/ListItemBase";
 	import FilterOperator from "sap/ui/model/FilterOperator";
 	import Item from "sap/ui/core/Item";
+	import Event from "sap/ui/base/Event";
 
 	export type TObject = Record<string, unknown>;
 
@@ -89,6 +90,8 @@ declare module "ui5" {
 		$Key: string[];
 		$kind: string;
 	};
+
+	export type TEventHandlerFunction = (event: Event, ...args: unknown[]) => void;
 }
 
 declare module "sap/ui/core/XMLTemplateProcessor" {
