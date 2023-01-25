@@ -94,8 +94,8 @@ declare module "sap/ui/mdc/Field" {
 
 	export type $TChangeEventParams = {
 		value: string;
-		valid: boolean;
-		promise: Promise<string>;
+		valid?: boolean;
+		promise?: Promise<string>;
 	};
 
 	export default class Field extends FieldBase {
