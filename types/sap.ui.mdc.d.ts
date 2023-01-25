@@ -65,9 +65,13 @@ declare module "sap/ui/mdc/field/FieldBase" {
 	import Event from "sap/ui/base/Event";
 
 	export default class FieldBase extends Control {
+		/**
+		 * !NOTICE: private property
+		 */
 		_oCreateContentPromise: Promise<InputBase> | undefined;
 
 		attachSubmit(handler: (event: Event) => void, listener?: object): void;
+		attachSubmit(data: object, handler: (event: Event) => void, listener?: object): void;
 		getConditions(): object[];
 		setMaxConditions(max: int): void;
 		getMaxConditions(): int;
@@ -78,6 +82,9 @@ declare module "sap/ui/mdc/field/FieldBase" {
 		 * Returns ID of sap.ui.mdc.field.FieldValueHelp that can be read with sap.ui.getCore().byId()
 		 */
 		getFieldHelp(): string;
+
+		_getContent(): InputBase[];
+		getIdForLabel(): string;
 	}
 }
 
@@ -85,8 +92,15 @@ declare module "sap/ui/mdc/Field" {
 	import FieldBase from "sap/ui/mdc/field/FieldBase";
 	import Event from "sap/ui/base/Event";
 
+	export type $TChangeEventParams = {
+		value: string;
+		valid: boolean;
+		promise: Promise<string>;
+	};
+
 	export default class Field extends FieldBase {
 		attachChange(handler: (event: Event) => void, listener?: object): void;
+		attachChange(data: object, handler: (event: Event) => void, listener?: object): void;
 		setValue(value: unknown): void;
 		getValue(): unknown;
 		setAdditionalValue(value: unknown): void;
@@ -109,7 +123,15 @@ declare module "sap/ui/mdc/MultiValueField" {
 	import FieldBase from "sap/ui/mdc/field/FieldBase";
 	import MultiValueFieldItem from "sap/ui/mdc/field/MultiValueFieldItem";
 
+	export type $TChangeEventParams = {
+		items: MultiValueFieldItem[];
+		valid: boolean;
+		promise: Promise<MultiValueFieldItem[]>;
+	};
+
 	export default class MultiValueField extends FieldBase {
+		attachChange(handler: (event: Event) => void, listener?: object): void;
+		attachChange(data: object, handler: (event: Event) => void, listener?: object): void;
 		getItems(): MultiValueFieldItem[];
 	}
 }
