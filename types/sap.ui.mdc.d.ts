@@ -73,6 +73,11 @@ declare module "sap/ui/mdc/field/FieldBase" {
 		getMaxConditions(): int;
 		getLabel(): string;
 		setLabel(label: string): void;
+
+		/**
+		 * Returns ID of sap.ui.mdc.field.FieldValueHelp that can be read with sap.ui.getCore().byId()
+		 */
+		getFieldHelp(): string;
 	}
 }
 
