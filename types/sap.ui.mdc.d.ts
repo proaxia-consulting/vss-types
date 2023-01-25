@@ -101,6 +101,7 @@ declare module "sap/ui/mdc/Field" {
 	export default class Field extends FieldBase {
 		attachChange(handler: TEventHandlerFunction, listener?: object): void;
 		attachChange(data: object, handler: TEventHandlerFunction, listener?: object): void;
+		fireChange(params: $TChangeEventParams);
 		setValue(value: unknown): void;
 		getValue(): unknown;
 		setAdditionalValue(value: unknown): void;
@@ -133,6 +134,7 @@ declare module "sap/ui/mdc/MultiValueField" {
 	export default class MultiValueField extends FieldBase {
 		attachChange(handler: TEventHandlerFunction, listener?: object): void;
 		attachChange(data: object, handler: TEventHandlerFunction, listener?: object): void;
+		fireChange(params: $TChangeEventParams);
 		getItems(): MultiValueFieldItem[];
 	}
 }
