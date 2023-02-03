@@ -73,6 +73,7 @@ declare module "vss/com/fe/core/controllerextensions" {
 }
 
 declare module "vss/com/fe/ListReport" {
+	import Control from "sap/ui/core/Control";
 	import ExtensionAPI from "sap/fe/templates/ListReport/ExtensionAPI";
 	import IAppComponent from "vss/com/fe/IAppComponent";
 	import PageController from "sap/fe/core/PageController";
@@ -102,20 +103,25 @@ declare module "vss/com/fe/ListReport" {
 		outParameters?: object;
 		validated?: string;
 	};
-
-	export interface IFilterConditionsAware {
-		getFilterConditions(): TFilterConditions;
-		setFilterConditions(conditions: TFilterConditions): void;
-	}
+	export type TFilterItem = {
+		name: string;
+	};
+	export type TFilterBarState = {
+		filter: TFilterConditions;
+		items: TFilterItem[];
+	};
 
 	/**
 	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/core/controls/FilterBar-dbg.js
 	 */
-	export interface IFilterBar extends IFilterConditionsAware {
+	export interface IFilterBar extends Control {
+		getFilterConditions(): TFilterConditions;
+		setFilterConditions(conditions: TFilterConditions): void;
 		attachFiltersChanged(fnFunction: Function, oListener?: object): void;
 		attachSearch(fnFunction: Function, oListener?: object): void;
 		addCondition(sFieldPath: string, oXCondition: TFilterCondition): Promise<void>;
 		removeCondition(sFieldPath: string, oXCondition: TFilterCondition): Promise<void>;
+		getCurrentState(): TFilterBarState;
 	}
 }
 
