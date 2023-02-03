@@ -79,6 +79,7 @@ declare module "vss/com/fe/ListReport" {
 	import PageController from "sap/fe/core/PageController";
 	import { IEditFlow } from "vss/com/fe/core/controllerextensions";
 	import FilterOperator from "sap/ui/model/FilterOperator";
+	import { TEventHandlerFunction } from "ui5";
 
 	export interface IListReportExtensionAPI extends ExtensionAPI {
 		editFlow: IEditFlow;
@@ -117,8 +118,10 @@ declare module "vss/com/fe/ListReport" {
 	export interface IFilterBar extends Control {
 		getFilterConditions(): TFilterConditions;
 		setFilterConditions(conditions: TFilterConditions): void;
-		attachFiltersChanged(fnFunction: Function, oListener?: object): void;
-		attachSearch(fnFunction: Function, oListener?: object): void;
+		attachFiltersChanged(fnFunction: TEventHandlerFunction, oListener?: object): void;
+		detachFiltersChanged(fnFunction: TEventHandlerFunction, oListener?: object): void;
+		attachSearch(fnFunction: TEventHandlerFunction, oListener?: object): void;
+		detachSearch(fnFunction: TEventHandlerFunction, oListener?: object): void;
 		addCondition(sFieldPath: string, oXCondition: TFilterCondition): Promise<void>;
 		removeCondition(sFieldPath: string, oXCondition: TFilterCondition): Promise<void>;
 		getCurrentState(): TFilterBarState;
