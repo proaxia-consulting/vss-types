@@ -116,6 +116,7 @@ declare module "vss/com/fe/ListReport" {
 	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/core/controls/FilterBar-dbg.js
 	 */
 	export interface IFilterBar extends Control {
+		initialized(): Promise<any>;
 		getFilterConditions(): TFilterConditions;
 		setFilterConditions(conditions: TFilterConditions): void;
 		attachFiltersChanged(fnFunction: TEventHandlerFunction, oListener?: object): void;
