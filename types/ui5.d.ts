@@ -1,8 +1,8 @@
 declare module "ui5" {
-	import ListItemBase from "sap/m/ListItemBase";
-	import FilterOperator from "sap/ui/model/FilterOperator";
-	import Item from "sap/ui/core/Item";
-	import Event from "sap/ui/base/Event";
+	import type ListItemBase from "sap/m/ListItemBase";
+	import type FilterOperator from "sap/ui/model/FilterOperator";
+	import type Item from "sap/ui/core/Item";
+	import type Event from "sap/ui/base/Event";
 
 	export type TObject = Record<string, unknown>;
 
@@ -166,12 +166,21 @@ declare module "sap/ui/core/service/ServiceFactory" {
 }
 
 /**
- * @link https://ui5.sap.com/1.96.1/resources/sap/ui/core/service/ServiceFactoryRegistry-dbg.js
+ * @link https://ui5.sap.com/resources/sap/ui/core/service/ServiceFactoryRegistry-dbg.js
  */
 declare module "sap/ui/core/service/ServiceFactoryRegistry" {
 	export default class ServiceFactoryRegistry {
 		public static register(sServiceFactoryName: string, oServiceFactory: any);
 		public static unregister(sServiceFactoryName: string);
 		public static get(sServiceFactoryName: string): any;
+	}
+}
+
+declare module "sap/m/PlanningCalendarRenderer" {
+	import PlanningCalendar from "sap/m/PlanningCalendar";
+	import RenderManager from "sap/ui/core/RenderManager";
+
+	export default class PlanningCalendarRenderer {
+		public static render(oRm: RenderManager, oPC: PlanningCalendar): void;
 	}
 }
