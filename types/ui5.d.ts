@@ -3,6 +3,8 @@ declare module "ui5" {
 	import type FilterOperator from "sap/ui/model/FilterOperator";
 	import type Item from "sap/ui/core/Item";
 	import type Event from "sap/ui/base/Event";
+	import type Filter from "sap/ui/model/Filter";
+	import type Sorter from "sap/ui/model/Sorter";
 
 	export type TObject = Record<string, unknown>;
 
@@ -92,6 +94,18 @@ declare module "ui5" {
 	};
 
 	export type TEventHandlerFunction = (event: Event, ...args: unknown[]) => void;
+
+	export type $SmartTableBeforeRebindEventParams = {
+		bindingParams: {
+			filters: Filter[];
+			sorter: Sorter[];
+			parameters: {
+				select: string;
+			};
+			events: Record<string, CallableFunction>;
+			preventTableBind: boolean;
+		};
+	};
 }
 
 declare module "sap/ui/core/XMLTemplateProcessor" {
