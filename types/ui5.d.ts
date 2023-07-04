@@ -199,6 +199,16 @@ declare module "sap/m/PlanningCalendarRenderer" {
 	}
 }
 
+declare module "sap/ovp/cards/linklist/Component" {
+	import CardsGenericComponent from "sap/ovp/cards/generic/Component";
+	export default class Component extends CardsGenericComponent {
+		public static extend(id: string, object: any): Function;
+		public init(...args: unknown[]): void;
+	}
+}
 declare module "sap/ovp/cards/linklist/LinkList.controller" {
-	export default class LinkList {}
+	export default class LinkList {
+		public static extend(id: string, object: any): Function;
+		public onInit(...args: unknown[]): void;
+	}
 }
