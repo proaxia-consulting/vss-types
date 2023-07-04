@@ -198,3 +198,7 @@ declare module "sap/m/PlanningCalendarRenderer" {
 		public static render(oRm: RenderManager, oPC: PlanningCalendar): void;
 	}
 }
+
+declare module "sap/ovp/cards/linklist/LinkList.controller" {
+	export default class LinkList {}
+}
