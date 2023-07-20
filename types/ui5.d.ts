@@ -210,5 +210,7 @@ declare module "sap/ovp/cards/linklist/LinkList.controller" {
 	export default class LinkList {
 		public static extend(id: string, object: any): Function;
 		public onInit(...args: unknown[]): void;
+		public onLinkListLineItemUrl(oEvent: Event): void;
 	}
 }
+
