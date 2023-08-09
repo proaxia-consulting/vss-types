@@ -198,3 +198,19 @@ declare module "sap/m/PlanningCalendarRenderer" {
 		public static render(oRm: RenderManager, oPC: PlanningCalendar): void;
 	}
 }
+
+declare module "sap/ovp/cards/linklist/Component" {
+	import OVPComponent from "sap/ovp/app/Component";
+	export default class Component extends OVPComponent {
+		public static extend(id: string, object: any): Function;
+		public init(...args: unknown[]): void;
+	}
+}
+declare module "sap/ovp/cards/linklist/LinkList.controller" {
+	export default class LinkList {
+		public static extend(id: string, object: any): Function;
+		public onInit(...args: unknown[]): void;
+		public onLinkListLineItemUrl(oEvent: Event): void;
+	}
+}
+
