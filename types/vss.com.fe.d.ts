@@ -134,9 +134,11 @@ declare module "vss/com/fe/ObjectPage" {
 	import PageController from "sap/fe/core/PageController";
 	import ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
 	import { IEditFlow } from "vss/com/fe/core/controllerextensions";
+	import Routing from "sap/fe/core/controllerextensions/Routing";
 
 	export interface IObjectPageExtensionAPI extends ExtensionAPI {
 		editFlow: IEditFlow;
+		getRouting(): Routing;
 	}
 
 	/**
@@ -159,6 +161,9 @@ declare module "vss/com/fe/DraftTypes" {
 	};
 
 	export type TDraftAwareEntity = {
+		HasActiveEntity: boolean;
+		HasDraftEntity: boolean;
+		IsActiveEntity: boolean;
 		DraftAdministrativeData: TDraftAdministrativeData;
 	};
 }
