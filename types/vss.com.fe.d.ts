@@ -47,7 +47,7 @@ declare module "vss/com/fe/IAppComponent" {
 	};
 
 	/**
-	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/core/services/RoutingServiceFactory-dbg.js
+	 * @link https://sapui5.hana.ondemand.com/resources/sap/fe/core/services/RoutingServiceFactory-dbg.js
 	 */
 	export interface IRoutingService {
 		navigateTo(oContext: Context, sRouteName: string, mParameterMapping?: Record<string, any>, bPreserveHistory?: boolean): Promise<void>;
@@ -65,7 +65,7 @@ declare module "vss/com/fe/core/controllerextensions" {
 	import Context from "sap/ui/model/odata/v4/Context";
 
 	/**
-	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/core/controllerextensions/EditFlow-dbg.js
+	 * @link https://sapui5.hana.ondemand.com/resources/sap/fe/core/controllerextensions/EditFlow-dbg.js
 	 */
 	export interface IEditFlow extends EditFlow {
 		toggleDraftActive(context: Context): void;
@@ -80,19 +80,24 @@ declare module "vss/com/fe/ListReport" {
 	import { IEditFlow } from "vss/com/fe/core/controllerextensions";
 	import FilterOperator from "sap/ui/model/FilterOperator";
 	import { TEventHandlerFunction } from "ui5";
+	import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
 
 	export interface IListReportExtensionAPI extends ExtensionAPI {
 		editFlow: IEditFlow;
 	}
 
 	/**
-	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/templates/ListReport/ListReportController-dbg.controller.js
+	 * @link https://sapui5.hana.ondemand.com/resources/sap/fe/templates/ListReport/ListReportController-dbg.controller.js
 	 * @see {sap.fe.templates.ListReport.ListReportController}
 	 */
 	export interface IListReportController extends PageController {
 		editFlow: IEditFlow;
 		getExtensionAPI(): IListReportExtensionAPI;
 		getAppComponent(): IAppComponent;
+	}
+
+	export interface IListReportExtension extends ControllerExtension {
+		base: IListReportController;
 	}
 
 	export type TFilterConditions = Record<string, TFilterCondition[]>;
@@ -113,7 +118,7 @@ declare module "vss/com/fe/ListReport" {
 	};
 
 	/**
-	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/core/controls/FilterBar-dbg.js
+	 * @link https://sapui5.hana.ondemand.com/resources/sap/fe/core/controls/FilterBar-dbg.js
 	 */
 	export interface IFilterBar extends Control {
 		initialized(): Promise<any>;
@@ -135,6 +140,7 @@ declare module "vss/com/fe/ObjectPage" {
 	import ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
 	import { IEditFlow } from "vss/com/fe/core/controllerextensions";
 	import Routing from "sap/fe/core/controllerextensions/Routing";
+	import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
 
 	export interface IObjectPageExtensionAPI extends ExtensionAPI {
 		editFlow: IEditFlow;
@@ -142,13 +148,17 @@ declare module "vss/com/fe/ObjectPage" {
 	}
 
 	/**
-	 * @link https://sapui5.hana.ondemand.com/1.96.1/resources/sap/fe/templates/ObjectPage/ObjectPageController-dbg.controller.js
+	 * @link https://sapui5.hana.ondemand.com/resources/sap/fe/templates/ObjectPage/ObjectPageController-dbg.controller.js
 	 * @see {sap.fe.templates.ObjectPage.ObjectPageController}
 	 */
 	export interface IObjectPageController extends PageController {
 		editFlow: IEditFlow;
 		getExtensionAPI(): IObjectPageExtensionAPI;
 		getAppComponent(): IAppComponent;
+	}
+
+	export interface IObjectPageExtension extends ControllerExtension {
+		base: IObjectPageController;
 	}
 }
 
@@ -169,7 +179,7 @@ declare module "vss/com/fe/DraftTypes" {
 }
 
 /**
- * @link https://ui5.sap.com/1.96.1/resources/sap/fe/core/library-dbg.js
+ * @link https://ui5.sap.com/resources/sap/fe/core/library-dbg.js
  */
 declare module "vss/com/fe/core/library" {
 	export enum CreationMode {
