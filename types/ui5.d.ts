@@ -207,10 +207,13 @@ declare module "sap/ovp/cards/linklist/Component" {
 	}
 }
 declare module "sap/ovp/cards/linklist/LinkList.controller" {
+	import Event from "sap/ui/base/Event";
+
 	export default class LinkList {
 		public static extend(id: string, object: any): Function;
 		public onInit(...args: unknown[]): void;
 		public onLinkListLineItemUrl(oEvent: Event): void;
+		public onLinkNavigation(oEvent: Event): void;
 	}
 }
 
