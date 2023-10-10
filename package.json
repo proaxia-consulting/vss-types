@@ -14,7 +14,7 @@
 		"typescript"
 	],
 	"dependencies": {
-		"@sapui5/ts-types-esm": "1.96.15",
+		"@sapui5/ts-types-esm": "1.108.21",
 		"@types/node": "^18.11.15"
 	}
 }
