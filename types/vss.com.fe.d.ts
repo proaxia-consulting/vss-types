@@ -75,15 +75,19 @@ declare module "vss/com/fe/core/controllerextensions" {
 declare module "vss/com/fe/ListReport" {
 	import Control from "sap/ui/core/Control";
 	import ExtensionAPI from "sap/fe/templates/ListReport/ExtensionAPI";
+	import BaseExtensionAPI from "sap/fe/core/ExtensionAPI";
 	import IAppComponent from "vss/com/fe/IAppComponent";
 	import PageController from "sap/fe/core/PageController";
 	import { IEditFlow } from "vss/com/fe/core/controllerextensions";
 	import FilterOperator from "sap/ui/model/FilterOperator";
 	import { TEventHandlerFunction } from "ui5";
+	import Routing from "sap/fe/core/controllerextensions/Routing";
 	import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
 
-	export interface IListReportExtensionAPI extends ExtensionAPI {
+	export interface IListReportExtensionAPI extends ExtensionAPI, BaseExtensionAPI {
 		editFlow: IEditFlow;
+		getEditFlow(): IEditFlow;
+		getRouting(): Routing;
 	}
 
 	/**
@@ -138,12 +142,14 @@ declare module "vss/com/fe/ObjectPage" {
 	import IAppComponent from "vss/com/fe/IAppComponent";
 	import PageController from "sap/fe/core/PageController";
 	import ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
+	import BaseExtensionAPI from "sap/fe/core/ExtensionAPI";
 	import { IEditFlow } from "vss/com/fe/core/controllerextensions";
 	import Routing from "sap/fe/core/controllerextensions/Routing";
 	import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
 
-	export interface IObjectPageExtensionAPI extends ExtensionAPI {
+	export interface IObjectPageExtensionAPI extends ExtensionAPI, BaseExtensionAPI {
 		editFlow: IEditFlow;
+		getEditFlow(): IEditFlow;
 		getRouting(): Routing;
 	}
 
