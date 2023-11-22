@@ -191,8 +191,8 @@ declare module "sap/ui/core/service/ServiceFactoryRegistry" {
 }
 
 declare module "sap/m/PlanningCalendarRenderer" {
-	import PlanningCalendar from "sap/m/PlanningCalendar";
-	import RenderManager from "sap/ui/core/RenderManager";
+	import type PlanningCalendar from "sap/m/PlanningCalendar";
+	import type RenderManager from "sap/ui/core/RenderManager";
 
 	export default class PlanningCalendarRenderer {
 		public static render(oRm: RenderManager, oPC: PlanningCalendar): void;
@@ -217,3 +217,11 @@ declare module "sap/ovp/cards/linklist/LinkList.controller" {
 	}
 }
 
+declare module "sap/m/PanelRenderer" {
+	import type RenderManager from "sap/ui/core/RenderManager";
+	import type Control from "sap/ui/core/Control";
+
+	export default class PanelRenderer {
+		public static render(rm: RenderManager, control: Control): void;
+	}
+}
