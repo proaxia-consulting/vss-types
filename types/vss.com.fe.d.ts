@@ -52,6 +52,7 @@ declare module "vss/com/fe/IAppComponent" {
 	export interface IRoutingService {
 		navigateTo(oContext: Context, sRouteName: string, mParameterMapping?: Record<string, any>, bPreserveHistory?: boolean): Promise<void>;
 		navigateToContext(oContext: Context, mParameters?: $TNavigateToContextParameters, oViewData?: any, oCurrentTargetInfo?: any): Promise<void>;
+		navigateToRoute(sTargetRouteName: string, oRouteParameters?: any): Promise<void>;
 	}
 
 	export default interface IAppComponent extends AppComponent {
