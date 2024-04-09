@@ -138,7 +138,7 @@ declare module "sap/ui/core/util/XMLPreprocessor" {
 
 declare module "sap/ui/comp/smartfield/TextArrangementDelegate" {
 	export default class TextArrangementDelegate {
-		fetchIDAndDescriptionCollectionIfRequired();
+		fetchIDAndDescriptionCollectionIfRequired(oSettings?: { mode: string; forceTextArrangementFetch?: boolean });
 	}
 }
 
