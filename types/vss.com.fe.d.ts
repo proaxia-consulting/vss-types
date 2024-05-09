@@ -65,12 +65,14 @@ declare module "vss/com/fe/core/controllerextensions" {
 	import EditFlow from "sap/fe/core/controllerextensions/EditFlow";
 	import Context from "sap/ui/model/odata/v4/Context";
 	import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
+	import IAppComponent from "vss/com/fe/IAppComponent";
 
 	/**
 	 * @link https://sapui5.hana.ondemand.com/resources/sap/fe/core/controllerextensions/EditFlow-dbg.js
 	 */
 	export interface IEditFlow extends EditFlow, ControllerExtension {
 		toggleDraftActive(context: Context): void;
+		getAppComponent(): IAppComponent;
 	}
 }
 
