@@ -127,10 +127,16 @@ declare module "vss/com/fe/ListReport" {
 
 	/**
 	 * @link https://sapui5.hana.ondemand.com/resources/sap/fe/core/controls/FilterBar-dbg.js
+	 *
+	 * @deprecated Use sap.ui.mdc.FilterBar instead!
 	 */
 	export interface IFilterBar extends Control {
 		initialized(): Promise<any>;
+		/**
+		 * @deprecated Use getConditions() instead!
+		 */
 		getFilterConditions(): TFilterConditions;
+		getConditions(): TFilterConditions;
 		setFilterConditions(conditions: TFilterConditions): void;
 		attachFiltersChanged(fnFunction: TEventHandlerFunction, oListener?: object): void;
 		detachFiltersChanged(fnFunction: TEventHandlerFunction, oListener?: object): void;
