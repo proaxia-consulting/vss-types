@@ -1,6 +1,6 @@
 {
 	"name": "@dbme/ts-types",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "DBM|E & VSS TypeScript Definitions",
 	"copyright": "proaxia consulting group ag",
 	"license": "SEE LICENSE IN LICENSE.txt",
@@ -14,8 +14,11 @@
 		"typescript"
 	],
 	"dependencies": {
-		"@sapui5/ts-types-esm": "1.108.21",
+		"@sapui5/types": "~1.120.21",
 		"@types/node": "^18.11.15"
+	},
+	"devDependencies": {
+		"@sap-ux/eslint-plugin-fiori-tools": "^0.5.0"
 	}
 }
 
