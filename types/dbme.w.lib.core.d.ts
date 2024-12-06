@@ -451,6 +451,11 @@ declare module "dbme/w/lib/core/calendar/Enums" {
         readonly TimeClocking: "T";
     };
     export type IntervalTypeType = (typeof IntervalType)[keyof typeof IntervalType];
+    export const ControlId: {
+        readonly Calendar: "pc";
+        readonly Filter: "idFilter";
+        readonly SearchField: "idSearchField";
+    };
 }
 declare module "dbme/w/lib/core/types/IEntity" {
     import type { ActionType, UxfcType } from "dbme/w/lib/core/model/Enums";
