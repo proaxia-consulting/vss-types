@@ -1192,6 +1192,20 @@ declare module "dbme/c/model/EntityUtils" {
      */
     export default EntityUtils;
 }
+declare module "dbme/c/model/JSONModel" {
+    import JSONModelBase from "sap/ui/model/json/JSONModel";
+    /**
+     * @author Marek Gozdalski
+     * @since 1.7.0
+     * @namespace dbme.c.model.JSONModel
+     */
+    export default class JSONModel extends JSONModelBase {
+        protected _targetPath?: string;
+        constructor(oData?: object, bObserve?: boolean);
+        loadPath(targetPath: string, sURL: string, oParameters?: object | string, sType?: "GET" | "POST", mHeaders?: object): Promise<void>;
+        protected _ajax(oParameters: JQuery.AjaxSettings): any;
+    }
+}
 declare module "dbme/c/model/type/Date" {
     import DateBase from "sap/ui/model/type/Date";
     /**
