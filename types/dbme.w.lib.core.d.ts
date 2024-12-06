@@ -1850,8 +1850,8 @@ declare module "dbme/w/lib/core/control/NavigationMenuFactory" {
 declare module "dbme/w/lib/core/model/ODataToJSON" {
     import type Filter from "sap/ui/model/Filter";
     import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
-    import JSONModel from "sap/ui/model/json/JSONModel";
-    import { FacetFilterListDataType, ListMode } from "sap/m/library";
+    import type JSONModel from "sap/ui/model/json/JSONModel";
+    import { type FacetFilterListDataType, ListMode } from "sap/m/library";
     export type $ODataToJSONValues = {
         key: string;
         text: string;
@@ -1877,7 +1877,7 @@ declare module "dbme/w/lib/core/model/ODataToJSON" {
     export type $ODataToJSONSettings = $ODataToJSONBaseSettings & {
         source: ODataModel;
         target?: JSONModel;
-        path?: string;
+        path: string;
         filters?: Filter[];
         targetPath?: string;
         async?: boolean;
@@ -1891,15 +1891,14 @@ declare module "dbme/w/lib/core/model/ODataToJSON" {
      * @namespace dbme.w.lib.core.model
      * @nonui5
      */
-    export default class ODataToJSON<TEntityData> {
-        private oConfig;
-        private oReader;
-        constructor(oConfig: $ODataToJSONSettings);
-        load(): Promise<($ODataToJSONValues | TEntityData)[]>;
-        private _mapResult;
+    export default class ODataToJSON<EntityData> {
+        private settings;
+        constructor(settings: $ODataToJSONSettings);
+        load(): Promise<$ODataToJSONValues[] | EntityData[]>;
     }
 }
 declare module "dbme/w/lib/core/types/IModel" {
+    import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
     import type { AnnotationFieldControlTypeType } from "dbme/w/lib/core/model/Enums";
     /** @deprecated Use dbme.w.lib.core.model.Enums.AnnotationFieldControlTypeType instead! */
     export enum $FieldControlType {
@@ -1919,6 +1918,9 @@ declare module "dbme/w/lib/core/types/IModel" {
             };
         };
     };
+    export interface IODataModel extends ODataModel {
+        sServiceUrl: string;
+    }
 }
 declare module "dbme/w/lib/core/controller/Base" {
     import Controller from "dbme/c/controller/Base";
