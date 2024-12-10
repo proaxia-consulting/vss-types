@@ -379,6 +379,16 @@ declare module "dbme/c/att/types" {
         tAudioInput: IKeyValueString[];
         tVideoInput: IKeyValueString[];
     }
+    export interface IAttachmentConfigMediaType {
+        mediaTypeId: string;
+        priority: int;
+        mimeType: string;
+        fileNameExt: string;
+        videoCodec: string;
+        audioCodec: string;
+        activeVideo: boolean;
+        activeAudio: boolean;
+    }
     export interface IAttachmentConfig {
         fileNameVidP: string;
         fileNameAudP: string;
@@ -420,7 +430,7 @@ declare module "dbme/c/att/AttachmentUtil" {
 }
 declare module "dbme/c/att/AVAttHandler" {
     import type JSONModel from "sap/ui/model/json/JSONModel";
-    import type { IAttachmentConfig, IAttachmentUserData } from "dbme/c/att/types";
+    import type { IAttachmentConfig, IAttachmentUserData, IAttachmentConfigMediaType } from "dbme/c/att/types";
     export enum MediaType {
         video = "V",
         audio = "A"
@@ -437,16 +447,40 @@ declare module "dbme/c/att/AVAttHandler" {
         private _mediaRecorder;
         private _tRecordedBlobs;
         private _attachmentConfig;
+        private _mediaTypes;
         private _attachmentUserData;
         private _mediaRecorderModel;
         private _onMediaStreamAvailable;
         private _onMediaStreamRelease;
         private _mediaVideoRequested;
         private _mediaAudioRequested;
+        private _currentMimeType;
+        private _currentFileNameExtension;
         /**
          * Constructor
          */
         constructor();
+        /**
+         * Build "options-mimeType" for the initialization of the MediaRecorder
+         */
+        private _buildOptionsMIMETypeParameter;
+        /**
+         * The example options-mimeType parameters is: video/mp4;codecs=VP8
+         * The method returns the sign "=" which follows the keyword "codecs" above
+         */
+        private _codecsKeywordSeparator;
+        /**
+         * Determine the MIME Type (with options) which is to be used
+         */
+        private _determineMediaType;
+        /**
+         * Return the MIME Type
+         */
+        getMimeType(): string;
+        /**
+         * Return the recorder blob
+         */
+        getRecorderBlob(): Blob;
         /**
          * Initialize
          */
@@ -454,7 +488,7 @@ declare module "dbme/c/att/AVAttHandler" {
         /**
          * Set configuration
          */
-        setConfig(attachmentConfig: IAttachmentConfig): void;
+        setConfig(attachmentConfig: IAttachmentConfig, mediaTypes: IAttachmentConfigMediaType[]): void;
         /**
          * Set user data
          */
@@ -580,6 +614,7 @@ declare module "dbme/c/att/MediaRecorder.controller" {
         private _parentController;
         private _saveCallback;
         private _attConfig;
+        private _mediaTypes;
         private _attUserData;
         private _avAttHandler;
         private _mediaRecorderModel;
@@ -699,12 +734,13 @@ declare module "dbme/c/att/AttachmentHandler" {
      */
     export default class AttachmentHandler {
         private static _this;
+        private _name?;
         private _params;
-        private _attachmentModel;
-        private _mediaRecorder;
-        private _dialog;
-        private _attachmentContainer;
-        private _attachmentComponent;
+        private _attachmentModel?;
+        private _mediaRecorder?;
+        private _dialog?;
+        private _attachmentContainer?;
+        private _attachmentComponent?;
         /**
          * Constructor
          */
@@ -769,6 +805,8 @@ declare module "dbme/c/att/AttachmentHandler" {
          * Create the component handling the attachments
          */
         private _createAttachmentComponent;
+        private _destroyControls;
+        private _onExit;
     }
 }
 declare module "dbme/c/control/Enums" {
@@ -1200,7 +1238,7 @@ declare module "dbme/c/model/JSONModel" {
      * @namespace dbme.c.model.JSONModel
      */
     export default class JSONModel extends JSONModelBase {
-        protected _targetPath?: string;
+        protected _targetPath: Map<string, string[]>;
         constructor(oData?: object, bObserve?: boolean);
         loadPath(targetPath: string, sURL: string, oParameters?: object | string, sType?: "GET" | "POST", mHeaders?: object): Promise<void>;
         protected _ajax(oParameters: JQuery.AjaxSettings): any;
@@ -1214,15 +1252,13 @@ declare module "dbme/c/model/type/Date" {
      * @author Marek Gozdalski
      * @since 1.0.0
      * @name dbme.c.model.type.Date
+     *
+     * @global
      */
-    class DateType extends DateBase {
+    export default class DateType extends DateBase {
         protected sName: string;
         constructor(oFormatOptions?: {}, oConstraints?: object);
     }
-    /**
-     * @global
-     */
-    export default DateType;
 }
 declare module "dbme/c/model/type/DateTime" {
     import DateTimeBase from "sap/ui/model/type/DateTime";
@@ -1232,15 +1268,13 @@ declare module "dbme/c/model/type/DateTime" {
      * @author Marek Gozdalski
      * @since 1.0.0
      * @namespace dbme.c.model.type
+     *
+     * @global
      */
-    class DateTime extends DateTimeBase {
+    export default class DateTime extends DateTimeBase {
         protected sName: string;
         constructor(oFormatOptions?: {}, oConstraints?: object);
     }
-    /**
-     * @global
-     */
-    export default DateTime;
 }
 declare module "dbme/c/model/type/DateTimeUTC" {
     import DateTime from "sap/ui/model/type/DateTime";
@@ -1250,8 +1284,10 @@ declare module "dbme/c/model/type/DateTimeUTC" {
      * @author Marek Gozdalski
      * @since 1.0.0
      * @namespace dbme.c.model.type
+     *
+     * @global
      */
-    class DateTimeUTC extends DateTime {
+    export default class DateTimeUTC extends DateTime {
         protected oConstraints: {
             minimum?: unknown;
             maximum?: unknown;
@@ -1263,10 +1299,6 @@ declare module "dbme/c/model/type/DateTimeUTC" {
         validateValue(oValue: unknown): void;
         formatValue(vValue: unknown, sTargetType: string): any;
     }
-    /**
-     * @global
-     */
-    export default DateTimeUTC;
 }
 declare module "dbme/c/model/type/Email" {
     import StringType from "sap/ui/model/type/String";
@@ -1276,16 +1308,14 @@ declare module "dbme/c/model/type/Email" {
      * @author Marek Gozdalski
      * @since 1.0.0
      * @namespace dbme.c.model.type
+     *
+     * @global
      */
-    class Email extends StringType {
+    export default class Email extends StringType {
         protected sName: string;
         constructor(oFormatOptions?: {}, oConstraints?: object);
         validateValue(sValue: string): void;
     }
-    /**
-     * @global
-     */
-    export default Email;
 }
 declare module "dbme/c/model/type/Mileage" {
     import IntegerType from "sap/ui/model/type/Integer";
@@ -1295,58 +1325,47 @@ declare module "dbme/c/model/type/Mileage" {
      * @author Marek Gozdalski
      * @since 1.0.0
      * @namespace dbme.c.model.type
+     *
+     * @global
      */
-    class Mileage extends IntegerType {
+    export default class Mileage extends IntegerType {
         protected sName: string;
         constructor(oFormatOptions?: {}, oConstraints?: object);
         formatValue(vValue: unknown, sInternalType: string): {};
     }
-    /**
-     * @global
-     */
-    export default Mileage;
 }
 declare module "dbme/c/model/type/NotEmptyString" {
     import StringType from "sap/ui/model/type/String";
     /**
      * @namespace dbme.c.model.type
+     * @global
      */
-    class NotEmptyString extends StringType {
+    export default class NotEmptyString extends StringType {
         protected sName: string;
         constructor(oFormatOptions?: {}, oConstraints?: object);
         validateValue(sValue: string): void;
     }
-    /**
-     * @global
-     */
-    export default NotEmptyString;
 }
 declare module "dbme/c/model/type/Percent" {
     import IntegerType from "sap/ui/model/type/Integer";
     /**
      * @namespace dbme.c.model.type
+     * @global
      */
-    class Percent extends IntegerType {
+    export default class Percent extends IntegerType {
         protected sName: string;
         constructor(oFormatOptions?: {}, oConstraints?: object);
     }
-    /**
-     * @global
-     */
-    export default Percent;
 }
 declare module "dbme/c/model/type/PercentAC" {
     import Percent from "dbme/c/model/type/Percent";
     /**
      * @namespace dbme.c.model.type
-     */
-    class PercentAC extends Percent {
-        constructor(oFormatOptions?: {}, oConstraints?: object);
-    }
-    /**
      * @global
      */
-    export default PercentAC;
+    export default class PercentAC extends Percent {
+        constructor(oFormatOptions?: {}, oConstraints?: object);
+    }
 }
 declare module "dbme/c/model/type/Phone" {
     import StringType from "sap/ui/model/type/String";
@@ -1355,16 +1374,14 @@ declare module "dbme/c/model/type/Phone" {
      * @author Marek Gozdalski
      * @since 1.0.0
      * @namespace dbme.c.model.type
+     *
+     * @global
      */
-    class Phone extends StringType {
+    export default class Phone extends StringType {
         protected sName: string;
         constructor(oFormatOptions?: {}, oConstraints?: object);
         validateValue(sValue: string): void;
     }
-    /**
-     * @global
-     */
-    export default Phone;
 }
 declare module "dbme/c/model/type/VIN" {
     import StringType from "sap/ui/model/type/String";
