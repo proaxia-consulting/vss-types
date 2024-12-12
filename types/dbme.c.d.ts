@@ -1956,6 +1956,7 @@ declare module "dbme/c/org/ext/main/Main.controller" {
          * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
          * @memberOf dbme.c.org.main.Main
          */
+        onExit(): void;
         onBeforeRebind(event: Event): void;
         private _rebindForm;
         onChangeSelection(event: Table$SelectionChangeEvent): Promise<void>;
