@@ -1449,7 +1449,7 @@ declare module "dbme/w/lib/core/util/RouteQueryFilter" {
          *
          * returns query args. that wasn't added into this._oQueryArgs
          */
-        onRouteMatched(this: ISrsController, oEvent: Event, sEntitySet: string, aIgnoredQueryArgs?: string[], oFilterControl?: SmartFilterBar | FacetFilter, oQueryArgsMap?: Map<string, string | undefined>): Promise<TSelectedFilterValues>;
+        onRouteMatched(this: ISrsController, oEvent: Event | $RouteMatchedParams, sEntitySet: string, aIgnoredQueryArgs?: string[], oFilterControl?: SmartFilterBar | FacetFilter, oQueryArgsMap?: Map<string, string | undefined>): Promise<TSelectedFilterValues>;
     };
     /**
      * @namespace dbme.w.lib.core.util
@@ -2035,13 +2035,15 @@ declare module "dbme/w/lib/core/calendar/CalendarController" {
     import type Event from "sap/ui/base/Event";
     import type { PlanningCalendar$RowSelectionChangeEvent } from "sap/m/PlanningCalendar";
     import { BatchRequestGroupId } from "dbme/w/lib/core/calendar/model/Enums";
+    import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
+    import type { $RouteMatchedParams } from "dbme/w/lib/core/util/RouteQueryFilter";
     /**
      * @namespace dbme.w.lib.core.calendar
      * @controller
      */
     export default abstract class CalendarController extends BaseController implements ICalendarController {
         routeQueryFilter: {
-            onRouteMatched(this: import("dbme/w/lib/core/types/IController").ISrsController, oEvent: Event, sEntitySet: string, aIgnoredQueryArgs?: string[], oFilterControl?: SmartFilterBar | import("sap/m/FacetFilter").default, oQueryArgsMap?: Map<string, string | undefined>): Promise<{
+            onRouteMatched(this: import("dbme/w/lib/core/types/IController").ISrsController, oEvent: Event | $RouteMatchedParams, sEntitySet: string, aIgnoredQueryArgs?: string[], oFilterControl?: SmartFilterBar | import("sap/m/FacetFilter").default, oQueryArgsMap?: Map<string, string | undefined>): Promise<{
                 [x: string]: string;
             }>;
         };
@@ -2070,7 +2072,12 @@ declare module "dbme/w/lib/core/calendar/CalendarController" {
             };
         };
         onRequestFailed(oEvt: Event): void;
-        onRouteMatched(oEvent: Event): Promise<{
+        onRouteMatched(event: Route$PatternMatchedEvent): Promise<{
+            [key: string]: string | string[] | undefined;
+            DISPLAY_CHARDT_FROM?: string;
+            DISPLAY_CHARDT_TO?: string;
+        }>;
+        protected _onRouteMatchedAsync(routeParams: $RouteMatchedParams): Promise<{
             [key: string]: string | string[] | undefined;
             DISPLAY_CHARDT_FROM?: string;
             DISPLAY_CHARDT_TO?: string;
