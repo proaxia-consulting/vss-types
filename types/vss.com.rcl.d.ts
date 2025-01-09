@@ -791,7 +791,7 @@ declare module "vss/com/rcl/cc/model/ContractCreateCommand" {
 	}
 }
 declare module "vss/com/rcl/utils/ContractNavigation" {
-	import type AppComponent from "sap/fe/core/AppComponent";
+	import Component from "sap/ui/core/Component";
 	/**
 	 * @nonui5
 	 * @namespace vss.com.rcl.utils
@@ -800,7 +800,7 @@ declare module "vss/com/rcl/utils/ContractNavigation" {
 		private _com;
 		private _contractNumber?;
 		private _model;
-		constructor(_com: AppComponent, _contractNumber?: string);
+		constructor(_com: Component, _contractNumber?: string);
 		toContractMaintenance(): void;
 		private _navigateWithFioriLaunchpad;
 		private _navigateWithOutFioriLaunchpad;
@@ -1153,21 +1153,29 @@ declare module "vss/com/rcl/eqsui/i18n/Translate" {
 	 */
 	export default Translate;
 }
-declare module "vss/com/rcl/ml/i18n/Translate" {
-	import type ResourceBundle from "sap/base/i18n/ResourceBundle";
-	export function setBundle(b: ResourceBundle): void;
-	export function __(key: string, args?: unknown[]): string;
-	const Translate: typeof __;
+declare module "vss/com/rcl/utils/EventBusHandlers" {
+	import BaseObject from "sap/ui/base/Object";
+	export type EventBusHandlerFunctionType = (p1: string, p2: string, p3: object) => void;
 	/**
-	 * @namespace vss.com.rcl.ml.i18n
+	 * @nonui5
+	 * @namespace vss.com.rcl.utils
 	 */
-	export default Translate;
+	export default class EventBusHandler {
+		private static _instance;
+		private _listeners;
+		static getInstance(): EventBusHandler;
+		private constructor();
+		subscribe(channelId: string, eventId: string, handler: EventBusHandlerFunctionType, listener: BaseObject, unsubscribeFirst?: boolean): void;
+		unsubscribe(channelId: string, eventId: string, handler: EventBusHandlerFunctionType, listener: BaseObject): void;
+		unsubscribeAll(listener: BaseObject): void;
+	}
 }
 declare module "vss/com/rcl/ml/model/Enums" {
 	export const EventId: {
 		readonly MainListComponentOnInit: "MainListComponentOnInit";
 		readonly MainListControllerOnInit: "MainListControllerOnInit";
 		readonly MainListControllerOnViewNeedsRefresh: "MainListControllerOnViewNeedsRefresh";
+		/** @deprecated Cannot use ListReport's private extension! */
 		readonly MainListControllerOnPageReady: "MainListControllerOnPageReady";
 		readonly MainListControllerOnPendingFilters: "MainListControllerOnPendingFilters";
 		readonly MainListControllerOnAfterRendering: "MainListControllerOnAfterRendering";
@@ -1186,51 +1194,6 @@ declare module "vss/com/rcl/ml/model/Enums" {
 		/** @deprecated Use vss.com.rcl.eqscol.Enums.FieldGroupId.ColumnEquipmentStructure instead! */
 		readonly ColumnEquipmentHierarchy: "ColumnEquipmentHierarchy";
 	};
-}
-declare module "vss/com/rcl/ml/model/EventId" {
-	import { EventId } from "vss/com/rcl/ml/model/Enums";
-	/**
-	 * Provide default export for EventId due duplicated import names in Component.ts
-	 */
-	export default EventId;
-}
-declare module "vss/com/rcl/ml/types/EventParams" {
-	import type Event from "sap/ui/base/Event";
-	import type IAppComponent from "vss/com/fe/IAppComponent";
-	import type { IListReportController } from "vss/com/fe/ListReport";
-	import type FilterBar from "sap/ui/mdc/FilterBar";
-	import type MdcTable from "sap/ui/mdc/Table";
-	import type Context from "sap/ui/model/odata/v4/Context";
-	export type $MainListComponentOnInit = {
-		component: IAppComponent;
-	};
-	export type $MainListControllerEvent = {
-		controller: IListReportController;
-		controls: MdcTable[];
-		filterBar?: FilterBar;
-		event?: Event;
-		state?: unknown;
-	};
-	export type $NavigationContextInfo = {
-		bindingContext: Context;
-	};
-}
-declare module "vss/com/rcl/utils/EventBusHandlers" {
-	import BaseObject from "sap/ui/base/Object";
-	export type EventBusHandlerFunctionType = (p1: string, p2: string, p3: object) => void;
-	/**
-	 * @nonui5
-	 * @namespace vss.com.rcl.utils
-	 */
-	export default class EventBusHandler {
-		private static _instance;
-		private _listeners;
-		static getInstance(): EventBusHandler;
-		private constructor();
-		subscribe(channelId: string, eventId: string, handler: EventBusHandlerFunctionType, listener: BaseObject, unsubscribeFirst?: boolean): void;
-		unsubscribe(channelId: string, eventId: string, handler: EventBusHandlerFunctionType, listener: BaseObject): void;
-		unsubscribeAll(listener: BaseObject): void;
-	}
 }
 declare module "vss/com/rcl/model/RootEntityQuery" {
 	import type { TRootEntity } from "vss/com/rcl/types/EntitySet";
@@ -1261,11 +1224,49 @@ declare module "vss/com/rcl/ml/eh/EquipmentStructureComponent" {
 	};
 	export default EquipmentStructureComponent;
 }
+declare module "vss/com/rcl/ml/i18n/Translate" {
+	import type ResourceBundle from "sap/base/i18n/ResourceBundle";
+	export function setBundle(b: ResourceBundle): void;
+	export function __(key: string, args?: unknown[]): string;
+	const Translate: typeof __;
+	/**
+	 * @namespace vss.com.rcl.ml.i18n
+	 */
+	export default Translate;
+}
+declare module "vss/com/rcl/ml/model/EventId" {
+	import { EventId } from "vss/com/rcl/ml/model/Enums";
+	/**
+	 * Provide default export for EventId due duplicated import names in Component.ts
+	 */
+	export default EventId;
+}
+declare module "vss/com/rcl/ml/types/EventParams" {
+	import type Event from "sap/ui/base/Event";
+	import type IAppComponent from "vss/com/fe/IAppComponent";
+	import type { IListReportController } from "vss/com/fe/ListReport";
+	import type FilterBar from "sap/ui/mdc/FilterBar";
+	import type MdcTable from "sap/ui/mdc/Table";
+	import type Context from "sap/ui/model/odata/v4/Context";
+	export type $MainListComponentOnInit = {
+		component: IAppComponent;
+	};
+	export type $MainListControllerEvent = {
+		controller: IListReportController;
+		controls: MdcTable[];
+		filterBar?: FilterBar;
+		event?: Event;
+		state?: unknown;
+	};
+	export type $NavigationContextInfo = {
+		bindingContext: Context;
+	};
+}
 declare module "vss/com/rcl/ml/Component" {
-	import AppComponentAbstract from "vss/com/rcl/component/AppComponentAbstract";
 	import type IAppComponent from "vss/com/fe/IAppComponent";
 	import type { IRoutingService } from "vss/com/fe/IAppComponent";
 	import type IAppContainer from "vss/com/fe/IAppContainer";
+	import AppComponentAbstract from "vss/com/rcl/component/AppComponentAbstract";
 	/**
 	 * @namespace vss.com.rcl.ml
 	 */
@@ -1279,8 +1280,6 @@ declare module "vss/com/rcl/ml/Component" {
 		getAppContainer(): IAppContainer;
 		init(): void;
 		exit(): void;
-		private _attachNavigationEvents;
-		private _detachNavigationEvents;
 	}
 }
 declare module "vss/com/rcl/ml/eh/CartItemEventHandler" {
@@ -1478,7 +1477,6 @@ declare module "vss/com/rcl/ml/ext/controller/ListReportExtension.controller" {
 			onInit(this: IListReportExtension): void;
 			onBeforeRendering(this: IListReportExtension, event: Event): void;
 			onAfterRendering(this: IListReportExtension, event: Event): void;
-			onPageReady(this: IListReportExtension, state: unknown): void;
 			onPendingFilters(this: IListReportExtension): void;
 			onViewNeedsRefresh(this: IListReportExtension, event: Event): void;
 		};
