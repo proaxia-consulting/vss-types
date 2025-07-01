@@ -1,6 +1,6 @@
-import BaseComponent from "sap/fe/core/AppComponent";
+import BaseComponent from "sap/ovp/app/Component";
 /**
- * @namespace vss.com.davs
+ * @namespace vss.com.dasa
  */
 export default class Component extends BaseComponent {
     static metadata: {

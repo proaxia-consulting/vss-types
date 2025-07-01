@@ -1,0 +1,12 @@
+import HBox from "sap/m/HBox";
+import { Link$PressEvent } from "sap/m/Link";
+import { Select$ChangeEvent } from "sap/m/Select";
+import Control from "sap/ui/core/Control";
+import ManagedObject from "sap/ui/base/ManagedObject";
+import Context from "sap/ui/model/Context";
+export declare function getRelevantVSSOrderText(sColumnId: string, fTextFormatter1: Function, fTextFormatter2: Function): HBox;
+export declare function formatOrderLink(sOrderNumber: string): string;
+export declare function onVSSOrderLinkPress(oEvent: Link$PressEvent): void;
+export declare function getStorageLocationControl(sColumnId: string, fSelectChange: (oEvent: Select$ChangeEvent) => void): Control;
+export declare function storageLocationFactory(p1: string, p2: Context): ManagedObject;
+export declare function getControlType(oControl: Control): string;
