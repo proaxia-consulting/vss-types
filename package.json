@@ -1,24 +1,8 @@
 {
-	"name": "@dbme/ts-types",
-	"version": "1.2.0",
-	"description": "DBM|E & VSS TypeScript Definitions",
+	"name": "@vss/types",
+	"version": "2.0.0",
+	"private": true,
+	"description": "VSS Types",
 	"copyright": "proaxia consulting group ag",
-	"license": "SEE LICENSE IN LICENSE.txt",
-	"types": "types/index.d.ts",
-	"scripts": {
-		"test": "tsc"
-	},
-	"keywords": [
-		"dbme",
-		"vss",
-		"typescript"
-	],
-	"dependencies": {
-		"@sapui5/types": "~1.120.21",
-		"@types/node": "^22.10.1"
-	},
-	"devDependencies": {
-		"@sap-ux/eslint-plugin-fiori-tools": "^0.5.0"
-	}
+	"license": "SEE LICENSE IN LICENSE.txt"
 }
-
