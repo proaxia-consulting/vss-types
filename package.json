@@ -1,21 +1,8 @@
 {
-	"name": "@dbme/ts-types",
-	"version": "1.1.0",
-	"description": "DBM|E & VSS TypeScript Definitions",
+	"name": "@vss/types",
+	"version": "2.0.0",
+	"private": true,
+	"description": "VSS Types",
 	"copyright": "proaxia consulting group ag",
-	"license": "SEE LICENSE IN LICENSE.txt",
-	"types": "types/index.d.ts",
-	"scripts": {
-		"test": "tsc"
-	},
-	"keywords": [
-		"dbme",
-		"vss",
-		"typescript"
-	],
-	"dependencies": {
-		"@sapui5/ts-types-esm": "1.108.21",
-		"@types/node": "^18.11.15"
-	}
+	"license": "SEE LICENSE IN LICENSE.txt"
 }
-

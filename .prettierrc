@@ -1,9 +1,0 @@
-{
-	"extends": [".eslintrc", "prettier"],
-	"useTabs": true,
-	"tabWidth": 4,
-	"trailingComma": "none",
-	"arrowParens": "avoid",
-	"endOfLine": "crlf",
-	"printWidth": 180
-}
