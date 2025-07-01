@@ -1,0 +1,331 @@
+import type { TDraftAwareEntity } from "vss/com/fe/DraftTypes";
+import type { AttachmentModelFunction, CharacteristicDataTypeType, DocumentIOTypeType, FieldDataTypeType, RentalClassTypeType } from "vss/com/rcl/model/Enums";
+export type TRootObjectKey = {
+    ID: string;
+    Equipment?: string;
+    Material?: string;
+};
+export type TRootEntity = {
+    ID: string;
+    Equipment?: string;
+    EquipmentName?: string;
+    Material?: string;
+    MaterialName?: string;
+    Plant: string;
+    PlantName: string;
+    StorageLocation: string;
+    StorageLocationName: string;
+    Batch: string;
+    RentalClassType: string;
+    RentalClassTypeText: string;
+    HasHierarchyChildren?: boolean;
+    HasHierarchyParent?: boolean;
+    HierarchyLevel: number;
+    HierarchyRoot: string;
+    SuperordinateEquipment?: string;
+    SuperordinateEquipmentName?: string;
+    CharacteristicValueFilter: string;
+    IsMaterial: boolean;
+    MaterialBaseUnit?: string;
+    _CharacteristicsDisplay?: TObjectCharacteristicsDisplay[];
+};
+export type TObjectCharacteristicsDisplay = {
+    ClfnObjectID: string;
+    ClfnObjectTable: string;
+    ClassInternalID: string;
+    CharcInternalID: string;
+    SequenceNumber: number;
+    Icon: string;
+    CharcDescription: string;
+    _Value?: TCMObjectCharcValueEntity[];
+};
+export type TCMObjectCharcValueEntity = {
+    ClfnObjectID: string;
+    ClfnObjectTable: string;
+    CharcInternalID: string;
+    CharcValue: string;
+    CharcValueDescription?: string;
+    CharcFromDecimalValue: string;
+    _Characteristic?: TCharacteristic;
+    _FixedValue?: TCharcValEntity;
+};
+export type TCharacteristic = {
+    CharcInternalID: string;
+    CharcDecimals: number;
+    CharcLength: number;
+};
+export type TCharcFilterEntity = {
+    CharcInternalID: string;
+    _Charc?: TCharcEntity;
+    _ClassCharc?: TClassCharcEntity[];
+};
+export type TClassCharcEntity = {
+    CharcInternalID: string;
+    ClassInternalID: string;
+    ClassDescription: string;
+    RentalClassType: RentalClassTypeType;
+    _Charc?: TCharcEntity[];
+};
+export type TCharcEntity = {
+    AdditionalValueIsAllowed: boolean;
+    Characteristic: string;
+    Characteristic_Text: string;
+    CharcDataType: CharacteristicDataTypeType;
+    CharcDecimals: number;
+    CharcExponentFormat: string;
+    CharcExponentValue: number;
+    CharcInternalID: string;
+    TimeIntervalNumber: string;
+    CharcLength: number;
+    CharcTemplate: string;
+    CharcValueUnit: string;
+    Currency: string;
+    EntryIsRequired: boolean;
+    MultipleValuesAreAllowed: boolean;
+    NegativeValueIsAllowed: boolean;
+    ValueIntervalIsAllowed: boolean;
+    ValueIsCaseSensitive: boolean;
+    ValuesCount?: number;
+    IsFlag?: boolean;
+    _Values?: TCharcValEntity[];
+    _ClassCharc?: TClassCharcEntity;
+};
+export type TCharcValEntity = {
+    CharcInternalID: string;
+    CharcValuePositionNumber: number;
+    TimeIntervalNumber: number;
+    CharcValueParentPositionNumber: number;
+    CharcValueHasChild: boolean;
+    CharcValueIntervalType: string;
+    CharcValue: string;
+    CharcFromNumericValue: number;
+    CharcToNumericValue: number;
+    CharcFromNumericValueUnit: string;
+    CharcToNumericValueUnit: string;
+    CharcFromDate: string;
+    CharcToDate: string;
+    CharcFromTime: string;
+    CharcToTime: string;
+    CharcFromAmount: number;
+    CharcToAmount: number;
+    Currency: string;
+    IsDefaultValue: boolean;
+    CharcFromDecimalValue: string;
+    CharcToDecimalValue: string;
+    CharcValueDescription: string;
+};
+export type TEquipmentEntity = {
+    Equipment: string;
+    EquipmentName?: string;
+    Equipment_Text?: string;
+    Material: string;
+    Material_Text?: string;
+    MateriaName?: string;
+    IsRental?: boolean;
+    IsOnStock?: boolean;
+};
+export type TEquipmentTextEntity = {
+    Equipment: string;
+    Language: string;
+    EquipmentName: string;
+};
+export type TEquipmentHierarchyCustomEntity = {
+    Equipment: string;
+    EquipmentName: string;
+    SuperordinateEquipment: string;
+    HierarchyRoot: string;
+    HierarchyLevel: number;
+    _Equipment?: TEquipmentEntity;
+    _Root?: TRootEntity[];
+};
+export type TDocumentCreateItemEntity = {
+    DocumentItemUUID?: string;
+    DocumentHeaderUUID?: string;
+    SalesDocument?: string;
+    SalesDocumentItem?: number;
+    HigherLevelItem?: number;
+    Material: string;
+    Equipment?: string;
+    Plant: string;
+    StorageLocation: string;
+    SerialNumber?: string;
+    TargetQuantity?: string;
+    TargetQuantityUnit?: string;
+    Batch?: string;
+    SalesContractValidityStartDate?: string;
+    SalesContractValidityEndDate?: string;
+};
+export type TDocumentCreateEntity = {
+    DocumentHeaderUUID?: string;
+    RentalType?: string;
+    SoldToParty?: string;
+    SalesOrganization?: string;
+    DistributionChannel?: string;
+    OrganizationDivision?: string;
+    SalesOffice?: string;
+    SalesContractValidityStartDate?: string;
+    SalesContractValidityEndDate?: string;
+    _Items?: TDocumentCreateItemEntity[];
+};
+export type TDocumentEntity = {
+    SalesDocument: string;
+    SalesDocumentType: string;
+    _ItemOV?: TDocumentItemEntity[];
+    _ItemPG?: TDocumentItemEntity[];
+    _ItemPC?: TDocumentItemEntity[];
+    _ItemLG?: TDocumentItemEntity[];
+};
+export type TDocumentItemEntity = {
+    SalesDocument: string;
+    SalesDocumentItem: string;
+    _Header: TDocumentEntity;
+};
+export type TAccessoryEntity = {
+    MainDeviceEquipment?: string;
+    MainDeviceMaterial?: string;
+    Equipment: string;
+    Material: string;
+    Plant: string;
+    StorageLocation: string;
+};
+export type TCheckListFieldEntity = {
+    Field: string;
+    RelevantCompare?: boolean;
+    RelevantCopyFromOutbound?: boolean;
+    Characteristic?: string;
+    FieldDataType?: FieldDataTypeType;
+    FieldValueUnit?: string;
+    FieldValueDefault?: string;
+    FieldLabel?: string;
+    EntryIsRequired?: boolean;
+    _Characteristic?: TCharcEntity[];
+};
+export type TCheckListSectionFieldEntity = {
+    ClSection: string;
+    Field: string;
+    FieldLabel?: string;
+    SequenceNo?: number;
+    RelevantCompare?: boolean;
+    RelevantCopyFromOutbound?: boolean;
+    Characteristic?: string;
+    _Characteristic?: TCharcEntity;
+};
+export type TCheckListTypeSectionEntity = {
+    ClType: string;
+    ClSection: string;
+    SequenceNo?: number;
+    ClTypeText?: string;
+    ClSectionText?: string;
+    _Fields?: TCheckListSectionFieldEntity[];
+};
+export type TCheckListTypeDeterminationEntity = {
+    ClType: string;
+    ProductLine?: string;
+    ProductGroup?: string;
+    ProductSubGroup?: string;
+    MaterialGroup?: string;
+    ProductHierarchy?: string;
+    _ClTypeSection?: TCheckListTypeSectionEntity;
+};
+export type TDeliveryHeaderEntity = {
+    DeliveryDocument: string;
+    DeliveryDocumentType?: string;
+    DeliveryDate?: string;
+    PlannedGoodsIssueDate?: string;
+    ShipToParty?: string;
+    SoldToParty?: string;
+    IOType: DocumentIOTypeType;
+    _Item?: TDeliveryItemEntity[];
+};
+export type TDeliveryItemEntity = {
+    DeliveryDocument: string;
+    DeliveryDocumentItem: string;
+    ProductLine?: string;
+    ProductGroup?: string;
+    ProductSubGroup?: string;
+    Handover?: string;
+    _Header?: TDeliveryHeaderEntity;
+    _Handover?: THandoverEntity;
+    __OperationControl?: {
+        HandoverCreate?: boolean;
+    };
+};
+export type THandoverEntity = {
+    Handover: string;
+    HandoverUUID: string;
+    IsDeleted: boolean;
+    DeliveryDocument: string;
+    DeliveryDocumentItem: string;
+    SignatureHandover?: string;
+    SignatureHandoverJson?: string;
+    SignatureReceiving?: string;
+    SignatureReceivingJson?: string;
+    _ItemClType?: THandoverItemCheckListTypeEntity[];
+    _Item?: THandoverItemEntity[];
+    _RentalEquipment?: TEquipmentEntity;
+};
+export type THandoverItemEntity = {
+    Handover: string;
+    HandoverItem: string;
+    HandoverUUID?: string;
+    HandoverItemUUID?: string;
+    ClType?: string;
+    ClSection?: string;
+    Field?: string;
+    FieldLabel?: string;
+    FieldValue?: string;
+    FieldValueFlag?: boolean;
+    FieldValueFloat?: number;
+    FieldValueDate?: Date;
+    FieldValueTime?: string;
+    FieldValueUnit?: string;
+    FieldDataType?: string;
+    AttachmentCount?: number;
+    _Header?: THandoverEntity;
+    _Field?: TCheckListFieldEntity;
+    _Fields?: TCheckListFieldEntity[];
+};
+export type THandoverItemDraftAwareEntity = TDraftAwareEntity & THandoverItemEntity;
+export type THandoverItemFieldEntity = {
+    Handover: string;
+    HandoverItem: string;
+    HandoverUUID?: string;
+    HandoverItemUUID?: string;
+    ClType?: string;
+    ClSection?: string;
+    Field?: string;
+    FieldValue?: string;
+    _Field?: TCheckListFieldEntity;
+};
+export type THandoverItemSectionEntity = {
+    Handover: string;
+    HandoverUUID?: string;
+    ClType: string;
+    ClSection: string;
+    ClSectionText?: string;
+    _Fields?: THandoverItemFieldEntity[];
+};
+export type THandoverItemCheckListTypeEntity = {
+    Handover: string;
+    HandoverUUID?: string;
+    ClType: string;
+    ClTypeText?: string;
+    _Sections?: THandoverItemSectionEntity[];
+};
+export type TAttachmentFunctionResult = {
+    [AttachmentModelFunction.GetAttachmentCount]: {
+        TotalCount?: number;
+        UnconfirmedCount?: number;
+        ConfirmedCount?: number;
+    };
+};
+export type UnitOfMeasureEntity = {
+    UnitOfMeasure: string;
+    UnitOfMeasure_Text?: string;
+    UnitOfMeasureSAPCode: string;
+    UnitOfMeasureISOCode: string;
+    IsPrimaryUnitForISOCode: boolean;
+    UnitOfMeasureNumberOfDecimals: number;
+    UnitOfMeasureIsCommercial: boolean;
+    UnitOfMeasureDimension: string;
+};
