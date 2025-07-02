@@ -1,0 +1,33 @@
+export type TUnassignedVehicle = {
+    OrderID: string;
+    ItemNo: string;
+    VehicleGuid: string;
+    InternalVehicleNumber: string;
+    VehicleIdentificationNumber: string;
+    Batch: string;
+};
+export type TOrderItem = {
+    OrderID: string;
+    ItemNo: string;
+    VehicleAssgined: string;
+    GroupingKey: string;
+    OrderStatus: string;
+    OrderStatusText: string;
+    DocumentDate: string;
+    OrderType: string;
+    OrderTypeDescription: string;
+    SalesOrganization: string;
+    SalesOrganizationName: string;
+    DistributionChannel: string;
+    DistributionChannelName: string;
+    OrganizationDivision: string;
+    DivisionName: string;
+    Customer: string;
+    CustomerName: string;
+    ItemCategory: string;
+    ItemCategoryText: string;
+    ModelSalesCode: string;
+    Description: string;
+    OptionKey: string;
+    MainItem: string;
+};

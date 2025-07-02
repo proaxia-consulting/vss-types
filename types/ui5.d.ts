@@ -108,6 +108,14 @@ declare module "ui5" {
 	};
 }
 
+declare module "sap/ui/thirdparty/jquery" {
+	import * as jq from "jquery";
+
+	interface JQuery {
+		<T>(element: T): jq<T>;
+	}
+}
+
 declare module "sap/ui/core/XMLTemplateProcessor" {
 	import Element from "sap/ui/core/Element";
 
@@ -139,6 +147,22 @@ declare module "sap/ui/core/util/XMLPreprocessor" {
 declare module "sap/ui/comp/smartfield/TextArrangementDelegate" {
 	export default class TextArrangementDelegate {
 		fetchIDAndDescriptionCollectionIfRequired(oSettings?: { mode: string; forceTextArrangementFetch?: boolean });
+	}
+}
+
+declare module "sap/ui/comp/smartfield/ODataTypes" {
+	import type SmartField from "sap/ui/comp/smartfield/SmartField";
+	import type { Property } from "sap/ui/model/odata/ODataMetaModel";
+	import type SimpleType from "sap/ui/model/SimpleType";
+
+	/**
+	 * Utility class to create OData types based on OData metadata.
+	 * @private
+	 */
+	export default class ODataTypes {
+		public constructor(parent: SmartField);
+		public getType(property: { property: Property }, formatOptions?: object, constraints?: object, settings?: object): SimpleType;
+		public destroy(): void;
 	}
 }
 

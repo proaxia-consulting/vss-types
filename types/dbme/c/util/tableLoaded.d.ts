@@ -1,0 +1,12 @@
+import type ListBase from "sap/m/ListBase";
+import type ListItemBase from "sap/m/ListItemBase";
+import type ResponsiveTable from "sap/m/Table";
+import type ListBinding from "sap/ui/model/ListBinding";
+import type Row from "sap/ui/table/Row";
+import type Table from "sap/ui/table/Table";
+import type { IAnyTable } from "dbme/c/model/CommonType";
+import type SmartTable from "sap/ui/comp/smarttable/SmartTable";
+export declare function internalTableLoaded(table: SmartTable): Promise<IAnyTable>;
+export declare function itemsLoaded(table: ResponsiveTable | ListBase): Promise<ListItemBase[]>;
+export declare function rowsLoaded(table: Table): Promise<Row[]>;
+export declare function bindingLoaded(table: IAnyTable | SmartTable | ListBase, timeout?: number): Promise<ListBinding>;

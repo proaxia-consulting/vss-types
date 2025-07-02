@@ -1,0 +1,14 @@
+import MessageItem from "sap/m/MessageItem";
+import Message from "sap/ui/core/message/Message";
+export declare function setWritten(x: boolean): void;
+export declare function getWritten(): boolean;
+export declare function setGeneralMessages(x: Message[]): void;
+export declare function getGeneralMessages(): Message[];
+export declare function setOrderJobOverviewMessages(x: Message[]): void;
+export declare function getOrderJobOverviewMessages(): Message[];
+export declare function setMaterialOverviewMessages(x: Message[]): void;
+export declare function getMaterialOverviewMessages(): Message[];
+export declare function setOrderDetailMessages(x: Message[]): void;
+export declare function getOrderDetailMessages(): Message[];
+export declare function setMessageItems(x: MessageItem[]): void;
+export declare function getMessageItems(): MessageItem[];

@@ -1,0 +1,21 @@
+export type WorkbookColumn = {
+    columnId?: string;
+    label?: string;
+    falseValue?: string;
+    inputFormat?: string;
+    property?: string | string[];
+    scale?: number;
+    template?: string;
+    textAlign?: string;
+    timezone?: string;
+    timezoneProperty?: string;
+    trueValue?: string;
+    type?: string;
+    unit?: string;
+    unitProperty?: string;
+    width?: number;
+    valueMap?: object | Map<any, any>;
+};
+export declare let AvailValueMap: any;
+export declare const aWorkbookColumnSettings: WorkbookColumn[];
+export declare function overrideExcelProperties(x: WorkbookColumn, y: WorkbookColumn): void;
