@@ -1,9 +1,9 @@
-import SectionEquipmentHierarchyBase from "vss/com/rcl/templates/ObjectPage/SectionEquipmentHierarchy";
-import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 import type Tree from "sap/m/Tree";
 import type TreeItemBase from "sap/m/TreeItemBase";
-import type { THierarchyItem } from "vss/com/rcl/model/EquipmentHierarchyQuery";
 import type JSONModel from "sap/ui/model/json/JSONModel";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
+import type { THierarchyItem } from "vss/com/rcl/model/EquipmentHierarchyQuery";
+import SectionEquipmentHierarchyBase from "vss/com/rcl/templates/ObjectPage/SectionEquipmentHierarchy";
 /**
  * @nonui5
  * @namespace pacg.com.rcm.ext

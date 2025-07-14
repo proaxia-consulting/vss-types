@@ -1,4 +1,4 @@
-import ODataType from "sap/ui/model/odata/type/ODataType";
+import type ODataType from "sap/ui/model/odata/type/ODataType";
 import type { TCharcEntity } from "vss/com/rcl/types/EntitySet";
 /**
  * @namespace pacg.com.rcm.clfn.model

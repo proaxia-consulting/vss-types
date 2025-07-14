@@ -1,6 +1,6 @@
 import type Event from "sap/ui/base/Event";
-import { IListReportController } from "vss/com/fe/ListReport";
-import { IObjectPageController } from "vss/com/fe/ObjectPage";
+import type { IListReportController } from "vss/com/fe/ListReport";
+import type { IObjectPageController } from "vss/com/fe/ObjectPage";
 declare const UpdateCartHandler: {
     onActionButtonAddToCartPress(this: IListReportController | IObjectPageController, event: Event): void;
     onActionButtonRemoveFromCartPress(this: IListReportController | IObjectPageController, event: Event): void;

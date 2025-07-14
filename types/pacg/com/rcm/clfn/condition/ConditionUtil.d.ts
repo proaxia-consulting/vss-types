@@ -1,7 +1,7 @@
-import FilterOperator from "sap/ui/model/FilterOperator";
-import type { TFilterCondition } from "vss/com/fe/ListReport";
-import type { TTokenData } from "ui5";
 import Filter from "sap/ui/model/Filter";
+import FilterOperator from "sap/ui/model/FilterOperator";
+import type { TTokenData } from "ui5";
+import type { TFilterCondition } from "vss/com/fe/ListReport";
 /**
  * @namespace pacg.com.rcm.clfn.condition
  */

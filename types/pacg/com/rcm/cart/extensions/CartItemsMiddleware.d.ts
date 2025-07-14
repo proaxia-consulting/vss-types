@@ -1,5 +1,5 @@
 import type ICart from "vss/com/rcl/cart/ICart";
-import { TCartItem } from "vss/com/rcl/cart/ICartModel";
+import type { TCartItem } from "vss/com/rcl/cart/ICartModel";
 /**
  * @nonui5
  * @namespace pacg.com.rcm.cart.extensions

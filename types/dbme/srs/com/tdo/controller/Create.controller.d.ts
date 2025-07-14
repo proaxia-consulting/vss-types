@@ -1,15 +1,15 @@
-import AbstractOrder from "dbme/srs/com/tdo/controller/AbstractOrder.controller";
-import Event from "sap/ui/base/Event";
-import SmartForm from "sap/ui/comp/smartform/SmartForm";
-import type { default as SmartTable } from "sap/ui/comp/smarttable/SmartTable";
-import Filter from "sap/ui/model/Filter";
-import Context from "sap/ui/model/Context";
-import type SmartField from "sap/ui/comp/smartfield/SmartField";
-import type { IOrderEntity, TVehicleCustomerEntity } from "dbme/srs/com/tdo/types/IEntity";
-import type { ListBase$SelectionChangeEvent } from "sap/m/ListBase";
-import type { SerializedTabsType } from "dbme/srs/com/tdo/types/ITabsAware";
 import type { HierarchyAssignmentEntity } from "dbme/w/lib/core/types/IEntity";
+import type { ListBase$SelectionChangeEvent } from "sap/m/ListBase";
+import type Event from "sap/ui/base/Event";
+import type SmartField from "sap/ui/comp/smartfield/SmartField";
+import type SmartForm from "sap/ui/comp/smartform/SmartForm";
+import type { default as SmartTable } from "sap/ui/comp/smarttable/SmartTable";
 import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
+import type Context from "sap/ui/model/Context";
+import Filter from "sap/ui/model/Filter";
+import AbstractOrder from "dbme/srs/com/tdo/controller/AbstractOrder.controller";
+import type { IOrderEntity, TVehicleCustomerEntity } from "dbme/srs/com/tdo/types/IEntity";
+import type { SerializedTabsType } from "dbme/srs/com/tdo/types/ITabsAware";
 /**
  * @namespace dbme.srs.com.tdo.controller
  * @controller

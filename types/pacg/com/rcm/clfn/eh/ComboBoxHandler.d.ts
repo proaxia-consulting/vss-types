@@ -1,7 +1,7 @@
-import Event from "sap/ui/base/Event";
-import Item from "sap/ui/core/Item";
-import { TTokenData } from "ui5";
-import { IClassificationFilterController } from "pacg/com/rcm/types/IController";
+import type Event from "sap/ui/base/Event";
+import type Item from "sap/ui/core/Item";
+import type { TTokenData } from "ui5";
+import type { IClassificationFilterController } from "pacg/com/rcm/types/IController";
 /**
  * @namespace pacg.com.rcm.clfn.eh
  */

@@ -1,5 +1,5 @@
-import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
 import type Table from "sap/m/Table";
+import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
 /**
  * @todo Move to vss.com.rcl.eqscol; Create reusable extension with own model
  *

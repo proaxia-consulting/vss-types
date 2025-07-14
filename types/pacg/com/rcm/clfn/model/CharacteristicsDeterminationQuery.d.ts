@@ -1,6 +1,6 @@
-import Filter from "sap/ui/model/Filter";
-import ODataModel from "sap/ui/model/odata/v4/ODataModel";
-import { TCharcFilterEntity } from "vss/com/rcl/types/EntitySet";
+import type Filter from "sap/ui/model/Filter";
+import type ODataModel from "sap/ui/model/odata/v4/ODataModel";
+import type { TCharcFilterEntity } from "vss/com/rcl/types/EntitySet";
 /**
  * @namespace pacg.com.rcm.clfn.model
  */

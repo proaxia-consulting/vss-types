@@ -1,7 +1,7 @@
+import type { Button$PressEvent } from "sap/m/Button";
 import type Event from "sap/ui/base/Event";
 import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
 import type { IObjectPageController } from "vss/com/fe/ObjectPage";
-import type { Button$PressEvent } from "sap/m/Button";
 declare const CartItemEventHandler: {
     /**
      * Propagate the 'Add to cart' event to the EventBus; Handle in component that implements {vss.com.rcl.cart.ICart}

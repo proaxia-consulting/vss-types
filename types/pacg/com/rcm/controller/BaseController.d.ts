@@ -1,6 +1,6 @@
 import PageController from "sap/fe/core/PageController";
-import type AppComponent from "pacg/com/rcm/Component";
 import type Model from "sap/ui/model/Model";
+import type AppComponent from "pacg/com/rcm/Component";
 /**
  * @controller
  * @namespace pacg.com.rcm.controller

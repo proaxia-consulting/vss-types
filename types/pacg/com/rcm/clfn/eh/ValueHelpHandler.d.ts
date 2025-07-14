@@ -1,5 +1,5 @@
-import Event from "sap/ui/base/Event";
-import { IClassificationFilterController } from "pacg/com/rcm/types/IController";
+import type Event from "sap/ui/base/Event";
+import type { IClassificationFilterController } from "pacg/com/rcm/types/IController";
 /**
  * @namespace pacg.com.rcm.clfn.eh
  */

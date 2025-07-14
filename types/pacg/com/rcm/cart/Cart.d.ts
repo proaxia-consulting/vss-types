@@ -1,7 +1,7 @@
 import OverflowToolbarButton from "sap/m/OverflowToolbarButton";
-import CartModel from "pacg/com/rcm/cart/model/CartModel";
 import type ICart from "vss/com/rcl/cart/ICart";
-import type { TCartItem, TCartHeader } from "vss/com/rcl/cart/ICartModel";
+import type { TCartHeader, TCartItem } from "vss/com/rcl/cart/ICartModel";
+import CartModel from "pacg/com/rcm/cart/model/CartModel";
 /**
  * @nonui5
  * @namespace pacg.com.rcm.cart

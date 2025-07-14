@@ -1,6 +1,6 @@
+import type FlexibleColumnLayout from "sap/f/FlexibleColumnLayout";
 import Controller from "sap/fe/core/rootView/Fcl.controller";
 import type XMLView from "sap/ui/core/mvc/XMLView";
-import type FlexibleColumnLayout from "sap/f/FlexibleColumnLayout";
 /**
  * @controller
  * @namespace pacg.com.rcm.controller
