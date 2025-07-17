@@ -1,0 +1,43 @@
+import type { ActionTypeType } from "../model/Enums";
+export type TScreenData = Record<string, unknown>;
+export type TActionEntity = {
+    Action: string;
+    ActionText: string;
+    RentalActionType: ActionTypeType;
+    Icon: string;
+    BehaviorAction: string;
+    ScreenNumber: string;
+};
+export type TActionDefaultsEntity = {
+    Action: string;
+    Equipment: string;
+    DeactivateDate: Date;
+    DocumentDate: Date;
+    PostingDate: Date;
+    AssetValueDate: Date;
+    ItemText: string;
+    Plant: string;
+    StorageLocation: string;
+    MovePlant: string;
+    MoveStorageLocation: string;
+    BusinessTransaction: string;
+};
+export type TEquipmentEntity = {
+    Equipment: string;
+    AssetManufacturerName: string;
+    EquipmentCategory: string;
+    EquipmentName: string;
+    ManufacturerPartTypeName: string;
+    ManufacturerSerialNumber: string;
+    Material: string;
+    MaterialName: string;
+    MaterialDivision: string;
+    MaterialType: string;
+    SerialNumber: string;
+    StockBatch: string;
+    StockCustomer: string;
+    StockPlant: string;
+    StockStorageLocation: string;
+    HasHierarchyChildren: boolean;
+    __OperationControl?: Record<string, boolean>;
+};

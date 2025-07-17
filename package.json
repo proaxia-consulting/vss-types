@@ -1,0 +1,8 @@
+{
+	"name": "@vss/types",
+	"version": "2.0.0",
+	"private": true,
+	"description": "VSS Types",
+	"copyright": "proaxia consulting group ag",
+	"license": "SEE LICENSE IN LICENSE.txt"
+}
