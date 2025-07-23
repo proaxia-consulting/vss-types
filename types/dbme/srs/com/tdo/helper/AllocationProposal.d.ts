@@ -1,9 +1,9 @@
+import type { ListBase$SelectionChangeEvent } from "sap/m/ListBase";
+import type Event from "sap/ui/base/Event";
+import type Context from "sap/ui/model/Context";
 import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
-import Event from "sap/ui/base/Event";
-import Context from "sap/ui/model/Context";
 import type IController from "dbme/srs/com/tdo/controller/CreateApt.controller";
 import type { IReschedulingController } from "dbme/srs/com/tdo/types/IController";
-import type { ListBase$SelectionChangeEvent } from "sap/m/ListBase";
 declare const AllocationProposal: {
     onBtnActionAllocateSearch(this: IController, event: Event): Promise<void>;
     handleNoProposalFound(this: IReschedulingController, oError?: unknown, oAllocationSearchModel?: ODataModel, bDisplay?: boolean): void;

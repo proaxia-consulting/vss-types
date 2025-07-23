@@ -7,7 +7,11 @@ declare const AssignmentFormEdit: {
     onAssignmentSave(this: TreeController, oEvent: Event): Promise<{
         data: import("dbme/w/lib/core/types/IEntity").HierarchyAssignmentEntity;
         response: import("dbme/c/util/handleReturn").TResponseSuccess;
-        message: import("dbme/c/odata/ODataCommand").TODataMessage;
+        message: import("dbme/c/Log").TMessage | (import("dbme/c/util/handleReturn").TResponseDetails & {
+            title?: string;
+            hasError?: boolean;
+            hasWarning?: boolean;
+        });
     }>;
     onFieldChange(this: TreeController, event: Event): void;
 };

@@ -12,7 +12,11 @@ export default class OrderSaveCommand {
     save(): Promise<void | {
         data: IOrderEntity;
         response: import("dbme/c/util/handleReturn").TResponseSuccess;
-        message: import("dbme/c/odata/ODataCommand").TODataMessage;
+        message: import("dbme/c/Log").TMessage | (import("dbme/c/util/handleReturn").TResponseDetails & {
+            title?: string;
+            hasError?: boolean;
+            hasWarning?: boolean;
+        });
     }>;
     private _getMessageTemplate;
     private _getRequestData;

@@ -1,7 +1,7 @@
+import type { UploadSet$AfterItemRemovedEvent, UploadSet$BeforeUploadStartsEvent, UploadSet$FileSizeExceededEvent, UploadSet$FileTypeMismatchEvent, UploadSet$UploadCompletedEvent, UploadSet$UploadTerminatedEvent, default as UploadSet } from "sap/m/upload/UploadSet";
+import type { UploadSetItem$OpenPressedEvent } from "sap/m/upload/UploadSetItem";
 import type IController from "dbme/srs/com/tdo/controller/Details.controller";
 import type { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
-import type { default as UploadSet, UploadSet$AfterItemRemovedEvent, UploadSet$BeforeUploadStartsEvent, UploadSet$FileSizeExceededEvent, UploadSet$FileTypeMismatchEvent, UploadSet$UploadCompletedEvent, UploadSet$UploadTerminatedEvent } from "sap/m/upload/UploadSet";
-import type { UploadSetItem$OpenPressedEvent } from "sap/m/upload/UploadSetItem";
 declare const Attachment: {
     onBeforeUploadStarts(this: IController, event: UploadSet$BeforeUploadStartsEvent): void;
     onUploadComplete(this: IController, event: UploadSet$UploadCompletedEvent): void;

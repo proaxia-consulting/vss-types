@@ -1,18 +1,18 @@
-import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
-import type Event from "sap/ui/base/Event";
-import type SmartForm from "sap/ui/comp/smartform/SmartForm";
-import JSONModel from "sap/ui/model/json/JSONModel";
 import type { Button$PressEvent } from "sap/m/Button";
-import type { SmartField$ChangeEvent } from "sap/ui/comp/smartfield/SmartField";
-import type ListItemBase from "sap/m/ListItemBase";
-import TimeSlotsContainer from "dbme/srs/com/tdo/helper/TimeSlotsContainer";
-import type Table from "sap/m/Table";
-import Context from "sap/ui/model/Context";
-import AllocPropCalBridge from "dbme/srs/com/tdo/helper/AllocPropCalBridge";
-import type CalendarAppointment from "sap/ui/unified/CalendarAppointment";
-import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
-import type { IDemandsAwareController, IOrderAwareController, IReschedulingController } from "dbme/srs/com/tdo/types/IController";
 import type { ListBase$SelectionChangeEvent } from "sap/m/ListBase";
+import type ListItemBase from "sap/m/ListItemBase";
+import type Table from "sap/m/Table";
+import type Event from "sap/ui/base/Event";
+import type { SmartField$ChangeEvent } from "sap/ui/comp/smartfield/SmartField";
+import type SmartForm from "sap/ui/comp/smartform/SmartForm";
+import type Context from "sap/ui/model/Context";
+import JSONModel from "sap/ui/model/json/JSONModel";
+import type CalendarAppointment from "sap/ui/unified/CalendarAppointment";
+import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
+import AllocPropCalBridge from "dbme/srs/com/tdo/helper/AllocPropCalBridge";
+import TimeSlotsContainer from "dbme/srs/com/tdo/helper/TimeSlotsContainer";
+import type { IDemandsAwareController, IOrderAwareController, IReschedulingController } from "dbme/srs/com/tdo/types/IController";
+import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
 /**
  * @since 1.6.21	<001> CR: display allocation proposals in planning calendar control
  *

@@ -1,15 +1,15 @@
-import type { IFormAware, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
-import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
-import type { SerializedTabsType } from "dbme/srs/com/tdo/types/ITabsAware";
+import type Event from "sap/ui/base/Event";
+import type SmartForm from "sap/ui/comp/smartform/SmartForm";
 import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
 import OrderControllerExtension from "dbme/srs/com/tdo/controller/ext/OrderControllerExtension";
-import type SmartForm from "sap/ui/comp/smartform/SmartForm";
-import type Event from "sap/ui/base/Event";
+import type { IFormAware, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
+import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
+import type { ITabsAware, SerializedTabsType } from "dbme/srs/com/tdo/types/ITabsAware";
 /**
  * @namespace dbme.srs.com.tdo.controller
  * @controller
  */
-export default abstract class AbstractOrder extends AbstractBase implements IOrderAwareController, IFormAware {
+export default abstract class AbstractOrder extends AbstractBase implements IOrderAwareController, IFormAware, ITabsAware {
     extension: OrderControllerExtension;
     /** false - failure, otherwise success */
     protected _lastFormValidationResult?: boolean;

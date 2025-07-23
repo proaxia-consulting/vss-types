@@ -13,7 +13,11 @@ export default class TeamSaveCommand {
     submit(): Promise<{
         data: ResourceEntity | ResourceEntity[];
         response: import("dbme/c/util/handleReturn").TResponseSuccess;
-        message: import("dbme/c/odata/ODataCommand").TODataMessage;
+        message: import("dbme/c/Log").TMessage | (import("dbme/c/util/handleReturn").TResponseDetails & {
+            title?: string;
+            hasError?: boolean;
+            hasWarning?: boolean;
+        });
     }>;
     private _getMessageTemplate;
 }

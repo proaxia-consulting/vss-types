@@ -1,16 +1,12 @@
-import type UI5Element from "sap/ui/core/Element";
+import type DatePicker from "sap/m/DatePicker";
 import type InputBase from "sap/m/InputBase";
 import type SmartField from "sap/ui/comp/smartfield/SmartField";
-import type DatePicker from "sap/m/DatePicker";
 import type SmartForm from "sap/ui/comp/smartform/SmartForm";
+import type UI5Element from "sap/ui/core/Element";
 type TFormField = SmartField | InputBase | DatePicker;
 type TFieldValue = string | Date | number | boolean;
-export type TSerializedForm = {
-    [key: string]: TFormField;
-};
-export type TFormData = {
-    [key: string]: TFieldValue;
-};
+export type TSerializedForm = Record<string, TFormField>;
+export type TFormData = Record<string, TFieldValue>;
 declare const FormUtil: {
     /**
      * Get form elements
@@ -22,6 +18,9 @@ declare const FormUtil: {
      * Returns form fields as an object. Adjust attributes to filter visible/enabled elements.
      */
     serializeObject(oForm: UI5Element, bCheckEnabled?: boolean, bCheckVisible?: boolean): TSerializedForm;
+    /**
+     * @deprecated Get form data from binding context instead!
+     */
     getData(oForm: UI5Element, bCheckEnabled?: boolean, bCheckVisible?: boolean): TFormData;
     /**
      * @deprecated Replace with view.fireValidateFieldGroup

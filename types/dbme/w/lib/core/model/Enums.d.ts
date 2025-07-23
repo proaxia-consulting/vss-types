@@ -1,4 +1,4 @@
-export { EntityAnnotation, FieldControlType as AnnotationFieldControlType, type FieldControlTypeType as AnnotationFieldControlTypeType } from "dbme/c/odata/v2/entityType";
+export { type FieldControlTypeType as AnnotationFieldControlTypeType, EntityAnnotation, FieldControlType as AnnotationFieldControlType } from "dbme/c/odata/v2/entityType";
 export declare const ModelName: {
     readonly Avatar: "avatar";
     readonly Calendar: "cal";

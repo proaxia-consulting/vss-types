@@ -1,13 +1,13 @@
-import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
-import IconTabFilter from "sap/m/IconTabFilter";
+import type { ISrsController } from "dbme/w/lib/core/types/IController";
+import type IconTabFilter from "sap/m/IconTabFilter";
 import type Event from "sap/ui/base/Event";
+import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
 import Filter from "sap/ui/model/Filter";
 import JSONModel from "sap/ui/model/json/JSONModel";
 import type Table from "sap/ui/table/Table";
+import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
+import type { IAfterAction, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
 import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
-import type { IOrderAwareController, IAfterAction } from "dbme/srs/com/tdo/types/IController";
-import type { ISrsController } from "dbme/w/lib/core/types/IController";
-import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
 /**
  * interface IOrderAwareController is required for triggering the SRS Order actions
  *

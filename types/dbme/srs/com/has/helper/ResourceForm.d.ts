@@ -10,7 +10,11 @@ declare const ResourceForm: {
     onBtnResourceFormOK(this: TreeController, event: Button$PressEvent): Promise<void | {
         data: ResourceEntity | ResourceEntity[];
         response: import("dbme/c/util/handleReturn").TResponseSuccess;
-        message: import("dbme/c/odata/ODataCommand").TODataMessage;
+        message: import("dbme/c/Log").TMessage | (import("dbme/c/util/handleReturn").TResponseDetails & {
+            title?: string;
+            hasError?: boolean;
+            hasWarning?: boolean;
+        });
     }>;
     showDialog(this: TreeController, resourceControl: Control, bCreate?: boolean): void;
 };

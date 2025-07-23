@@ -1,18 +1,18 @@
-import HTML from "sap/ui/core/HTML";
-import Panel from "sap/m/Panel";
 import type { $PanelSettings } from "sap/m/Panel";
-import type { EventHandler } from "dbme/c/types/EventHandler";
-import JQuery from "sap/ui/thirdparty/jquery";
+import Panel from "sap/m/Panel";
 import type { PropertyBindingInfo } from "sap/ui/base/ManagedObject";
+import HTML from "sap/ui/core/HTML";
+import type JQuery from "sap/ui/thirdparty/jquery";
 import SignaturePad, { type PointGroup } from "signature_pad";
 import type { $EventTyped } from "ui5";
-export interface $SignPadPanelSettings extends $PanelSettings {
+import type { EventHandler } from "dbme/c/types/EventHandler";
+export type $SignPadPanelSettings = {
     padWidth?: number | PropertyBindingInfo | `{${string}}`;
     padHeight?: number | PropertyBindingInfo | `{${string}}`;
     editable?: boolean | PropertyBindingInfo | `{${string}}`;
     value?: string | PropertyBindingInfo;
     change?: EventHandler;
-}
+} & $PanelSettings;
 export type SignPadPanel$ChangeEventParameters = {
     reason?: string;
 };

@@ -1,9 +1,9 @@
 import ManagedObject, { type $ManagedObjectSettings } from "sap/ui/base/ManagedObject";
-import type { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
 import type Context from "sap/ui/model/odata/v2/Context";
 import type { $EventTyped } from "ui5";
-import type { IScreen } from "dbme/srs/com/tdo/types/ITabsAware";
+import type { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
 import type { IEntity } from "dbme/srs/com/tdo/types/IEntity";
+import type { IScreen } from "dbme/srs/com/tdo/types/ITabsAware";
 export declare const Events: {
     readonly AfterAllocationProposalEntityCheck: "AfterAllocationProposalEntityCheck";
     readonly AfterBatchUpdate: "AfterBatchUpdate";
@@ -15,9 +15,9 @@ export declare const Events: {
     readonly BeforeOrderCreate: "BeforeOrderCreate";
     readonly BeforeValidateFieldGroupIds: "BeforeValidateFieldGroupIds";
 };
-export interface $OrderControllerExtensionSettings extends $ManagedObjectSettings {
+export type $OrderControllerExtensionSettings = {
     controller: IOrderAwareController;
-}
+} & $ManagedObjectSettings;
 export type OrderControllerExtension$AfterInit = $EventTyped<{}, OrderControllerExtension>;
 export type $AfterDemandSectionDataCreate = {
     tabsData: IScreen[];

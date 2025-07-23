@@ -1,7 +1,7 @@
-import Control, { type $ControlSettings } from "sap/ui/core/Control";
-import { type ISpeechRecognitionController } from "dbme/c/speech/SpeechRecognitionManager";
-import type { $EventTyped as Event } from "ui5";
 import { type PropertyBindingInfo } from "sap/ui/base/ManagedObject";
+import Control, { type $ControlSettings } from "sap/ui/core/Control";
+import type { $EventTyped as Event } from "ui5";
+import { type ISpeechRecognitionController } from "dbme/c/speech/SpeechRecognitionManager";
 export type $SpeechRecorderSettings = $ControlSettings & {
     /**
      * Can be triggered by calling method `abortRecording`.

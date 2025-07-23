@@ -1,12 +1,12 @@
-import ServiceFactory from "sap/ui/core/service/ServiceFactory";
 import Service from "sap/ui/core/service/Service";
-import ServiceContext from "sap/ui/core/service/ServiceContext";
+import type ServiceContext from "sap/ui/core/service/ServiceContext";
+import ServiceFactory from "sap/ui/core/service/ServiceFactory";
 type TServiceSettings = {
     entitySet?: string[];
 };
-export interface IEntitySetProvider {
+export type IEntitySetProvider = {
     getEntitySet(): string[];
-}
+};
 export declare class EntityPropertiesService extends Service<TServiceSettings> {
     private _component?;
     private _entitySetProvider?;

@@ -2,6 +2,7 @@ import { EdmType as EdmTypeBase } from "sap/ui/export/library";
 import type ODataMetaModel from "sap/ui/model/odata/ODataMetaModel";
 import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
 export declare const EntityAnnotation: {
+    readonly CssDefaults: "com.sap.vocabularies.HTML5.v1.CssDefaults";
     readonly FieldControl: "com.sap.vocabularies.Common.v1.FieldControl";
     readonly IsDigitSequence: "com.sap.vocabularies.Common.v1.IsDigitSequence";
     readonly Label: "com.sap.vocabularies.Common.v1.Label";
@@ -51,9 +52,7 @@ export declare const EdmType: {
 };
 export type EdmTypeType = (typeof EdmType)[keyof typeof EdmType];
 export declare function edmType(type: string): EdmTypeType;
-export type TODataEntityProperty = {
-    [key in EntityAnnotationType]: unknown;
-} & {
+export type TODataEntityProperty = Record<EntityAnnotationType, unknown> & {
     name: string;
     type: EdmTypeType;
     maxLength?: string;

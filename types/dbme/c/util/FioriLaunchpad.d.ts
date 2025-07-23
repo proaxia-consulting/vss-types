@@ -1,5 +1,5 @@
 import type FioriLaunchpadContainer from "sap/ushell/Container";
-import CrossApplicationNavigation from "sap/ushell/services/CrossApplicationNavigation";
+import type CrossApplicationNavigation from "sap/ushell/services/CrossApplicationNavigation";
 export type TSemanticObject = {
     intent: string;
 };

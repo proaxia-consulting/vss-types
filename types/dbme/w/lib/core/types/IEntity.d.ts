@@ -1,9 +1,7 @@
-import type { ActionType, UxfcType } from "dbme/w/lib/core/model/Enums";
-import type { IntervalTypeType, PlanningModeType } from "dbme/w/lib/core/calendar/Enums";
 import type { CSSSize } from "sap/ui/core/library";
-export type TUnknownEntity = {
-    [key: string]: unknown;
-};
+import type { IntervalTypeType, PlanningModeType } from "dbme/w/lib/core/calendar/Enums";
+import type { ActionType, UxfcType } from "dbme/w/lib/core/model/Enums";
+export type TUnknownEntity = Record<string, unknown>;
 export type HierarchyAssignmentEntity = {
     UNAME: string;
     SEQNO: number;

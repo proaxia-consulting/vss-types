@@ -1,20 +1,23 @@
 import { MessageType } from "sap/ui/core/library";
+import type Message from "sap/ui/core/message/Message";
 import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
 import { type TResponseSuccess } from "dbme/c/util/handleReturn";
-import type Message from "sap/ui/core/message/Message";
+/**
+ * @deprecated Use `dbme.c.util.handleReturn.TResponseDetails` or `sap.ui.core.message.Message` instead!
+ */
 export type TMessage = {
     code: string;
     counter: number;
     description?: string;
-    error: string;
+    error?: string;
     hasError: boolean;
     hasWarning: boolean;
     message: string;
-    subtitle: string;
-    success: string;
+    subtitle?: string;
+    success?: string;
     title: string;
     type: MessageType;
-    warning: string;
+    warning?: string;
 };
 type TMessageDefaults = {
     code?: string;

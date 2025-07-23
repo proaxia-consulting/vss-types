@@ -1,4 +1,4 @@
-import Event from "sap/ui/base/Event";
+import type Event from "sap/ui/base/Event";
 import type { ICalendarController } from "dbme/w/lib/core/types/IController";
 declare const AptContextMenu: {
     /**

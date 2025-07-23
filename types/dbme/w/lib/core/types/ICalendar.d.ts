@@ -12,7 +12,7 @@ export type TDateBoundaries = TDateBoundariesSimple & {
     sStartDate?: string;
     sEndDate?: string;
 };
-export interface IPlanningCalendar extends PlanningCalendar {
+export type IPlanningCalendar = {
     getAppointments(): CalendarAppointment[];
     getDateBoundaries(): TDateBoundaries;
     getIntervalPeriod(): number;
@@ -20,8 +20,8 @@ export interface IPlanningCalendar extends PlanningCalendar {
     getStartDate(): Date;
     getStartDateBySelectedView(): Date;
     getMaxDate(): Date;
-    setStartDate(date: Date): this;
+    setStartDate(date: Date): IPlanningCalendar;
     onAppointmentContextMenu(appointment: CalendarAppointment, event: Event): void;
     onAppointmentDblClick(appointment: CalendarAppointment, event: Event): void;
     rowsLoaded(): Promise<PlanningCalendarRow[]>;
-}
+} & PlanningCalendar;

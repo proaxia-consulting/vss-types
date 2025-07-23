@@ -6,6 +6,12 @@ import ResponseLogger from "dbme/c/Log";
  * @controller
  */
 declare class Base extends Controller {
+    protected _initialized: {
+        message: {
+            manager: boolean;
+            popover: boolean;
+        };
+    };
     protected _oLog?: ResponseLogger;
     /**
      * allow to call super.onInit() in child controllers
@@ -18,9 +24,12 @@ declare class Base extends Controller {
      */
     _(sKey: string, aArgs?: string[]): string;
     /**
+     * @deprecated Use dbme.c.util.handleReturn instead!
+     *
      * Initialize message popover && OData message parser && response handler
      */
     getLog(): ResponseLogger;
+    protected _initMessageManager(): void;
     /**
      * We assume that view fragment dbme.c.view.fragment.MessagePopover is rendered within the controller's view
      */
