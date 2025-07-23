@@ -1,11 +1,11 @@
-import AbstractOrderDemands from "dbme/srs/com/tdo/controller/AbstractOrderDemands.controller";
-import JSONModel from "sap/ui/model/json/JSONModel";
-import Event from "sap/ui/base/Event";
-import type { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
 import type IconTabFilter from "sap/m/IconTabFilter";
-import type { ODataModel$RequestFailedEvent } from "sap/ui/model/odata/v2/ODataModel";
-import type { Router$RouteMatchedEvent } from "sap/ui/core/routing/Router";
+import type Event from "sap/ui/base/Event";
 import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
+import type { Router$RouteMatchedEvent } from "sap/ui/core/routing/Router";
+import JSONModel from "sap/ui/model/json/JSONModel";
+import type { ODataModel$RequestFailedEvent } from "sap/ui/model/odata/v2/ODataModel";
+import AbstractOrderDemands from "dbme/srs/com/tdo/controller/AbstractOrderDemands.controller";
+import type { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
 /**
  * @namespace dbme.srs.com.tdo.controller
  */

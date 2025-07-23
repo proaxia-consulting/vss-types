@@ -1,11 +1,10 @@
 import type { ListBase$UpdateFinishedEvent } from "sap/m/ListBase";
 import type ListItemBase from "sap/m/ListItemBase";
 import type { IDemandsAwareController, IReschedulingController as IReschedulingControllerBase } from "dbme/srs/com/tdo/types/IController";
-interface IController extends IDemandsAwareController {
+type IController = {
     _setDateEnabled?: () => Promise<void>;
-}
-interface IReschedulingController extends IReschedulingControllerBase, IController {
-}
+} & IDemandsAwareController;
+type IReschedulingController = {} & IReschedulingControllerBase & IController;
 declare const ParametersListEventHandler: {
     /**
      * @since 2021.09.12

@@ -1,12 +1,12 @@
 import SrsController from "dbme/w/lib/core/controller/Base";
-import type AppComponent from "../Component";
-import type NavContainer from "sap/m/NavContainer";
-import Event from "sap/ui/base/Event";
 import type { UIAppSettingsEntity as UIAppSettingsEntityBase } from "dbme/w/lib/core/types/IEntity";
-import Page from "sap/m/Page";
-interface INavContainerAwareController extends SrsController {
+import type NavContainer from "sap/m/NavContainer";
+import type Page from "sap/m/Page";
+import type Event from "sap/ui/base/Event";
+import type AppComponent from "dbme/srs/com/settings/Component";
+type INavContainerAwareController = {
     getNavControl(): NavContainer;
-}
+} & SrsController;
 /**
  * @namespace dbme.srs.com.tdo.controller
  * @controller

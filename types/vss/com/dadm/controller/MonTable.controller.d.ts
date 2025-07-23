@@ -1,4 +1,4 @@
-import BaseController from "./BaseController.controller";
+import BaseController from "vss/com/dadm/controller/BaseController.controller";
 /**
  * @namespace vss.com.dadm.\\\\\\\\\\controller
  */

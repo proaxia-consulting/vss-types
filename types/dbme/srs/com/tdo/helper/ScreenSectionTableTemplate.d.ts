@@ -1,10 +1,10 @@
 import { type Button$PressEvent } from "sap/m/Button";
-import type { default as SmartTable, SmartTable$InitialiseEvent, SmartTable$BeforeRebindTableEvent } from "sap/ui/comp/smarttable/SmartTable";
-import Context from "sap/ui/model/Context";
-import type { IScreenSection } from "dbme/srs/com/tdo/types/ITabsAware";
-import type { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
-import Dialog from "sap/m/Dialog";
+import type Dialog from "sap/m/Dialog";
 import type { ListBase$SelectionChangeEvent } from "sap/m/ListBase";
+import type { SmartTable$BeforeRebindTableEvent, SmartTable$InitialiseEvent, default as SmartTable } from "sap/ui/comp/smarttable/SmartTable";
+import type Context from "sap/ui/model/Context";
+import type { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
+import type { IScreenSection } from "dbme/srs/com/tdo/types/ITabsAware";
 declare const ScreenSectionTableTemplate: {
     fieldGroupId: {
         WorkItemTable: "TDOWorkItemSet";

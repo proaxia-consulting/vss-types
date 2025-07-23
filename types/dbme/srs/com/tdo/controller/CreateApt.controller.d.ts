@@ -1,21 +1,21 @@
-import AbstractOrderDemands from "dbme/srs/com/tdo/controller/AbstractOrderDemands.controller";
-import type { IReschedulingController, ISelectableControl } from "dbme/srs/com/tdo/types/IController";
-import VerticalLayout from "sap/ui/layout/VerticalLayout";
-import JSONModel from "sap/ui/model/json/JSONModel";
-import Context from "sap/ui/model/odata/v2/Context";
-import type Event from "sap/ui/base/Event";
+import type IconTabFilter from "sap/m/IconTabFilter";
 import type ListBase from "sap/m/ListBase";
-import type SmartField from "sap/ui/comp/smartfield/SmartField";
-import { type SmartField$ChangeEvent } from "sap/ui/comp/smartfield/SmartField";
-import IconTabFilter from "sap/m/IconTabFilter";
-import AllocPropCalBridge from "dbme/srs/com/tdo/helper/AllocPropCalBridge";
-import TimeSlotsContainer from "dbme/srs/com/tdo/helper/TimeSlotsContainer";
 import type { ListBase$SelectionChangeEvent } from "sap/m/ListBase";
 import type { SearchField$LiveChangeEvent } from "sap/m/SearchField";
-interface ICreateOrderHelper {
+import type Event from "sap/ui/base/Event";
+import type SmartField from "sap/ui/comp/smartfield/SmartField";
+import { type SmartField$ChangeEvent } from "sap/ui/comp/smartfield/SmartField";
+import type VerticalLayout from "sap/ui/layout/VerticalLayout";
+import type JSONModel from "sap/ui/model/json/JSONModel";
+import type Context from "sap/ui/model/odata/v2/Context";
+import AbstractOrderDemands from "dbme/srs/com/tdo/controller/AbstractOrderDemands.controller";
+import type AllocPropCalBridge from "dbme/srs/com/tdo/helper/AllocPropCalBridge";
+import TimeSlotsContainer from "dbme/srs/com/tdo/helper/TimeSlotsContainer";
+import type { IReschedulingController, ISelectableControl } from "dbme/srs/com/tdo/types/IController";
+type ICreateOrderHelper = {
     data?: object;
     path?: string;
-}
+};
 /**
  * @since 1.6.21	<001> CR: display allocation proposals in planning calendar control
  *

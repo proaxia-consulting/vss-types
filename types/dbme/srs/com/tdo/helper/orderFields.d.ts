@@ -1,5 +1,5 @@
-import type { ISrsController } from "dbme/srs/com/tdo/types/IController";
 import type { ScreenFieldEntity } from "dbme/w/lib/core/types/IEntity";
+import type { ISrsController } from "dbme/srs/com/tdo/types/IController";
 /**
  * determine UXFC for order fields
  */

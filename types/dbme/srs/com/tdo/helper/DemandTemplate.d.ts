@@ -1,6 +1,6 @@
-import SmartField from "sap/ui/comp/smartfield/SmartField";
 import ColumnListItem from "sap/m/ColumnListItem";
 import Table from "sap/m/Table";
+import SmartField from "sap/ui/comp/smartfield/SmartField";
 import type { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
 declare const DemandTemplate: {
     getDemandTemplate(this: IDemandsAwareController, bRecalc?: boolean): Promise<ColumnListItem>;

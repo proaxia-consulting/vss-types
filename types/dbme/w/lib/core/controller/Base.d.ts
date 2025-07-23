@@ -1,20 +1,21 @@
 import Controller from "dbme/c/controller/Base";
-import JSONModel from "sap/ui/model/json/JSONModel";
 import { jsDateTime } from "dbme/c/format/DateFormat";
-import Filter from "sap/ui/model/Filter";
+import type Button from "sap/m/Button";
+import { type Button$PressEvent } from "sap/m/Button";
 import type Dialog from "sap/m/Dialog";
-import Button, { type Button$PressEvent } from "sap/m/Button";
-import { ConfirmDialogFunction } from "dbme/w/lib/core/control/ConfirmDialogFactory";
-import type { $UISettings, IBaseController, IModelAwareController } from "dbme/w/lib/core/types/IController";
-import type { IDBMEComponent } from "dbme/w/lib/core/types/IComponent";
-import type Menu from "sap/ui/unified/Menu";
-import { type $ODataToJSONValues } from "dbme/w/lib/core/model/ODataToJSON";
 import type { FacetFilter$ResetEvent } from "sap/m/FacetFilter";
 import type { Select$ChangeEvent } from "sap/m/Select";
-import type FioriLaunchpadContainer from "sap/ushell/Container";
 import type View from "sap/ui/core/mvc/View";
+import Filter from "sap/ui/model/Filter";
+import JSONModel from "sap/ui/model/json/JSONModel";
 import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import type Menu from "sap/ui/unified/Menu";
+import type FioriLaunchpadContainer from "sap/ushell/Container";
+import type { ConfirmDialogFunction } from "dbme/w/lib/core/control/ConfirmDialogFactory";
 import HierarchyAssignment from "dbme/w/lib/core/controllerextensions/HierarchyAssignment";
+import { type $ODataToJSONValues } from "dbme/w/lib/core/model/ODataToJSON";
+import type { IDBMEComponent } from "dbme/w/lib/core/types/IComponent";
+import type { $UISettings, IBaseController, IModelAwareController } from "dbme/w/lib/core/types/IController";
 /**
  * @namespace dbme.w.lib.core.controller
  * @controller

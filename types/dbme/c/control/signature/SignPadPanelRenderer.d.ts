@@ -1,5 +1,5 @@
-import RenderManager from "sap/ui/core/RenderManager";
 import type Control from "sap/ui/core/Control";
+import type RenderManager from "sap/ui/core/RenderManager";
 declare const SignPadPanelRenderer: {
     render(rm: RenderManager, control: Control): void;
 };

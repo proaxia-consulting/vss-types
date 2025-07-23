@@ -1,9 +1,9 @@
-import ManagedObject from "sap/ui/base/ManagedObject";
-import type { IBaseController } from "dbme/w/lib/core/types/IController";
 import type { Select$ChangeEvent } from "sap/m/Select";
-import type { HierarchyAssignmentEntity } from "dbme/w/lib/core/types/IEntity";
-import type { GlobalSettingsService } from "dbme/w/lib/core/service/GlobalSettingsServiceFactory";
+import ManagedObject from "sap/ui/base/ManagedObject";
 import type { $EventTyped as Event } from "ui5";
+import type { GlobalSettingsService } from "dbme/w/lib/core/service/GlobalSettingsServiceFactory";
+import type { IBaseController } from "dbme/w/lib/core/types/IController";
+import type { HierarchyAssignmentEntity } from "dbme/w/lib/core/types/IEntity";
 export type HierarchyAssignment$AfterChangeEventParameters = {
     settings: HierarchyAssignmentEntity;
 };

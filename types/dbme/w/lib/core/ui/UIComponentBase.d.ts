@@ -1,6 +1,6 @@
 import UIComponent from "sap/ui/core/UIComponent";
-import type { IDBMEComponentBase } from "dbme/w/lib/core/types/IComponent";
 import { type GlobalSettingsService } from "dbme/w/lib/core/service/GlobalSettingsServiceFactory";
+import type { IDBMEComponentBase } from "dbme/w/lib/core/types/IComponent";
 import { type DBMEComponentType } from "dbme/w/lib/core/ui/Enums";
 /**
  * @namespace dbme.w.lib.core.ui

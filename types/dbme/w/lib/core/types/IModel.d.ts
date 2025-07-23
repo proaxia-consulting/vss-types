@@ -1,5 +1,5 @@
 import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
-import { type AnnotationFieldControlTypeType, EntityAnnotation } from "dbme/w/lib/core/model/Enums";
+import type { AnnotationFieldControlTypeType, EntityAnnotation } from "dbme/w/lib/core/model/Enums";
 /** @deprecated Use dbme.w.lib.core.model.Enums.AnnotationFieldControlTypeType instead! */
 export declare enum $FieldControlType {
     Hidden = "com.sap.vocabularies.Common.v1.FieldControlType/Hidden",
@@ -18,16 +18,12 @@ export type $ServiceAnnotations = {
             };
         }[];
     };
-    propertyAnnotations: {
-        [key: string]: {
-            [key: string]: {
-                [EntityAnnotation.FieldControl]: {
-                    EnumMember: AnnotationFieldControlTypeType;
-                };
-            };
+    propertyAnnotations: Record<string, Record<string, {
+        [EntityAnnotation.FieldControl]: {
+            EnumMember: AnnotationFieldControlTypeType;
         };
-    };
+    }>>;
 };
-export interface IODataModel extends ODataModel {
+export type IODataModel = {
     sServiceUrl: string;
-}
+} & ODataModel;

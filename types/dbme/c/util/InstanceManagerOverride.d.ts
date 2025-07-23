@@ -1,5 +1,5 @@
-import EventProvider from "sap/ui/base/EventProvider";
 import type Dialog from "sap/m/Dialog";
+import EventProvider from "sap/ui/base/EventProvider";
 import type { $EventTyped } from "ui5";
 /**
  * Event ID pattern: (before|after)(keyof InstanceManager with 1st capital letter),

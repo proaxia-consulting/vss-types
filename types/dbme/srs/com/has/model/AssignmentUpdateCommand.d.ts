@@ -14,7 +14,11 @@ export default class AssignmentUpdateCommand extends ODataCommand<HierarchyAssig
     update(): Promise<{
         data: HierarchyAssignmentEntity;
         response: import("dbme/c/util/handleReturn").TResponseSuccess;
-        message: import("dbme/c/odata/ODataCommand").TODataMessage;
+        message: import("dbme/c/Log").TMessage | (import("dbme/c/util/handleReturn").TResponseDetails & {
+            title?: string;
+            hasError?: boolean;
+            hasWarning?: boolean;
+        });
     }>;
     private _getMessageTemplate;
 }

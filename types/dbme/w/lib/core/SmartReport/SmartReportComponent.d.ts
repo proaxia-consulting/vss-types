@@ -1,7 +1,7 @@
+import type { EntityPropertiesService, IEntitySetProvider } from "dbme/c/service/EntityPropertiesServiceFactory";
 import UIComponent, { type $UIComponentSettings } from "sap/ui/core/UIComponent";
-import { EntityPropertiesService, IEntitySetProvider } from "dbme/c/service/EntityPropertiesServiceFactory";
-import type { ScreenSectionEntity } from "dbme/w/lib/core/types/IEntity";
 import type Context from "sap/ui/model/Context";
+import type { ScreenSectionEntity } from "dbme/w/lib/core/types/IEntity";
 export type TComponentData = {
     section?: ScreenSectionEntity;
     orderContext?: Context;

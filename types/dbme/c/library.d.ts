@@ -3,9 +3,7 @@ import type ResourceBundle from "sap/base/i18n/ResourceBundle";
  * @deprecated @since 1.5.14 Use the constants from the dbme.c.Enums instead!
  */
 export declare const libraryNamespace = "dbme.c";
-declare const thisLib: {
-    [key: string]: unknown;
-};
+declare const thisLib: Record<string, unknown>;
 /**
  * @deprecated @since 1.5.14 Use the constants from the dbme.c.control.Enums instead!
  */

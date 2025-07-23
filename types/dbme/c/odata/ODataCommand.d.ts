@@ -1,33 +1,53 @@
-import Log, { type TMessage } from "dbme/c/Log";
 import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
-import type { TResponseSuccess } from "dbme/c/util/handleReturn";
+import { type TMessage } from "dbme/c/Log";
+import { type TResponseDetails, type TResponseSuccess } from "dbme/c/util/handleReturn";
+/**
+ * @deprecated Use `dbme.c.util.handleReturn.TResponseDetails` or `sap.ui.core.message.Message` instead!
+ */
 export type TODataMessage = TMessage;
+type TResponseMessage = TODataMessage | (TResponseDetails & {
+    title?: string;
+    hasError?: boolean;
+    hasWarning?: boolean;
+});
+type IODatResponseParser = {
+    addResponse(response: TResponseSuccess): TResponseMessage;
+};
+export declare const ApiVersion: {
+    readonly LEGACY: 1;
+    readonly V2: 2;
+};
+/**
+ * @nonui5
+ */
 declare class ODataCommand<TEntityData> {
     protected oModel: ODataModel;
-    protected oLog: Log;
+    apiVersion: number;
+    protected oLog: IODatResponseParser;
     protected bResetChangesOnError: boolean;
     constructor(oModel: ODataModel);
     submit(sBatchGroupId?: string): Promise<{
         data: TEntityData | TEntityData[];
         response: TResponseSuccess;
-        message: TODataMessage;
+        message: TResponseMessage;
     }>;
     create(sPath: string, oCreateData: object): Promise<{
         data: TEntityData;
         response: TResponseSuccess;
-        message: TODataMessage;
+        message: TResponseMessage;
     }>;
     update(sPath: string, oUpdateData: object): Promise<{
         data: TEntityData;
         response: TResponseSuccess;
-        message: TODataMessage;
+        message: TResponseMessage;
     }>;
     remove(sPath: string): Promise<{
         data?: TEntityData;
         response: TResponseSuccess;
-        message: TODataMessage;
+        message: TResponseMessage;
     }>;
-    protected _getMessageFromResponse(oResponse: TResponseSuccess, isBatch?: boolean): TMessage;
+    protected _getMessageFromResponse(response: TResponseSuccess, isBatch?: boolean): TResponseMessage;
+    protected _responseParser(): IODatResponseParser;
 }
 /**
  * @namespace dbme.c.odata

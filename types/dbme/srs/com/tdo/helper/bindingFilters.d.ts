@@ -1,6 +1,6 @@
-import type { ISrsController } from "dbme/srs/com/tdo/types/IController";
-import Filter from "sap/ui/model/Filter";
 import type ManagedObject from "sap/ui/base/ManagedObject";
+import Filter from "sap/ui/model/Filter";
+import type { ISrsController } from "dbme/srs/com/tdo/types/IController";
 type TFilters = Filter[] | Record<string, Filter>;
 /**
  * Create an array of filters based on current binding

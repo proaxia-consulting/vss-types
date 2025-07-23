@@ -1,9 +1,9 @@
-import type Control from "sap/ui/core/Control";
-import type { ISelectableControl } from "dbme/srs/com/tdo/types/IController";
-import type ManagedObject from "sap/ui/base/ManagedObject";
 import type Panel from "sap/m/Panel";
-import type Filter from "sap/ui/model/Filter";
+import type ManagedObject from "sap/ui/base/ManagedObject";
+import type Control from "sap/ui/core/Control";
 import type VerticalLayout from "sap/ui/layout/VerticalLayout";
+import type Filter from "sap/ui/model/Filter";
+import type { ISelectableControl } from "dbme/srs/com/tdo/types/IController";
 export declare function isManagedObject(obj: unknown): obj is ManagedObject;
 export declare function isControl(obj: unknown): obj is Control;
 export declare function isSelectableControl(obj: unknown): obj is ISelectableControl;

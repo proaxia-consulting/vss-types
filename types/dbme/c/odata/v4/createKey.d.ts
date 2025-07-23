@@ -1,4 +1,4 @@
-import ODataMetaModel from "sap/ui/model/odata/v4/ODataMetaModel";
+import type ODataMetaModel from "sap/ui/model/odata/v4/ODataMetaModel";
 /**
  * @namespace dbme.c.odata.v4
  */

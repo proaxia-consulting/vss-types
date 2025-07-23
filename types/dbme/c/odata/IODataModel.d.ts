@@ -1,10 +1,10 @@
-import type ODataV2Context from "sap/ui/model/odata/v2/Context";
-import type ODataV4Context from "sap/ui/model/odata/v4/Context";
-import type ODataV2ListBinding from "sap/ui/model/odata/v2/ODataListBinding";
-import type ODataV4ListBinding from "sap/ui/model/odata/v4/ODataListBinding";
-import type ODataV2Model from "sap/ui/model/odata/v2/ODataModel";
-import type ODataV4Model from "sap/ui/model/odata/v4/ODataModel";
 import type Context from "sap/ui/model/Context";
+import type ODataV2Context from "sap/ui/model/odata/v2/Context";
+import type ODataV2ListBinding from "sap/ui/model/odata/v2/ODataListBinding";
+import type ODataV2Model from "sap/ui/model/odata/v2/ODataModel";
+import type ODataV4Context from "sap/ui/model/odata/v4/Context";
+import type ODataV4ListBinding from "sap/ui/model/odata/v4/ODataListBinding";
+import type ODataV4Model from "sap/ui/model/odata/v4/ODataModel";
 export declare function isODataV2Model(obj: unknown): obj is ODataV2Model;
 export declare function isODataV4Model(obj: unknown): obj is ODataV4Model;
 export declare function isContext(obj: unknown): obj is Context;

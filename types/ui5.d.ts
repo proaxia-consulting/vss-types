@@ -103,6 +103,13 @@ declare module "sap/ui/thirdparty/jquery" {
 	export default jQuery;
 }
 
+declare module "sap/ui/base/ManagedObject" {
+	import type ManagedObject from "sap/ui/base/ManagedObject";
+	import type { $EventTyped } from "ui5";
+
+	export type ManagedObject$ModelContextChangeEvent = $EventTyped<{}, ManagedObject>;
+}
+
 declare module "sap/ui/core/XMLTemplateProcessor" {
 	import Element from "sap/ui/core/Element";
 
@@ -347,6 +354,13 @@ declare module "sap/m/FacetFilter" {
 	export type FacetFilter$ResetEvent = $EventTyped<{}, FacetFilter>;
 }
 
+declare module "sap/m/Link" {
+	import type Link from "sap/m/Link";
+	import type { $EventTyped } from "ui5";
+
+	export type Link$PressEvent = $EventTyped<{}, Link>;
+}
+
 declare module "sap/m/MultiComboBox" {
 	import type MultiComboBox from "sap/m/MultiComboBox";
 	import type { $EventTyped } from "ui5";
@@ -439,6 +453,13 @@ declare module "sap/m/ListBase" {
 	export type ListBase$SelectionChangeEvent = $EventTyped<{ listItem?: ListItemBase; listItems?: ListItemBase[]; selected?: boolean; selectAll?: boolean }, ListBase>;
 	export type ListBase$BeforeOpenContextMenuEvent = $EventTyped<{ listItem?: ListItemBase }, ListBase>;
 	export type ListBase$DeleteEvent = $EventTyped<{ listItem?: ListItemBase }, ListBase>;
+}
+
+declare module "sap/m/ListItemBase" {
+	import type ListItemBase from "sap/m/ListItemBase";
+	import type { $EventTyped } from "ui5";
+
+	export type ListItemBase$PressEvent = $EventTyped<{}, ListItemBase>;
 }
 
 declare module "sap/m/IconTabBar" {

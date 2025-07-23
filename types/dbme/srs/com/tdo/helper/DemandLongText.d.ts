@@ -1,6 +1,6 @@
+import type Dialog from "sap/m/Dialog";
+import type Event from "sap/ui/base/Event";
 import type { ISrsController } from "dbme/srs/com/tdo/types/IController";
-import Dialog from "sap/m/Dialog";
-import Event from "sap/ui/base/Event";
 declare const DemandLongText: {
     edit(this: ISrsController, oEvent: Event): Promise<Dialog>;
     show(this: ISrsController, oEvent: Event): Promise<Dialog>;

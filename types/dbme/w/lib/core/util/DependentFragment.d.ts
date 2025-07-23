@@ -1,4 +1,4 @@
-import UI5Element from "sap/ui/core/Element";
+import type UI5Element from "sap/ui/core/Element";
 import type Controller from "sap/ui/core/mvc/Controller";
 /**
  * @namespace dbme.w.lib.core.util

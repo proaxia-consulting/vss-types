@@ -1,10 +1,10 @@
 import type ListBase from "sap/m/ListBase";
+import type { ListBase$SelectionChangeEvent } from "sap/m/ListBase";
 import type Event from "sap/ui/base/Event";
 import type Context from "sap/ui/model/Context";
 import Filter from "sap/ui/model/Filter";
 import type IController from "dbme/srs/com/tdo/controller/CreateApt.controller";
 import type { ISelectableControl } from "dbme/srs/com/tdo/types/IController";
-import type { ListBase$SelectionChangeEvent } from "sap/m/ListBase";
 declare const LocationList: {
     getLocationList(this: IController, bRecalc?: boolean): Promise<ListBase>;
     /**

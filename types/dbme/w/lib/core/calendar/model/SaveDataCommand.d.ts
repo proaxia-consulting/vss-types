@@ -1,7 +1,7 @@
+import type { TMessage } from "dbme/c/Log";
+import type { TResponseSuccess } from "dbme/c/util/handleReturn";
 import type { ICalendarController } from "dbme/w/lib/core/types/IController";
 import type { IntervalEntity } from "dbme/w/lib/core/types/IEntity";
-import type { TResponseSuccess } from "dbme/c/util/handleReturn";
-import type { TMessage } from "dbme/c/Log";
 export type TResult = {
     entity: object;
     response: TResponseSuccess;

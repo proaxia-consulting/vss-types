@@ -1,36 +1,36 @@
+import BaseControl from "sap/m/PlanningCalendar";
+import PlanningCalendarRenderer from "sap/m/PlanningCalendarRenderer";
+import type PlanningCalendarView from "sap/m/PlanningCalendarView";
+import type StandardListItem from "sap/m/StandardListItem";
+import type Table from "sap/m/Table";
+import type Toolbar from "sap/m/Toolbar";
+import type Event from "sap/ui/base/Event";
+import type UI5Element from "sap/ui/core/Element";
+import type { IContextMenu } from "sap/ui/core/library";
+import { CalendarIntervalType as UCalendarIntervalType } from "sap/ui/unified/library";
 import type CalendarAppointment from "dbme/w/lib/core/control/CalendarAppointment";
 import type PlanningCalendarRow from "dbme/w/lib/core/control/PlanningCalendarRow";
-import BaseControl from "sap/m/PlanningCalendar";
-import type { IContextMenu } from "sap/ui/core/library";
-import type Event from "sap/ui/base/Event";
-import { CalendarIntervalType as UCalendarIntervalType } from "sap/ui/unified/library";
-import type Table from "sap/m/Table";
-import Toolbar from "sap/m/Toolbar";
-import UI5Element from "sap/ui/core/Element";
-import type PlanningCalendarView from "sap/m/PlanningCalendarView";
-import StandardListItem from "sap/m/StandardListItem";
 import type { IPlanningCalendar, TDateBoundaries } from "dbme/w/lib/core/types/ICalendar";
-import PlanningCalendarRenderer from "sap/m/PlanningCalendarRenderer";
 declare enum CalIntervalType {
     OneMonth = "OneMonth",
     Week = "Week"
 }
 type CalendarIntervalType = UCalendarIntervalType | CalIntervalType;
-interface ITimeline extends UI5Element {
+type ITimeline = {
     getCells(): UI5Element[];
     getIntervalType(): CalendarIntervalType;
     getStartDate(): Date;
     getAggregation(aggregation: string): UI5Element[];
-}
-interface IPlanningCalendarRowHeader extends StandardListItem {
+} & UI5Element;
+type IPlanningCalendarRowHeader = {
     _convertViewSwitchToSelect(): void;
-}
+} & StandardListItem;
 type TRowListItemCells = [IPlanningCalendarRowHeader, ITimeline];
-interface IPlanningCalendarRowListItem extends StandardListItem {
+type IPlanningCalendarRowListItem = {
     getCells(): TRowListItemCells;
     getTimeline(): ITimeline;
     getHeader(): IPlanningCalendarRowHeader;
-}
+} & StandardListItem;
 /**
  * @namespace dbme.w.lib.core.control
  */
