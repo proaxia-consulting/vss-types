@@ -1,4 +1,4 @@
-import Time from "sap/ui/model/odata/type/Time";
+import type Time from "sap/ui/model/odata/type/Time";
 export type TODataTime = {
     ms: number;
     __edmType: Time;
