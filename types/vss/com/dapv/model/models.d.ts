@@ -1,2 +1,0 @@
-import JSONModel from "sap/ui/model/json/JSONModel";
-export declare function createDeviceModel(): JSONModel;
