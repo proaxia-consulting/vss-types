@@ -1,16 +1,16 @@
 import BaseController from "dbme/w/lib/core/controller/Base";
-import type DatePicker from "sap/m/DatePicker";
-import type { default as FacetFilter } from "sap/m/FacetFilter";
-import type List from "sap/m/List";
-import type TreeControl from "sap/m/Tree";
-import type Event from "sap/ui/base/Event";
-import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
 import Filter from "sap/ui/model/Filter";
-import type TreeBinding from "sap/ui/model/TreeBinding";
-import type ODataListBinding from "sap/ui/model/odata/v2/ODataListBinding";
-import type AppComponent from "dbme/srs/com/has/Component";
 import { BatchGroupId } from "dbme/srs/com/has/model/Enums";
+import type Event from "sap/ui/base/Event";
+import type TreeControl from "sap/m/Tree";
+import { default as FacetFilter } from "sap/m/FacetFilter";
+import DatePicker from "sap/m/DatePicker";
+import type TreeBinding from "sap/ui/model/TreeBinding";
+import type List from "sap/m/List";
+import ODataListBinding from "sap/ui/model/odata/v2/ODataListBinding";
 import type { ITreeController } from "dbme/srs/com/has/types/IController";
+import type AppComponent from "dbme/srs/com/has/Component";
+import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
 /**
  * @namespace dbme.srs.com.has.controller
  * @controller
@@ -119,7 +119,7 @@ export default class Tree extends BaseController implements ITreeController {
     private _sLastTreeFilter?;
     private _sLastFilter?;
     onInit(): void;
-    onRouteMatched: (oEvent: Event) => void;
+    onRouteMatched(oEvent: Event): void;
     _getDroppableControl(): TreeControl;
     _getDraggableControl(): List;
     _getJSONModel(): import("sap/ui/model/json/JSONModel").default;

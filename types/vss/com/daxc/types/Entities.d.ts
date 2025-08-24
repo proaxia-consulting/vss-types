@@ -24,6 +24,7 @@ export type TCardServiceOrders = TATaskIdentifier & {
     TaskName: string;
     Counter: number;
     CounterExt: string;
+    ActorRole: string;
     JSONKey: string;
 };
 export type TCardServiceQuotations = TCardServiceOrders;
