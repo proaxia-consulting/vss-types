@@ -1,7 +1,7 @@
-import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
-import type Order from "vss/com/dama/controller/Order.controller";
-import type { TTicComplex } from "vss/com/dama/service/timeClockingService";
-import type Container from "vss/com/dama/utils/Container";
+import ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import Order from "../controller/Order.controller";
+import { TTicComplex } from "../service/timeClockingService";
+import Container from "./Container";
 /**
  * @namespace vss.com.dama.utils
  */

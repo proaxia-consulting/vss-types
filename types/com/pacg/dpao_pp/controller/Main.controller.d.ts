@@ -1,5 +1,5 @@
-import type Event from "sap/ui/base/Event";
-import BaseController from "com/pacg/dpao_pp/controller/BaseController";
+import BaseController from "./BaseController";
+import Event from "sap/ui/base/Event";
 /**
  * @namespace com.pacg.dpao_pp.controller
  */

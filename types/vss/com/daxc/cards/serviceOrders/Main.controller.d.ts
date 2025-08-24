@@ -22,6 +22,7 @@ export default class Main extends LinkListController {
     private _onVizFrameSelectData;
     private requestChartData;
     private _getOrdersCounter;
+    private onAnyChange;
     private onFlattenedDatasetDataChange;
     private onRefresh;
     private setDatasetAndFeeds;

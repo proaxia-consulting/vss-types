@@ -23,6 +23,7 @@ export default class Main extends LinkListController {
     private requestChartData;
     private _getOrdersCounter;
     private onFlattenedDatasetDataChange;
+    private onAnyChange;
     private onRefresh;
     private setDatasetAndFeeds;
     private onCheckBoxSelect;
