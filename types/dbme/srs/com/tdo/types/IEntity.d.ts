@@ -48,6 +48,8 @@ export type IOrderEntity = {
     APLAN_MODE?: string;
     REQ_MAX_DUR?: number;
     REQ_MAX_DUR_UOM?: string;
+    CANCEL_REASON?: string;
+    CANCEL_REASON_DESC?: string;
     CommChannelNav?: IEntity[];
     DemandsNav?: DemandEntity[];
     HistoryNav?: IEntity[];

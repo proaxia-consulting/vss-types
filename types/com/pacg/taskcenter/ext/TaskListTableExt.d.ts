@@ -1,4 +1,4 @@
-import IconTabBar from "sap/m/IconTabBar";
+import type IconTabBar from "sap/m/IconTabBar";
 import EventProvider from "sap/ui/base/EventProvider";
 /**
  * purpose of this class is to attach update of action toolbar control binding in table control after

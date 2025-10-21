@@ -1,4 +1,4 @@
-import { IObjectPageController } from "vss/com/fe/ObjectPage";
+import type { IObjectPageController } from "vss/com/fe/ObjectPage";
 /**
  * @namespace com.pacg.taskcenter.ext
  */

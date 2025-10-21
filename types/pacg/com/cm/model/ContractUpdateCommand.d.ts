@@ -1,4 +1,4 @@
-import { TDraftAdministrativeData } from "vss/com/fe/DraftTypes";
+import type { TDraftAdministrativeData } from "vss/com/fe/DraftTypes";
 type TDocUpdateOut = void;
 /**
  * @namespace pacg.com.cm.model

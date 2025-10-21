@@ -1,7 +1,7 @@
-import type { IObjectPageExtension } from "vss/com/fe/ObjectPage";
-import type Context from "sap/ui/model/odata/v4/Context";
-import type { TDraftAwareDocumentItemEntity } from "../../types/EntitySet";
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
+import type Context from "sap/ui/model/odata/v4/Context";
+import type { IObjectPageExtension } from "vss/com/fe/ObjectPage";
+import type { TDraftAwareDocumentItemEntity } from "pacg/com/cm/types/EntitySet";
 type $NavigationContextInfo = {
     bindingContext: Context;
     sourceBindingContext: TDraftAwareDocumentItemEntity;

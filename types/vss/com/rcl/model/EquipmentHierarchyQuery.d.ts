@@ -1,10 +1,10 @@
 import type ODataModel from "sap/ui/model/odata/v4/ODataModel";
 import type { TEquipmentHierarchyCustomEntity, TRootObjectKey } from "vss/com/rcl/types/EntitySet";
-export interface IEquipmentHierarchyQuery {
+export type IEquipmentHierarchyQuery = {
     run(...rootEntity: TRootObjectKey[]): Promise<TEquipmentHierarchyCustomEntity[]>;
     asTree(...rootEntity: TRootObjectKey[]): Promise<THierarchyItem[]>;
     count(): number;
-}
+};
 export type THierarchyItem = TEquipmentHierarchyCustomEntity & {
     items: THierarchyItem[];
 };

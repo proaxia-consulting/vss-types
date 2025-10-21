@@ -1,3 +1,4 @@
+import type ComboBox from "sap/m/ComboBox";
 import type { Select$ChangeEvent } from "sap/m/Select";
 import ManagedObject from "sap/ui/base/ManagedObject";
 import type { $EventTyped as Event } from "ui5";
@@ -42,6 +43,10 @@ export default class HierarchyAssignment extends ManagedObject {
     constructor(_controller: IBaseController);
     protected _init(): Promise<void>;
     onChange(event?: Select$ChangeEvent, entity?: HierarchyAssignmentEntity): void;
+    onChangeComboBox(event: Event<{
+        value: string;
+    }, ComboBox>): void;
+    protected _onChange(hierarchyAssignmentEntity: HierarchyAssignmentEntity): void;
     getModel(): import("sap/ui/model/json/JSONModel").default;
     getHierarchyAssignment(): HierarchyAssignmentEntity;
     getHierarchyAssignmentAsync(): Promise<HierarchyAssignmentEntity>;

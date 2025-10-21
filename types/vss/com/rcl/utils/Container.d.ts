@@ -1,15 +1,15 @@
-import type { IListReportExtensionAPI, IFilterBar } from "vss/com/fe/ListReport";
-import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
+import type MenuButton from "sap/m/MenuButton";
+import type UIComponent from "sap/ui/core/UIComponent";
 import type IAppComponent from "vss/com/fe/IAppComponent";
 import type { IAnyTable } from "vss/com/fe/IAppContainer";
 import type IAppContainer from "vss/com/fe/IAppContainer";
-import type UIComponent from "sap/ui/core/UIComponent";
+import type { IFilterBar, IListReportExtensionAPI } from "vss/com/fe/ListReport";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 import type ICart from "vss/com/rcl/cart/ICart";
-import type MenuButton from "sap/m/MenuButton";
-export interface IAppContainerExtended extends IAppContainer {
+export type IAppContainerExtended = {
     get cart(): ICart;
     set cart(cart: ICart);
-}
+} & IAppContainer;
 /**
  * @namespace vss.com.rcl.utils
  */

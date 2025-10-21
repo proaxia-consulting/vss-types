@@ -25,6 +25,9 @@ export type $UXFCSettings = {
     Mandatory: Record<string, boolean>;
     Readonly: Record<string, boolean>;
 };
+/**
+ * All settings with key prefix "C_X_TDO_" are hidden in settings dialog.
+ */
 export type $UISettings = {
     [key: string]: string | boolean | number | Date | Record<string, unknown> | undefined;
     Visibility?: Record<string, boolean>;

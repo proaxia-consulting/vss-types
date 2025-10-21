@@ -1,4 +1,4 @@
-import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 /**
  * @nonui5
  * @namespace pacg.com.cm.ext

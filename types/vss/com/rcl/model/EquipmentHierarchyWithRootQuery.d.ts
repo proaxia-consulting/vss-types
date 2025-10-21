@@ -1,5 +1,5 @@
-import type { TRootObjectKey } from "vss/com/rcl/types/EntitySet";
 import EquipmentHierarchyQuery from "vss/com/rcl/model/EquipmentHierarchyQuery";
+import type { TRootObjectKey } from "vss/com/rcl/types/EntitySet";
 /**
  * @nonui5
  * @namespace vss.com.rcl.model

@@ -1,4 +1,4 @@
-import Event from "sap/ui/base/Event";
+import type Event from "sap/ui/base/Event";
 import type { IObjectPageController, IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 /**
  * Set of static method handlers for Task Center Object Page UI
