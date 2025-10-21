@@ -1,4 +1,4 @@
-import { TDraftAwareEntity } from "vss/com/fe/DraftTypes";
+import type { TDraftAwareEntity } from "vss/com/fe/DraftTypes";
 export type TDraftAwareDocumentEntity = TDocumentEntity & TDraftAwareEntity;
 export type TDraftAwareDocumentItemEntity = TDocumentItemEntity & TDraftAwareEntity;
 export type TGlobalParametersEntity = {

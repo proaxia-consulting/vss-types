@@ -1,5 +1,5 @@
-import Control from "sap/ui/core/Control";
-import UI5Element from "sap/ui/core/Element";
+import type Control from "sap/ui/core/Control";
+import type UI5Element from "sap/ui/core/Element";
 export type TActionScreenData = Record<string, unknown>;
 export declare const ActionDialog: {
     fieldIdKey(id: string): string;

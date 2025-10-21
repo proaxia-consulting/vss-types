@@ -11,9 +11,15 @@ export declare enum OrderSelectionMode {
     Single = "S",
     Multiple = "M"
 }
+/**
+ * @deprecated Use definitely typed controller.UISettings instead!
+ * @see dbme.srs.com.tdo.controller.AbstractBase.$UISettings
+ */
 export declare enum UISettingsKey {
     DemandDefaultUoM = "TDO_DEF_DEM_UOM",
     DefaultOrderType = "TDO_DEF_ORD_TYPE",
+    DisplayCancelledDemands = "TDO_CANC_DEMA_SHOW",
+    HideMeasuringPointsTab = "TDO_HIDE_MPT_TAB",
     PlannedFromInPast = "C_X_TDO_PLAN_FROM_PAST"
 }
 export declare enum ScreenArea {
@@ -25,11 +31,16 @@ export declare enum ComponentEvent {
     ScreenSectionTableItemsLoaded = "ScreenSectionTableItemsLoaded",
     ScreenSectionTableSelectionChange = "ScreenSectionTableSelectionChange"
 }
+/**
+ * @deprecated Use dbme.w.lib.core.ui.Enums.ServiceName instead!
+ * @see dbme.w.lib.core.ui.Enums.ServiceName
+ */
 export declare const ServiceName: {
     readonly MeasuringPoint: "MeasuringPoint";
 };
 /**
- * @deprecated replace with dbme.w.lib.core.model.Enums.ModelName
+ * @deprecated Replaced with dbme.w.lib.core.model.Enums.ModelName
+ * @see dbme.w.lib.core.model.Enums.ModelName
  */
 export declare enum ModelName {
     Calendar = "cal",
@@ -88,14 +99,18 @@ export declare const ControlId: {
     readonly VehicleSearchTable: "idSearchResults";
     readonly Tabs: "idIconTabBar";
 };
-export declare enum OrderFunction {
-    Reschedule = ".RESCH",
-    Replan = ".REPLN"
-}
-export declare enum OrderFunctionView {
-    Reschedule = "dbme.srs.com.tdo.view.action.Reschedule",
-    Replan = "dbme.srs.com.tdo.view.action.Replan"
-}
+export declare const OrderFunction: {
+    readonly Cancel: ".CANCE";
+    readonly Reschedule: ".RESCH";
+    readonly Replan: ".REPLN";
+};
+export type OrderFunctionType = (typeof OrderFunction)[keyof typeof OrderFunction];
+/** @deprecated Use OrderFunctionViewMap instead! */
+export declare const OrderFunctionView: {
+    readonly Replan: "dbme.srs.com.tdo.view.action.Replan";
+    readonly Reschedule: "dbme.srs.com.tdo.view.action.Reschedule";
+};
+export declare const OrderFunctionViewMap: Map<OrderFunctionType, string>;
 export declare enum RouteName {
     default = "default",
     Create = "Create",
@@ -112,6 +127,7 @@ export declare enum BatchGroupId {
     Helper = "Helper",
     Replan = "Replan",
     Order = "Order",
+    OrderAction = "OrderAction",
     Test = "Test"
 }
 export declare enum OrderFields {

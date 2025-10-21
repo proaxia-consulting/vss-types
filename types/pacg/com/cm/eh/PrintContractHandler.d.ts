@@ -1,5 +1,5 @@
-import Event from "sap/ui/base/Event";
-import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
+import type Event from "sap/ui/base/Event";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 declare const PrintContractHandler: {
     onPrint(this: IObjectPageExtensionAPI, event: Event): Promise<void>;
 };

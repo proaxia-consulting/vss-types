@@ -1,7 +1,7 @@
-import { IListReportExtensionAPI } from "vss/com/fe/ListReport";
-import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
-import { TActionScreenData } from "./BackendAction";
-import Dialog from "sap/m/Dialog";
+import type Dialog from "sap/m/Dialog";
+import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
+import type { TActionScreenData } from "pacg/com/cm/model/BackendAction";
 /**
  * @nonui5
  * @namespace pacg.com.cm.model

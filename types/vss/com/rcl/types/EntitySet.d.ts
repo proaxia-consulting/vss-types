@@ -26,6 +26,8 @@ export type TRootEntity = {
     SuperordinateEquipmentName?: string;
     CharacteristicValueFilter: string;
     IsMaterial: boolean;
+    IsRental?: boolean;
+    IsOnStock?: boolean;
     MaterialBaseUnit?: string;
     _CharacteristicsDisplay?: TObjectCharacteristicsDisplay[];
 };

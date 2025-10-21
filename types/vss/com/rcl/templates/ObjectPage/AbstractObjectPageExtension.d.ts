@@ -1,12 +1,12 @@
-import type ObjectPageLayout from "sap/uxap/ObjectPageLayout";
-import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
-import type ObjectPageSection from "sap/uxap/ObjectPageSection";
 import type Control from "sap/ui/core/Control";
 import type View from "sap/ui/core/mvc/View";
 import type Context from "sap/ui/model/odata/v4/Context";
-export interface IContentAware extends Control {
+import type ObjectPageLayout from "sap/uxap/ObjectPageLayout";
+import type ObjectPageSection from "sap/uxap/ObjectPageSection";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
+export type IContentAware = {
     getContent(): Control;
-}
+} & Control;
 /**
  * @namespace vss.com.rcl.templates.ObjectPage
  */

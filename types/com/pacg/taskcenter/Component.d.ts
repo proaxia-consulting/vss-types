@@ -1,5 +1,5 @@
 import AppComponent from "sap/fe/core/AppComponent";
-import { TGlobalSettingsEntity } from "./types/EntitySet";
+import type { TGlobalSettingsEntity } from "com/pacg/taskcenter/types/EntitySet";
 /**
  * @namespace com.pacg.taskcenter
  */

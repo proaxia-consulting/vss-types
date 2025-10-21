@@ -1,4 +1,4 @@
 import type { IFilterBar, IListReportController } from "vss/com/fe/ListReport";
-export interface IFilterAwareController extends IListReportController {
+export type IFilterAwareController = {
     _getFilterBarControl(): IFilterBar;
-}
+} & IListReportController;

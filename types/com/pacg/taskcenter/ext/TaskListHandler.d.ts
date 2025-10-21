@@ -1,5 +1,5 @@
-import Event from "sap/ui/base/Event";
-import { IListReportExtensionAPI } from "vss/com/fe/ListReport";
+import type Event from "sap/ui/base/Event";
+import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
 /**
  * @namespace com.pacg.taskcenter.ext
  */

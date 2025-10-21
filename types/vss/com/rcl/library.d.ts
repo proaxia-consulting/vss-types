@@ -1,7 +1,5 @@
 import * as Enums from "vss/com/rcl/model/Enums";
-declare const thisLib: {
-    [key: string]: unknown;
-};
+declare const thisLib: Record<string, unknown>;
 /**
  * @deprecated use vss.com.rcl.Enums.EntitySet instead
  */
