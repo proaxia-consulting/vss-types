@@ -4,5 +4,9 @@
 	"private": true,
 	"description": "VSS Types",
 	"copyright": "proaxia consulting group ag",
-	"license": "SEE LICENSE IN LICENSE.txt"
+	"license": "SEE LICENSE IN LICENSE.txt",
+	"files": [
+		"types/**/*.d.ts",
+		"package.json"
+	]
 }
