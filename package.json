@@ -8,5 +8,8 @@
 	"files": [
 		"types/**/*.d.ts",
 		"package.json"
-	]
+	],
+	"exports": {
+		"./*": "./types/**/*.d.ts"
+	}
 }
