@@ -153,3 +153,11 @@ export declare const ListUpdateFinishedReason: {
     Filter: string;
     Refresh: string;
 };
+export declare const CustomerClearMode: {
+    /** Default mode: clear only Customer and Partner number */
+    Default: string;
+    All: string;
+    ExceptEmailAndUserId: string;
+    ExceptUserId: string;
+};
+export type CustomerClearModeType = (typeof CustomerClearMode)[keyof typeof CustomerClearMode];

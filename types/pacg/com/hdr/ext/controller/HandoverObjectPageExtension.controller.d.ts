@@ -1,10 +1,10 @@
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
-import type { IObjectPageExtension } from "vss/com/fe/ObjectPage";
 import type Context from "sap/ui/model/odata/v4/Context";
-import VoiceRecognitionForLongText from "../VoiceRecognitionForLongText";
-interface IHandoverObjectPageExtension extends IObjectPageExtension {
+import type { IObjectPageExtension } from "vss/com/fe/ObjectPage";
+import VoiceRecognitionForLongText from "pacg/com/hdr/ext/VoiceRecognitionForLongText";
+type IHandoverObjectPageExtension = {
     _voiceRecognition?: VoiceRecognitionForLongText;
-}
+} & IObjectPageExtension;
 /**
  * @controller
  */

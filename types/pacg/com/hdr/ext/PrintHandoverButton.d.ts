@@ -1,6 +1,6 @@
-import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 import type Event from "sap/ui/base/Event";
-import { HandoverExtension } from "./HandoverExtension";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
+import { HandoverExtension } from "pacg/com/hdr/ext/HandoverExtension";
 /**
  * @namespace pacg.com.hdr.ext
  * @nonui5

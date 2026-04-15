@@ -1,4 +1,5 @@
 import type Dialog from "sap/m/Dialog";
+import UI5Element from "sap/ui/core/Element";
 import type { IParentController } from "dbme/c/att/types";
 export type IAttachmentOpenAttachmentPopupParams = {
     parentController?: IParentController;
@@ -10,15 +11,17 @@ export type IAttachmentOpenAttachmentPopupParams = {
 };
 /**
  * @namespace dbme.c.att
+ * @global
  */
-export default class AttachmentHandler {
-    private static _this;
+export default class AttachmentHandler extends UI5Element {
+    private static _this?;
+    private _name?;
     private _params;
-    private _attachmentModel;
-    private _mediaRecorder;
-    private _dialog;
-    private _attachmentContainer;
-    private _attachmentComponent;
+    private _attachmentModel?;
+    private _mediaRecorder?;
+    private _dialog?;
+    private _attachmentContainer?;
+    private _attachmentComponent?;
     /**
      * Constructor
      */
@@ -27,6 +30,7 @@ export default class AttachmentHandler {
      * Create instance
      */
     static getInstance(): AttachmentHandler;
+    getParentController(): IParentController | undefined;
     /**
      * Create instance and open the attachment popup
      */
@@ -83,4 +87,9 @@ export default class AttachmentHandler {
      * Create the component handling the attachments
      */
     private _createAttachmentComponent;
+    /**
+     * Destroy inner controls and clear properties
+     */
+    private _destroyControls;
+    destroy(bSuppressInvalidate?: boolean): void;
 }

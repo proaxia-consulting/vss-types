@@ -10,7 +10,7 @@ export default class ticActionsHandler {
     static onLRHeaderTicEventPress(this: IListReportController, event: Event): Promise<void>;
     static onOVPHeaderTicEventPress(this: Order, event: Event): void;
     static onOVPJobTicEventPress(this: Order, event: Event): Promise<void>;
-    static executeTicEvent(this: Order, ticEvent: TEventsEntity, contextKey: string, user: TPersonalEntity, callerEvent: Event, team?: TPersonalEntity[]): Promise<any>;
+    static executeTicEvent(this: Order, ticEvent: TEventsEntity, contextKey: string, user: TPersonalEntity, callerEvent: Event, team?: TPersonalEntity[], orderType?: string): Promise<any>;
     static isTeamStatusValid(team: TPersonalEntity[]): boolean;
     static onTitleLinkPress(this: IListReportController, event: Event): void;
     static determineCostCenter(costCenterEvents: TAvailableEventToCostCenter, caller: Event): Promise<string>;

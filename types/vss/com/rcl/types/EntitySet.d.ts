@@ -331,3 +331,32 @@ export type UnitOfMeasureEntity = {
     UnitOfMeasureIsCommercial: boolean;
     UnitOfMeasureDimension: string;
 };
+/**
+ * @description Delivery/Order Item entity type
+ */
+export type DeliveryEntity = {
+    SalesDocument: string;
+    SalesDocumentItem: string;
+    DeliveryDocument: string;
+    DeliveryDocumentItem: string;
+    DeliveryStatus: string;
+    GoodsIssueStatus: boolean;
+    GoodsReceiptStatus: boolean;
+    HandoverStatus: string;
+    ManufacturerSerialNumber: string;
+    OrderQuantity: string;
+    OrderQuantityDelivered: string;
+    OrderQuantityUnit: string;
+    RequestedDeliveryDate: string;
+    SerialNumber: string;
+    TargetQuantity: string;
+    TargetQuantityUnit: string;
+    IOType?: DocumentIOTypeType;
+    HasHierarchyChildren?: boolean;
+    __FieldControl?: Record<string, number>;
+    __OperationControl?: Record<string, boolean>;
+};
+export type ActionParameter = {
+    name: string;
+    value: unknown;
+};

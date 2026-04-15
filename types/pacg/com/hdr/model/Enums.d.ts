@@ -31,8 +31,13 @@ export declare const FieldGroupId: {
 export declare const HandoverItemProperty: {
     readonly SignatureHandoverBinary: "SignatureHandover";
     readonly SignatureHandoverJson: "SignatureHandoverJson";
+    readonly SignatureHandoverMime: "SignatureHandoverMime";
     readonly SignatureReceivingBinary: "SignatureReceiving";
     readonly SignatureReceivingJson: "SignatureReceivingJson";
+    readonly SignatureReceivingMime: "SignatureReceivingMime";
+};
+export declare const MimeType: {
+    Signature: string;
 };
 export declare const EventId: {
     readonly dataReceived: "dataReceived";
@@ -55,4 +60,5 @@ export declare const ServiceNamespace: {
 export declare const RAPAction: {
     readonly Edit: "Edit";
     readonly HandoverCreate: "HandoverCreate";
+    readonly updateImageId: `${string}.updateImageId(${string}.HandoverItemType)`;
 };

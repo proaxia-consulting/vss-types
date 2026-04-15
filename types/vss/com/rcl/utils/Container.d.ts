@@ -11,6 +11,7 @@ export type IAppContainerExtended = {
     set cart(cart: ICart);
 } & IAppContainer;
 /**
+ * @nonui5
  * @namespace vss.com.rcl.utils
  */
 export default class Container implements IAppContainerExtended {

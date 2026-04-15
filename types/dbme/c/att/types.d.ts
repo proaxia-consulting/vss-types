@@ -1,4 +1,4 @@
-import type View from "sap/ui/core/mvc/View";
+import type Controller from "sap/ui/core/mvc/Controller";
 type IKeyValueString = {
     Id: string;
     Descr: string;
@@ -35,6 +35,5 @@ export type IAttachmentUserData = {
 };
 export type IParentController = {
     getId(): string;
-    getView?: () => View;
-};
+} & Controller;
 export {};

@@ -1,4 +1,4 @@
-import Context from "sap/ui/model/odata/v4/Context";
+import type Context from "sap/ui/model/odata/v4/Context";
 export type $HandoverNavigationContextInfo = {
     bindingContext?: Context;
     sourceBindingContext?: {

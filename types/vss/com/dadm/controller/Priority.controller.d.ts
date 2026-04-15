@@ -1,9 +1,9 @@
 import Dialog from "sap/m/Dialog";
-import BaseController from "./BaseController.controller";
+import Controller from "sap/ui/core/mvc/Controller";
 /**
  * @namespace vss.com.dadm.\\\\\\\\\\controller
  */
-export default class PriorityController extends BaseController {
+export default class PriorityController extends Controller {
     private onRejectHandler;
     private onSaveHandler;
     private dialog;
