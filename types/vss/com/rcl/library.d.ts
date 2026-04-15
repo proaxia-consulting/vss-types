@@ -8,6 +8,7 @@ export declare const EntitySet: {
     readonly Charc: "CMCharc";
     readonly Contract: "Contract";
     readonly ContractCreate: "ContractCreate";
+    readonly Equipment: "Equipment";
     readonly EquipmentHierarchyCustom: "EquipmentHierarchyCustom";
     readonly Root: "Root";
     readonly MaterialNS: "MaterialNS";
@@ -17,6 +18,8 @@ export declare const EntitySet: {
     readonly RentalEquipmentBase: "RentalEquipmentBase";
     readonly Delivery: "Delivery";
     readonly DeliveryItem: "DeliveryItem";
+    readonly DeliveryAction: "DeliveryAction";
+    readonly OrderItem: "OrderItem";
     readonly Handover: "Handover";
     readonly HandoverItem: "HandoverItem";
     readonly HandoverItemCheckListType: "HandoverItemCheckListType";
@@ -29,6 +32,7 @@ export declare const EntitySet: {
     readonly CheckListSectionField: "CheckListSectionField";
     readonly CheckListField: "CheckListField";
     readonly UnitOfMeasure: "I_UnitOfMeasure";
+    readonly ManufacturerSerialNumberVH: "ManufSerialNoVH";
 };
 /**
  * @deprecated use vss.com.rcl.Enums.EventChannel instead

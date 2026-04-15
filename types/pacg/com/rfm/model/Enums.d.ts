@@ -5,14 +5,15 @@ export declare const ModelName: {
     readonly cart: "cart";
     readonly cartMeta: "cartMeta";
     readonly device: "device";
+    readonly equipment: "equipment";
     readonly i18n: "i18n";
-    readonly local: "local";
-    readonly ui: "ui";
-    readonly pageInternal: "pageInternal";
     readonly internal: "internal";
+    readonly local: "local";
+    readonly pageInternal: "pageInternal";
     readonly rentalApp: "rentalApp";
-    readonly tree: "tree";
     readonly sign: "sign";
+    readonly tree: "tree";
+    readonly ui: "ui";
 };
 export declare enum ActionType {
     Elementary = "",
@@ -30,6 +31,7 @@ export declare const EntitySet: {
     readonly Charc: "CMCharc";
     readonly Contract: "Contract";
     readonly ContractCreate: "ContractCreate";
+    readonly Equipment: "Equipment";
     readonly EquipmentHierarchyCustom: "EquipmentHierarchyCustom";
     readonly Root: "Root";
     readonly MaterialNS: "MaterialNS";
@@ -39,6 +41,8 @@ export declare const EntitySet: {
     readonly RentalEquipmentBase: "RentalEquipmentBase";
     readonly Delivery: "Delivery";
     readonly DeliveryItem: "DeliveryItem";
+    readonly DeliveryAction: "DeliveryAction";
+    readonly OrderItem: "OrderItem";
     readonly Handover: "Handover";
     readonly HandoverItem: "HandoverItem";
     readonly HandoverItemCheckListType: "HandoverItemCheckListType";
@@ -51,6 +55,7 @@ export declare const EntitySet: {
     readonly CheckListSectionField: "CheckListSectionField";
     readonly CheckListField: "CheckListField";
     readonly UnitOfMeasure: "I_UnitOfMeasure";
+    readonly ManufacturerSerialNumberVH: "ManufSerialNoVH";
 };
 export declare const ControlId: {
     readonly mainTable: "fe::table::Equipment::LineItem";

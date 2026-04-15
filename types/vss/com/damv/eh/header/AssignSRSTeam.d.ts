@@ -13,7 +13,6 @@ export default class AssignSRSTeam implements IDialog {
     _UiModel: JSONModel;
     private AssignSRSTeamDialog;
     private headerData;
-    private textBundle;
     private teamListData;
     constructor(_orderCtrl: Order, _fragmentId: FragmentId);
     open(): Promise<void>;

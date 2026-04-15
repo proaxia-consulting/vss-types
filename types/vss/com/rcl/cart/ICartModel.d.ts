@@ -47,6 +47,16 @@ export type TCartData = {
     enabled: boolean;
 };
 export type TCartItemsMap = Record<string, TCartItem>;
+export type TCartExcluded = Record<string, boolean>;
+export type TCartModelData = {
+    header: TCartHeader;
+    items: TCartItem[];
+    itemsMap: TCartItemsMap;
+    excluded: TCartExcluded;
+    icon: (typeof IconUri)[keyof typeof IconUri];
+    iconClear: (typeof IconUri)[keyof typeof IconUri];
+    enabled: boolean;
+};
 export type ICartModel = {
     add(...newItems: TCartItem[]): void;
     remove(...forRemove: TCartItem[]): void;

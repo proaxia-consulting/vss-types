@@ -5,6 +5,7 @@ import type { Input$ValueHelpRequestEvent } from "sap/m/Input";
 import type { SmartField$InnerControlsCreatedEvent } from "sap/ui/comp/smartfield/SmartField";
 import type ValueHelpDialog from "sap/ui/comp/valuehelpdialog/ValueHelpDialog";
 import type Table from "sap/ui/table/Table";
+import type AbstractOrderDemandsController from "dbme/srs/com/tdo/controller/AbstractOrderDemands.controller";
 import type { IFormAware, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
 type THandlers = {
     inputValueHelpRequest?: CallableFunction;
@@ -18,8 +19,8 @@ type IController = {} & IOrderAwareController & IFormAware;
  * @see DemandTemplate.onPrefResourceSearchHelpCriteria
  */
 declare const SearchHelp: {
-    onBtnVehicleNumberClear(oEvent: Button$PressEvent): void;
-    onBtnCustomerNumberClear(oEvent: Button$PressEvent): void;
+    onBtnVehicleNumberClear(this: IController, event: Button$PressEvent): void;
+    onBtnCustomerNumberClear(this: AbstractOrderDemandsController, event: Button$PressEvent): void;
     getDefaultHandlers(this: IController): THandlers;
     onInnerControlsCreated(this: IController, event: SmartField$InnerControlsCreatedEvent, mHandlers?: THandlers): void;
     onFieldValueHelpRequest(this: IController, event: Input$ValueHelpRequestEvent, mHandlers?: THandlers): Promise<ValueHelpDialog>;

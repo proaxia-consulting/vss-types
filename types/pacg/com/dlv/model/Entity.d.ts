@@ -1,9 +1,11 @@
 import type { DocumentIOTypeType } from "vss/com/rcl/model/Enums";
+/** @deprecated Use vss.com.rcl.types.EntitySet.DeliveryEntity */
 export type RootEntity = {
     DeliveryDocument: string;
     DeliveryDocumentItem: string;
     DeliveryStatus: string;
     GoodsIssueStatus: boolean;
+    GoodsReceiptStatus: boolean;
     HandoverStatus: string;
     ManufacturerSerialNumber: string;
     OrderQuantity: string;

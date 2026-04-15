@@ -10,6 +10,7 @@ import type { TRootObjectKey } from "vss/com/rcl/types/EntitySet";
  */
 export default class SectionEquipmentHierarchy extends AbstractObjectPageExtension<TRootObjectKey> {
     protected _query: IEquipmentHierarchyQuery;
+    protected _sid: string;
     constructor(api: IObjectPageExtensionAPI, _query: IEquipmentHierarchyQuery);
     protected run(): void;
     protected _treeItemsQuery(entityData: TRootObjectKey, treeModel: JSONModel, treeControl: Tree): Promise<void>;
@@ -20,5 +21,7 @@ export default class SectionEquipmentHierarchy extends AbstractObjectPageExtensi
      * @see vss.com.rcl.ml.ext.SectionEquipmentHierarchy.onTreeUpdateFinished()
      */
     protected _treeDataReceived(treeData: THierarchyItem[], treeControl: Tree, treeModel: JSONModel): Promise<void>;
-    protected tree(): Tree;
+    tree(): Tree;
+    getContent(): import("sap/uxap/ObjectPageSection").default;
+    destroy(): void;
 }

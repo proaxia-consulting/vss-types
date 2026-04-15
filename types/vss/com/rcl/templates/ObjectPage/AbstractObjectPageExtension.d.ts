@@ -8,6 +8,7 @@ export type IContentAware = {
     getContent(): Control;
 } & Control;
 /**
+ * @nonui5
  * @namespace vss.com.rcl.templates.ObjectPage
  */
 export default abstract class AbstractObjectPageExtension<TBaseEntityType> {

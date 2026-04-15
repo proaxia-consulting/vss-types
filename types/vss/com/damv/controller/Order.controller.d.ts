@@ -27,7 +27,7 @@ export default class Order extends PageController implements IParentController {
     crossAppNavigator: CrossApplicationNavigation;
     jobDetails?: IActionHandler;
     onInit(): void;
-    onRouteMatched(event: Event): void;
+    onRouteMatched(event: Event): Promise<void>;
     onContextChange(event: Event): Promise<void>;
     private _initUiModel;
     onRefresh(): void;

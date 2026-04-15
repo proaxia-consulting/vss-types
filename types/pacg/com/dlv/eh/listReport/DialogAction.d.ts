@@ -1,21 +1,9 @@
-import Context from "sap/ui/model/odata/v4/Context";
-import ODataContextBinding from "sap/ui/model/odata/v4/ODataContextBinding";
-import ExtensionAPI from "sap/fe/templates/ListReport/ExtensionAPI";
-import Event from "sap/ui/base/Event";
-import { ActionName } from "../../model/Enums";
+declare const DialogAction: {
+    open(dialogFactory: import("vss/com/rcl/templates/ListReport/AbstractDeliveryActionDialogFactory").default): void;
+    executeDialog(this: import("sap/fe/templates/ListReport/ExtensionAPI").default, event: import("sap/m/Button").Button$PressEvent): void;
+    closeDialog(event: import("sap/m/Button").Button$PressEvent): void;
+};
 /**
  * @namespace pacg.com.dlv.eh.listReport
  */
-export default class DialogAction {
-    private static _dialog;
-    private static _actionName;
-    private static _i18n;
-    private static _loadFragment;
-    private static _prepareDeliveryTable;
-    private static _prepareManufSerialNoTable;
-    private static _createBarCodeButton;
-    private static _createSerialNoInput;
-    static open(this: ExtensionAPI, bindingContext: ODataContextBinding, selectedContexts: Context[], actionName: ActionName): void;
-    static executeDialog(this: ExtensionAPI, event: Event): void;
-    static closeDialog(event: Event): void;
-}
+export default DialogAction;

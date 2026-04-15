@@ -34,14 +34,15 @@ export declare const ModelName: {
     readonly cart: "cart";
     readonly cartMeta: "cartMeta";
     readonly device: "device";
+    readonly equipment: "equipment";
     readonly i18n: "i18n";
-    readonly local: "local";
-    readonly ui: "ui";
-    readonly pageInternal: "pageInternal";
     readonly internal: "internal";
+    readonly local: "local";
+    readonly pageInternal: "pageInternal";
     readonly rentalApp: "rentalApp";
-    readonly tree: "tree";
     readonly sign: "sign";
+    readonly tree: "tree";
+    readonly ui: "ui";
 };
 export type ModelNameType = (typeof ModelName)[keyof typeof ModelName];
 export declare const AttachmentModelFunction: {
@@ -87,6 +88,7 @@ export declare const EntitySet: {
     readonly Charc: "CMCharc";
     readonly Contract: "Contract";
     readonly ContractCreate: "ContractCreate";
+    readonly Equipment: "Equipment";
     readonly EquipmentHierarchyCustom: "EquipmentHierarchyCustom";
     readonly Root: "Root";
     readonly MaterialNS: "MaterialNS";
@@ -96,6 +98,8 @@ export declare const EntitySet: {
     readonly RentalEquipmentBase: "RentalEquipmentBase";
     readonly Delivery: "Delivery";
     readonly DeliveryItem: "DeliveryItem";
+    readonly DeliveryAction: "DeliveryAction";
+    readonly OrderItem: "OrderItem";
     readonly Handover: "Handover";
     readonly HandoverItem: "HandoverItem";
     readonly HandoverItemCheckListType: "HandoverItemCheckListType";
@@ -108,11 +112,10 @@ export declare const EntitySet: {
     readonly CheckListSectionField: "CheckListSectionField";
     readonly CheckListField: "CheckListField";
     readonly UnitOfMeasure: "I_UnitOfMeasure";
+    readonly ManufacturerSerialNumberVH: "ManufSerialNoVH";
 };
 export type EntitySetType = (typeof EntitySet)[keyof typeof EntitySet];
-/**
- * @deprecated use DocumentIOType instead
- */
+/** @deprecated use DocumentIOType instead */
 export declare const DeliveryIOType: {
     readonly Inbound: "I";
     readonly Outbound: "O";
@@ -132,6 +135,9 @@ export declare const PreferredMode: {
     readonly edit: "edit";
     readonly create: "create";
 };
+export declare const ServiceName: {
+    readonly Routing: "routingService";
+};
 export declare const CreationMode: {
     readonly Async: "Async";
     readonly CreationRow: "CreationRow";
@@ -145,3 +151,27 @@ export declare const UnitOfMeasure: {
     readonly Piece: "PC";
     readonly PieceInternal: "ST";
 };
+export declare const ActionId: {
+    readonly BehaviorAction: "DataFieldForAction";
+    readonly CustomAction: "CustomAction";
+    readonly ContractCodePrefix: "com.sap.gateway.srvd.pacg.rso_cm.v0001.";
+    readonly DeliveryCodePrefix: "com.sap.gateway.srvd.pacg.rlm_dlv.v0001.";
+    readonly FleetManagementCodePrefix: "com.sap.gateway.srvd.pacg.rso_fm.v0001.";
+    readonly HandoverCodePrefix: "com.sap.gateway.srvd.pacg.rso_hdr.v0001.";
+};
+export declare const ContextCheck: {
+    readonly All: 0;
+    readonly AtLeastOne: 1;
+};
+export type ContextCheckType = (typeof ContextCheck)[keyof typeof ContextCheck];
+export declare const InvocationGrouping: {
+    readonly ChangeSet: "ChangeSet";
+    readonly Isolated: "Isolated";
+};
+export declare const FieldControl: {
+    readonly Mandatory: 7;
+    readonly Optional: 3;
+    readonly ReadOnly: 1;
+    readonly Hidden: 0;
+};
+export type FieldControlType = (typeof FieldControl)[keyof typeof FieldControl];

@@ -32,14 +32,14 @@ export default class Reschedule extends AbstractBase implements IDemandsAwareCon
     private _oLocalJSONModel;
     onInit(): void;
     _reloadParameters(): void;
-    setPickupAtVisibility(bVisibility: boolean): void;
+    setPickupAtVisibility(visible: boolean): void;
     _getJSONModel(): JSONModel;
-    onBtnActionAllocateSearch(oEvent: Event): void;
+    onBtnActionAllocateSearch(event: Event): void;
     private _getAllocationProposalFilters;
     private _getParametersData;
     private _getDemandsData;
     onAllocationProposalSelect(event?: Event): void;
-    onBtnDialogCancel(oEvent: Button$PressEvent): void;
+    onBtnDialogCancel(event: Button$PressEvent): void;
     private _validate;
     onFieldChange(event: SmartField$ChangeEvent): void;
     /**
@@ -68,7 +68,7 @@ export default class Reschedule extends AbstractBase implements IDemandsAwareCon
     /**
      * execute action
      */
-    onBtnDialogOK(oEvent: Button$PressEvent): void;
+    onBtnDialogOK(event: Button$PressEvent): void;
     /**
      * <001>
      */

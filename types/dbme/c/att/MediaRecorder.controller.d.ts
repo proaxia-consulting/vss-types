@@ -1,26 +1,28 @@
+import UI5Element from "sap/ui/core/Element";
 import { MediaType } from "dbme/c/att/AVAttHandler";
-import type { IParentController } from "dbme/c/att/types";
+import type AttachmentHandler from "dbme/c/att/AttachmentHandler";
 type TSaveCallback = () => void;
 /**
- * @name dbme.c.att.MediaRecorderController.controller
+ * @namespace dbme.c.att.MediaRecorderController.controller
  * @controller
  */
-export default class MediaRecorderController {
-    private _parentController;
+export default class MediaRecorderController extends UI5Element {
+    private _attHandler;
     private _saveCallback;
     private _attConfig;
     private _attUserData;
-    private _avAttHandler;
-    private _mediaRecorderModel;
-    private _dialog;
-    private _htmlCtrlVideoRec;
-    private _htmlCtrlVideoPrev;
-    private _htmlCtrlAudioRec;
-    private _htmlCtrlAudioPrev;
+    private _avAttHandler?;
+    private _mediaRecorderModel?;
+    private _dialog?;
+    private _htmlCtrlVideoRec?;
+    private _htmlCtrlVideoPrev?;
+    private _htmlCtrlAudioRec?;
+    private _htmlCtrlAudioPrev?;
+    private _name?;
     /**
      * Constructor
      */
-    constructor(_parentController: IParentController | undefined, _saveCallback: TSaveCallback);
+    constructor(_attHandler: AttachmentHandler, _saveCallback: TSaveCallback);
     /**
      * Initialize JSON model
      */
@@ -32,11 +34,11 @@ export default class MediaRecorderController {
     /**
      * Handle Save button
      */
-    private onSave;
+    onSave(): void;
     /**
      * Handle Cancel button
      */
-    private onCancel;
+    onCancel(): void;
     /**
      * Open popup
      */
@@ -44,7 +46,7 @@ export default class MediaRecorderController {
     /**
      * Initialize popup
      */
-    init(mediaType: MediaType, objectType: string, objectKey: string): Promise<void>;
+    initPopup(mediaType: MediaType, objectType: string, objectKey: string): Promise<void>;
     /**
      * Initialize the dialog (once only)
      */
@@ -96,11 +98,11 @@ export default class MediaRecorderController {
     /**
      * Handle recording stop
      */
-    private onRecordingStop;
+    onRecordingStop(): void;
     /**
      * Handle recording start
      */
-    private onRecordingStart;
+    onRecordingStart(): void;
     /**
      * Play recording
      */
@@ -109,5 +111,7 @@ export default class MediaRecorderController {
      * Download the recording
      */
     onDownload(): void;
+    destroy(): void;
+    private _destroyControls;
 }
 export {};

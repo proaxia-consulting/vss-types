@@ -1,6 +1,6 @@
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
 import type { IListReportExtension } from "vss/com/fe/ListReport";
-import type { $HandoverNavigationContextInfo } from "../../types/IController";
+import type { $HandoverNavigationContextInfo } from "pacg/com/hdr/types/IController";
 /**
  * @controller
  */

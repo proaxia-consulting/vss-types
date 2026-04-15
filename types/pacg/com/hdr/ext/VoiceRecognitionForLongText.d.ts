@@ -1,5 +1,5 @@
 import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
-import { HandoverExtension } from "./HandoverExtension";
+import { HandoverExtension } from "pacg/com/hdr/ext/HandoverExtension";
 /**
  * @nonui5
  * @namespace pacg.com.hdr.ext

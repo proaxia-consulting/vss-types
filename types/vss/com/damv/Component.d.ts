@@ -1,6 +1,6 @@
 import AppComponent from "sap/fe/core/AppComponent";
-import IAppComponent from "vss/com/fe/IAppComponent";
-import IAppContainer from "vss/com/fe/IAppContainer";
+import type IAppComponent from "vss/com/fe/IAppComponent";
+import type IAppContainer from "vss/com/fe/IAppContainer";
 /**
  * @namespace vss.com.dama
  */

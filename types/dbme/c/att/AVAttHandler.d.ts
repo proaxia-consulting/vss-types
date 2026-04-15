@@ -8,6 +8,7 @@ type TOnMediaStreamAvailable = (mediaStream: MediaStream) => void;
 type TOnMediaStreamRelease = () => void;
 /**
  * @namespace dbme.c.att
+ * @nonui5
  */
 export default class AVAttHandler {
     private _mediaType;
@@ -21,10 +22,20 @@ export default class AVAttHandler {
     private _onMediaStreamRelease;
     private _mediaVideoRequested;
     private _mediaAudioRequested;
+    private _currentMimeType;
+    private _currentFileNameExtension;
     /**
      * Constructor
      */
     constructor();
+    /**
+     * Return the MIME Type
+     */
+    getMimeType(): string;
+    /**
+     * Return the recorder blob
+     */
+    getRecorderBlob(): Blob;
     /**
      * Initialize
      */
