@@ -1,7 +1,5 @@
-import ResourceBundle from "sap/base/i18n/ResourceBundle";
+declare const thisLib: Record<string, unknown>;
 /**
- * @namespace vss.com.daxc
+ * @name vss.com.daxc.library
  */
-export default class DAXCLibrary {
-    static getResourceBundle(): ResourceBundle;
-}
+export default thisLib;

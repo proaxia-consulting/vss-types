@@ -43,7 +43,11 @@ export default class Tree extends BaseController implements ITreeController {
             onAssignmentSave(this: Tree, oEvent: Event): Promise<{
                 data: import("dbme/w/lib/core/types/IEntity").HierarchyAssignmentEntity;
                 response: import("dbme/c/util/handleReturn").TResponseSuccess;
-                message: import("dbme/c/odata/ODataCommand").TODataMessage;
+                message: import("dbme/c/Log").TMessage | (import("dbme/c/util/handleReturn").TResponseDetails & {
+                    title?: string;
+                    hasError?: boolean;
+                    hasWarning?: boolean;
+                });
             }>;
             onFieldChange(this: Tree, event: Event): void;
         };
@@ -83,7 +87,11 @@ export default class Tree extends BaseController implements ITreeController {
             onBtnResourceFormOK(this: Tree, event: import("sap/m/Button").Button$PressEvent): Promise<void | {
                 data: import("dbme/w/lib/core/types/IEntity").ResourceEntity | import("dbme/w/lib/core/types/IEntity").ResourceEntity[];
                 response: import("dbme/c/util/handleReturn").TResponseSuccess;
-                message: import("dbme/c/odata/ODataCommand").TODataMessage;
+                message: import("dbme/c/Log").TMessage | (import("dbme/c/util/handleReturn").TResponseDetails & {
+                    title?: string;
+                    hasError?: boolean;
+                    hasWarning?: boolean;
+                });
             }>;
             showDialog(this: Tree, resourceControl: import("sap/ui/core/Control").default, bCreate?: boolean): void;
         };

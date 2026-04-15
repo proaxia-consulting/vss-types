@@ -1,5 +1,5 @@
-import { IListReportExtensionAPI } from "vss/com/fe/ListReport";
-import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
+import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 export type TActionDefaults = Record<string, string>;
 declare function queryContractShipToPartyAddressDefaults(api: IListReportExtensionAPI | IObjectPageExtensionAPI): Promise<TActionDefaults>;
 declare const ContractActionDefaultsQuery: {

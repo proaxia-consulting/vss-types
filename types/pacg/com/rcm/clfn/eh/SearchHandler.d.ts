@@ -1,5 +1,5 @@
 import type { TTokenData } from "ui5";
-import ClassificationFilterForm from "pacg/com/rcm/clfn/ClassificationFilterForm";
+import type ClassificationFilterForm from "pacg/com/rcm/clfn/ClassificationFilterForm";
 /**
  * @namespace pacg.com.rcm.clfn.eh
  *

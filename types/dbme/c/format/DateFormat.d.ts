@@ -1,3 +1,4 @@
+import UI5Date from "sap/ui/core/date/UI5Date";
 export declare enum FormatPattern {
     DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss",
     DATE_FORMAT = "yyyy-MM-dd",
@@ -35,10 +36,10 @@ export declare function dateLocal(sDateTime: string, sStyle?: string): string | 
  * @return {String} Time in HH:mm:ss format
  */
 export declare function duration(iSeconds: string): string;
-export declare function jsDate(sDate: string | number | Date): Date | null;
-export declare function jsDateTime(sDate: string | number | Date, bUTC?: boolean): Date | null;
-export declare function getUTCDate(oDate?: Date): Date;
-export declare function getLocalByUTCDate(oDate: Date): Date | null;
+export declare function jsDate(sDate: string | number | Date): Date | UI5Date | null;
+export declare function jsDateTime(sDate: string | number | Date, bUTC?: boolean): Date | UI5Date | null;
+export declare function getUTCDate(oDate?: Date | UI5Date): Date | UI5Date;
+export declare function getLocalByUTCDate(oDate: Date): Date | UI5Date | null;
 /**
  * Date formatting utilities
  *

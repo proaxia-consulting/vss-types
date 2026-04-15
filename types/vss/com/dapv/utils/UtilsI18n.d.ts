@@ -1,4 +1,4 @@
-import ResourceBundle from "sap/base/i18n/ResourceBundle";
+import type ResourceBundle from "sap/base/i18n/ResourceBundle";
 export declare const oResourceBundle: ResourceBundle;
 export declare const i18nID: {
     Plant: string;

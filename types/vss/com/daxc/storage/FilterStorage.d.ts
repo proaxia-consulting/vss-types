@@ -1,4 +1,4 @@
-import Filter from "sap/ui/model/Filter";
+import type Filter from "sap/ui/model/Filter";
 export declare function setPlant(x: string): void;
 export declare function getPlant(): string;
 export declare function setSalesOrganization(x: string): void;

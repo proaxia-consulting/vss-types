@@ -1,5 +1,5 @@
 import JSONModel from "sap/ui/model/json/JSONModel";
-import { type OutputModeType, type StartingViewType } from "../Const";
+import { type OutputModeType, type StartingViewType } from "dbme/cmf_rep/Const";
 export type ControlModel = {
     report: {
         id: string;
@@ -25,6 +25,6 @@ declare const models: {
     createControlModel(): JSONModel;
 };
 /**
- * @name dbme.cmf_rep.model.models
+ * @namespace dbme.cmf_rep.model
  */
 export default models;

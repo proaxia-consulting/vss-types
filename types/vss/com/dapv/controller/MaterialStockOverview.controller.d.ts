@@ -1,7 +1,7 @@
-import Controller from "sap/ui/core/mvc/Controller";
-import Event from "sap/ui/base/Event";
-import OData4Model from "sap/ui/model/odata/v4/ODataModel";
 import Button from "sap/m/Button";
+import type Event from "sap/ui/base/Event";
+import Controller from "sap/ui/core/mvc/Controller";
+import type OData4Model from "sap/ui/model/odata/v4/ODataModel";
 /**
  * @namespace vss.com.dapv.controller
  */

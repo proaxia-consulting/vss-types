@@ -1,4 +1,4 @@
-import Component from "sap/ui/core/Component";
+import type Component from "sap/ui/core/Component";
 /**
  * @nonui5
  * @namespace vss.com.rcl.utils

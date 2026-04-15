@@ -35,3 +35,9 @@ export type TActionParameters = {
     EmployeeNo?: string;
     Remarks?: string;
 };
+export type TActionResult = {
+    RedirectURL?: string;
+};
+export type TOperationResult = {
+    RedirectURL?: string;
+};

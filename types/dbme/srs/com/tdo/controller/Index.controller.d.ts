@@ -1,15 +1,17 @@
-import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
-import IconTabFilter from "sap/m/IconTabFilter";
+import type { ISrsController } from "dbme/w/lib/core/types/IController";
+import type IconTabFilter from "sap/m/IconTabFilter";
 import type Event from "sap/ui/base/Event";
 import type SmartTable from "sap/ui/comp/smarttable/SmartTable";
+import type { SmartTable$InitialiseEvent } from "sap/ui/comp/smarttable/SmartTable";
+import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
 import Filter from "sap/ui/model/Filter";
 import JSONModel from "sap/ui/model/json/JSONModel";
+import type { RowActionItem$PressEvent } from "sap/ui/table/RowActionItem";
 import type Table from "sap/ui/table/Table";
-import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
-import type { IOrderAwareController, IAfterAction } from "dbme/srs/com/tdo/types/IController";
-import type { ISrsController } from "dbme/w/lib/core/types/IController";
 import type { $SmartTableBeforeRebindEventParams } from "ui5";
-import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
+import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
+import type { IAfterAction, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
+import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
 /**
  * interface IOrderAwareController is required for triggering the SRS Order actions
  *
@@ -22,7 +24,7 @@ export default class Index extends AbstractBase implements ISrsController, IAfte
     private _aLastTableFilters;
     private _sLastFilter?;
     onInit(): void;
-    onRouteMatched(event: Route$PatternMatchedEvent): Promise<void>;
+    onRouteMatched(event: Route$PatternMatchedEvent): void;
     private _onRouteMatchedAsync;
     ODataToJSON(): void;
     _getJSONModel(): JSONModel;
@@ -41,13 +43,13 @@ export default class Index extends AbstractBase implements ISrsController, IAfte
     onBtnReload(event: Event): void;
     private _reloadActionButtons;
     onAfterSuccessfulAction(): void;
-    onRowPress(oEvent: Event): boolean;
+    onRowPress(event: RowActionItem$PressEvent): boolean;
     onBtnCreate(oEvent: Event): void;
     oBeforeRebindTable(oEvent: Event<$SmartTableBeforeRebindEventParams, SmartTable>): void;
     /**
      * Fix DateTime fields display format, as they are not apply 'style' from SmartTable's customData:dateFormatSettings
      */
-    onTableInit(oEvent: Event): void;
+    onTableInit(event: SmartTable$InitialiseEvent): void;
     /**
      * interface IOrderAwareController is required for triggering the SRS Order actions
      */

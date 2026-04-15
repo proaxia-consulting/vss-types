@@ -1,4 +1,4 @@
-import type { MultiComboBox$SelectionFinishEvent, MultiComboBox$SelectionChangeEvent } from "sap/m/MultiComboBox";
+import type { MultiComboBox$SelectionChangeEvent, MultiComboBox$SelectionFinishEvent } from "sap/m/MultiComboBox";
 import type Item from "sap/ui/core/Item";
 import type { TTokenData } from "ui5";
 import type { IClassificationFilterController } from "pacg/com/rcm/types/IController";

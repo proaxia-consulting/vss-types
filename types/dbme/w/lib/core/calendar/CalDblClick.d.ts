@@ -1,5 +1,5 @@
-import type { ICalendarController } from "dbme/w/lib/core/types/IController";
 import type { PlanningCalendar$AppointmentDblClickEvent, PlanningCalendar$HeaderDblClickEvent } from "dbme/w/lib/core/control/PlanningCalendar";
+import type { ICalendarController } from "dbme/w/lib/core/types/IController";
 declare const CalDblClick: {
     /**
      * Custom "headerDblClick" event

@@ -47,11 +47,11 @@ export type TCartData = {
     enabled: boolean;
 };
 export type TCartItemsMap = Record<string, TCartItem>;
-export interface ICartModel {
+export type ICartModel = {
     add(...newItems: TCartItem[]): void;
     remove(...forRemove: TCartItem[]): void;
     refresh(items?: TCartItem[]): void;
     findIndex(searchItem?: TCartItem, items?: TCartItem[]): number;
     exists(searchItem?: TCartItem, items?: TCartItem[]): boolean;
     model(): JSONModel;
-}
+};

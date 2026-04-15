@@ -1,8 +1,8 @@
 import type Control from "sap/ui/core/Control";
 import AbstractObjectPageExtension from "vss/com/rcl/templates/ObjectPage/AbstractObjectPageExtension";
-export interface IContentAware extends Control {
+export type IContentAware = {
     getContent(): Control;
-}
+} & Control;
 /**
  * @deprecated Use AbstractObjectPageExtension instead
  *

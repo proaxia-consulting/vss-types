@@ -1,9 +1,9 @@
+import type ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
+import type { Button$PressEvent } from "sap/m/Button";
+import type { FeedListItem$SenderPressEvent } from "sap/m/FeedListItem";
+import type { ListBase$UpdateFinishedEvent } from "sap/m/ListBase";
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
-import ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
-import { Button$PressEvent } from "sap/m/Button";
-import { IObjectPageExtension } from "vss/com/fe/ObjectPage";
-import { FeedListItem$SenderPressEvent } from "sap/m/FeedListItem";
-import { ListBase$UpdateFinishedEvent } from "sap/m/ListBase";
+import type { IObjectPageExtension } from "vss/com/fe/ObjectPage";
 /**
  * @namespace vss.com.upm.ext.controller
  * @controller

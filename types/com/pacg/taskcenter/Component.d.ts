@@ -1,5 +1,5 @@
 import AppComponent from "sap/fe/core/AppComponent";
-import JSONModel from "sap/ui/model/json/JSONModel";
+import type JSONModel from "sap/ui/model/json/JSONModel";
 /**
  * @namespace com.pacg.taskcenter
  */

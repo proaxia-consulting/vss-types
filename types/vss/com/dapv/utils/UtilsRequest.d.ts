@@ -1,12 +1,12 @@
-import OData4ListBinding from "sap/ui/model/odata/v4/ODataListBinding";
-import OData4Context from "sap/ui/model/odata/v4/Context";
-import OData4Model from "sap/ui/model/odata/v4/ODataModel";
+import type Table from "sap/m/Table";
+import type Event from "sap/ui/base/Event";
+import type MDCTable from "sap/ui/mdc/Table";
 import Filter from "sap/ui/model/Filter";
-import OData4ContextBinding from "sap/ui/model/odata/v4/ODataContextBinding";
-import Event from "sap/ui/base/Event";
-import Table from "sap/m/Table";
-import MDCTable from "sap/ui/mdc/Table";
-import { ProcureSubmit, SwapATPReservations } from "vss/com/dapv/entities/Entities";
+import type OData4Context from "sap/ui/model/odata/v4/Context";
+import type OData4ContextBinding from "sap/ui/model/odata/v4/ODataContextBinding";
+import type OData4ListBinding from "sap/ui/model/odata/v4/ODataListBinding";
+import type OData4Model from "sap/ui/model/odata/v4/ODataModel";
+import type { ProcureSubmit, SwapATPReservations } from "vss/com/dapv/entities/Entities";
 export declare function limitRequest(iCounter: int, oModel: OData4Model): void;
 export declare function requestViewOrderItem(oModel: OData4Model, aFilters: Filter[], iSizeLimit: int): OData4ListBinding;
 export declare function requestOrder(oModel: OData4Model, sOrderNumber: string): OData4ContextBinding;
@@ -14,4 +14,4 @@ export declare function requestMaterialOverview(oModel: OData4Model, sMatnr: str
 export declare function logCreateCompleted(oEvent: Event): void;
 export declare function createProcurement(oModel: OData4Model, aData: ProcureSubmit[], oTable?: Table | MDCTable, sOrderNumber?: string): void;
 export declare function createMaterialOverviewGeneric(oModel: OData4Model, aData: SwapATPReservations[], oTable: Table, bAvailabilityCheck: boolean, bSwapActivated: boolean): void;
-export declare function getODataObjectsFromResults(aResults: Array<OData4Context>): Array<any>;
+export declare function getODataObjectsFromResults(aResults: OData4Context[]): object[];

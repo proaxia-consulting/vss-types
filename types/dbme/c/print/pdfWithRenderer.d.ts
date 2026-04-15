@@ -1,13 +1,13 @@
 import { type TPrintSettings } from "dbme/c/print/printUtils";
-interface IPdf {
+type IPdf = {
     print(): void;
-}
+};
 /**
  * Fallback interface for pdfMake @link https://pdfmake.github.io/docs/
  */
-interface IPdfRenderer {
+type IPdfRenderer = {
     createPdf(source: object): IPdf;
-}
+};
 /**
  * Usage with pdfMake:
  *

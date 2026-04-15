@@ -1,5 +1,5 @@
 import Device from "sap/ui/Device";
-export interface ISpeechRecognitionController {
+export type ISpeechRecognitionController = {
     abortRecording(): void;
     enableControl(): void;
     disableControl(): void;
@@ -8,7 +8,7 @@ export interface ISpeechRecognitionController {
     onRecordingEnd(): void;
     onRecordingError(event: SpeechRecognitionErrorEvent): void;
     isRecording(): boolean;
-}
+};
 /**
  * Singleton helper class for Speech Recognition WEB API.
  * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition

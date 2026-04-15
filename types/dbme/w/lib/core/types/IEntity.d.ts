@@ -1,10 +1,15 @@
-import type { ActionType, UxfcType } from "dbme/w/lib/core/model/Enums";
-import type { IntervalTypeType, PlanningModeType } from "dbme/w/lib/core/calendar/Enums";
-import type { CSSSize } from "sap/ui/core/library";
 import type UI5Date from "sap/ui/core/date/UI5Date";
-export type TUnknownEntity = {
-    [key: string]: unknown;
+import type { CSSSize } from "sap/ui/core/library";
+import type { IntervalTypeType, PlanningModeType } from "dbme/w/lib/core/calendar/Enums";
+import type { ActionType, UxfcType } from "dbme/w/lib/core/model/Enums";
+type ODataEntity = {
+    __metadata?: {
+        id?: string;
+        uri?: string;
+        type?: string;
+    };
 };
+export type TUnknownEntity = Record<string, unknown>;
 export type HierarchyAssignmentEntity = {
     UNAME: string;
     SEQNO: number;
@@ -182,7 +187,7 @@ export type ScreenEntity = {
     ENABLED: boolean;
     SectionNav?: ScreenSectionEntity[];
 };
-export type ScreenSectionEntity = {
+export type ScreenSectionEntity = ODataEntity & {
     SECTION_NO?: string;
     SECTION_TYPE?: string;
     SCRNUM?: string;
@@ -213,3 +218,4 @@ export type AllocationFieldFilterEntity = {
     TO_DEMAND_TYPE: string;
     TO_RESOURCE_ROLE: string;
 };
+export {};

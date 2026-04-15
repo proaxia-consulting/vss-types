@@ -1,7 +1,7 @@
+import type { Button$PressEvent } from "sap/m/Button";
 import ManagedObject from "sap/ui/base/ManagedObject";
-import { TOperationEntity, TOperationParameters } from "../types";
-import { IObjectPageController } from "vss/com/fe/ObjectPage";
-import { Button$PressEvent } from "sap/m/Button";
+import type { IObjectPageController } from "vss/com/fe/ObjectPage";
+import type { TOperationEntity, TOperationParameters } from "vss/com/upm/types";
 /**
  * @namespace vss.com.upm.util
  */

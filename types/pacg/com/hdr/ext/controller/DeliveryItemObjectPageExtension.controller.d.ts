@@ -1,7 +1,7 @@
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
-import type { IObjectPageExtension } from "vss/com/fe/ObjectPage";
-import type { $HandoverNavigationContextInfo } from "../../types/IController";
 import type Context from "sap/ui/model/odata/v4/Context";
+import type { IObjectPageExtension } from "vss/com/fe/ObjectPage";
+import type { $HandoverNavigationContextInfo } from "pacg/com/hdr/types/IController";
 /**
  * @controller
  */

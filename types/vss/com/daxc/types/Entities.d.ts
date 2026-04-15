@@ -1,4 +1,4 @@
-import { TODataTime } from "./OData";
+import type { TODataTime } from "vss/com/daxc/types/OData";
 export type TCardMyAppointments = {
     AppointmentDate: Date;
     Counter: string;
@@ -29,7 +29,10 @@ export type TCardServiceOrders = TATaskIdentifier & {
     CompanyCode: string;
     Status: string;
     TaskName: string;
-    Counter: string;
+    Counter: number;
+    CounterExt: string;
+    ActorRole: string;
+    JSONKey: string;
 };
 export type TCardServiceQuotations = TCardServiceOrders;
 export type TCardServiceOrdersClicked = TCardServiceOrders & {
@@ -44,4 +47,12 @@ export type TCardMaj = {
     Description: string;
     Counter: int;
     Link: string;
+};
+export type TAllAppointmentDates = {
+    ApptDate: Date;
+    CompanyCode: string;
+    Counter: string;
+    Division: string;
+    Plant: string;
+    SalesOrganization: string;
 };

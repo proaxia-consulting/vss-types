@@ -1,13 +1,13 @@
-import AbstractOrderDemands from "dbme/srs/com/tdo/controller/AbstractOrderDemands.controller";
+import type IconTabFilter from "sap/m/IconTabFilter";
+import type Event from "sap/ui/base/Event";
+import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
+import type { Router$RouteMatchedEvent } from "sap/ui/core/routing/Router";
 import JSONModel from "sap/ui/model/json/JSONModel";
-import Event from "sap/ui/base/Event";
+import type ODataContextBinding from "sap/ui/model/odata/v2/ODataContextBinding";
+import type { ODataModel$RequestFailedEvent } from "sap/ui/model/odata/v2/ODataModel";
+import AbstractOrderDemands from "dbme/srs/com/tdo/controller/AbstractOrderDemands.controller";
 import type { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
 import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
-import type IconTabFilter from "sap/m/IconTabFilter";
-import type { ODataModel$RequestFailedEvent } from "sap/ui/model/odata/v2/ODataModel";
-import type ODataContextBinding from "sap/ui/model/odata/v2/ODataContextBinding";
-import type { Router$RouteMatchedEvent } from "sap/ui/core/routing/Router";
-import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
 /**
  * @namespace dbme.srs.com.tdo.controller
  */
@@ -35,11 +35,11 @@ export default class Details extends AbstractOrderDemands implements IDemandsAwa
     private _getToolbar;
     private _destroyActionButtons;
     private _reloadActionButtons;
-    onBtnGoToPlanner(oEvent: Event): void;
+    onBtnGoToPlanner(event: Event): void;
     /**
      * Cancel order edit
      */
-    onBtnCancel(oEvent: Event): void;
+    onBtnCancel(event: Event): void;
     onBtnReload(oEvent?: Event): void;
     onAfterSuccessfulAction(): void;
     /**

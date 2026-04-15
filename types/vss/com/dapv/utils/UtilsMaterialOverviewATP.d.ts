@@ -1,10 +1,10 @@
-import Table from "sap/m/Table";
 import Button from "sap/m/Button";
 import Input from "sap/m/Input";
-import ObjectPageLayout from "sap/uxap/ObjectPageLayout";
-import Event from "sap/ui/base/Event";
-import OData4Model from "sap/ui/model/odata/v4/ODataModel";
-import { MaterialOverview } from "vss/com/dapv/entities/Entities";
+import Table from "sap/m/Table";
+import type Event from "sap/ui/base/Event";
+import type OData4Model from "sap/ui/model/odata/v4/ODataModel";
+import type ObjectPageLayout from "sap/uxap/ObjectPageLayout";
+import type { MaterialOverview } from "vss/com/dapv/entities/Entities";
 export declare function getATPOverviewTableItems(oTable: Table, aATPOverview: MaterialOverview["_OrderAtp"], bAvailabilityCheck: boolean, bSwapActivated: boolean): void;
 export declare function onATPAvailabilitySimulationPress(oEvent: Event): void;
 export declare function onATPAvailabilityCheckSinglePress(oEvent: Event): void;

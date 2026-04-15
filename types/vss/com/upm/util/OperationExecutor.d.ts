@@ -1,5 +1,5 @@
-import Context from "sap/ui/model/odata/v4/Context";
-import { IObjectPageController } from "vss/com/fe/ObjectPage";
+import type Context from "sap/ui/model/odata/v4/Context";
+import type { IObjectPageController } from "vss/com/fe/ObjectPage";
 /**
  * @namespace vss.com.upm.util
  * @controller

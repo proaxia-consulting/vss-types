@@ -1,6 +1,6 @@
+import UI5Element from "sap/ui/core/Element";
 import { MediaType } from "dbme/c/att/AVAttHandler";
 import type AttachmentHandler from "dbme/c/att/AttachmentHandler";
-import UI5Element from "sap/ui/core/Element";
 type TSaveCallback = () => void;
 /**
  * @namespace dbme.c.att.MediaRecorderController.controller
@@ -35,11 +35,11 @@ export default class MediaRecorderController extends UI5Element {
     /**
      * Handle Save button
      */
-    private onSave;
+    onSave(): void;
     /**
      * Handle Cancel button
      */
-    private onCancel;
+    onCancel(): void;
     /**
      * Open popup
      */
@@ -99,11 +99,11 @@ export default class MediaRecorderController extends UI5Element {
     /**
      * Handle recording stop
      */
-    private onRecordingStop;
+    onRecordingStop(): void;
     /**
      * Handle recording start
      */
-    private onRecordingStart;
+    onRecordingStart(): void;
     /**
      * Play recording
      */

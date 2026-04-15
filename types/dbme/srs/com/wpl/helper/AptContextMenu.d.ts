@@ -1,8 +1,8 @@
 import type { Menu$ItemSelectEvent } from "sap/ui/unified/Menu";
-import { IWPLController } from "../types/IController";
+import type { IWPLController } from "dbme/srs/com/wpl/types/IController";
 declare const AptContextMenu: {
-    onMenuOpenOrder(this: IWPLController, oEvent: Menu$ItemSelectEvent): void;
-    onSelectOrderAllocations(this: IWPLController, oEvent: Menu$ItemSelectEvent): void;
+    onMenuOpenOrder(this: IWPLController, event: Menu$ItemSelectEvent): void;
+    onSelectOrderAllocations(this: IWPLController, event: Menu$ItemSelectEvent): void;
     onBeforeOpenContextMenu(this: import("dbme/w/lib/core/types/IController").ICalendarController, oEvent: import("dbme/w/lib/core/control/PlanningCalendar").PlanningCalendar$BeforeOpenContextMenuEvent): void;
     onShowDetailsDialog(this: import("dbme/w/lib/core/types/IController").ICalendarController, oEvent: import("sap/m/Button").Button$PressEvent): Promise<import("sap/m/Dialog").default>;
     onShowEditForm(this: import("dbme/w/lib/core/types/IController").ICalendarController, oEvent: import("sap/m/Button").Button$PressEvent): Promise<import("sap/m/Dialog").default>;

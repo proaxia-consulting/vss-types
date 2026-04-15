@@ -1,6 +1,6 @@
+import type { PlanningCalendarRow$AppointmentDragEnterEvent } from "sap/m/PlanningCalendarRow";
 import type Event from "sap/ui/base/Event";
 import type { ICalendarController } from "dbme/w/lib/core/types/IController";
-import type { PlanningCalendarRow$AppointmentDragEnterEvent } from "sap/m/PlanningCalendarRow";
 declare const CalDragDrop: {
     onAppointmentDrop(this: ICalendarController, oEvent: Event): void;
     onAppointmentResize(this: ICalendarController, oEvent: Event): void;

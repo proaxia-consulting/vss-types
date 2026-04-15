@@ -16,6 +16,6 @@ export type WorkbookColumn = {
     width?: number;
     valueMap?: object | Map<any, any>;
 };
-export declare let AvailValueMap: any;
+export declare const AvailValueMap: import("../entities/Types").AvailabilityBar | Map<string, import("../entities/Types").AvailabilityBar>;
 export declare const aWorkbookColumnSettings: WorkbookColumn[];
 export declare function overrideExcelProperties(x: WorkbookColumn, y: WorkbookColumn): void;

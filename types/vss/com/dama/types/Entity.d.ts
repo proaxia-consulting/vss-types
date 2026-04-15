@@ -35,6 +35,8 @@ export type TJobEntity = {
     ApprovalStatus?: string;
     EXECUTE_EVENT?: boolean;
     ATTACHMENT_COUNT?: number;
+    EDIT_LABOR_QUAN: string;
+    PARTS_ACCEPTANCE?: boolean;
 };
 export type TItemEntity = {
     OrderID: string;

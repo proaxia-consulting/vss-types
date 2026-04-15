@@ -1,9 +1,9 @@
 import type { Button$PressEvent } from "sap/m/Button";
 import type { Dialog$AfterCloseEvent } from "sap/m/Dialog";
 import type { Input$ValueHelpRequestEvent } from "sap/m/Input";
+import type { MultiInput$TokenUpdateEvent } from "sap/m/MultiInput";
 import { type ValueHelpDialog$OkEvent } from "sap/ui/comp/valuehelpdialog/ValueHelpDialog";
 import type { IClassificationFilterController } from "pacg/com/rcm/types/IController";
-import type { MultiInput$TokenUpdateEvent } from "sap/m/MultiInput";
 /**
  * @namespace pacg.com.rcm.clfn.eh
  */

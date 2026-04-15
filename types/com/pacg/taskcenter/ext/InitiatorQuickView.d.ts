@@ -1,5 +1,5 @@
-import Control from "sap/ui/core/Control";
-import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
+import type Control from "sap/ui/core/Control";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 /**
  * @namespace com.pacg.taskcenter.ext
  */

@@ -1,4 +1,4 @@
-import { type OutputModeType } from "../Const";
+import { type OutputModeType } from "dbme/cmf_rep/Const";
 export type ReportFieldEntity = {
     REPORTID: string;
     FIELDNAME: string;

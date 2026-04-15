@@ -2,7 +2,7 @@ import JSONModel from "sap/ui/model/json/JSONModel";
 import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
 import { CalendarDayType } from "sap/ui/unified/library";
 import type { IAllocationProposalData } from "dbme/srs/com/tdo/types/IEntity";
-export interface IAllocationProposalCalInterval {
+export type IAllocationProposalCalInterval = {
     SELECTABLE: boolean;
     VISIT_START_TS: Date;
     VISIT_END_TS: Date;
@@ -11,13 +11,13 @@ export interface IAllocationProposalCalInterval {
     UI_TEXT_SHORT?: string;
     UI5_COLOR?: string;
     UI5_DAY_TYPE?: CalendarDayType;
-}
-export interface IAllocationProposalCalRow {
+};
+export type IAllocationProposalCalRow = {
     TITLE: string;
     Proposals: IAllocationProposalCalInterval[];
     Headers?: IAllocationProposalCalInterval[];
-}
-export interface IAllocationProposalCal {
+};
+export type IAllocationProposalCal = {
     StartDate: Date;
     MinDate: Date;
     MaxDate: Date;
@@ -26,7 +26,7 @@ export interface IAllocationProposalCal {
         selected?: string;
         values?: unknown[];
     };
-}
+};
 /**
  * @namespace dbme.srs.com.tdo.model
  */

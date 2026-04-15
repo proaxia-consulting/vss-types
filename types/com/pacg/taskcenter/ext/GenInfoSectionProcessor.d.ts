@@ -1,4 +1,4 @@
-import View from "sap/ui/core/mvc/View";
+import type View from "sap/ui/core/mvc/View";
 /**
  * @namespace com.pacg.taskcenter.ext
  */

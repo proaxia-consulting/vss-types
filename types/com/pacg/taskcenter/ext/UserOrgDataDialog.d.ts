@@ -1,5 +1,5 @@
-import { TUserOrgData } from "../types/EntitySet";
-import { IListReportExtensionAPI } from "vss/com/fe/ListReport";
+import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
+import type { TUserOrgData } from "com/pacg/taskcenter/types/EntitySet";
 /**
  * @namespace com.pacg.taskcenter.ext
  */

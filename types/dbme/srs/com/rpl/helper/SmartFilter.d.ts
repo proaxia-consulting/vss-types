@@ -1,5 +1,5 @@
-import Event from "sap/ui/base/Event";
 import type { ICalendarController } from "dbme/w/lib/core/types/IController";
+import type Event from "sap/ui/base/Event";
 declare const SmartFilter: {
     onBeforeVariantSave(this: ICalendarController, oEvent: Event): void;
     onBeforeVariantFetch(this: ICalendarController, oEvent: Event): void;

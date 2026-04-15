@@ -1,5 +1,5 @@
 import StackedBarMicroChartBar from "sap/suite/ui/microchart/StackedBarMicroChartBar";
-import { AvailabilityBarProperty, AvailabilityBarStatus } from "vss/com/dapv/entities/Types";
+import type { AvailabilityBarProperty, AvailabilityBarStatus } from "vss/com/dapv/entities/Types";
 export declare function getParts(sStatus: AvailabilityBarStatus, sProperty: AvailabilityBarProperty): ({
     path: string;
     targetType: string;

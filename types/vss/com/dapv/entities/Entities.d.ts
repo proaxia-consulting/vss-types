@@ -138,9 +138,9 @@ export type OrderPositionOverview = {
     LastDateState: string;
     IsProcurement: AbapBoolean;
 };
-export type AvailabilityBar = {
-    resultsItems: Array<ItemsInfo>;
-    resultsQuantities: Array<QuantityInfo>;
+export type AvailabilityBarOverview = {
+    resultsItems: ItemsInfo[];
+    resultsQuantities: QuantityInfo[];
 };
 export type ItemsInfo = {
     Job: string;
@@ -163,7 +163,7 @@ export type JobItems = {
 };
 export type ProcureSubmit = {
     OrderNumber: string;
-    Positions: Array<string>;
+    Positions: string[];
 };
 export type BackendMessage = {
     type: string;

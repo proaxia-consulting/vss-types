@@ -1,5 +1,5 @@
-import { type TDeliveryItemEntity } from "vss/com/rcl/types/EntitySet";
 import AbstractObjectPageExtension from "vss/com/rcl/templates/ObjectPage/AbstractObjectPageExtension";
+import { type TDeliveryItemEntity } from "vss/com/rcl/types/EntitySet";
 /**
  * @nonui5
  */

@@ -1,7 +1,7 @@
+import type { Button$PressEvent } from "sap/m/Button";
 import type Event from "sap/ui/base/Event";
 import type { PlanningCalendar$BeforeOpenContextMenuEvent } from "dbme/w/lib/core/control/PlanningCalendar";
 import type { ICalendarController } from "dbme/w/lib/core/types/IController";
-import type { Button$PressEvent } from "sap/m/Button";
 declare const AptContextMenu: {
     /**
      * Handle calendar event

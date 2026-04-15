@@ -1,12 +1,13 @@
-import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
-import type Event from "sap/ui/base/Event";
+import type { SignPadPanel$ChangeEvent } from "dbme/c/control/signature/SignPadPanel";
+import type { Button$PressEvent } from "sap/m/Button";
 import JSONModel from "sap/ui/model/json/JSONModel";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 declare const SignatureSection: {
-    onValueClear(this: IObjectPageExtensionAPI, event: Event): void;
+    onValueClear(this: IObjectPageExtensionAPI, event: Button$PressEvent): void;
     /**
      * Update image binaries
      */
-    onValueChange(this: IObjectPageExtensionAPI, event: Event): void;
+    onValueChange(this: IObjectPageExtensionAPI, event: SignPadPanel$ChangeEvent): void;
     createModel(): JSONModel;
 };
 /**

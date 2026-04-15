@@ -1,4 +1,4 @@
-export interface UserOrgDataType {
+export type UserOrgDataType = {
     /**
      * **Key Property**: This is a key property used to identify the entity.
      *
@@ -228,13 +228,13 @@ export interface UserOrgDataType {
      * | Type | `Collection(com.sap.gateway.srvd.dbe.od_cosd_main.v0001.SAP__Message)` |
      * | Nullable | `false` |
      */
-    SAP__Messages: Array<SAP__Message>;
-}
+    SAP__Messages: SAP__Message[];
+};
 export type UserOrgDataTypeId = {
     SalesOrganization: string;
     Plant: string;
 };
-export interface UserOrgDataOperationControl {
+export type UserOrgDataOperationControl = {
     /**
      *
      * OData Attributes:
@@ -245,8 +245,8 @@ export interface UserOrgDataOperationControl {
      * | Nullable | `false` |
      */
     ChangeDefault: boolean;
-}
-export interface EntityControl {
+};
+export type EntityControl = {
     /**
      *
      * OData Attributes:
@@ -257,8 +257,8 @@ export interface EntityControl {
      * | Nullable | `false` |
      */
     Updatable: boolean;
-}
-export interface SAP__Message {
+};
+export type SAP__Message = {
     /**
      *
      * OData Attributes:
@@ -297,7 +297,7 @@ export interface SAP__Message {
      * | Type | `Collection(Edm.String)` |
      * | Nullable | `false` |
      */
-    additionalTargets: Array<string>;
+    additionalTargets: string[];
     /**
      *
      * OData Attributes:
@@ -327,4 +327,4 @@ export interface SAP__Message {
      * | Type | `Edm.String` |
      */
     longtextUrl: string | null;
-}
+};

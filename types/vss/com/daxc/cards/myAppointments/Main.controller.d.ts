@@ -1,10 +1,12 @@
 import LinkListController from "sap/ovp/cards/linklist/LinkList.controller";
+import type { CardLayout } from "vss/com/daxc/types/CustomData";
 /**
  * @namespace vss.com.daxc.cards.myAppointments
  */
 export default class Main extends LinkListController {
+    private _myDelegate;
     onInit(): void;
-    onFilterApply(sChannelId: string, sEventName: string, aObjectFilters: object[]): void;
+    onFilterApply(): void;
     private _setTablePageHeight;
     private _onCalendarDateChange;
     private _getAppointmentsForDate;
@@ -17,7 +19,7 @@ export default class Main extends LinkListController {
     private _renderTime;
     private _setCalendarHeaderProperties;
     private _setCalendarHeaderWidths;
-    private resizeCard;
+    resizeCard(newCardLayout: CardLayout): void;
     private _formatValue;
     private moveDateAndCheckForAppointments;
     private _getPixelsInt;
@@ -26,4 +28,5 @@ export default class Main extends LinkListController {
     private onButtonRightArrowPress;
     private _addDays;
     private onRefresh;
+    private _getAppointmentsAllDates;
 }

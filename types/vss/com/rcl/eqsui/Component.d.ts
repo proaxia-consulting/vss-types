@@ -1,7 +1,7 @@
 import type Event from "sap/ui/base/Event";
 import ComponentContainer from "sap/ui/core/ComponentContainer";
-import UIComponentAbstract from "vss/com/rcl/component/UIComponentAbstract";
 import type ODataModel from "sap/ui/model/odata/v4/ODataModel";
+import UIComponentAbstract from "vss/com/rcl/component/UIComponentAbstract";
 import type { $IEquipmentAwareComponentSettings, EquipmentStructureSettings } from "vss/com/rcl/types/IComponent";
 export type Component$EquipmentResolvedParameters = EquipmentStructureSettings;
 export type Component$EquipmentResolved = Event<Component$EquipmentResolvedParameters, Component>;

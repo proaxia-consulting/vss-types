@@ -1,7 +1,7 @@
-import ODataModel from "sap/ui/model/odata/v4/ODataModel";
-import type { IClassificationFilterController } from "pacg/com/rcm/types/IController";
-import Token from "sap/m/Token";
+import type Token from "sap/m/Token";
+import type ODataModel from "sap/ui/model/odata/v4/ODataModel";
 import type { TFilterCondition } from "vss/com/fe/ListReport";
+import type { IClassificationFilterController } from "pacg/com/rcm/types/IController";
 /**
  * @namespace pacg.com.rcm.clfn
  */

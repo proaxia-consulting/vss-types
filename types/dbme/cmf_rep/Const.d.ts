@@ -15,7 +15,7 @@ export declare const EntitySet: {
 export type EntitySetType = (typeof EntitySet)[keyof typeof EntitySet];
 export declare const Const: {
     readonly msg: {
-        readonly title: "title";
+        readonly title: "appTitle";
         readonly oDataError: "oDataError";
         readonly reportNotLoaded: "reportNotLoaded";
         readonly reportInProgress: "reportInProgress";
@@ -34,9 +34,12 @@ export declare const Const: {
     readonly tableCellStylePrefix: "dbmeCmpColumn";
 };
 /**
- * @name dbme.cmf_rep.Const
+ * @namespace dbme.cmf_rep
  */
 export default Const;
+/**
+ * @deprecated Do not use!
+ */
 export declare enum ComponentId {
     Reporting = "container-dbme.cmf_rep"
 }

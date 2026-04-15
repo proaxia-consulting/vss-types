@@ -1,6 +1,5 @@
-import Context from "sap/ui/model/odata/v4/Context";
-import { IListReportExtensionAPI } from "vss/com/fe/ListReport";
-import { Button$PressEvent } from "sap/m/Button";
+import type { Button$PressEvent } from "sap/m/Button";
+import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
 declare const TaskListHandler: {
     onActionButton(this: IListReportExtensionAPI, oEvent: Button$PressEvent): void;
     /**
@@ -8,7 +7,7 @@ declare const TaskListHandler: {
      *
      * @param pageContext the context of the page on which the event was fired
      */
-    onCAUserOrgData(this: IListReportExtensionAPI, pageContext: Context): void;
+    onCAUserOrgData(this: IListReportExtensionAPI): void;
 };
 /**
  * Set of static method handlers for Task Center List Report Page UI

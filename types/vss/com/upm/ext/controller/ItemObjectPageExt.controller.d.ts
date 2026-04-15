@@ -1,8 +1,8 @@
-import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
-import ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
-import { IObjectPageExtension } from "vss/com/fe/ObjectPage";
+import type ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
+import type { Button$PressEvent } from "sap/m/Button";
 import { ButtonType } from "sap/m/library";
-import { Button$PressEvent } from "sap/m/Button";
+import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
+import type { IObjectPageExtension } from "vss/com/fe/ObjectPage";
 /**
  * @namespace vss.com.upm.ext.controller
  * @controller

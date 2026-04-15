@@ -28,5 +28,5 @@ export default class Main extends Controller {
     onExit(): void;
     onBeforeRebind(event: Event): void;
     private _rebindForm;
-    onChangeSelection(event: Table$SelectionChangeEvent): Promise<void>;
+    onChangeSelection(event: Table$SelectionChangeEvent): void;
 }

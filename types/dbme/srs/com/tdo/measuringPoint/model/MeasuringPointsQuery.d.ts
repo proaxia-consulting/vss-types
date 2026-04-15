@@ -1,5 +1,5 @@
-import Filter from "sap/ui/model/Filter";
+import type Filter from "sap/ui/model/Filter";
+import type { MeasuringPointEntity } from "dbme/srs/com/tdo/measuringPoint/model/IEntity";
 import type { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
-import { MeasuringPointEntity } from "dbme/srs/com/tdo/measuringPoint/model/IEntity";
 export declare function createFilters(this: IDemandsAwareController): Filter[];
 export declare function readMeasuringPoints(this: IDemandsAwareController): Promise<MeasuringPointEntity[]>;

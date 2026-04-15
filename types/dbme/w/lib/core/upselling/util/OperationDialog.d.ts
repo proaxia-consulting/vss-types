@@ -1,7 +1,7 @@
-import ManagedObject from "sap/ui/base/ManagedObject";
-import type { TOperationEntity, TOperationParameters } from "dbme/w/lib/core/upselling/types";
 import type { Button$PressEvent } from "sap/m/Button";
-import UpsellingPartnerObjectPage from "dbme/w/lib/core/upselling/controller/UpsellingPartnerObjectPage.controller";
+import ManagedObject from "sap/ui/base/ManagedObject";
+import type UpsellingPartnerObjectPage from "dbme/w/lib/core/upselling/controller/UpsellingPartnerObjectPage.controller";
+import type { TOperationEntity, TOperationParameters } from "dbme/w/lib/core/upselling/types";
 /**
  * @namespace dbme.w.lib.core.upselling.util
  */

@@ -1,4 +1,4 @@
-import MessageType from "sap/ui/core/message/MessageType";
+import type MessageType from "sap/ui/core/message/MessageType";
 export type AvailabilityBar = {
     posted: {
         value: int;

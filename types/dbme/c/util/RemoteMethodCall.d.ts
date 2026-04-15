@@ -1,6 +1,6 @@
+import type Dialog from "sap/m/Dialog";
 import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 import { type TResponseSuccessTyped } from "dbme/c/util/handleReturn";
-import type Dialog from "sap/m/Dialog";
 type TResponseData = {
     jsonOut?: string;
 };

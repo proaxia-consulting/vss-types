@@ -1,12 +1,15 @@
 import SrsController from "dbme/w/lib/core/controller/Base";
-import type AppComponent from "../Component";
-import type NavContainer from "sap/m/NavContainer";
-import Event from "sap/ui/base/Event";
 import type { UIAppSettingsEntity as UIAppSettingsEntityBase } from "dbme/w/lib/core/types/IEntity";
-import Page from "sap/m/Page";
-interface INavContainerAwareController extends SrsController {
+import type { Link$PressEvent } from "sap/m/Link";
+import type { ListItemBase$PressEvent } from "sap/m/ListItemBase";
+import type NavContainer from "sap/m/NavContainer";
+import type Page from "sap/m/Page";
+import type { Switch$ChangeEvent } from "sap/m/Switch";
+import type Event from "sap/ui/base/Event";
+import type AppComponent from "dbme/srs/com/settings/Component";
+type INavContainerAwareController = {
     getNavControl(): NavContainer;
-}
+} & SrsController;
 /**
  * @namespace dbme.srs.com.tdo.controller
  * @controller
@@ -14,7 +17,7 @@ interface INavContainerAwareController extends SrsController {
 export default class App extends SrsController implements INavContainerAwareController {
     getOwnerComponent: () => AppComponent;
     static formatter: {
-        settingValue(entity: UIAppSettingsEntityBase): string | boolean | Date;
+        settingValue(entity: UIAppSettingsEntityBase): string | boolean | Date | import("sap/ui/core/date/UI5Date").default;
         SplitCommaToInt(sValue: string): number[];
         parseBoolean(sValue: string): boolean;
         matchingStatusToValueState(sValue: string): import("sap/ui/core/library").ValueState;
@@ -37,9 +40,9 @@ export default class App extends SrsController implements INavContainerAwareCont
      */
     _loadUISettings(): Promise<void>;
     getNavControl(): NavContainer;
-    onBreadcrumbsLinkPress(oEvent: Event): void;
-    onToggleUserSettings(oEvent: Event): void;
-    onSettingsItemPress(oEvent: Event): void;
+    onBreadcrumbsLinkPress(oEvent: Link$PressEvent): void;
+    onToggleUserSettings(oEvent: Switch$ChangeEvent): void;
+    onSettingsItemPress(oEvent: ListItemBase$PressEvent): void;
     getCurrentPage(): Page;
     getPage(iIndex: number): Page;
     onPageNavButtonPress(oEvent: Event): void;

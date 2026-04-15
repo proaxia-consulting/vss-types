@@ -1,14 +1,14 @@
-import type { ISrsController } from "dbme/srs/com/tdo/types/IController";
 import type { Button$PressEvent } from "sap/m/Button";
 import type Context from "sap/ui/model/Context";
 import ModelFilter from "sap/ui/model/Filter";
+import type { ISrsController } from "dbme/srs/com/tdo/types/IController";
 import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
-export interface IFilter {
+export type IFilter = {
     getPath?: () => string;
     sPath?: string;
     sValue1?: string;
     sValue2?: string;
-}
+};
 export declare function filterPath(oFilter: IFilter): string;
 declare const Filter: {
     _getOrderData(this: ISrsController): Record<string, unknown>;

@@ -1,7 +1,7 @@
-import { IWPLController } from "../types/IController";
-import Event from "sap/ui/base/Event";
-import { DemandEntity } from "dbme/w/lib/core/types/IEntity";
+import type { DemandEntity } from "dbme/w/lib/core/types/IEntity";
+import type Event from "sap/ui/base/Event";
 import type { DragDropInfo$DragStartEvent } from "sap/ui/core/dnd/DragDropInfo";
+import type { IWPLController } from "dbme/srs/com/wpl/types/IController";
 declare const CalDragDrop: {
     onDemandDragStart(this: IWPLController, oEvent: DragDropInfo$DragStartEvent): void;
     onDemandDragEnter(oEvent: Event): void;

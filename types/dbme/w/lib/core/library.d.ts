@@ -2,9 +2,7 @@
  * @deprecated Use dbme.w.lib.core.Enums.libraryNamespace instead!
  */
 export declare const libraryNamespace: "dbme.w.lib.core";
-declare const thisLib: {
-    [key: string]: unknown;
-};
+declare const thisLib: Record<string, unknown>;
 /**
  * @deprecated Use enum from dbme.w.lib.core.ui.Enums instead!
  */

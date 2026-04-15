@@ -1,6 +1,5 @@
 import Controller from "sap/ui/core/mvc/Controller";
-import OData4Model from "sap/ui/model/odata/v4/ODataModel";
-import { Route$MatchedEvent } from "sap/ui/core/routing/Route";
+import type OData4Model from "sap/ui/model/odata/v4/ODataModel";
 /**
  * @namespace vss.com.dapv.controller
  */
@@ -11,7 +10,7 @@ export default class View extends Controller {
     private getDialog;
     private onCloseButtonOrgDataPress;
     private setCustomFilters;
-    onRouteMatched(oEvent: Route$MatchedEvent): void;
+    onRouteMatched(): void;
     private onVSSOrderValueHelpOpened;
     private onDivisionValueHelpOpened;
     private onMaterialPlantValueHelpOpened;

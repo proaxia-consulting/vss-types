@@ -1,7 +1,7 @@
-import type { ISrsController } from "dbme/w/lib/core/types/IController";
-import type SmartFilterBar from "sap/ui/comp/smartfilterbar/SmartFilterBar";
 import type FacetFilter from "sap/m/FacetFilter";
+import type SmartFilterBar from "sap/ui/comp/smartfilterbar/SmartFilterBar";
 import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
+import type { ISrsController } from "dbme/w/lib/core/types/IController";
 type TSelectedFilterValues = Record<string, string>;
 export type $RouteMatchedParams = {
     arguments: {

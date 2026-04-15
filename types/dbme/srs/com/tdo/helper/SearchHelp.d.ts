@@ -1,26 +1,26 @@
-import type { SmartField$InnerControlsCreatedEvent } from "sap/ui/comp/smartfield/SmartField";
-import type { IFormAware, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
+import type { Button$PressEvent } from "sap/m/Button";
+import type { Dialog$BeforeCloseEvent } from "sap/m/Dialog";
 import type Input from "sap/m/Input";
+import type { Input$ValueHelpRequestEvent } from "sap/m/Input";
+import type { SmartField$InnerControlsCreatedEvent } from "sap/ui/comp/smartfield/SmartField";
 import type ValueHelpDialog from "sap/ui/comp/valuehelpdialog/ValueHelpDialog";
 import type Table from "sap/ui/table/Table";
-import type { Button$PressEvent } from "sap/m/Button";
-import type { Input$ValueHelpRequestEvent } from "sap/m/Input";
-import type { Dialog$BeforeCloseEvent } from "sap/m/Dialog";
+import type AbstractOrderDemandsController from "dbme/srs/com/tdo/controller/AbstractOrderDemands.controller";
+import type { IFormAware, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
 type THandlers = {
     inputValueHelpRequest?: CallableFunction;
     dialogBeforeClose?: CallableFunction;
     searchHelpInit?: (input: Input, dialog: ValueHelpDialog, handlers?: THandlers) => void | Promise<unknown>;
     searchHelpCriteria?: (dialog: ValueHelpDialog, sourceData: object, allowedProperties?: string[], disabledFields?: string[]) => Promise<unknown>;
 };
-interface IController extends IOrderAwareController, IFormAware {
-}
+type IController = {} & IOrderAwareController & IFormAware;
 /**
  * Common helper for SmartField search-help.
  * @see DemandTemplate.onPrefResourceSearchHelpCriteria
  */
 declare const SearchHelp: {
-    onBtnVehicleNumberClear(oEvent: Button$PressEvent): void;
-    onBtnCustomerNumberClear(oEvent: Button$PressEvent): void;
+    onBtnVehicleNumberClear(this: IController, event: Button$PressEvent): void;
+    onBtnCustomerNumberClear(this: AbstractOrderDemandsController, event: Button$PressEvent): void;
     getDefaultHandlers(this: IController): THandlers;
     onInnerControlsCreated(this: IController, event: SmartField$InnerControlsCreatedEvent, mHandlers?: THandlers): void;
     onFieldValueHelpRequest(this: IController, event: Input$ValueHelpRequestEvent, mHandlers?: THandlers): Promise<ValueHelpDialog>;

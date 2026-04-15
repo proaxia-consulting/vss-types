@@ -1,5 +1,5 @@
 import UIComponent from "dbme/w/lib/core/ui/UIComponent";
-import { UISettingsKey } from "./model/Enums";
+import { UISettingsKey } from "dbme/srs/com/rpl/model/Enums";
 /**
  * @namespace dbme.srs.com.rpl
  */

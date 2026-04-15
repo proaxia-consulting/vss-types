@@ -1,6 +1,6 @@
-import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-import { OrderType, TimeClockingLevel } from "../model/Enums";
-import { TOrderEntity } from "../types/Entity";
+import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import type { TimeClockingLevel } from "vss/com/dama/model/Enums";
+import type { TOrderEntity } from "vss/com/dama/types/Entity";
 export type TEventsEntity = {
     personalNumber: string;
     token: string;
@@ -105,6 +105,7 @@ export type TPersonalEntity = {
     PersonalToAvailableEvent?: TPersonalToAvailableEvent;
 };
 export type TTicComplex = {
+    stampLevel?: string;
     userPersonal?: TPersonalEntity;
     subordinates?: TSubordinateEntity[];
     selectedPersons?: TPersonalEntity[];
@@ -117,6 +118,7 @@ export type TUiTicJob = {
     eventDetails: TEventsEntity;
     allEvents: TEventsEntity[];
     contextKey: string;
+    orderType?: string;
     team: TPersonalEntity[];
 };
 /**
@@ -131,5 +133,5 @@ export default class timeClockingService {
     getPersonsEventOrders(personalNumber: string, token: string, headerData?: TOrderEntity): Promise<TPersonalEntity>;
     getAvailableEvents({ personalNumber, token }: TPersonalEntity): Promise<TEventsEntity[]>;
     getSubordinates(supervisorNumber: string, token: string, contextKey: string): Promise<TSubordinateEntity[]>;
-    executeEvent(token: string, person: TPersonalEntity, event: TEventsEntity, costCenter: string, contextKey?: string, orderType?: OrderType): Promise<any>;
+    executeEvent(token: string, person: TPersonalEntity, event: TEventsEntity, costCenter: string, contextKey?: string, orderType?: string): Promise<any>;
 }

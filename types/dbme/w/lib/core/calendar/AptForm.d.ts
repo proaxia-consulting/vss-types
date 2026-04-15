@@ -1,11 +1,11 @@
-import { ICalendarController } from "dbme/w/lib/core/types/IController";
-import DependentFragment from "dbme/w/lib/core/util/DependentFragment";
-import Dialog from "sap/m/Dialog";
-import { IntervalEntity, TUnknownEntity } from "dbme/w/lib/core/types/IEntity";
-import UI5Element from "sap/ui/core/Element";
-import JSONModel from "sap/ui/model/json/JSONModel";
+import type Dialog from "sap/m/Dialog";
 import type Event from "sap/ui/base/Event";
 import type { SmartField$ChangeEvent } from "sap/ui/comp/smartfield/SmartField";
+import type UI5Element from "sap/ui/core/Element";
+import JSONModel from "sap/ui/model/json/JSONModel";
+import type { ICalendarController } from "dbme/w/lib/core/types/IController";
+import type { IntervalEntity, TUnknownEntity } from "dbme/w/lib/core/types/IEntity";
+import DependentFragment from "dbme/w/lib/core/util/DependentFragment";
 export type TAppointmentFormData = IntervalEntity & {
     DESCR1: string;
 };

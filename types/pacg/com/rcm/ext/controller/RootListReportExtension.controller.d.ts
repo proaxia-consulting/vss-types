@@ -1,6 +1,6 @@
+import type Event from "sap/ui/base/Event";
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
 import type { IListReportExtension } from "vss/com/fe/ListReport";
-import type Event from "sap/ui/base/Event";
 /**
  * @namespace pacg.com.rcm.ext.controller.RootListReportExtension.controller
  * @controller

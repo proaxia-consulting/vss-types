@@ -1,30 +1,28 @@
-import { DBMEComponent, PlanningMode } from "dbme/w/lib/core/library";
 import UIComponent from "dbme/w/lib/core/ui/UIComponent";
-import { UISettingsKey } from "./model/Enums";
 /**
  * @namespace dbme.srs.com.wpl
  */
 export default class Component extends UIComponent {
     PlanningMode: {
-        Manual: PlanningMode.Manual;
-        Rescheduling: PlanningMode.Rescheduling;
+        Manual: "M";
+        Rescheduling: "R";
     };
     UISettingsKey: {
-        ShowCreateForm: UISettingsKey.ShowCreateForm;
-        ShowDateChangeForm: UISettingsKey.ShowDateChangeForm;
-        ShowResourceChangeForm: UISettingsKey.ShowResourceChangeForm;
-        ShowPasteForm: UISettingsKey.ShowPasteForm;
-        ShowRemoveConfirm: UISettingsKey.ShowRemoveConfirm;
-        InitialView: UISettingsKey.InitialView;
-        ShowWeekNumbers: UISettingsKey.ShowWeekNumbers;
-        PlanningMode: UISettingsKey.PlanningMode;
-        ShowAllResources: UISettingsKey.ShowAllResources;
+        ShowCreateForm: "WPL_ALLC_DEM";
+        ShowDateChangeForm: "WPL_DROP_DEM";
+        ShowResourceChangeForm: "WPL_DROP_DEM_RES";
+        ShowPasteForm: "WPL_PAST_RES";
+        ShowRemoveConfirm: "WPL_DELE_DEM";
+        InitialView: "WPL_INIT_VIEW";
+        ShowWeekNumbers: "WPL_SHOW_WEEK";
+        PlanningMode: "WPL_PLANNING_MODE";
+        ShowAllResources: "WPL_SHOW_RES_ALL";
     };
     static metadata: {
         interfaces: string[];
         manifest: string;
     };
-    getDBMEComponent(): DBMEComponent;
+    getDBMEComponent(): "WPL";
     init(): void;
     private initTranslations;
 }

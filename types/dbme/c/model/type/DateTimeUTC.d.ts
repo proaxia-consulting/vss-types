@@ -18,5 +18,5 @@ export default class DateTimeUTC extends DateTime {
     protected sName: string;
     constructor(oFormatOptions?: {}, oConstraints?: object);
     validateValue(oValue: unknown): void;
-    formatValue(vValue: unknown, sTargetType: string): any;
+    formatValue(vValue: unknown, sTargetType: string): string;
 }

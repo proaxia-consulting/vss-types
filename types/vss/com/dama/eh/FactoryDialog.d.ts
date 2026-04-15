@@ -1,6 +1,6 @@
-import Order from "../controller/Order.controller";
-import { FragmentId } from "../model/Enums";
-import { IDialog } from "../types/ControllerInterface";
+import type Order from "vss/com/dama/controller/Order.controller";
+import { FragmentId } from "vss/com/dama/model/Enums";
+import type { IDialog } from "vss/com/dama/types/ControllerInterface";
 /**
  * @namespace vss.com.dama.eh
  */

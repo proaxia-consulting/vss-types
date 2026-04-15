@@ -1,21 +1,20 @@
-import HTML from "sap/ui/core/HTML";
-import Panel from "sap/m/Panel";
 import type { $PanelSettings } from "sap/m/Panel";
-import type { EventHandler } from "dbme/c/types/EventHandler";
-import JQuery from "sap/ui/thirdparty/jquery";
-import type { PropertyBindingInfo } from "sap/ui/base/ManagedObject";
-import SignaturePad, { type PointGroup } from "signature_pad";
+import Panel from "sap/m/Panel";
 import type Event from "sap/ui/base/Event";
-export interface $SignPadPanelSettings extends $PanelSettings {
+import type { PropertyBindingInfo } from "sap/ui/base/ManagedObject";
+import HTML from "sap/ui/core/HTML";
+import type JQuery from "sap/ui/thirdparty/jquery";
+import SignaturePad, { type PointGroup } from "signature_pad";
+import type { EventHandler } from "dbme/c/types/EventHandler";
+export type $SignPadPanelSettings = {
     padWidth?: number | PropertyBindingInfo | `{${string}}`;
     padHeight?: number | PropertyBindingInfo | `{${string}}`;
     editable?: boolean | PropertyBindingInfo | `{${string}}`;
     value?: string | PropertyBindingInfo;
     change?: EventHandler;
-}
-export interface SignPadPanel$ChangeEventParameters {
-}
-export type SignPadPanel$ChangeEvent = Event<SignPadPanel$ChangeEventParameters>;
+} & $PanelSettings;
+export type SignPadPanel$ChangeEventParameters = {};
+export type SignPadPanel$ChangeEvent = Event<SignPadPanel$ChangeEventParameters, SignPadPanel>;
 /**
  * @namespace dbme.c.control.signature
  */
