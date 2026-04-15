@@ -1,0 +1,10 @@
+import type Button from "sap/m/Button";
+import type Message from "sap/ui/core/message/Message";
+import type { MessageProcessor$MessageChangeEvent } from "sap/ui/core/message/MessageProcessor";
+export declare function onMessageChangeSinglePopover(t: any, oButton: Button, iCurrentView: int, oEvent: MessageProcessor$MessageChangeEvent): void;
+export declare function onMessageChangeMultiplePopovers(t: any, oButton: Button, iCurrentView: int, oEvent: MessageProcessor$MessageChangeEvent): void;
+export declare function onMessageChange(this: any, oButton: Button, iCurrentView: int, oEvent: MessageProcessor$MessageChangeEvent): void;
+export declare function handleMaterialOverviewMessages(aMessages: Message[], aNewMessages: Message[]): Message[];
+export declare function handleOrderJobOverviewMessages(aMessages: Message[], aNewMessages: Message[]): Message[];
+export declare function handleOrderDetailMessages(aMessages: Message[], aNewMessages: Message[]): Message[];
+export declare function handleGeneralMessages(aMessages: Message[], aNewMessages: Message[]): Message[];

@@ -1,9 +1,9 @@
-# DBM|E & VSS TypeScript Definitions
+# VSS Types
 
 ## Installation
 
 Execute the following command:
 
 ```console
-$ npm install https://github.com/proaxia-consulting/vss-types.git --save-dev
+$ npm install git+ssh://git@gitea.proaxia-consulting.com:34223/vss/types.git#patch/vss-6 --save-dev
 ```

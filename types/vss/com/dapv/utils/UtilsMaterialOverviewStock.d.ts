@@ -1,0 +1,11 @@
+import Table from "sap/m/Table";
+import type ObjectPageLayout from "sap/uxap/ObjectPageLayout";
+import type { MaterialOverview } from "vss/com/dapv/entities/Entities";
+export declare function getStockOverviewTableItems(oTable: Table, aStockOverview: MaterialOverview["_StockOverview"]): void;
+export declare function constructStockSection(oObjPageLayout: ObjectPageLayout, aStockOverview: MaterialOverview["_StockOverview"]): void;
+export declare function getStockOverviewTable(aStockOverview: MaterialOverview["_StockOverview"]): Table;
+export declare function onStockPreviewAll(): void;
+export declare function onStockPreviewReduce(): void;
+export declare function getStockOverviewTableColumns(oTable: Table): void;
+export declare function setStockOverview(aStockOverview: MaterialOverview["_StockOverview"]): void;
+export declare function setStockTable(oTable: Table): void;

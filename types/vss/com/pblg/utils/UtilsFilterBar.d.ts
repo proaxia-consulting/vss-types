@@ -1,0 +1,15 @@
+import Select from "sap/m/Select";
+import FilterBarVH from "sap/ui/mdc/filterbar/vh/FilterBar";
+import FilterBar from "sap/ui/mdc/FilterBar";
+import FilterField from "sap/ui/mdc/FilterField";
+import Filter from "sap/ui/model/Filter";
+import OData4Model from "sap/ui/model/odata/v4/ODataModel";
+import { POReadExtendedIdentifier } from "../library/Types";
+export declare function getFiltersFromFilterBar(oFilterBar: FilterBar): Array<Filter>;
+export declare function getFilterFieldByPropertyKey(oFilterBar: FilterBar | FilterBarVH, sPropertyKey: string): FilterField | undefined;
+export declare function getFiltersFromConditions(oConditions: Record<string, any>): Array<Filter>;
+export declare function getFilterBarConditions(oFilterBar: FilterBar): Record<string, any>;
+export declare function conditionExists(oFilterBar: FilterBar, sCondition: string): boolean;
+export declare function initSelectionCriteriaSelect(oFilterBar: FilterBar, oModel: OData4Model, oSelectionCriteriaSelect: Select): Select;
+export declare function mergeAllFilters(oFilterBar: FilterBar, aMoreOrders: POReadExtendedIdentifier[]): Filter[];
+export declare function getCustomFilters(oFilterBar: FilterBar | FilterBarVH): void;
