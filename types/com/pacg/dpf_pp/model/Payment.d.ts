@@ -1,4 +1,4 @@
-import { TPaymentTransactionInfo, TPaymentParameter, TPaymentTransactionStatus } from "com/pacg/dpf_pp/types/types";
+import type { TPaymentParameter, TPaymentTransactionInfo, TPaymentTransactionStatus } from "com/pacg/dpf_pp/types/types";
 /**
  * @namespace com.pacg.dpf_pp.model
  */

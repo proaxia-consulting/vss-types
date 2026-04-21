@@ -1,10 +1,11 @@
-import { TODataTime } from "vss/com/daxc/types/OData";
+import type { TODataTime } from "vss/com/daxc/types/OData";
 export type TCardMyAppointments = {
     AppointmentDate: Date;
     Counter: string;
     IsCustomerWaiting: boolean;
     IsOrderDelayed: boolean;
     LicPlate: string;
+    CustomerName: string;
     OrderNumber: string;
     Source: string;
     StartTime: TODataTime;
@@ -29,7 +30,10 @@ export type TCardServiceOrders = TATaskIdentifier & {
     CompanyCode: string;
     Status: string;
     TaskName: string;
-    Counter: string;
+    Counter: int;
+    CounterExt: string;
+    ActorRole: string;
+    JSONKey: string;
 };
 export type TCardServiceQuotations = TCardServiceOrders;
 export type TCardServiceOrdersClicked = TCardServiceOrders & {
@@ -44,4 +48,29 @@ export type TCardMaj = {
     Description: string;
     Counter: int;
     Link: string;
+};
+export type TAllAppointmentDates = {
+    ApptDate: Date;
+    CompanyCode: string;
+    Counter: string;
+    Division: string;
+    Plant: string;
+    SalesOrganization: string;
+};
+export type TCardUpsellingCount = {
+    CompletionResult: string;
+    Counter: string;
+    Plant: string;
+    SalesOrganization: string;
+    Division: string;
+    CompanyCode: string;
+    CompletionResultDescription: string;
+    ActorRole: string;
+};
+export type TCardUpsellingCountClicked = TCardUpsellingCount & {
+    "Short Description.d": string;
+};
+export type UpsellingParameters = {
+    Currency: string;
+    ActorRole: string;
 };

@@ -1,5 +1,5 @@
-import UIComponent from "dbme/w/lib/core/ui/UIComponent";
 import View from "sap/ui/core/mvc/View";
+import UIComponent from "dbme/w/lib/core/ui/UIComponent";
 /**
  * @namespace dbme.w.lib.core.settings
  */

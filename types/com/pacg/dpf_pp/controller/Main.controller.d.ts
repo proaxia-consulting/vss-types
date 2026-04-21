@@ -1,5 +1,5 @@
+import type { ListBase$SelectionChangeEvent } from "sap/m/ListBase";
 import BaseController from "com/pacg/dpf_pp/controller/BaseController";
-import { ListBase$SelectionChangeEvent } from "sap/m/ListBase";
 /**
  * @namespace com.pacg.dpf_pp.controller
  */

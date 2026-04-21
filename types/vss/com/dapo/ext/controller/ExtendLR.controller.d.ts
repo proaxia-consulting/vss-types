@@ -1,5 +1,5 @@
+import type PageController from "sap/fe/core/PageController";
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
-import PageController from "sap/fe/core/PageController";
 /**
  * @namespace vss.com.dapo.ext.controller
  */

@@ -1,10 +1,10 @@
-import AbstractController from "dbme/w/lib/core/vehicle/tdt/controller/AbstractController";
 import type List from "sap/m/List";
+import type { ManagedObject$ModelContextChangeEvent } from "sap/ui/base/ManagedObject";
 import type SmartFilterBar from "sap/ui/comp/smartfilterbar/SmartFilterBar";
 import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
-import type { BreadCrumbLocalEntity } from "dbme/w/lib/core/vehicle/tdt/type/IEntity";
-import type { ManagedObject$ModelContextChangeEvent } from "sap/ui/base/ManagedObject";
 import type ODataListBinding from "sap/ui/model/odata/v2/ODataListBinding";
+import AbstractController from "dbme/w/lib/core/vehicle/tdt/controller/AbstractController";
+import type { BreadCrumbLocalEntity } from "dbme/w/lib/core/vehicle/tdt/type/IEntity";
 /**
  * @namespace dbme.w.lib.core.vehicle.tdt.controller
  * @controller

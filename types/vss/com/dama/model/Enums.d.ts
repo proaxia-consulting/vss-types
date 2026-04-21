@@ -27,7 +27,8 @@ export declare enum ModelName {
     AttachmentList = "AttachmentList",
     Data = "data",
     ListReportMap = "ListReportMap",
-    Vhc = "Vhc"
+    Vhc = "Vhc",
+    AttachmentService = "attachmentService"
 }
 export declare enum RouteName {
     OrderHeaderObjectPage = "OrderHeaderObjectPage",
@@ -48,7 +49,15 @@ export declare enum ControlId {
      */
     cancelButton = "fe::FooterBar::StandardAction::Cancel",
     saveButton = "fe::FooterBar::StandardAction::Save",
-    TicLineAction = "fe::table::OrderHeader::LineItem::C::CustomColumn::TicLineAction-innerColumn"
+    TicLineAction = "fe::table::OrderHeader::LineItem::C::CustomColumn::TicLineAction-innerColumn",
+    partsAccForm = "PartsAccFormId",
+    partsAccTable = "PartsAccTableId",
+    partsAccHdrForm = "PartsAccHdrFormId",
+    partsAccHdrTable = "PartsAccHdrTableId",
+    jobListSignMainJobsPanel = "jobListSignMainJobsPanelId",
+    jobListSignMainJobsList = "jobListSignMainJobsListId",
+    jobListSignAddJobsPanel = "jobListSignAddJobsPanelId",
+    jobListSignAddJobsList = "jobListSignAddJobsListId"
 }
 export declare enum EntitySet {
     Logins = "Logins",
@@ -79,7 +88,8 @@ export declare enum RemoteMessageId {
     CheckList = "CHECK_LIST",
     UpdateCheckList = "UPDATE_CHECK_LIST",
     AttachmentsCount = "ATTACHMENTS_COUNT",
-    MeasurePoints = "MEASURE_POINTS"
+    MeasurePoints = "MEASURE_POINTS",
+    PartsIssueAcceptance = "PARTS_ISSUE_ACCEPTANCE"
 }
 export declare enum HTTPMethod {
     GET = "GET",
@@ -128,7 +138,9 @@ export declare enum FragmentId {
     CustomerContact = "header.CustomerContact",
     MultiJobsApproval = "header.MultiJobsApproval",
     MeasurePoints = "header.MeasurePoints",
-    AssignSRSTeam = "header.AssignSRSTeam"
+    AssignSRSTeam = "header.AssignSRSTeam",
+    PartsAcceptance = "PartsAcceptanceDialog",
+    JobListSignature = "JobListSignatureDialog"
 }
 export declare enum JobApprovalStatus {
     Reject = "REJECTED",
@@ -141,6 +153,15 @@ export declare enum ItemPartsStatus {
     Unavailable = "UNAVAILABLE",
     Procured = "PROCURED",
     Issued = "ISSUED"
+}
+export declare enum ItemPartIssueStatus {
+    NotConfirmed = "NOT_CONFIRMED",
+    PartiallyConfirmed = "PARTIALLY_CONFIRMED",
+    FullyConfirmed = "FULLY_CONFIRMED"
+}
+export declare enum ItemPartIssueAction {
+    Confirm = "CONFIRM",
+    Cancel = "CANCEL"
 }
 export declare enum DbMode {
     create = "C",
@@ -206,7 +227,8 @@ export declare enum IconName {
     DropDownList = "sap-icon://drop-down-list",
     Cart3 = "sap-icon://cart-3",
     StatusCompleted = "sap-icon://status-completed",
-    ShippingStatus = "sap-icon://shipping-status"
+    ShippingStatus = "sap-icon://shipping-status",
+    Initial = "sap-icon://to-be-reviewed"
 }
 export declare enum UiValueState {
     Error = "Error",
@@ -234,5 +256,6 @@ export declare enum VhcCalcType {
 }
 export declare enum BorType {
     Job = "/DBE/JOB",
-    CheckItem = "/DBE/VHC"
+    CheckItem = "/DBE/VHC",
+    DbeOrder = "BUS2400"
 }

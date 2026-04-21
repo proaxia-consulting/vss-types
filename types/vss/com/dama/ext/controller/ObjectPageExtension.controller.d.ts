@@ -1,5 +1,5 @@
-import { IObjectPageController } from "vss/com/fe/ObjectPage";
-import Event from "sap/ui/base/Event";
+import type Event from "sap/ui/base/Event";
+import type { IObjectPageController } from "vss/com/fe/ObjectPage";
 declare const override: {
     onInit(this: IObjectPageController): void;
     onBeforeRendering(this: IObjectPageController, event: Event): void;

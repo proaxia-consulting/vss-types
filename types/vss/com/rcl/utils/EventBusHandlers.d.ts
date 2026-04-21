@@ -1,4 +1,4 @@
-import BaseObject from "sap/ui/base/Object";
+import type BaseObject from "sap/ui/base/Object";
 export type EventBusHandlerFunctionType = (p1: string, p2: string, p3: object) => void;
 /**
  * @nonui5

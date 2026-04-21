@@ -1,7 +1,7 @@
+import type { FacetFilterListDataType, ListMode } from "sap/m/library";
 import type Filter from "sap/ui/model/Filter";
-import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
 import type JSONModel from "sap/ui/model/json/JSONModel";
-import { type FacetFilterListDataType, ListMode } from "sap/m/library";
+import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
 export type $ODataToJSONValues = {
     key: string;
     text: string;

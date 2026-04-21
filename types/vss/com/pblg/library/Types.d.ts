@@ -1,8 +1,8 @@
-import { State } from "sap/m/p13n/Engine";
-import { MetadataObject } from "sap/m/p13n/MetadataHelper";
+import type { State } from "sap/m/p13n/Engine";
+import type { MetadataObject } from "sap/m/p13n/MetadataHelper";
 export type POIdentifier = {
-    PODelivery: HiddableTextObject;
-    POPositionNumber: HiddableTextObject;
+    PODelivery: HiddableTextObject | string;
+    POPositionNumber: HiddableTextObject | string;
 };
 export type OrderIdentifier = {
     VSSOrder: string;
@@ -14,8 +14,8 @@ export type AssignedQuantityObject = {
     errorText: string;
 };
 export type OrderSubmitIdentifier = OrderIdentifier & {
-    AssignedQuantity: AssignedQuantityObject;
-    StorageLocation: Array<StorageLocationSelect> | string;
+    AssignedQuantity: AssignedQuantityObject | string;
+    StorageLocation: StorageLocationSelect[] | string;
 };
 export type OrderHalfExtendedIdentifier = OrderSubmitIdentifier & OrderData;
 export type OrderExtendedIdentifier = OrderSubmitIdentifier & OrderData & OrderAdditionalData;
@@ -52,6 +52,16 @@ export type TableColumns = POIdentifier & OrderHalfExtendedIdentifier & Purchase
     Priority: HiddableTextObject;
 };
 export type TableAllData = TableColumns & TableAdditionalData;
+export type TableAssignedQuantityData = {
+    PurchaseOrder: string;
+    PurchaseOrderPos: string;
+    PurchaseOrderReqQty: number;
+    PurchaseOrderAssignQty: number;
+    VSSOrder: string;
+    VSSOrderPos: string;
+    VSSOrderReqQty: number;
+    VSSOrderAssignQty: number;
+};
 export type TableAdditionalData = {
     PriorityDescr: string;
 };
@@ -92,9 +102,14 @@ export type StateP13n = State & {
         descending?: boolean;
     }[];
     Groups: MetadataObject[];
-    ColumnWidth: Record<string, string>;
+    ColumnWidth: Record<string, string | MetadataObject[]>;
 };
 export type HiddableTextObject = {
-    value: any;
-    displayValue: any;
+    value: string;
+    displayValue: string;
+};
+export type ProductDescription = {
+    Product: string;
+    Language: string;
+    ProductDescription: string;
 };

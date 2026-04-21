@@ -1,6 +1,6 @@
-import OrderController from "vss/com/dama/controller/Order.controller";
-import Context from "sap/ui/model/Context";
-import { TCheckList } from "vss/com/dama/types/Entity";
+import type Context from "sap/ui/model/Context";
+import type OrderController from "vss/com/dama/controller/Order.controller";
+import type { TCheckList } from "vss/com/dama/types/Entity";
 /**
  * @namespace vss.com.dama.utils
  */

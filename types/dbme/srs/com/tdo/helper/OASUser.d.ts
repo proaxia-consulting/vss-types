@@ -1,12 +1,11 @@
-import type { IFormAware, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
+import type { Button$PressEvent } from "sap/m/Button";
 import SelectDialog from "sap/m/SelectDialog";
 import type Context from "sap/ui/model/Context";
-import type { Button$PressEvent } from "sap/m/Button";
-interface IController extends IOrderAwareController, IFormAware {
-}
+import type { IFormAware, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
+type IController = {} & IOrderAwareController & IFormAware;
 declare const OASUser: {
-    createDialog(this: IController, oOrderContext: Context, fnClose: CallableFunction): SelectDialog;
-    onBtnOASUser(this: IController, oEvent: Button$PressEvent): void;
+    createDialog(this: IController, orderContext: Context, fnClose: CallableFunction): SelectDialog;
+    onBtnOASUser(this: IController, event: Button$PressEvent): void;
 };
 /**
  * @namespace dbme.srs.com.tdo.helper

@@ -1,9 +1,9 @@
 import HBox from "sap/m/HBox";
-import { Link$PressEvent } from "sap/m/Link";
-import { Select$ChangeEvent } from "sap/m/Select";
-import Control from "sap/ui/core/Control";
-import ManagedObject from "sap/ui/base/ManagedObject";
-import Context from "sap/ui/model/Context";
+import type { Link$PressEvent } from "sap/m/Link";
+import type { Select$ChangeEvent } from "sap/m/Select";
+import type ManagedObject from "sap/ui/base/ManagedObject";
+import type Control from "sap/ui/core/Control";
+import type Context from "sap/ui/model/Context";
 export declare function getRelevantVSSOrderText(sColumnId: string, fTextFormatter1: Function, fTextFormatter2: Function): HBox;
 export declare function formatOrderLink(sOrderNumber: string): string;
 export declare function onVSSOrderLinkPress(oEvent: Link$PressEvent): void;

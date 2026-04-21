@@ -1,8 +1,8 @@
-import Event from "sap/ui/base/Event";
-import { IObjectPageExtensionAPI, IObjectPageExtension } from "vss/com/fe/ObjectPage";
-import { FeedListItemAction$PressEvent } from "sap/m/FeedListItemAction";
 import type { Button$PressEvent } from "sap/m/Button";
+import type { FeedListItemAction$PressEvent } from "sap/m/FeedListItemAction";
 import type { ListBase$UpdateFinishedEvent } from "sap/m/ListBase";
+import type Event from "sap/ui/base/Event";
+import type { IObjectPageExtension, IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 declare const ObjectPageHandler: {
     onCActRefresh(this: IObjectPageExtensionAPI): void;
     onCActAddComment(this: IObjectPageExtensionAPI): void;

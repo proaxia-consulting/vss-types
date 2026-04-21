@@ -1,7 +1,7 @@
-import ServiceFactory from "sap/ui/core/service/ServiceFactory";
+import type ResourceBundle from "sap/base/i18n/ResourceBundle";
 import Service from "sap/ui/core/service/Service";
 import type ServiceContext from "sap/ui/core/service/ServiceContext";
-import type ResourceBundle from "sap/base/i18n/ResourceBundle";
+import ServiceFactory from "sap/ui/core/service/ServiceFactory";
 type TServiceSettings = void;
 export declare class SharedTranslationsService extends Service<TServiceSettings> {
     private _component;

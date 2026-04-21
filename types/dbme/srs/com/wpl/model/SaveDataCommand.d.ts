@@ -1,6 +1,6 @@
 import BaseSaveDataCommand from "dbme/w/lib/core/calendar/model/SaveDataCommand";
-import type { IWPLController } from "dbme/srs/com/wpl/types/IController";
 import type { IntervalEntity } from "dbme/w/lib/core/types/IEntity";
+import type { IWPLController } from "dbme/srs/com/wpl/types/IController";
 /**
  * @nonui5
  * @namespace dbme.srs.com.wpl.model

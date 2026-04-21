@@ -1,4 +1,4 @@
-import ListItemBase from "sap/m/ListItemBase";
+import type ListItemBase from "sap/m/ListItemBase";
 export type TListSelectionChangeParameters = {
     listItem: ListItemBase;
     listItems: ListItemBase[];

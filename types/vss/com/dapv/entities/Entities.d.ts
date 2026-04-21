@@ -117,6 +117,7 @@ export type StockOverview = {
     GroupCodeDescription: string;
     UnrestrictedQuantity: string;
     AvailableQuantity: string;
+    SafetyStockQuantity: string;
     QuantityMeasure: string;
     ABCIndicator: string;
 };
@@ -137,9 +138,9 @@ export type OrderPositionOverview = {
     LastDateState: string;
     IsProcurement: AbapBoolean;
 };
-export type AvailabilityBar = {
-    resultsItems: Array<ItemsInfo>;
-    resultsQuantities: Array<QuantityInfo>;
+export type AvailabilityBarOverview = {
+    resultsItems: ItemsInfo[];
+    resultsQuantities: QuantityInfo[];
 };
 export type ItemsInfo = {
     Job: string;
@@ -162,7 +163,7 @@ export type JobItems = {
 };
 export type ProcureSubmit = {
     OrderNumber: string;
-    Positions: Array<string>;
+    Positions: string[];
 };
 export type BackendMessage = {
     type: string;
@@ -170,6 +171,8 @@ export type BackendMessage = {
     message: string;
 };
 export type MaterialATPOverview = {
+    FinalConfirmedQuantity: string;
+    FinalDeliveryDate: string;
     OrderNumber: string;
     OrderPosition: string;
     OriginalOrderNumber: string;
@@ -178,6 +181,7 @@ export type MaterialATPOverview = {
     Plant: string;
     OrderStatus: string;
     StartDate: string;
+    DeliveryDate: string;
     Priority: string;
     PriorityCode: string;
     OrderQuantity: string;
@@ -202,4 +206,5 @@ export type SwapATPReservations = {
     NewConfirmedQuantity?: string;
     QuantityMeasure?: string;
     AvailabilityCheck: boolean;
+    SwapActivated: boolean;
 };

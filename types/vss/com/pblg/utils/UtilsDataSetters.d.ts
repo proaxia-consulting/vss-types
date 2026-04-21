@@ -1,11 +1,11 @@
-import { HiddableTextObject, OrderAdditionalData, OrderExtendedIdentifier, StorageLocations, StorageLocationSelect, TableAdditionalData, TableAllData } from "vss/com/pblg/library/Types";
-import { TableAllDataOData } from "vss/com/pblg/library/TypesOData";
+import type { HiddableTextObject, OrderAdditionalData, OrderExtendedIdentifier, StorageLocationSelect, StorageLocations, TableAdditionalData, TableAllData } from "vss/com/pblg/library/Types";
+import type { TableAllDataOData } from "vss/com/pblg/library/TypesOData";
 export declare const extraLargeWhitespaceTooltip = "\t\t\t\t\t\t";
 export declare function fillPOData(oData: TableAllData, oRowData: TableAllDataOData): TableAllData;
 export declare function setPriorityData(sPriority: TableAllDataOData["Priority"], sPriorityDescr: TableAdditionalData["PriorityDescr"], bStock: boolean): HiddableTextObject;
 export declare function fillOrderData(aStorageLocations: StorageLocations[], oData: TableAllData, oRowData: OrderExtendedIdentifier): TableAllData;
-export declare function setStorageLocation(aStorageLocations: StorageLocations[], sStorageLocation: OrderExtendedIdentifier["StorageLocation"], sPlant: OrderExtendedIdentifier["Plant"], sSalesOrg?: OrderExtendedIdentifier["SalesOrganization"]): Array<StorageLocationSelect> | string;
+export declare function setStorageLocation(aStorageLocations: StorageLocations[], sStorageLocation: OrderExtendedIdentifier["StorageLocation"], sPlant: OrderExtendedIdentifier["Plant"], sSalesOrg?: OrderExtendedIdentifier["SalesOrganization"]): StorageLocationSelect[] | string;
 export declare function setQuantity(oData: TableAllData, sValue: string | undefined): TableAllData;
 export declare function setSelectStorageLocation(oData: TableAllData, sValue: string): TableAllData;
-export declare function setStorageBin(oData: TableAllData, oRowData: any, oStockData: OrderAdditionalData): TableAllData;
+export declare function setStorageBin(oData: TableAllData, oRowData: TableAllDataOData, oStockData: OrderAdditionalData): TableAllData;
 export declare function setPOHidden(oData: TableAllDataOData, oOrigin: TableAllData): TableAllData;

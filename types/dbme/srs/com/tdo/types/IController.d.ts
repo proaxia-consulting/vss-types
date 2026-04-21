@@ -1,30 +1,33 @@
 import type SrsController from "dbme/w/lib/core/controller/Base";
-import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
+import type ColumnListItem from "sap/m/ColumnListItem";
+import type IconTabFilter from "sap/m/IconTabFilter";
 import type ListBase from "sap/m/ListBase";
+import type ListItemBase from "sap/m/ListItemBase";
 import type Table from "sap/m/Table";
 import type Event from "sap/ui/base/Event";
-import type JSONModel from "sap/ui/model/json/JSONModel";
-import type AllocPropCalBridge from "dbme/srs/com/tdo/helper/AllocPropCalBridge";
-import type TimeSlotsContainer from "dbme/srs/com/tdo/helper/TimeSlotsContainer";
-import type ColumnListItem from "sap/m/ColumnListItem";
-import type ListItemBase from "sap/m/ListItemBase";
 import type ManagedObject from "sap/ui/base/ManagedObject";
 import type SmartForm from "sap/ui/comp/smartform/SmartForm";
-import type { ITabsAware } from "dbme/srs/com/tdo/types/ITabsAware";
-import type ScreenSectionBindingRefresh from "dbme/srs/com/tdo/helper/ScreenSectionBindingRefresh";
+import type Control from "sap/ui/core/Control";
+import type JSONModel from "sap/ui/model/json/JSONModel";
 import type OrderControllerExtension from "dbme/srs/com/tdo/controller/ext/OrderControllerExtension";
+import type AllocPropCalBridge from "dbme/srs/com/tdo/helper/AllocPropCalBridge";
+import type ScreenSectionBindingRefresh from "dbme/srs/com/tdo/helper/ScreenSectionBindingRefresh";
+import type TimeSlotsContainer from "dbme/srs/com/tdo/helper/TimeSlotsContainer";
 import type { DemandOrigin } from "dbme/srs/com/tdo/model/Enums";
-export interface IFormAware {
+import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
+import type { IScreen, ITabsAware } from "dbme/srs/com/tdo/types/ITabsAware";
+export type IFormAware = {
     _getForm(): SmartForm;
     onFieldChange(event: Event): void;
-}
-export interface IAfterAction {
+    serializeForm?: () => Map<string, Control>;
+};
+export type IAfterAction = {
     onAfterSuccessfulAction(): void;
-}
-export interface ISrsController extends SrsController {
+};
+export type ISrsController = {
     isEditMode(): boolean;
-}
-export interface IOrderAwareController extends ISrsController, ITabsAware {
+} & SrsController;
+export type IOrderAwareController = {
     extension?: OrderControllerExtension;
     _oAgreementsList?: ListBase;
     _oLocationList?: ListBase;
@@ -45,8 +48,8 @@ export interface IOrderAwareController extends ISrsController, ITabsAware {
     getFieldGroupIdsForValidate(): string[];
     isCreateOrder(): boolean;
     getSelectedOrder(): IOrderEntity[];
-}
-export interface IReschedulingController extends IOrderAwareController {
+} & ISrsController & ITabsAware;
+export type IReschedulingController = {
     _oDateParameters?: ListBase;
     _oAllocationProposalList?: AllocPropCalBridge;
     oTimeSlotsContainer?: TimeSlotsContainer;
@@ -54,11 +57,11 @@ export interface IReschedulingController extends IOrderAwareController {
     setPickupAtVisibility(bVisibility: boolean): void;
     onAllocationProposalSelect(oEvent: Event): void;
     destroyAllocationProposal(): void;
-}
-export interface ISelectableControl extends ListItemBase {
+} & IOrderAwareController;
+export type ISelectableControl = {
     getSelectEnabled?: () => boolean;
-}
-export interface ICreatedDemandData {
+} & ListItemBase;
+export type ICreatedDemandData = {
     origin: {
         control?: ManagedObject;
         data: object;
@@ -67,22 +70,32 @@ export interface ICreatedDemandData {
         originType?: DemandOrigin;
     };
     target: ColumnListItem;
-}
+};
 /**
  * @see dbme.com.srs.tdo.helper.DemandTemplate
  */
-interface IDemandTemplate {
+type IDemandTemplate = {
     getDemandTemplate?: (this: IDemandsAwareController, bRecalc?: boolean) => Promise<ColumnListItem>;
     getDemandsTable(this: IDemandsAwareController, bRecalc?: boolean): Table;
-}
-export interface IDemandsAwareController extends IOrderAwareController, IFormAware {
+};
+/**
+ * @see dbme.com.srs.tdo.helper.TabsTemplate
+ */
+type ITabsTemplate = {
+    createTabsContent(this: IDemandsAwareController): Promise<IconTabFilter[]>;
+    destroy(this: IDemandsAwareController): void;
+    getModelData(this: IDemandsAwareController, oOrderData?: IOrderEntity, bCreate?: boolean): Promise<IScreen[]>;
+    getTable(tab: IconTabFilter): ListBase[];
+};
+export type IDemandsAwareController = {
     _mDemands?: Map<string, ICreatedDemandData>;
     _oDemandsTable?: Table;
     _oDemandTemplate?: ColumnListItem;
     helper: {
         demandTemplate: IDemandTemplate;
         sectionBindingRefresh?: ScreenSectionBindingRefresh;
+        tabsTemplate?: ITabsTemplate;
     };
     _checkSummary?: () => Promise<void>;
-}
+} & IOrderAwareController & IFormAware;
 export {};

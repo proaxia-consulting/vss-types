@@ -1,11 +1,12 @@
-import { SelectDialog$ConfirmEvent, SelectDialog$SearchEvent } from "sap/m/SelectDialog";
-import Event from "sap/ui/base/Event";
+import type { Button$PressEvent } from "sap/m/Button";
+import type Dialog from "sap/m/Dialog";
+import type { SelectDialog$ConfirmEvent, SelectDialog$SearchEvent } from "sap/m/SelectDialog";
+import type { SelectDialogBase$SelectionChangeEvent } from "sap/m/SelectDialogBase";
+import type Event from "sap/ui/base/Event";
 import JSONModel from "sap/ui/model/json/JSONModel";
-import Order from "vss/com/dama/controller/Order.controller";
+import type Order from "vss/com/dama/controller/Order.controller";
 import { FragmentId } from "vss/com/dama/model/Enums";
-import { IDialog } from "vss/com/dama/types/ControllerInterface";
-import Dialog from "sap/m/Dialog";
-import { SelectDialogBase$SelectionChangeEvent } from "sap/m/SelectDialogBase";
+import type { IDialog } from "vss/com/dama/types/ControllerInterface";
 /**
  * @namespace vss.com.dama.eh.header
  */
@@ -15,11 +16,11 @@ export default class AssignTeamDialog implements IDialog {
     _UiModel: JSONModel;
     private assignTeamDialog;
     private headerData;
-    private textBundle;
     private teamListData;
     constructor(_orderCtrl: Order, fragmentId: FragmentId);
-    open(): Promise<void>;
-    static onListItemEvent(this: AssignTeamDialog, event: Event): void;
+    open(): void;
+    private _open;
+    static onListItemEvent(this: AssignTeamDialog, event: Button$PressEvent): void;
     static onSelectionChange(this: AssignTeamDialog, event: SelectDialogBase$SelectionChangeEvent): void;
     private getAssignTeamDialog;
     static onSearch(this: AssignTeamDialog, event: SelectDialog$SearchEvent): void;

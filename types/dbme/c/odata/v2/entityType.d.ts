@@ -1,5 +1,5 @@
 import { EdmType as EdmTypeBase } from "sap/ui/export/library";
-import type { default as ODataMetaModel, EntityType } from "sap/ui/model/odata/ODataMetaModel";
+import type { EntityType, default as ODataMetaModel } from "sap/ui/model/odata/ODataMetaModel";
 import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
 export declare const EntityAnnotation: {
     readonly FieldControl: "com.sap.vocabularies.Common.v1.FieldControl";
@@ -52,9 +52,7 @@ export declare const EdmType: {
 };
 export type EdmTypeType = (typeof EdmType)[keyof typeof EdmType];
 export declare function edmType(type: string): EdmTypeType;
-export type TODataEntityProperty = {
-    [key in EntityAnnotationType]: unknown;
-} & {
+export type TODataEntityProperty = Record<EntityAnnotationType, unknown> & {
     name: string;
     type: EdmTypeType;
     maxLength?: string;

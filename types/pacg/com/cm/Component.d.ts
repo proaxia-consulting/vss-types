@@ -1,9 +1,14 @@
-import BaseComponent from "sap/fe/core/AppComponent";
+import InstanceManagerOverride from "dbme/c/util/InstanceManagerOverride";
+import AppComponent from "vss/com/rcl/component/AppComponentAbstract";
 /**
- * @namespace vss.com.davs
+ * @namespace pacg.com.cm
  */
-export default class Component extends BaseComponent {
+export default class Component extends AppComponent {
     static metadata: {
         manifest: string;
     };
+    private _instanceManager;
+    constructor(...args: unknown[]);
+    init(): void;
+    getInstanceManager(): InstanceManagerOverride;
 }

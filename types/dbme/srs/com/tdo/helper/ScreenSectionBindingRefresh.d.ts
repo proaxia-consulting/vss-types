@@ -7,6 +7,6 @@ import type { IScreenSection } from "dbme/srs/com/tdo/types/ITabsAware";
  */
 export default class ScreenSectionBindingRefresh {
     private _listBinding;
-    registerListBinging(section: IScreenSection, binding: ODataV2ListBinding | ODataV4ListBinding): void;
+    registerListBinding(section: IScreenSection, binding: ODataV2ListBinding | ODataV4ListBinding): void;
     refresh(): void;
 }

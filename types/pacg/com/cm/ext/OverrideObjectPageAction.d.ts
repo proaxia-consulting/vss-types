@@ -7,7 +7,7 @@ export default class OverrideObjectPageAction {
     private _api;
     private _actions;
     private _headerTitle;
-    constructor(_api: IObjectPageExtensionAPI, _actions?: "com.sap.gateway.srvd.pacg.rso_cm.v0001.ShipToAddrMaintain"[]);
+    constructor(_api: IObjectPageExtensionAPI, _actions?: ("com.sap.gateway.srvd.pacg.rso_cm.v0001.ShipToAddrMaintain" | "com.sap.gateway.srvd.pacg.rso_cm.v0001.QuickRentalProcess")[]);
     init(reload?: boolean): this;
     /**
      * (Re)create action buttons

@@ -1,28 +1,38 @@
-import ManagedObject, { type $ManagedObjectSettings } from "sap/ui/base/ManagedObject";
-import type { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
-import type Context from "sap/ui/model/odata/v2/Context";
 import type Event from "sap/ui/base/Event";
+import ManagedObject, { type $ManagedObjectSettings } from "sap/ui/base/ManagedObject";
+import type Context from "sap/ui/model/odata/v2/Context";
+import type { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
+import type { IEntity, IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
 import type { IScreen } from "dbme/srs/com/tdo/types/ITabsAware";
-import type { IEntity } from "dbme/srs/com/tdo/types/IEntity";
 export declare const Events: {
     readonly AfterAllocationProposalEntityCheck: "AfterAllocationProposalEntityCheck";
     readonly AfterBatchUpdate: "AfterBatchUpdate";
-    readonly AfterDemandSectionDataCreate: "AfterDemandSectionDataCreate";
+    readonly AfterTabDataCreate: "AfterTabDataCreate";
+    readonly AfterEditCancel: "AfterEditCancel";
     readonly AfterInit: "AfterInit";
     readonly AfterOrderContextCreate: "AfterOrderContextCreate";
     readonly AfterOrderEntityExpandProperties: "AfterOrderEntityExpandProperties";
+    readonly AfterOrderSaveCommandDataPrepare: "AfterOrderSaveCommandDataPrepare";
     readonly BeforeBatchUpdate: "BeforeBatchUpdate";
     readonly BeforeOrderCreate: "BeforeOrderCreate";
     readonly BeforeValidateFieldGroupIds: "BeforeValidateFieldGroupIds";
 };
-export interface $OrderControllerExtensionSettings extends $ManagedObjectSettings {
+export type $OrderControllerExtensionSettings = {
     controller: IOrderAwareController;
-}
+} & $ManagedObjectSettings;
 export type OrderControllerExtension$AfterInit = Event<{}, OrderControllerExtension>;
-export type $AfterDemandSectionDataCreate = {
+export type $AfterOrderSaveCommandDataPrepare = {
+    order: IOrderEntity;
+    deepCreateRequestData: IOrderEntity;
+};
+export type OrderControllerExtension$AfterOrderSaveCommandDataPrepareEvent = Event<$AfterOrderSaveCommandDataPrepare, OrderControllerExtension>;
+export type $AfterTabDataCreate = {
+    tabKey: string;
+    tabIndex: number;
+    tabData: IScreen;
     tabsData: IScreen[];
 };
-export type OrderControllerExtension$AfterDemandSectionDataCreateEvent = Event<$AfterDemandSectionDataCreate, OrderControllerExtension>;
+export type OrderControllerExtension$AfterTabDataCreateEvent = Event<$AfterTabDataCreate, OrderControllerExtension>;
 export type $AfterOrderContextCreate = {
     orderContext: Context;
 };
@@ -49,14 +59,18 @@ export type OrderControllerExtension$BeforeBatchUpdateEventParameters = {
     reset: boolean;
 };
 export type OrderControllerExtension$BeforeBatchUpdateEvent = Event<OrderControllerExtension$BeforeBatchUpdateEventParameters, OrderControllerExtension>;
+export type OrderControllerExtension$AfterEditCancelEventParameters = {};
+export type OrderControllerExtension$AfterEditCancelEvent = Event<{}, OrderControllerExtension>;
 /**
  * @namespace dbme.srs.com.tdo.controller.ext
  */
 export default class OrderControllerExtension extends ManagedObject {
     fireAfterAllocationProposalEntityCheck: (params: $AfterAllocationProposalEntityCheck) => void;
     attachAfterAllocationProposalEntityCheck: (handler: (event: OrderControllerExtension$AfterAllocationProposalEntityCheckEvent) => void, listener?: object) => this;
-    fireAfterDemandSectionDataCreate: (params: $AfterDemandSectionDataCreate) => void;
-    attachAfterDemandSectionDataCreate: (handler: (event: OrderControllerExtension$AfterDemandSectionDataCreateEvent) => void, listener?: object) => this;
+    fireAfterOrderSaveCommandDataPrepare: (params: $AfterOrderSaveCommandDataPrepare) => void;
+    attachAfterOrderSaveCommandDataPrepare: (handler: (event: OrderControllerExtension$AfterOrderSaveCommandDataPrepareEvent) => void, listener?: object) => this;
+    fireAfterTabDataCreate: (params: $AfterTabDataCreate) => void;
+    attachAfterTabDataCreate: (handler: (event: OrderControllerExtension$AfterTabDataCreateEvent) => void, listener?: object) => this;
     fireAfterInit: () => void;
     attachAfterInit: (handler: (event: OrderControllerExtension$AfterInit) => void, listener?: object) => this;
     fireAfterOrderContextCreate: (params: $AfterOrderContextCreate) => void;
@@ -71,6 +85,8 @@ export default class OrderControllerExtension extends ManagedObject {
     attachBeforeBatchUpdate: (handler: (event: OrderControllerExtension$BeforeBatchUpdateEvent) => void, listener?: object) => this;
     fireBeforeValidateFieldGroupIds: (params: $BeforeValidateFieldGroupIds) => void;
     attachBeforeValidateFieldGroupIds: (handler: (event: OrderControllerExtension$BeforeValidateFieldGroupIdsEvent) => void, listener?: object) => this;
+    fireAfterEditCancel: () => void;
+    attachAfterEditCancel: (handler: (event: OrderControllerExtension$AfterEditCancelEvent) => void, listener?: object) => this;
     protected _controller: IOrderAwareController;
     protected _objectMap?: Map<string, ManagedObject>;
     protected _initPromise: Promise<unknown>[];
@@ -86,11 +102,21 @@ export default class OrderControllerExtension extends ManagedObject {
                 };
             };
             AfterBatchUpdate: {};
-            AfterDemandSectionDataCreate: {
+            AfterOrderSaveCommandDataPrepare: {
                 parameters: {
+                    order: string;
+                    deepCreateRequestData: string;
+                };
+            };
+            AfterTabDataCreate: {
+                parameters: {
+                    tabKey: string;
+                    tabIndex: string;
+                    tabData: string;
                     tabsData: string;
                 };
             };
+            AfterEditCancel: {};
             AfterInit: {};
             AfterOrderContextCreate: {
                 parameters: {

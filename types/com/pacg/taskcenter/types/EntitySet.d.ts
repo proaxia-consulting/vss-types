@@ -3,10 +3,6 @@ export type TViewGroupEntity = {
     HeaderText: string;
     ViewIcon: string;
 };
-export type TGlobalSettingsEntity = {
-    ViewLayoutId: string;
-    CentralOrgActive: boolean;
-};
 export type TPropertyNavParamEntity = {
     NavParamId: string;
     NavParamValue: string;
@@ -58,10 +54,11 @@ export type TAttachmentEntity = {
     };
 };
 export type TUserOrgData = {
-    plant: string;
-    plantName: string;
-    salesOrganization: string;
-    dialogEnabled: boolean;
-    orgDataFormatted: string;
-    orgDataAssigned: boolean;
+    orgDataActive?: boolean;
+    plant?: string;
+    plantName?: string;
+    salesOrganization?: string;
+    formattedOrgData?: string;
+    orgDataAssigned?: boolean;
+    dialogEnabled?: boolean;
 };

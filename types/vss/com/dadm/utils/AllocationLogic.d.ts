@@ -1,4 +1,4 @@
-import { IDemand, IMonTableCols } from "vss/com/dadm/types/IEntity";
+import type { IDemand, IMonTableCols } from "vss/com/dadm/types/IEntity";
 export declare class AllocationLogic {
     constructor();
     isAllocationChangable(demand: IDemand, icol: IMonTableCols, selectedDate: string): boolean;

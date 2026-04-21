@@ -1,16 +1,20 @@
 import Controller from "dbme/c/controller/Base";
-import MessagePopover from "sap/m/MessagePopover";
-import MessageType from "sap/ui/core/message/MessageType";
-import { BatchResponse, SeverityType } from "dbme/s/act/doc/model/models";
-import type SmartField from "sap/ui/comp/smartfield/SmartField";
 import type { Button$PressEvent } from "sap/m/Button";
+import MessagePopover from "sap/m/MessagePopover";
+import type SmartField from "sap/ui/comp/smartfield/SmartField";
 import type UI5Element from "sap/ui/core/Element";
+import MessageType from "sap/ui/core/message/MessageType";
 import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import type AppComponent from "dbme/s/act/doc/Component";
+import type { BatchResponse, SeverityType } from "dbme/s/act/doc/model/models";
 /**
- * @namespace dbme.s.act.doc.controller
+ * @abstract
  * @controller
+ * @namespace dbme.s.act.doc.controller
  */
-export default class BaseController extends Controller {
+export default abstract class BaseController extends Controller {
+    getOwnerComponent: () => AppComponent;
+    static metadata: object;
     UXFC: {
         hidden: number;
         readOnly: number;
@@ -30,7 +34,7 @@ export default class BaseController extends Controller {
     /**
      * Return i18n Resource Bundle
      */
-    i18n(): import("sap/base/i18n/ResourceBundle").default | Promise<import("sap/base/i18n/ResourceBundle").default>;
+    i18n(): import("sap/base/i18n/ResourceBundle").default;
     /**
      * Handle OData Call Error (generic function, no special further logic required)
      */

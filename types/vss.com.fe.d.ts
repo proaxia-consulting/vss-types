@@ -50,9 +50,9 @@ declare module "vss/com/fe/IAppComponent" {
 	 * @link https://sapui5.hana.ondemand.com/resources/sap/fe/core/services/RoutingServiceFactory-dbg.js
 	 */
 	export interface IRoutingService {
-		navigateTo(oContext: Context, sRouteName: string, mParameterMapping?: Record<string, any>, bPreserveHistory?: boolean): Promise<void>;
-		navigateToContext(oContext: Context, mParameters?: $TNavigateToContextParameters, oViewData?: any, oCurrentTargetInfo?: any): Promise<void>;
-		navigateToRoute(sTargetRouteName: string, oRouteParameters?: any): Promise<void>;
+		navigateTo(oContext: Context, sRouteName: string, mParameterMapping?: Record<string, unknown>, bPreserveHistory?: boolean): Promise<void>;
+		navigateToContext(oContext: Context, mParameters?: $TNavigateToContextParameters, oViewData?: unknown, oCurrentTargetInfo?: unknown): Promise<void>;
+		navigateToRoute(sTargetRouteName: string, oRouteParameters?: unknown): Promise<void>;
 	}
 
 	export default interface IAppComponent extends AppComponent {
@@ -91,7 +91,6 @@ declare module "vss/com/fe/ListReport" {
 	import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
 
 	export interface IListReportExtensionAPI extends ExtensionAPI, BaseExtensionAPI {
-		editFlow: IEditFlow;
 		getEditFlow(): IEditFlow;
 		getRouting(): Routing;
 	}
@@ -101,7 +100,6 @@ declare module "vss/com/fe/ListReport" {
 	 * @see {sap.fe.templates.ListReport.ListReportController}
 	 */
 	export interface IListReportController extends PageController {
-		editFlow: IEditFlow;
 		getExtensionAPI(): IListReportExtensionAPI;
 		getAppComponent(): IAppComponent;
 	}
@@ -133,7 +131,7 @@ declare module "vss/com/fe/ListReport" {
 	 * @deprecated Use sap.ui.mdc.FilterBar instead!
 	 */
 	export interface IFilterBar extends Control {
-		initialized(): Promise<any>;
+		initialized(): Promise<unknown>;
 		/**
 		 * @deprecated Use getConditions() instead!
 		 */
@@ -160,7 +158,6 @@ declare module "vss/com/fe/ObjectPage" {
 	import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
 
 	export interface IObjectPageExtensionAPI extends ExtensionAPI, BaseExtensionAPI {
-		editFlow: IEditFlow;
 		getEditFlow(): IEditFlow;
 		getRouting(): Routing;
 	}
@@ -170,7 +167,6 @@ declare module "vss/com/fe/ObjectPage" {
 	 * @see {sap.fe.templates.ObjectPage.ObjectPageController}
 	 */
 	export interface IObjectPageController extends PageController {
-		editFlow: IEditFlow;
 		getExtensionAPI(): IObjectPageExtensionAPI;
 		getAppComponent(): IAppComponent;
 	}

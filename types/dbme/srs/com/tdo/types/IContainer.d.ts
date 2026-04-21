@@ -1,12 +1,12 @@
 import type Control from "sap/ui/core/Control";
-export interface IContainer {
+export type IContainer = {
     getContent(): Control[];
     removeContent(item: Control): void;
-}
-interface IScrollExtension extends Control {
+};
+type IScrollExtension = {
     getHorizontalScrollbar(): HTMLDivElement;
-}
-export interface IScrollExtensionAware {
+} & Control;
+export type IScrollExtensionAware = {
     _getScrollExtension(): IScrollExtension;
-}
+};
 export {};

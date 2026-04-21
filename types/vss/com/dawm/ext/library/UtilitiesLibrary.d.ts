@@ -1,0 +1,10 @@
+import type ExtensionAPI from "sap/fe/templates/ListReport/ExtensionAPI";
+import Dialog from "sap/m/Dialog";
+export declare function setMessageDialog(x: Dialog | undefined): void;
+export declare function getMessageDialog(): Dialog | undefined;
+export declare function setHeaderTextsOrderDialog(x: Dialog): void;
+export declare function getHeaderTextsOrderDialog(): Dialog;
+export declare function setHeaderTextsJobDemandDialog(x: Dialog): void;
+export declare function getHeaderTextsJobDemandDialog(): Dialog;
+export declare function setExternalExtensionAPI(x: ExtensionAPI): void;
+export declare function getExternalExtensionAPI(): ExtensionAPI;

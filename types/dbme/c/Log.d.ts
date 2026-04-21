@@ -1,7 +1,10 @@
+import type Message from "sap/ui/core/message/Message";
 import MessageType from "sap/ui/core/message/MessageType";
 import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
 import { type TResponseSuccess } from "dbme/c/util/handleReturn";
-import type Message from "sap/ui/core/message/Message";
+/**
+ * @deprecated Use `dbme.c.util.handleReturn.TResponseDetails` or `sap.ui.core.message.Message` instead!
+ */
 export type TMessage = {
     code: string;
     counter: number;

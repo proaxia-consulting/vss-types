@@ -1,6 +1,4 @@
-declare const thisLib: {
-    [key: string]: unknown;
-};
+declare const thisLib: Record<string, unknown>;
 /**
  * @namespace vss.com.rcl
  */

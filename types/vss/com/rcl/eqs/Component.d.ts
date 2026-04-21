@@ -1,7 +1,7 @@
-import AppComponentAbstract from "vss/com/rcl/component/AppComponentAbstract";
 import type NavContainer from "sap/m/NavContainer";
 import type Model from "sap/ui/model/Model";
 import type ODataModel from "sap/ui/model/odata/v4/ODataModel";
+import AppComponentAbstract from "vss/com/rcl/component/AppComponentAbstract";
 import type { $IEquipmentAwareComponentSettings, IEquipmentAwareComponent } from "vss/com/rcl/types/IComponent";
 import type { InvokablePageController } from "vss/com/rcl/types/IController";
 /**

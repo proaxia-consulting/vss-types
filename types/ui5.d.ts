@@ -101,6 +101,7 @@ declare module "ui5" {
 			sorter: Sorter[];
 			parameters: {
 				select: string;
+				expand?: string;
 			};
 			events: Record<string, CallableFunction>;
 			preventTableBind: boolean;
@@ -231,13 +232,66 @@ declare module "sap/ovp/cards/linklist/Component" {
 	}
 }
 declare module "sap/ovp/cards/linklist/LinkList.controller" {
-	import Event from "sap/ui/base/Event";
+	import type Event from "sap/ui/base/Event";
+	import type Controller from "sap/ui/core/mvc/Controller";
+	import type JSONModel from "sap/ui/model/json/JSONModel";
+	export type CardLayout = {
+		autoSpan: boolean;
+		colSpan: number;
+		column: number;
+		containerLayout: string;
+		headerHeight: number;
+		height: string;
+		iCardBorderPx: number;
+		iRowHeightPx: number;
+		itemHeight: number;
+		left: string;
+		maxColSpan: number;
+		noOfItems: number;
+		row: number;
+		rowSpan: number;
+		showOnlyHeader: boolean;
+		top: string;
+		visible: boolean;
+		width: string;
+	};
 
-	export default class LinkList {
+	export default class LinkList extends Controller {
 		public static extend(id: string, object: any): Function;
 		public onInit(...args: unknown[]): void;
 		public onLinkListLineItemUrl(oEvent: Event): void;
 		public onLinkNavigation(oEvent: Event): void;
+		public getCardPropertiesModel(): JSONModel;
+		public getHeaderHeight(): number;
+		public resizeCard(obj: CardLayout): void;
+		public getItemHeight(t: LinkList, arg1: string): number;
+		public oDashboardLayoutUtil: {
+			ROW_HEIGHT_PX: number;
+			CARD_BORDER_PX: number;
+			dashboardLayoutModel: {
+				getCardById(x: string): {
+					dashboardLayout: CardLayout;
+				};
+			};
+		};
+		public iPreviousRowSpan: number;
+	}
+}
+
+declare module "sap/ovp/cards/charts/analytical/analyticalChart.controller" {
+	import type Controller from "sap/ui/core/mvc/Controller";
+	export default class BaseAnalyticalChart extends Controller {
+		public onInit(...args: unknown[]): void;
+		public onHeaderClick(oEvent: jQuery.Event & { target: { id: string } }): void;
+		public doNavigation(oContext: object, oNavigationField: object, sNavMode: string): void;
+	}
+}
+
+declare module "sap/ovp/cards/charts/analytical/Component" {
+	import OVPComponent from "sap/ovp/app/Component";
+	export default class Component extends OVPComponent {
+		public static extend(id: string, object: any): Function;
+		public init(...args: unknown[]): void;
 	}
 }
 

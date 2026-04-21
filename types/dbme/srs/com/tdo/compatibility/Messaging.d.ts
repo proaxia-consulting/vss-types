@@ -1,8 +1,8 @@
 /**
  * Isolate differences between UI5 versions
  */
-import MessageTypeBase from "sap/ui/core/message/MessageType";
 import Messaging from "sap/ui/core/Messaging";
+import MessageTypeBase from "sap/ui/core/message/MessageType";
 export declare const MessageType: {
     readonly Error: MessageTypeBase.Error;
     readonly Information: MessageTypeBase.Information;

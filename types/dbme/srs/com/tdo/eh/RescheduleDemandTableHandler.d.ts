@@ -1,7 +1,7 @@
-import Event from "sap/ui/base/Event";
-import type RescheduleController from "dbme/srs/com/tdo/controller/action/Reschedule.controller";
 import type { ListBase$SelectionChangeEvent } from "sap/m/ListBase";
+import type Event from "sap/ui/base/Event";
 import type { SmartTable$BeforeRebindTableEvent, SmartTable$InitialiseEvent } from "sap/ui/comp/smarttable/SmartTable";
+import type RescheduleController from "dbme/srs/com/tdo/controller/action/Reschedule.controller";
 declare const RescheduleDemandTableHandler: {
     onSelectionChange(this: RescheduleController, event: ListBase$SelectionChangeEvent): void;
     onBeforeRebind(this: RescheduleController, event: SmartTable$BeforeRebindTableEvent): void;

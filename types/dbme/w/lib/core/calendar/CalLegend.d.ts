@@ -1,6 +1,6 @@
-import Popover from "sap/m/Popover";
+import type Popover from "sap/m/Popover";
+import type Event from "sap/ui/base/Event";
 import type { ICalendarController } from "dbme/w/lib/core/types/IController";
-import Event from "sap/ui/base/Event";
 declare const CalLegend: {
     showLegend(this: ICalendarController, oEvent: Event): Promise<Popover>;
 };

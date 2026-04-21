@@ -1,6 +1,6 @@
 import type { ResourceEntity } from "dbme/w/lib/core/types/IEntity";
-import type TreeController from "dbme/srs/com/has/controller/Tree.controller";
 import type Dialog from "sap/m/Dialog";
+import type TreeController from "dbme/srs/com/has/controller/Tree.controller";
 /**
  * @namespace dbme.srs.com.has.model
  * @global
@@ -15,7 +15,11 @@ export default class ResourceSaveCommand {
     submit(): Promise<{
         data: ResourceEntity | ResourceEntity[];
         response: import("dbme/c/util/handleReturn").TResponseSuccess;
-        message: import("dbme/c/odata/ODataCommand").TODataMessage;
+        message: import("dbme/c/Log").TMessage | (import("dbme/c/util/handleReturn").TResponseDetails & {
+            title?: string;
+            hasError?: boolean;
+            hasWarning?: boolean;
+        });
     }>;
     private _getMessageTemplate;
 }

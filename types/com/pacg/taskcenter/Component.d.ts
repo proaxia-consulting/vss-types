@@ -1,5 +1,5 @@
 import AppComponent from "sap/fe/core/AppComponent";
-import JSONModel from "sap/ui/model/json/JSONModel";
+import type { TUserOrgData } from "com/pacg/taskcenter/types/EntitySet";
 /**
  * @namespace com.pacg.taskcenter
  */
@@ -7,11 +7,14 @@ export default class Component extends AppComponent {
     static metadata: {
         manifest: string;
     };
-    private _singlePageMode;
     init(): void;
-    updateUserOrgData(): void;
+    exit(): void;
+    updateUserOrgData(): Promise<TUserOrgData>;
     getSinglePageMode(): boolean;
-    handleTaskDetailError(): void;
-    getOrgDataModel(): JSONModel;
+    handleTaskDetailError(): Component;
+    getOrgData(): Promise<TUserOrgData>;
+    setOrgData(orgData: Partial<TUserOrgData>): TUserOrgData;
     private _getFcl;
+    private _singlePageMode;
+    private _userOrgData;
 }

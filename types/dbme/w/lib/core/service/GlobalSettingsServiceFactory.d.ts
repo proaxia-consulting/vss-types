@@ -1,8 +1,8 @@
-import ServiceFactory from "sap/ui/core/service/ServiceFactory";
 import Service from "sap/ui/core/service/Service";
-import ServiceContext from "sap/ui/core/service/ServiceContext";
-import type { HierarchyAssignmentEntity } from "dbme/w/lib/core/types/IEntity";
+import type ServiceContext from "sap/ui/core/service/ServiceContext";
+import ServiceFactory from "sap/ui/core/service/ServiceFactory";
 import JSONModel from "sap/ui/model/json/JSONModel";
+import type { HierarchyAssignmentEntity } from "dbme/w/lib/core/types/IEntity";
 type TServiceSettings = void;
 export declare class GlobalSettingsService extends Service<TServiceSettings> {
     private _component;

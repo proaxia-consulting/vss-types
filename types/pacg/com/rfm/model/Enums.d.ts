@@ -40,7 +40,9 @@ export declare const EntitySet: {
     readonly RentalEquipment: "RentalEquipment";
     readonly RentalEquipmentBase: "RentalEquipmentBase";
     readonly Delivery: "Delivery";
+    readonly DeliveryAction: "DeliveryAction";
     readonly DeliveryItem: "DeliveryItem";
+    readonly OrderItem: "OrderItem";
     readonly Handover: "Handover";
     readonly HandoverItem: "HandoverItem";
     readonly HandoverItemCheckListType: "HandoverItemCheckListType";
@@ -53,6 +55,7 @@ export declare const EntitySet: {
     readonly CheckListSectionField: "CheckListSectionField";
     readonly CheckListField: "CheckListField";
     readonly UnitOfMeasure: "I_UnitOfMeasure";
+    readonly ManufacturerSerialNumberVH: "ManufSerialNoVH";
 };
 export declare const ControlId: {
     readonly mainTable: "fe::table::Equipment::LineItem";
@@ -68,6 +71,7 @@ export declare const RemoteAppId: {
 export declare const RemoteMessageId: {
     readonly ActionExecute: "ACTION_EXECUTE";
 };
+/** @deprecated use vss.com.rcl.model.Enums.InvocationGrouping instead*/
 export declare const InvocationGrouping: {
     readonly ChangeSet: "ChangeSet";
 };

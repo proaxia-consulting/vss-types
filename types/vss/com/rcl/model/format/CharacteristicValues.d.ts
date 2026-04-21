@@ -1,2 +1,2 @@
-import { TObjectCharacteristicsDisplay } from "vss/com/rcl/types/EntitySet";
+import type { TObjectCharacteristicsDisplay } from "vss/com/rcl/types/EntitySet";
 export declare function formatObject(ch: TObjectCharacteristicsDisplay): string;

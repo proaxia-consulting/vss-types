@@ -1,6 +1,6 @@
-import ResourceBundle from "sap/base/i18n/ResourceBundle";
+import type ResourceBundle from "sap/base/i18n/ResourceBundle";
 export declare function setBundle(b: ResourceBundle): void;
-export declare function __(key: string, args?: unknown[]): string;
+export declare function __(key: string, ...args: string[]): string;
 declare const Translate: typeof __;
 /**
  * @namespace pacg.com.rfm.i18n

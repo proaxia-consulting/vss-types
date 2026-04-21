@@ -1,9 +1,9 @@
-import Context from "sap/ui/model/Context";
+import type Event from "sap/ui/base/Event";
+import type Context from "sap/ui/model/Context";
 import Column from "sap/ui/table/Column";
-import Event from "sap/ui/base/Event";
-import { MonTableFormatter } from "vss/com/dadm/utils/MonTableFormatter";
-import { AvailabilityController } from "vss/com/dadm/utils/AvailabilityController";
-import { EventOnClick } from "vss/com/dadm/types/others";
+import type { EventOnClick } from "vss/com/dadm/types/others";
+import type { AvailabilityController } from "vss/com/dadm/utils/AvailabilityController";
+import type { MonTableFormatter } from "vss/com/dadm/utils/MonTableFormatter";
 /**
  * @namespace vss.com.dadm.utils
  */

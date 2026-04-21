@@ -1,4 +1,4 @@
-import ResponsiveTable from "sap/m/Table";
+import type ResponsiveTable from "sap/m/Table";
 import type { IListReportController } from "vss/com/fe/ListReport";
 /**
  * @nonui5

@@ -1,14 +1,14 @@
-import BaseController from "dbme/w/lib/core/controller/Base";
-import { type PlanningModeType } from "dbme/w/lib/core/calendar/Enums";
-import Filter from "sap/ui/model/Filter";
-import type { $CalendarQueryArgs, ICalendarController, TCalendarHelper } from "dbme/w/lib/core/types/IController";
-import type SmartFilterBar from "sap/ui/comp/smartfilterbar/SmartFilterBar";
-import type SearchField from "sap/m/SearchField";
-import type { IPlanningCalendar } from "dbme/w/lib/core/types/ICalendar";
-import type Event from "sap/ui/base/Event";
 import type { PlanningCalendar$RowSelectionChangeEvent } from "sap/m/PlanningCalendar";
-import { BatchRequestGroupId } from "dbme/w/lib/core/calendar/model/Enums";
+import type SearchField from "sap/m/SearchField";
+import type Event from "sap/ui/base/Event";
+import type SmartFilterBar from "sap/ui/comp/smartfilterbar/SmartFilterBar";
 import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
+import Filter from "sap/ui/model/Filter";
+import { type PlanningModeType } from "dbme/w/lib/core/calendar/Enums";
+import { BatchRequestGroupId } from "dbme/w/lib/core/calendar/model/Enums";
+import BaseController from "dbme/w/lib/core/controller/Base";
+import type { IPlanningCalendar } from "dbme/w/lib/core/types/ICalendar";
+import type { $CalendarQueryArgs, ICalendarController, TCalendarHelper } from "dbme/w/lib/core/types/IController";
 import type { $RouteMatchedParams } from "dbme/w/lib/core/util/RouteQueryFilter";
 /**
  * @namespace dbme.w.lib.core.calendar
@@ -16,7 +16,10 @@ import type { $RouteMatchedParams } from "dbme/w/lib/core/util/RouteQueryFilter"
  */
 export default abstract class CalendarController extends BaseController implements ICalendarController {
     routeQueryFilter: {
-        onRouteMatched(this: import("dbme/w/lib/core/types/IController").ISrsController, event: Route$PatternMatchedEvent | $RouteMatchedParams, entitySet: string | string[], aIgnoredQueryArgs?: string[], filterControl?: SmartFilterBar | import("sap/m/FacetFilter").default, queryArgsMap?: Map<string, string | undefined>): Promise<{
+        fillControllerFilters(settings: import("dbme/w/lib/core/util/RouteQueryFilter").$RouteQueryFilterSettings): Promise<{
+            [x: string]: string;
+        }>;
+        onRouteMatched(this: import("dbme/w/lib/core/types/IController").ISrsController, event: Route$PatternMatchedEvent | $RouteMatchedParams, entitySet: string | string[], aIgnoredQueryArgs?: string[], filterControl?: SmartFilterBar | import("sap/m/FacetFilter").default, queryArgsMap?: Map<string, string | undefined>, useUrl?: boolean): Promise<{
             [x: string]: string;
         }>;
     };

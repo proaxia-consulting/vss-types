@@ -1,5 +1,5 @@
-import { ValueState } from "sap/ui/core/library";
-import { TAvailableOrderEntity, TEventsEntity, TPersonalEntity } from "vss/com/dama/service/timeClockingService";
+import type { ValueState } from "sap/ui/core/library";
+import type { TAvailableOrderEntity, TEventsEntity, TPersonalEntity } from "vss/com/dama/service/timeClockingService";
 export type TOrderEntity = {
     OrderID: string;
     Plant: string;
@@ -35,6 +35,9 @@ export type TJobEntity = {
     ApprovalStatus?: string;
     EXECUTE_EVENT?: boolean;
     ATTACHMENT_COUNT?: number;
+    EDIT_LABOR_QUAN: string;
+    PARTS_ACCEPTANCE?: boolean;
+    isChecklist?: Boolean;
 };
 export type TItemEntity = {
     OrderID: string;

@@ -1,10 +1,10 @@
-import type IndexController from "dbme/w/lib/core/vehicle/tdt/controller/Index.controller";
-import type { ListBase$UpdateFinishedEvent } from "sap/m/ListBase";
-import type ODataListBinding from "sap/ui/model/odata/v2/ODataListBinding";
-import type Event from "sap/ui/base/Event";
-import { ListItemBase$PressEvent } from "sap/m/ListItemBase";
-import type RadioButton from "sap/m/RadioButton";
 import type CheckBox from "sap/m/CheckBox";
+import type { ListBase$UpdateFinishedEvent } from "sap/m/ListBase";
+import type { ListItemBase$PressEvent } from "sap/m/ListItemBase";
+import type RadioButton from "sap/m/RadioButton";
+import type Event from "sap/ui/base/Event";
+import type ODataListBinding from "sap/ui/model/odata/v2/ODataListBinding";
+import type IndexController from "dbme/w/lib/core/vehicle/tdt/controller/Index.controller";
 declare const DecisionTreeItemsListHelper: {
     onBindingChange(this: IndexController, event: Event<{
         reason: string;

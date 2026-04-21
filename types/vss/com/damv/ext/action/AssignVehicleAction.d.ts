@@ -1,8 +1,12 @@
-import ExtensionAPI from "sap/fe/templates/ListReport/ExtensionAPI";
-import ODataContextBinding from "sap/ui/model/odata/v4/ODataContextBinding";
-import Context from "sap/ui/model/odata/v4/Context";
-import { TOrderItem } from "vss/com/damv/service/massAssignVehiclesService";
-import { TAssignVehicleOut } from "vss/com/damv/service/actionService";
+import type ExtensionAPI from "sap/fe/templates/ListReport/ExtensionAPI";
+import type Context from "sap/ui/model/odata/v4/Context";
+import type ODataContextBinding from "sap/ui/model/odata/v4/ODataContextBinding";
+import type { TAssignVehicleOut } from "vss/com/damv/service/actionService";
+import type { TOrderItem } from "vss/com/damv/service/massAssignVehiclesService";
+/**
+ * @nonui5
+ * @namespace vss.com.damv.ext.action
+ */
 export default class AssignVehicleAction {
     static onPressVehicleAssign(this: ExtensionAPI, bindingContext: ODataContextBinding, selectedContexts: Context[]): void;
     static isVisibleVehicleAssign(this: ExtensionAPI, bindingContext: ODataContextBinding, selectedContexts: Context[]): boolean;

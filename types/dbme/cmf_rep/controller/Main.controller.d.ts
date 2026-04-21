@@ -1,9 +1,9 @@
 import BaseController from "dbme/c/controller/Base";
-import Event from "sap/ui/base/Event";
-import { type Menu$ItemSelectedEvent } from "sap/m/Menu";
 import { type Button$PressEvent } from "sap/m/Button";
-import { type ODataModel$RequestCompletedEvent } from "sap/ui/model/odata/v2/ODataModel";
+import { type Menu$ItemSelectedEvent } from "sap/m/Menu";
+import type Event from "sap/ui/base/Event";
 import { type SmartTable$BeforeRebindTableEvent } from "sap/ui/comp/smarttable/SmartTable";
+import { type ODataModel$RequestCompletedEvent } from "sap/ui/model/odata/v2/ODataModel";
 /**
  * @controller
  * @namespace dbme.cmf_rep.controller

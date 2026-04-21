@@ -1,10 +1,10 @@
-import Event from "sap/ui/base/Event";
-import { TItemIn } from "vss/com/dama/service/actionCommandService";
-import { TJobEntity } from "vss/com/dama/types/Entity";
-import { ItemType } from "vss/com/dama/model/Enums";
-import LabourValueHelp from "vss/com/dama/eh/item/LabourValueHelp";
-import { IDialog } from "vss/com/dama/types/ControllerInterface";
+import type Event from "sap/ui/base/Event";
 import BaseDialog from "vss/com/dama/eh/BaseDialog";
+import type LabourValueHelp from "vss/com/dama/eh/item/LabourValueHelp";
+import { ItemType } from "vss/com/dama/model/Enums";
+import type { TItemIn } from "vss/com/dama/service/actionCommandService";
+import type { IDialog } from "vss/com/dama/types/ControllerInterface";
+import type { TJobEntity } from "vss/com/dama/types/Entity";
 export default class LabourDialog extends BaseDialog implements IDialog {
     private _jobCtx;
     private _itemType;

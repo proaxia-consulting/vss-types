@@ -1,6 +1,6 @@
 import Dialog from "sap/m/Dialog";
-import MessageType from "sap/ui/core/message/MessageType";
 import type Message from "sap/ui/core/message/Message";
+import MessageType from "sap/ui/core/message/MessageType";
 export declare enum DataKey {
     messages = "messages"
 }

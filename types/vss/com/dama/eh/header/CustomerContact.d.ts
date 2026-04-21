@@ -1,9 +1,9 @@
-import Event from "sap/ui/base/Event";
-import Order from "vss/com/dama/controller/Order.controller";
-import { FragmentId } from "vss/com/dama/model/Enums";
-import { IDialog } from "vss/com/dama/types/ControllerInterface";
+import type Event from "sap/ui/base/Event";
+import type Order from "vss/com/dama/controller/Order.controller";
 import BaseDialog from "vss/com/dama/eh/BaseDialog";
-import { TOrderEntity } from "vss/com/dama/types/Entity";
+import type { FragmentId } from "vss/com/dama/model/Enums";
+import type { IDialog } from "vss/com/dama/types/ControllerInterface";
+import type { TOrderEntity } from "vss/com/dama/types/Entity";
 export default class CustomerContact extends BaseDialog implements IDialog {
     private controller;
     private CustomerContactDialog;

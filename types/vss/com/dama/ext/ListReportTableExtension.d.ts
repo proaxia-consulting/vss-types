@@ -1,6 +1,7 @@
-import Table from "sap/m/Table";
-import { IListReportController } from "vss/com/fe/ListReport";
+import type Table from "sap/m/Table";
+import type { IListReportController } from "vss/com/fe/ListReport";
 /**
+ * @nonui5
  * @namespace vss.com.dama.ext
  */
 export default class ListReportTableExtension {

@@ -1,5 +1,5 @@
-import Control from "sap/ui/core/Control";
-import { TCardMyAppointments } from "vss/com/daxc/types/Entities";
+import type Control from "sap/ui/core/Control";
+import type { TCardMyAppointments } from "vss/com/daxc/types/Entities";
 export type TMyAppointmentsCustomData = {
     source: TCardMyAppointments["Source"];
     order: TCardMyAppointments["OrderNumber"];
@@ -26,7 +26,7 @@ export type TSelectOption = {
     Low: unknown;
     High: unknown;
 };
-export interface CardLayout extends Control {
+export type CardLayout = {
     rowSpan: int;
     colSpan: int;
     maxColSpan: int;
@@ -45,4 +45,4 @@ export interface CardLayout extends Control {
     containerLayout: string;
     iRowHeightPx: int;
     iCardBorderPx: int;
-}
+} & Control;

@@ -1,5 +1,5 @@
-import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
 import type Table from "sap/m/Table";
+import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
 import type { TEquipmentHierarchyCustomEntity } from "vss/com/rcl/types/EntitySet";
 export type THierarchyItem = TEquipmentHierarchyCustomEntity & {
     items: THierarchyItem[];

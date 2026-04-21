@@ -9,6 +9,9 @@ import type { IListReportExtension } from "vss/com/fe/ListReport";
  */
 export default class ListReportExtension extends ControllerExtension {
     static overrides: {
+        editFlow: {
+            onAfterActionExecution(this: IListReportExtension, actioName: string): void;
+        };
         onInit(this: IListReportExtension): void;
     };
 }

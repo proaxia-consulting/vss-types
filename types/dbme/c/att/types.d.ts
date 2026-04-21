@@ -1,9 +1,9 @@
 import type Controller from "sap/ui/core/mvc/Controller";
-interface IKeyValueString {
+type IKeyValueString = {
     Id: string;
     Descr: string;
-}
-export interface IMediaRecorderModel {
+};
+export type IMediaRecorderModel = {
     fileName: string;
     objectKey: string;
     objectType: string;
@@ -18,8 +18,8 @@ export interface IMediaRecorderModel {
     isRecordingActive: boolean;
     tAudioInput: IKeyValueString[];
     tVideoInput: IKeyValueString[];
-}
-export interface IAttachmentConfigMediaType {
+};
+export type IAttachmentConfigMediaType = {
     mediaTypeId: string;
     priority: int;
     mimeType: string;
@@ -28,8 +28,8 @@ export interface IAttachmentConfigMediaType {
     audioCodec: string;
     activeVideo: boolean;
     activeAudio: boolean;
-}
-export interface IAttachmentConfig {
+};
+export type IAttachmentConfig = {
     fileNameVidP: string;
     fileNameAudP: string;
     fileNameVidG: string;
@@ -38,12 +38,12 @@ export interface IAttachmentConfig {
     videoResY: number;
     bitRateVid: number;
     bitRateAud: number;
-}
-export interface IAttachmentUserData {
+};
+export type IAttachmentUserData = {
     devdescAud: string;
     devdescVid: string;
-}
-export interface IParentController extends Controller {
+};
+export type IParentController = {
     getId(): string;
-}
+} & Controller;
 export {};

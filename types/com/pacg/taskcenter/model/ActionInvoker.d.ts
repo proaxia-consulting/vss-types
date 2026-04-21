@@ -1,5 +1,5 @@
-import Context from "sap/ui/model/odata/v4/Context";
-import EditFlow from "sap/fe/core/controllerextensions/EditFlow";
+import type EditFlow from "sap/fe/core/controllerextensions/EditFlow";
+import type Context from "sap/ui/model/odata/v4/Context";
 export declare enum ErrorHandling {
     None = "NONE",
     Silent = "SILENT",

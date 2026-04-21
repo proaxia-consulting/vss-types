@@ -25,6 +25,6 @@ declare const models: {
     createControlModel(): JSONModel;
 };
 /**
- * @name dbme.cmf_rep.model.models
+ * @namespace dbme.cmf_rep.model
  */
 export default models;

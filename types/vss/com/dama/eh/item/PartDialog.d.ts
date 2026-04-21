@@ -1,11 +1,12 @@
-import Event from "sap/ui/base/Event";
-import { FragmentId } from "vss/com/dama/model/Enums";
-import LabourValueHelp from "vss/com/dama/eh/item/LabourValueHelp";
-import { IDialog } from "vss/com/dama/types/ControllerInterface";
+import type { Button$PressEvent } from "sap/m/Button";
+import type { BarcodeScannerButton$ScanSuccessEvent } from "sap/ndc/BarcodeScannerButton";
+import type Event from "sap/ui/base/Event";
+import type Context from "sap/ui/model/odata/v4/Context";
+import type Order from "vss/com/dama/controller/Order.controller";
 import BaseDialog from "vss/com/dama/eh/BaseDialog";
-import Context from "sap/ui/model/odata/v4/Context";
-import Order from "vss/com/dama/controller/Order.controller";
-import { BarcodeScannerButton$ScanSuccessEvent } from "sap/ndc/BarcodeScannerButton";
+import type LabourValueHelp from "vss/com/dama/eh/item/LabourValueHelp";
+import type { FragmentId } from "vss/com/dama/model/Enums";
+import type { IDialog } from "vss/com/dama/types/ControllerInterface";
 export default class PartDialog extends BaseDialog implements IDialog {
     private _jobCtx;
     _newItemCtx: Context;
@@ -14,7 +15,7 @@ export default class PartDialog extends BaseDialog implements IDialog {
     OPartDialog: PartDialog;
     LabourValueHelp: LabourValueHelp;
     constructor(_orderCtrl: Order, fragmentId: FragmentId);
-    open(eventCtx: Event): void;
+    open(eventCtx: Button$PressEvent): void;
     private getPartDialog;
     static onMaterialChanged(this: PartDialog, event: Event): void;
     static availabilityCheck(this: PartDialog): void;

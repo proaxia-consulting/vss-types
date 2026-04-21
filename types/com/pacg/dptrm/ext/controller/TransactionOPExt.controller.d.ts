@@ -1,6 +1,6 @@
+import type ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
-import ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
-import Context from "sap/ui/model/odata/v4/Context";
+import type Context from "sap/ui/model/odata/v4/Context";
 /**
  * @namespace com.pacg.dptrm.ext.controller
  * @controller

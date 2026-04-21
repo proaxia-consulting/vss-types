@@ -1,15 +1,19 @@
-import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
-import IconTabFilter from "sap/m/IconTabFilter";
+import type { ISrsController } from "dbme/w/lib/core/types/IController";
+import type { Button$PressEvent } from "sap/m/Button";
+import type { IconTabBar$SelectEvent } from "sap/m/IconTabBar";
+import type IconTabFilter from "sap/m/IconTabFilter";
 import type Event from "sap/ui/base/Event";
 import type SmartTable from "sap/ui/comp/smarttable/SmartTable";
+import type { SmartTable$InitialiseEvent } from "sap/ui/comp/smarttable/SmartTable";
+import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
 import Filter from "sap/ui/model/Filter";
 import JSONModel from "sap/ui/model/json/JSONModel";
+import type { RowActionItem$PressEvent } from "sap/ui/table/RowActionItem";
 import type Table from "sap/ui/table/Table";
-import type { IOrderEntity } from "../types/IEntity";
-import type { IOrderAwareController, IAfterAction } from "../types/IController";
-import type { ISrsController } from "dbme/w/lib/core/types/IController";
 import type { $SmartTableBeforeRebindEventParams } from "ui5";
-import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
+import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
+import type { IAfterAction, IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
+import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
 /**
  * interface IOrderAwareController is required for triggering the SRS Order actions
  *
@@ -22,14 +26,14 @@ export default class Index extends AbstractBase implements ISrsController, IAfte
     private _aLastTableFilters;
     private _sLastFilter?;
     onInit(): void;
-    onRouteMatched(event: Route$PatternMatchedEvent): Promise<void>;
+    onRouteMatched(event: Route$PatternMatchedEvent): void;
     private _onRouteMatchedAsync;
     ODataToJSON(): void;
     _getJSONModel(): JSONModel;
     _getTable(): Table;
     private scrollTableToLeft;
-    onAfterVariantApply(oEvent: Event): void;
-    onSearch(oEvent: Event): void;
+    onAfterVariantApply(event: Event): void;
+    onSearch(event: Event): void;
     private _getSearchField;
     private _getSearchFilter;
     private _getFilters;
@@ -37,17 +41,17 @@ export default class Index extends AbstractBase implements ISrsController, IAfte
     private _getTabs;
     _getSelectedTab(): IconTabFilter;
     private _getTabFilter;
-    onTabSelect(oEvent: Event): void;
-    onBtnReload(event: Event): void;
+    onTabSelect(event: IconTabBar$SelectEvent): void;
+    onBtnReload(event: Button$PressEvent): void;
     private _reloadActionButtons;
     onAfterSuccessfulAction(): void;
-    onRowPress(oEvent: Event): boolean;
-    onBtnCreate(oEvent: Event): void;
-    oBeforeRebindTable(oEvent: Event<$SmartTableBeforeRebindEventParams, SmartTable>): void;
+    onRowPress(event: RowActionItem$PressEvent): boolean;
+    onBtnCreate(event: Event): void;
+    oBeforeRebindTable(event: Event<$SmartTableBeforeRebindEventParams, SmartTable>): void;
     /**
      * Fix DateTime fields display format, as they are not apply 'style' from SmartTable's customData:dateFormatSettings
      */
-    onTableInit(oEvent: Event): void;
+    onTableInit(event: SmartTable$InitialiseEvent): void;
     /**
      * interface IOrderAwareController is required for triggering the SRS Order actions
      */

@@ -1,8 +1,9 @@
 import Table from "sap/m/Table";
-import ObjectPageLayout from "sap/uxap/ObjectPageLayout";
-import Event from "sap/ui/base/Event";
-import { ItemsInfo, JobItems, JobOverview, MainTable, OrderPositionOverview } from "vss/com/dapv/entities/Entities";
-export declare function getOrderOverviewHeader(x: MainTable): any;
+import type Event from "sap/ui/base/Event";
+import type ObjectPageLayout from "sap/uxap/ObjectPageLayout";
+import type { ItemsInfo, JobItems, JobOverview, MainTable, OrderPositionOverview } from "vss/com/dapv/entities/Entities";
+import type { OrderOverviewHeader } from "vss/com/dapv/utils/UtilsFrontendData";
+export declare function getOrderOverviewHeader(x: MainTable): OrderOverviewHeader;
 export declare function getOrderItemsTableColumns(oTable: Table): void;
 export declare function getOrderItemsTableItems(oTable: Table, aOrderPosition: OrderPositionOverview[]): void;
 export declare function onMaterialOverviewPress(oEvent: Event): void;

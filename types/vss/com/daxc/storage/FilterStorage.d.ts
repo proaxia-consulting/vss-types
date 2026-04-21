@@ -1,4 +1,7 @@
-import Filter from "sap/ui/model/Filter";
+import type Filter from "sap/ui/model/Filter";
+import type { TCardServiceOrders, TCardUpsellingCount, UpsellingParameters } from "vss/com/daxc/types/Entities";
+export declare function setUpsellingActorRole(x: UpsellingParameters["ActorRole"]): void;
+export declare function getUpsellingActorRole(): UpsellingParameters["ActorRole"];
 export declare function setPlant(x: string): void;
 export declare function getPlant(): string;
 export declare function setSalesOrganization(x: string): void;
@@ -7,3 +10,7 @@ export declare function setCompanyDataAuthRequired(x: "X" | ""): void;
 export declare function getCompanyDataAuthRequired(): "X" | "";
 export declare function setFilterBarFilters(x: Filter[]): void;
 export declare function getFilterBarFilters(): Filter[];
+export declare function setCardServiceOrdersData(x: TCardServiceOrders[]): void;
+export declare function getCardServiceOrdersData(): TCardServiceOrders[];
+export declare function setCardUpsellingCountData(x: TCardUpsellingCount[]): void;
+export declare function getCardUpsellingCountData(): TCardUpsellingCount[];

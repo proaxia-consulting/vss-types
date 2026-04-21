@@ -1,5 +1,5 @@
-import type TreeController from "dbme/srs/com/has/controller/Tree.controller";
 import ODataCommand from "dbme/c/odata/ODataCommand";
+import type TreeController from "dbme/srs/com/has/controller/Tree.controller";
 /**
  * @namespace dbme.srs.com.has.model
  * @global
@@ -11,7 +11,11 @@ export default class AssignmentsRemoveCommand extends ODataCommand<void> {
     submit(): Promise<{
         data: void | void[];
         response: import("dbme/c/util/handleReturn").TResponseSuccess;
-        message: import("dbme/c/odata/ODataCommand").TODataMessage;
+        message: import("dbme/c/Log").TMessage | (import("dbme/c/util/handleReturn").TResponseDetails & {
+            title?: string;
+            hasError?: boolean;
+            hasWarning?: boolean;
+        });
     }>;
     _getMessageTemplate(): {
         success: string;

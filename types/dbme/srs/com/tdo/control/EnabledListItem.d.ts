@@ -1,9 +1,10 @@
 import StandardListItem from "sap/m/StandardListItem";
 import StandardListItemRenderer from "sap/m/StandardListItemRenderer";
-import Control from "sap/ui/core/Control";
-interface IEnabledAwareControl extends Control {
+import type Control from "sap/ui/core/Control";
+type IEnabledAwareControl = {
     getEnabled?: () => boolean;
-}
+    setEnabled(enabled: boolean): unknown;
+} & Control;
 /**
  * @namespace dbme.srs.com.tdo.control
  */

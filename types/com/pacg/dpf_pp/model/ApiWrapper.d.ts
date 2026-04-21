@@ -1,4 +1,5 @@
-import { EIntegrationType, TPaymentParameter } from "com/pacg/dpf_pp/types/types";
+import type { TPaymentParameter } from "com/pacg/dpf_pp/types/types";
+import { EIntegrationType } from "com/pacg/dpf_pp/types/types";
 /**
  * @namespace com.pacg.dpf_pp.model
  */

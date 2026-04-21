@@ -1,6 +1,6 @@
-import type AppComponent from "dbme/w/lib/core/vehicle/tdt/Component";
-import BaseController from "dbme/w/lib/core/controller/AbstractBase";
 import type View from "sap/ui/core/mvc/View";
+import BaseController from "dbme/w/lib/core/controller/AbstractBase";
+import type AppComponent from "dbme/w/lib/core/vehicle/tdt/Component";
 /**
  * @namespace dbme.w.lib.core.vehicle.tdt.controller
  * @controller

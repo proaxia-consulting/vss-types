@@ -1,5 +1,5 @@
-import type { IObjectPageExtension } from "vss/com/fe/ObjectPage";
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
+import type { IObjectPageExtension } from "vss/com/fe/ObjectPage";
 /**
  * @namespace pacg.com.rfm.ext.controller
  * @controller

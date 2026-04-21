@@ -1,5 +1,5 @@
-import type { ITreeController } from "dbme/srs/com/has/types/IController";
 import ODataCommand from "dbme/c/odata/ODataCommand";
+import type { ITreeController } from "dbme/srs/com/has/types/IController";
 import type { TreeNodeEntity } from "dbme/srs/com/has/types/IEntity";
 /**
  * @namespace dbme.srs.com.has.model
@@ -14,7 +14,11 @@ export default class AssignmentCreateCommand extends ODataCommand<void> {
     create(): Promise<{
         data: void;
         response: import("dbme/c/util/handleReturn").TResponseSuccess;
-        message: import("dbme/c/odata/ODataCommand").TODataMessage;
+        message: import("dbme/c/Log").TMessage | (import("dbme/c/util/handleReturn").TResponseDetails & {
+            title?: string;
+            hasError?: boolean;
+            hasWarning?: boolean;
+        });
     }>;
     private _getMessageTemplate;
 }

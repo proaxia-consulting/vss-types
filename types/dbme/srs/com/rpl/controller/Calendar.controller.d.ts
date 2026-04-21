@@ -1,6 +1,6 @@
 import CalendarController from "dbme/w/lib/core/calendar/CalendarController";
-import type JSONModel from "sap/ui/model/json/JSONModel";
 import type SmartFilterBar from "sap/ui/comp/smartfilterbar/SmartFilterBar";
+import type JSONModel from "sap/ui/model/json/JSONModel";
 /**
  * @namespace dbme.srs.com.rpl.controller
  * @controller

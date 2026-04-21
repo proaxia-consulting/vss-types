@@ -1,7 +1,7 @@
 import ODataQuery from "dbme/c/odata/ODataQuery";
-import type { DecisionTreeItemEntity } from "dbme/w/lib/core/vehicle/tdt/type/IEntity";
-import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
 import type Filter from "sap/ui/model/Filter";
+import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import type { DecisionTreeItemEntity } from "dbme/w/lib/core/vehicle/tdt/type/IEntity";
 /**
  * @nonui5
  */

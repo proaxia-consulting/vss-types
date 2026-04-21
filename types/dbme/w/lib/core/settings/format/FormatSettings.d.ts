@@ -1,6 +1,6 @@
 import type { UIAppSettingsEntity } from "dbme/w/lib/core/types/IEntity";
 declare const FormatSettings: {
-    settingValue(entity: UIAppSettingsEntity): string | boolean | Date;
+    settingValue(entity: UIAppSettingsEntity): string | boolean | import("sap/ui/core/date/UI5Date").default | Date;
     SplitCommaToInt(sValue: string): number[];
     parseBoolean(sValue: string): boolean;
     matchingStatusToValueState(sValue: string): import("sap/ui/core/library").ValueState;

@@ -1,4 +1,4 @@
-import Control from "sap/ui/core/Control";
+import type Control from "sap/ui/core/Control";
 export type EventOnmouseover = {
     srcControl: Control;
 };

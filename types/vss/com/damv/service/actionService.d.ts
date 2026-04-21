@@ -1,4 +1,4 @@
-import { TSingleMessage } from "vss/com/damv/service/logs";
+import type { TSingleMessage } from "vss/com/damv/service/logs";
 export type TAssignVehicleIn = {
     OrderId: string;
     ItemNo: string;

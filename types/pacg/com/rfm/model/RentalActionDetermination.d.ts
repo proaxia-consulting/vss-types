@@ -1,7 +1,7 @@
-import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
-import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 import EventProvider from "sap/ui/base/EventProvider";
 import type { TEventHandlerFunction } from "ui5";
+import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 export declare enum EventId {
     reloadActions = "reloadActions"
 }

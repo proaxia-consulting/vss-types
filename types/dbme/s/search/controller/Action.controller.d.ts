@@ -1,11 +1,11 @@
-import type AppComponent from "dbme/s/search/Component";
-import Controller from "dbme/s/lib/controller/BaseController";
 import ActionEngine from "dbme/s/lib/class/ActionEngine";
-import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
+import Controller from "dbme/s/lib/controller/BaseController";
 import type { ActionEntity } from "dbme/s/lib/type/IEntity";
-interface IAppComponent extends AppComponent {
+import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
+import type AppComponent from "dbme/s/search/Component";
+type IAppComponent = {
     getActionEngine(): ActionEngine;
-}
+} & AppComponent;
 /**
  * @namespace dbme.s.search.controller
  * @controller
