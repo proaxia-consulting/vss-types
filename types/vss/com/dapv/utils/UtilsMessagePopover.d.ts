@@ -1,0 +1,16 @@
+import Button from "sap/m/Button";
+import { ButtonType } from "sap/m/library";
+import MessagePopover from "sap/m/MessagePopover";
+import MessageType from "sap/ui/core/message/MessageType";
+import Message from "sap/ui/core/message/Message";
+import Event from "sap/ui/base/Event";
+import { BackendMessage } from "vss/com/dapv/entities/Entities";
+export declare function initMessagePopover(oMessagePopoverBtn: Button): MessagePopover;
+export declare function onButtonMessagePopoverPress(oEvent: Event): void;
+export declare function setMessageType(sType: BackendMessage["type"]): MessageType;
+export declare function buttonIconFormatter(aMessages: Array<Message>): string;
+export declare function buttonTypeFormatter(aMessages: Array<Message>): ButtonType;
+export declare function highestSeverityMessages(sHighestSeverityIconType: ButtonType, aMessages: Array<Message>): int;
+export declare function setGroupName(sMessage: string): string;
+export declare function setMessagePopoverMessages(oMessagePopover: MessagePopover, aMessages: Message[] | undefined): void;
+export declare function processSubmitResults(oMessagePopoverBtn: Button, aMessages: Message[] | undefined, bDisplay: boolean, bWrite: boolean): void;

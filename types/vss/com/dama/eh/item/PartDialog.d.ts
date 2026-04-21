@@ -1,0 +1,29 @@
+import Event from "sap/ui/base/Event";
+import { FragmentId } from "vss/com/dama/model/Enums";
+import LabourValueHelp from "vss/com/dama/eh/item/LabourValueHelp";
+import { IDialog } from "vss/com/dama/types/ControllerInterface";
+import BaseDialog from "vss/com/dama/eh/BaseDialog";
+import Context from "sap/ui/model/odata/v4/Context";
+import Order from "vss/com/dama/controller/Order.controller";
+import { BarcodeScannerButton$ScanSuccessEvent } from "sap/ndc/BarcodeScannerButton";
+export default class PartDialog extends BaseDialog implements IDialog {
+    private _jobCtx;
+    _newItemCtx: Context;
+    private _partUiModel;
+    private _itemsBinding;
+    OPartDialog: PartDialog;
+    LabourValueHelp: LabourValueHelp;
+    constructor(_orderCtrl: Order, fragmentId: FragmentId);
+    open(eventCtx: Event): void;
+    private getPartDialog;
+    static onMaterialChanged(this: PartDialog, event: Event): void;
+    static availabilityCheck(this: PartDialog): void;
+    static onQuantityChanged(this: PartDialog, event: Event): void;
+    static onSave(this: PartDialog, event: Event): void;
+    static onClose(this: PartDialog, event: Event): void;
+    static resetContext(this: PartDialog): void;
+    static onScan(this: PartDialog, event: BarcodeScannerButton$ScanSuccessEvent): void;
+    initUiModel(): void;
+    private _validateData;
+    private _stripMessage;
+}

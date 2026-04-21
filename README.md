@@ -1,4 +1,4 @@
-# DBM|E & VSS TypeScript Definitions
+# VSS Types
 
 ## Installation
 

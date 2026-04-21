@@ -1,0 +1,16 @@
+import Filter from "sap/ui/model/Filter";
+import { POIdentifier, SubmitEntity, TableColumns } from "vss/com/pblg/library/Types";
+import { SubmitEntityOData, TableColumnsOData } from "vss/com/pblg/library/TypesOData";
+export declare function getSubmitSequenceKey(data: SubmitEntityOData): string;
+export declare function getSequenceKey(rowData: POIdentifier, iCounter?: int): string;
+export declare function getSubmitSequenceKeyFilter(sSubmitSequenceKey: string): Filter;
+export declare function getSequenceKeyFilter(sSequenceKey: string, bSingular: boolean): Filter;
+export declare function getFiltersForOrdersSubmitRequest(aSequenceKeys: Array<string>): Array<Filter>;
+export declare function getFiltersForOrdersRequest(aSequenceKeys: Array<string>): Array<Filter>;
+export declare function getInitialSequenceKeys(aRowData: Array<TableColumns>): Array<string>;
+export declare function getSubmitSequenceKeys(aRowData: Array<TableColumnsOData>): Array<string>;
+export declare function getUniqueArray(aArr: Array<any>): Array<any>;
+export declare function parseSequenceKey(sSequenceKey: string): SubmitEntity | undefined;
+export declare function getSubmitKeys(aRowData: TableColumnsOData[]): Array<SubmitEntityOData>;
+export declare function parseSequenceKeys(aFilters: Filter[]): Array<SubmitEntity | undefined>;
+export declare function getStorageLocation(x: TableColumnsOData | TableColumns): any;

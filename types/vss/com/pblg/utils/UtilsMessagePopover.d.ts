@@ -1,0 +1,18 @@
+import Button from "sap/m/Button";
+import { ButtonType } from "sap/m/library";
+import MessageType from "sap/ui/core/message/MessageType";
+import JSONModel from "sap/ui/model/json/JSONModel";
+import { BackendMessage, SubmitEntity } from "vss/com/pblg/library/Types";
+import Message from "sap/ui/core/message/Message";
+export declare const sSeqKeyBackendMessageCode = "/DBE/DAPB/000";
+export declare function setMessagesModel(x: JSONModel): void;
+export declare function getMessagesModel(): JSONModel;
+export declare function initMessagePopover(oMessagePopoverBtn: Button): void;
+export declare function setMessageType(sType: BackendMessage["type"]): MessageType;
+export declare function buttonIconFormatter(aMessages: Array<Message>): string;
+export declare function buttonTypeFormatter(aMessages: Array<Message>): ButtonType;
+export declare function highestSeverityMessages(sHighestSeverityIconType: ButtonType, aMessages: Array<Message>): int;
+export declare function setGroupName(oItem: SubmitEntity | undefined): string;
+export declare function formatMessageButton(oMessagePopoverBtn: Button, aMessages: Message[]): void;
+export declare function clearMessages(oMessagePopoverBtn: Button): void;
+export declare function processSubmitResults(oMessagePopoverBtn: Button, aMessages: Message[]): void;
