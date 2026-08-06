@@ -1,5 +1,6 @@
-import Control from "sap/ui/core/Control";
-import UI5Element from "sap/ui/core/Element";
+import type Control from "sap/ui/core/Control";
+import type UI5Element from "sap/ui/core/Element";
+import type ODataMetaModel from "sap/ui/model/odata/v4/ODataMetaModel";
 export type TActionScreenData = Record<string, unknown>;
 export declare const ActionDialog: {
     fieldIdKey(id: string): string;
@@ -15,6 +16,4 @@ export declare const BackendAction: {
     isActionControlId(id: string): boolean;
     isActionControl(control: Control): boolean;
 };
-/**
- * @namespace pacg.com.cm.model
- */
+export declare function isDialogAction(metaModel: ODataMetaModel, actionPath: string): boolean;

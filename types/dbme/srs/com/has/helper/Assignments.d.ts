@@ -1,13 +1,13 @@
-import type TreeController from "dbme/srs/com/has/controller/Tree.controller";
+import type { Button$PressEvent } from "sap/m/Button";
 import type Dialog from "sap/m/Dialog";
-import type StandardListItem from "sap/m/StandardListItem";
-import type Event from "sap/ui/base/Event";
-import type StandardTreeItem from "sap/m/StandardTreeItem";
 import type { ListBase$DeleteEvent } from "sap/m/ListBase";
+import type StandardListItem from "sap/m/StandardListItem";
+import type StandardTreeItem from "sap/m/StandardTreeItem";
+import type TreeController from "dbme/srs/com/has/controller/Tree.controller";
 declare const Assignments: {
     showDialog(this: TreeController, oResource: StandardListItem): void;
     onAssignmentListRemove(this: TreeController, oEvent: ListBase$DeleteEvent): void;
-    onBtnAssignmentRemoveCommit(this: TreeController, oEvent: Event): void;
+    onBtnAssignmentRemoveCommit(this: TreeController, event: Button$PressEvent): void;
     removeAssignment(this: TreeController, treeItem: StandardTreeItem): void;
     removeAssignmentCommit(this: TreeController, oDialog?: Dialog, oTreeItem?: StandardTreeItem): void;
 };

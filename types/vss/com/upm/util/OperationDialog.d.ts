@@ -1,16 +1,19 @@
+import type { Button$PressEvent } from "sap/m/Button";
 import ManagedObject from "sap/ui/base/ManagedObject";
-import { TOperationEntity, TOperationParameters } from "vss/com/upm/types";
-import { IObjectPageController } from "vss/com/fe/ObjectPage";
-import { Button$PressEvent } from "sap/m/Button";
+import JSONModel from "sap/ui/model/json/JSONModel";
+import type { IObjectPageController } from "vss/com/fe/ObjectPage";
+import type { TOperationEntity, TOperationParameters } from "vss/com/upm/types";
 /**
  * @namespace vss.com.upm.util
  */
 export default class OperationDialog extends ManagedObject {
     static CallDialog(oController: IObjectPageController, operationData: TOperationEntity): Promise<TOperationParameters>;
-    static onCloseDialog(event: Button$PressEvent): void;
+    static onDialogBtnPressed(event: Button$PressEvent): void;
+    static getModel(modelName: string): JSONModel;
     private static _getDialogData;
+    private static _getInquiryCbxList;
     private static _createDialog;
-    private static _dialogs;
+    private static _dialogP;
     private static _dialog;
     private static _resolve;
 }

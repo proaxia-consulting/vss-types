@@ -1,6 +1,6 @@
-import Filter from "sap/ui/model/Filter";
-import Context from "sap/ui/model/odata/v4/Context";
-import ODataModel from "sap/ui/model/odata/v4/ODataModel";
+import type Filter from "sap/ui/model/Filter";
+import type Context from "sap/ui/model/odata/v4/Context";
+import type ODataModel from "sap/ui/model/odata/v4/ODataModel";
 import { EntitySet } from "vss/com/dama/model/Enums";
 export type TOrderItem = {
     Material: string;

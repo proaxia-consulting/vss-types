@@ -1,10 +1,15 @@
-import type { ActionType, UxfcType } from "dbme/w/lib/core/model/Enums";
-import type { IntervalTypeType, PlanningModeType } from "dbme/w/lib/core/calendar/Enums";
-import type { CSSSize } from "sap/ui/core/library";
 import type UI5Date from "sap/ui/core/date/UI5Date";
-export type TUnknownEntity = {
-    [key: string]: unknown;
+import type { CSSSize } from "sap/ui/core/library";
+import type { IntervalTypeType, PlanningModeType } from "dbme/w/lib/core/calendar/Enums";
+import type { ActionType, UxfcType } from "dbme/w/lib/core/model/Enums";
+type ODataEntity = {
+    __metadata?: {
+        id?: string;
+        uri?: string;
+        type?: string;
+    };
 };
+export type TUnknownEntity = Record<string, unknown>;
 export type HierarchyAssignmentEntity = {
     UNAME: string;
     SEQNO: number;
@@ -173,22 +178,29 @@ export type DemandEntity = {
 export type ScreenEntity = {
     SCRNUM: string;
     SCRNUM_DESC: string;
+    SEQNUM?: string;
+    UI_KEY?: string;
     UI_ICON: string;
     UI_COLOR: string;
     COUNTABLE: boolean;
-    COUNT_VALUE: number;
+    COUNT_VALUE?: number;
     ORDER_TYPE: string;
     FOR_EDIT?: boolean;
     ENABLED: boolean;
     SectionNav?: ScreenSectionEntity[];
 };
-export type ScreenSectionEntity = {
+export type ScreenSectionEntity = ODataEntity & {
     SECTION_NO?: string;
     SECTION_TYPE?: string;
     SCRNUM?: string;
+    UI_KEY?: string;
     SECTION_HEIGHT?: CSSSize;
     SECTION_URL?: string;
     SECTION_NAME?: string;
+    ACTIV?: boolean;
+    DISPLAY?: boolean;
+    M_EXCLUSIVE?: boolean;
+    DET_GROUP?: string;
     FieldsNav?: ScreenFieldEntity[];
 };
 export type ScreenFieldEntity = {
@@ -213,3 +225,4 @@ export type AllocationFieldFilterEntity = {
     TO_DEMAND_TYPE: string;
     TO_RESOURCE_ROLE: string;
 };
+export {};

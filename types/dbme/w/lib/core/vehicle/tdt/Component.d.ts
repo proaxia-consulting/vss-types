@@ -1,6 +1,6 @@
-import UIComponentBase from "dbme/w/lib/core/ui/UIComponentBase";
 import type { $UIComponentSettings as $UIComponentSettingsBase } from "sap/ui/core/UIComponent";
 import type { HierarchyAssignmentEntity } from "dbme/w/lib/core/types/IEntity";
+import UIComponentBase from "dbme/w/lib/core/ui/UIComponentBase";
 import type { OrderEntity, ScreenSectionEntity } from "dbme/w/lib/core/vehicle/tdt/type/IEntity";
 type OwnerComponentData = {
     events?: {

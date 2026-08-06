@@ -26,6 +26,8 @@ export type TRootEntity = {
     SuperordinateEquipmentName?: string;
     CharacteristicValueFilter: string;
     IsMaterial: boolean;
+    IsRental?: boolean;
+    IsOnStock?: boolean;
     MaterialBaseUnit?: string;
     _CharacteristicsDisplay?: TObjectCharacteristicsDisplay[];
 };
@@ -36,7 +38,9 @@ export type TObjectCharacteristicsDisplay = {
     CharcInternalID: string;
     SequenceNumber: number;
     Icon: string;
-    CharcDescription: string;
+    Characteristic?: string;
+    CharcDescription?: string;
+    _Characteristic?: TCharcEntity;
     _Value?: TCMObjectCharcValueEntity[];
 };
 export type TCMObjectCharcValueEntity = {
@@ -336,4 +340,33 @@ export type UnitOfMeasureEntity = {
     UnitOfMeasureNumberOfDecimals: number;
     UnitOfMeasureIsCommercial: boolean;
     UnitOfMeasureDimension: string;
+};
+/**
+ * @description Delivery/Order Item entity type
+ */
+export type DeliveryEntity = {
+    SalesDocument: string;
+    SalesDocumentItem: string;
+    DeliveryDocument: string;
+    DeliveryDocumentItem: string;
+    DeliveryStatus: string;
+    GoodsIssueStatus: boolean;
+    GoodsReceiptStatus: boolean;
+    HandoverStatus: string;
+    ManufacturerSerialNumber: string;
+    OrderQuantity: string;
+    OrderQuantityDelivered: string;
+    OrderQuantityUnit: string;
+    RequestedDeliveryDate: string;
+    SerialNumber: string;
+    TargetQuantity: string;
+    TargetQuantityUnit: string;
+    IOType?: DocumentIOTypeType;
+    HasHierarchyChildren?: boolean;
+    __FieldControl?: Record<string, number>;
+    __OperationControl?: Record<string, boolean>;
+};
+export type ActionParameter = {
+    name: string;
+    value: unknown;
 };

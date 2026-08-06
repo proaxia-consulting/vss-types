@@ -1,19 +1,18 @@
-import OverflowToolbar from "sap/m/OverflowToolbar";
-import Control from "sap/ui/core/Control";
+import type OverflowToolbar from "sap/m/OverflowToolbar";
+import type Control from "sap/ui/core/Control";
 /**
  * @type {sap.ui.mdc.Table}
  */
-export interface ITable extends Control {
-    initialized(): Promise<this>;
-}
+export type ITable = {
+    initialized(): Promise<ITable>;
+} & Control;
 /**
  * @type {sap.ui.mdc.ActionToolbar}
  */
-export interface IToolbar extends OverflowToolbar {
+export type IToolbar = {
     addAction(action: IActionToolbarAction): void;
-}
+} & OverflowToolbar;
 /**
  * @type {sap.ui.mdc.actiontoolbar.ActionToolbarAction}
  */
-export interface IActionToolbarAction extends Control {
-}
+export type IActionToolbarAction = {} & Control;

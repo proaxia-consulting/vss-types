@@ -1,11 +1,12 @@
-import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-import { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
+import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
 type TBatchData = {
     __batchResponses: {
         data: IOrderEntity;
     }[];
 };
 /**
+ * @nonui5
  * @namespace dbme.srs.com.tdo.model
  */
 export default class OrderCreateCommand {
@@ -15,7 +16,11 @@ export default class OrderCreateCommand {
         order: IOrderEntity;
         data: TBatchData | TBatchData[];
         response: import("dbme/c/util/handleReturn").TResponseSuccess;
-        message: import("dbme/c/odata/ODataCommand").TODataMessage;
+        message: import("dbme/c/Log").TMessage | (import("dbme/c/util/handleReturn").TResponseDetails & {
+            title?: string;
+            hasError?: boolean;
+            hasWarning?: boolean;
+        });
     }>;
 }
 export {};

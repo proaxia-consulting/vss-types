@@ -1,5 +1,5 @@
-import type { IObjectPageController } from "vss/com/fe/ObjectPage";
 import type { Button$PressEvent } from "sap/m/Button";
+import type { IObjectPageController } from "vss/com/fe/ObjectPage";
 /**
  * Rental Contract save hander
  */

@@ -11,9 +11,15 @@ export declare enum OrderSelectionMode {
     Single = "S",
     Multiple = "M"
 }
+/**
+ * @deprecated Use definitely typed controller.UISettings instead!
+ * @see dbme.srs.com.tdo.controller.AbstractBase.$UISettings
+ */
 export declare enum UISettingsKey {
     DemandDefaultUoM = "TDO_DEF_DEM_UOM",
     DefaultOrderType = "TDO_DEF_ORD_TYPE",
+    DisplayCancelledDemands = "TDO_CANC_DEMA_SHOW",
+    HideMeasuringPointsTab = "TDO_HIDE_MPT_TAB",
     PlannedFromInPast = "C_X_TDO_PLAN_FROM_PAST"
 }
 export declare enum ScreenArea {
@@ -25,23 +31,11 @@ export declare enum ComponentEvent {
     ScreenSectionTableItemsLoaded = "ScreenSectionTableItemsLoaded",
     ScreenSectionTableSelectionChange = "ScreenSectionTableSelectionChange"
 }
-export declare const ServiceName: {
-    readonly MeasuringPoint: "MeasuringPoint";
-};
-/**
- * @deprecated replace with dbme.w.lib.core.model.Enums.ModelName
- */
-export declare enum ModelName {
-    Calendar = "cal",
-    Device = "device",
-    Local = "local",
-    TestMode = "TestMode",
-    Translate = "i18n"
-}
 export declare enum TabKey {
     ActionHistory = "ActionHistory",
     Agreements = "Agreements",
     Attachments = "Attachments",
+    CommunicationConsents = "CommunicationConsents",
     Date = "Date",
     Demands = "Demands",
     Location = "Location",
@@ -49,10 +43,20 @@ export declare enum TabKey {
     MeasuringPoints = "MeasuringPoints",
     Notes = "Notes"
 }
+export declare const TabKeyOffset: {
+    /** TDOServiceScreenSet.SEQNUM is a NUMC(4) in the backend @see dbme.srs.com.tdo.types.IScreen */
+    readonly Tab: 9999;
+    readonly PredefinedTabCreateMode: 99999;
+    /** TDOServiceSectionSet.SECTION_NO is a NUMC(3) in the backend @see dbme.srs.com.tdo.types.IScreenSection */
+    readonly Section: 999;
+};
 export declare enum SectionType {
     Component = "C",
-    DecissionTree = "T",
-    Manual = "M",//Doesn't exists in Backend
+    DecisionTree = "T",
+    /** @deprecated Use SectionType.ManualDemandCreate instead! */
+    Manual = "M",
+    ManualDemandCreate = "M",//Doesn't exists in Backend
+    Predefined = "P",
     Service = "E",
     Work = ""
 }
@@ -72,6 +76,7 @@ export declare enum FieldGroupId {
     email = "emailId",
     Order = "Order",
     OrderActionButton = "actionButtonGroupId",
+    PreferredComm = "PreferredComm",
     SearchCustomer = "SearchCust",
     SearchOrder = "SearchOrder",
     SearchVehicle = "SearchVehi",
@@ -94,11 +99,6 @@ export declare const OrderFunction: {
     readonly Replan: ".REPLN";
 };
 export type OrderFunctionType = (typeof OrderFunction)[keyof typeof OrderFunction];
-/** @deprecated Use OrderFunctionViewMap instead! */
-export declare const OrderFunctionView: {
-    readonly Replan: "dbme.srs.com.tdo.view.action.Replan";
-    readonly Reschedule: "dbme.srs.com.tdo.view.action.Reschedule";
-};
 export declare const OrderFunctionViewMap: Map<OrderFunctionType, string>;
 export declare enum RouteName {
     default = "default",
@@ -107,7 +107,10 @@ export declare enum RouteName {
     CreateApt = "CreateApt",
     Details = "Details",
     Index = "Index",
+    /** @deprecated Use RouteName.Query instead! */
     IndexQuery = "IndexQuery",
+    Query = "Query",
+    /** @deprecated Do not use! */
     NestedRoutePrefix = "NESTED"
 }
 export declare enum BatchGroupId {
@@ -142,3 +145,11 @@ export declare const ListUpdateFinishedReason: {
     Filter: string;
     Refresh: string;
 };
+export declare const CustomerClearMode: {
+    /** Default mode: clear only Customer and Partner number */
+    Default: string;
+    All: string;
+    ExceptEmailAndUserId: string;
+    ExceptUserId: string;
+};
+export type CustomerClearModeType = (typeof CustomerClearMode)[keyof typeof CustomerClearMode];

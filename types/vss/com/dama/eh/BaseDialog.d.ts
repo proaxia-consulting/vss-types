@@ -1,9 +1,10 @@
-import Dialog from "sap/m/Dialog";
-import Event from "sap/ui/base/Event";
-import Order from "vss/com/dama/controller/Order.controller";
-import { DialogMode, FragmentId, OrderLevel } from "vss/com/dama/model/Enums";
-import { IDialog } from "vss/com/dama/types/ControllerInterface";
+import type Dialog from "sap/m/Dialog";
+import type Event from "sap/ui/base/Event";
+import type Context from "sap/ui/model/Context";
 import JSONModel from "sap/ui/model/json/JSONModel";
+import type Order from "vss/com/dama/controller/Order.controller";
+import type { DialogMode, FragmentId, OrderLevel } from "vss/com/dama/model/Enums";
+import type { Control$Event, IDialog } from "vss/com/dama/types/ControllerInterface";
 /**
  * @namespace vss.com.dama.eh
  */
@@ -13,10 +14,10 @@ export default class BaseDialog implements IDialog {
     _Dialog: Dialog;
     _UiModel: JSONModel;
     constructor(_orderCtrl: Order, fragmentId: FragmentId);
-    setBeforeLoad(event: Event, dialogMode?: DialogMode, orderLevel?: OrderLevel): void;
+    setBeforeLoad(event: Control$Event, dialogMode?: DialogMode, orderLevel?: OrderLevel): void;
     setAfterLoad(event: Event, dialogMode?: DialogMode, orderLevel?: OrderLevel): void;
     getModel(): JSONModel;
-    open(event: Event, dialogMode?: DialogMode, orderLevel?: OrderLevel): void;
-    loadDialog(fragmentId: FragmentId): Promise<Dialog>;
+    open(event: Control$Event, dialogMode?: DialogMode, orderLevel?: OrderLevel, context?: Context): void;
+    loadDialog(fragmentId: FragmentId, context?: Context): Promise<Dialog>;
     close(): void;
 }

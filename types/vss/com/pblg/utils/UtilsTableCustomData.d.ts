@@ -1,7 +1,7 @@
-import Table from "sap/ui/table/Table";
 import CustomData from "sap/ui/core/CustomData";
-import Message from "sap/ui/core/message/Message";
-import { StorageLocations } from "vss/com/pblg/library/Types";
+import type Message from "sap/ui/core/message/Message";
+import type Table from "sap/ui/table/Table";
+import type { StorageLocations } from "vss/com/pblg/library/Types";
 export declare const _cd_consts: {
     sCDTableFiltered: string;
     sCDPONumber: string;
@@ -10,7 +10,7 @@ export declare const _cd_consts: {
 };
 export declare function rememberCustomData(oTable: Table): Table;
 export declare function storeMessagesCustomData(oTable: Table): Table;
-export declare function storeStoragesCustomData(oCustomData: CustomData, aStorages: Array<any>): void;
+export declare function storeStoragesCustomData(oCustomData: CustomData, aStorages: any[]): void;
 export declare function getStoragesCustomData(oCustomData: CustomData, sPlant?: StorageLocations["Plant"]): StorageLocations[];
 export declare function setMessagesCustomData(oTable: Table, aMessages: Message[]): Table;
 export declare function getMessagesCustomData(oTable: Table): Message[];

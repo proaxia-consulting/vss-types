@@ -1,6 +1,3 @@
-export declare const SemanticObject: {
-    readonly VGMSearch: "dbme_vgm_list";
-};
 declare const Constants: {
     Itmnr: {
         Initial: string;

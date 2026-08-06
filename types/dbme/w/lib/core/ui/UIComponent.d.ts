@@ -1,10 +1,10 @@
-import UIComponentBase from "dbme/w/lib/core/ui/UIComponentBase";
-import type { HierarchyAssignmentEntity } from "dbme/w/lib/core/types/IEntity";
-import type { $UISettingsKey, IDBMEComponent } from "dbme/w/lib/core/types/IComponent";
+import type Service from "sap/ui/core/service/Service";
 import { type GlobalSettingsService } from "dbme/w/lib/core/service/GlobalSettingsServiceFactory";
 import { type SharedTranslationsService } from "dbme/w/lib/core/service/SharedTranslationsServiceFactory";
+import type { $UISettingsKey, IDBMEComponent } from "dbme/w/lib/core/types/IComponent";
+import type { HierarchyAssignmentEntity } from "dbme/w/lib/core/types/IEntity";
 import type { DBMEComponentType } from "dbme/w/lib/core/ui/Enums";
-import type Service from "sap/ui/core/service/Service";
+import UIComponentBase from "dbme/w/lib/core/ui/UIComponentBase";
 /**
  * @deprecated Use dbme.w.lib.core.service.Enums.ServiceName instead!
  */

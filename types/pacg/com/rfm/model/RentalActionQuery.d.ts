@@ -1,5 +1,5 @@
-import ODataModel from "sap/ui/model/odata/v4/ODataModel";
-import { TEquipmentEntity, TActionEntity } from "pacg/com/rfm/types/Entity";
+import type ODataModel from "sap/ui/model/odata/v4/ODataModel";
+import type { TActionEntity, TEquipmentEntity } from "pacg/com/rfm/types/Entity";
 export declare function actionName(actionData: TActionEntity, withDots?: boolean): string;
 /**
  * @nonui5

@@ -5,7 +5,7 @@ export type EquipmentStructureSettings = {
     hierarchyRoot: string;
 };
 export type $IEquipmentAwareComponentSettings = $UIComponentSettings & EquipmentStructureSettings;
-export interface IEquipmentAwareComponent extends AppComponent {
+export type IEquipmentAwareComponent = {
     getEquipmentId(): string;
     setEquipmentId(value: string): void;
-}
+} & AppComponent;

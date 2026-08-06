@@ -1,9 +1,9 @@
-import Control from "sap/ui/core/Control";
-import CalendarAppointment from "sap/ui/unified/CalendarAppointment";
-import type { ICalendarController } from "dbme/w/lib/core/types/IController";
-import Dialog from "sap/m/Dialog";
 import { type Button$PressEvent } from "sap/m/Button";
+import type Dialog from "sap/m/Dialog";
+import type Control from "sap/ui/core/Control";
+import CalendarAppointment from "sap/ui/unified/CalendarAppointment";
 import type MenuItem from "sap/ui/unified/MenuItem";
+import type { ICalendarController } from "dbme/w/lib/core/types/IController";
 type TFormSourceData = {
     DESCR1?: string;
     CHARDT_FROM?: string;

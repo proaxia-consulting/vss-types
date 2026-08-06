@@ -1,5 +1,5 @@
-import ODataModel from "sap/ui/model/odata/v4/ODataModel";
-import { TActionDefaultsEntity } from "pacg/com/rfm/types/Entity";
+import type ODataModel from "sap/ui/model/odata/v4/ODataModel";
+import type { TActionDefaultsEntity } from "pacg/com/rfm/types/Entity";
 export type TActionDefaultsQueryParams = {
     Action: string;
     Equipment: string;

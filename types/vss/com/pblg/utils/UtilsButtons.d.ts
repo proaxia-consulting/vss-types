@@ -1,8 +1,8 @@
 import Button from "sap/m/Button";
 import HBox from "sap/m/HBox";
-import Event from "sap/ui/base/Event";
-import { TableAllData, TableColumns } from "vss/com/pblg/library/Types";
 import { ButtonType } from "sap/m/library";
+import type Event from "sap/ui/base/Event";
+import type { TableAllData, TableColumns } from "vss/com/pblg/library/Types";
 export declare const _button_modes: {
     sMoreVSSOrders: string;
     sSubmit: string;
@@ -22,6 +22,5 @@ export declare function buttonSemanticTypeFormatter(sText: string): ButtonType |
 export declare function getAllRelevantButtons(sButtonId: string, fPressHandler: (oEvent: Event) => void): HBox;
 export declare function setButtonsMoreOrdersLogic(oRowData: TableAllData, bMultiplePO: boolean): TableColumns;
 export declare function setButtonsColumn(oData: TableAllData, sMode: string | undefined): TableAllData;
-export declare function removeAllMoreButtons(iIndexStart: int, iIndexEnd: int, aRowData: Array<TableColumns>): void;
-export declare function removeMoreButton(iIndex: int, aRowData: Array<TableColumns>): void;
-export declare function onButtonPress(this: any, oEvent: Event): void;
+export declare function removeAllMoreButtons(iIndexStart: int, iIndexEnd: int, aRowData: TableColumns[]): void;
+export declare function removeMoreButton(iIndex: int, aRowData: TableColumns[]): void;

@@ -1,3 +1,4 @@
+import type MessageType from "sap/ui/core/message/MessageType";
 export type AvailabilityBar = {
     posted: {
         value: int;
@@ -18,3 +19,9 @@ export type AvailabilityBar = {
 };
 export type AvailabilityBarStatus = "posted" | "open" | "purchase" | "stock";
 export type AvailabilityBarProperty = "value" | "color";
+export type ATPMapKey = {
+    orderNumber: string;
+    orderPosition: string;
+    type: MessageType;
+    text: string;
+};

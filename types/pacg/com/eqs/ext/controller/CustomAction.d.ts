@@ -1,8 +1,8 @@
-import ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
-import { Button$PressEvent } from "sap/m/Button";
-import FlexBox from "sap/m/FlexBox";
-import Control from "sap/ui/core/Control";
-import Context from "sap/ui/model/Context";
+import type ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
+import type { Button$PressEvent } from "sap/m/Button";
+import type FlexBox from "sap/m/FlexBox";
+import type Control from "sap/ui/core/Control";
+import type Context from "sap/ui/model/Context";
 export declare function onButton1Press(event: Button$PressEvent): void;
 export declare function onButton2Press(event: Button$PressEvent): void;
 export type $CustomActionsSettings = {

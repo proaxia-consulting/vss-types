@@ -1,18 +1,18 @@
 import type Control from "sap/ui/core/Control";
-import type { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
-import type { ITabsAware, IScreenSection } from "dbme/srs/com/tdo/types/ITabsAware";
 import type ODataListBinding from "sap/ui/model/odata/v2/ODataListBinding";
-export interface ITableSelectionChangeParams {
+import type { IDemandsAwareController } from "dbme/srs/com/tdo/types/IController";
+import type { IScreenSection, ITabsAware } from "dbme/srs/com/tdo/types/ITabsAware";
+export type ITableSelectionChangeParams = {
     controller: IDemandsAwareController;
     items: Control[];
     selected: boolean;
-}
-export interface ITableItemsLoadedParams {
+};
+export type ITableItemsLoadedParams = {
     controller?: ITabsAware;
     binding?: ODataListBinding;
     items: unknown[];
     section: IScreenSection;
-}
+};
 declare const ScreenSectionEventHandler: {
     /**
      * @since 2021.09.29

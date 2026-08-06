@@ -1,5 +1,5 @@
+import type { $TextSettings } from "sap/m/Text";
 import Text from "sap/m/Text";
-import { $TextSettings } from "sap/m/Text";
 export type $DraggableTextSettings = $TextSettings | {
     color: string;
 };

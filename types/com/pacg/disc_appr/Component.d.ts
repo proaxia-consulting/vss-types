@@ -1,6 +1,6 @@
 import UIComponent from "sap/ui/core/UIComponent";
+import type RemoteMethodCall from "com/pacg/disc_appr/model/RemoteMethodCall";
 import type { TSrvRequest, TSrvResponse } from "com/pacg/disc_appr/model/types";
-import RemoteMethodCall from "com/pacg/disc_appr/model/RemoteMethodCall";
 /**
  * @namespace com.pacg.disc_appr
  */

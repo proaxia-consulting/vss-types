@@ -1,6 +1,6 @@
-import EventProvider from "sap/ui/base/EventProvider";
 import type Dialog from "sap/m/Dialog";
 import type Event from "sap/ui/base/Event";
+import EventProvider from "sap/ui/base/EventProvider";
 /**
  * Event ID pattern: (before|after)(keyof InstanceManager with 1st capital letter),
  * for ex.: "afterAddDialogInstance", "beforeAddDialogInstance"

@@ -11,6 +11,7 @@ export declare const ServiceName: {
     readonly ManifestMiddleware: "ManifestMiddlewareService";
 };
 export declare const EntitySet: {
+    readonly self: "_it";
     readonly GlobalParameters: "GlobalParameters";
     readonly ContractShipToParty: "ContractShipToParty";
 };
@@ -24,6 +25,7 @@ export declare const RAPAction: {
     readonly ContractShipToPartyAddrMaintain: "com.sap.gateway.srvd.pacg.rso_cm.v0001.ShipToAddrMaintain";
     readonly ConsignmentOrderCreate: "com.sap.gateway.srvd.pacg.rso_cm.v0001.ConsignmentOrderCreate";
     readonly ConsignmentReturnCreate: "com.sap.gateway.srvd.pacg.rso_cm.v0001.ConsignmentReturnCreate";
+    readonly QuickRentalProcess: "com.sap.gateway.srvd.pacg.rso_cm.v0001.QuickRentalProcess";
 };
 export declare const ControlId: {
     /**

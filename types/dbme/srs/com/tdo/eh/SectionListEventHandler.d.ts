@@ -5,7 +5,6 @@ declare const SectionListEventHandler: {
      * Hide tab if no list items been found.
      * Relevant only for the following tabs:
      * - Parameters
-     * - Agrrements
      */
     onUpdateFinished(this: ITabsAware, event: ListBase$UpdateFinishedEvent, tabKey: string): void;
 };

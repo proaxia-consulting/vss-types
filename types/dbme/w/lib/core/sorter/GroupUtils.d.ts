@@ -1,4 +1,4 @@
-import Context from "sap/ui/model/Context";
+import type Context from "sap/ui/model/Context";
 declare const GroupUtils: {
     escapeGroup(oContext: Context): string;
 };

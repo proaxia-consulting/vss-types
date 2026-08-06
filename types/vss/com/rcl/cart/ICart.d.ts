@@ -1,9 +1,9 @@
 import type Button from "sap/m/Button";
-import type { TCartItem, ICartModel, TCartHeader } from "vss/com/rcl/cart/ICartModel";
+import type { ICartModel, TCartHeader, TCartItem } from "vss/com/rcl/cart/ICartModel";
 /**
  * @namespace vss.com.rcl.cart
  */
-export default interface ICart {
+type ICart = {
     getHeader?: () => TCartHeader;
     getItems(): TCartItem[];
     isEmpty(): boolean;
@@ -17,4 +17,5 @@ export default interface ICart {
     exclude(key: string): void;
     isExcluded(key: string): boolean;
     destroy(): void;
-}
+};
+export default ICart;

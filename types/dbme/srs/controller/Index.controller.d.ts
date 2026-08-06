@@ -1,10 +1,10 @@
-import Base from "dbme/w/lib/core/controller/Base";
-import type Event from "sap/ui/base/Event";
+import BaseController from "dbme/w/lib/core/controller/Base";
+import type { Button$PressEvent } from "sap/m/Button";
 /**
  * @name dbme.srs.controller.Index
  * @controller
  */
-export default class Index extends Base {
+export default class Index extends BaseController {
     ODataToJSON(): void;
-    onPress(oEvent: Event): void;
+    onPress(oEvent: Button$PressEvent): void;
 }

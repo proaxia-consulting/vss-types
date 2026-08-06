@@ -1,9 +1,9 @@
-import JSONModel from "sap/ui/model/json/JSONModel";
-import type { IEquipmentHierarchyQuery, THierarchyItem } from "vss/com/rcl/model/EquipmentHierarchyQuery";
 import type Tree from "sap/m/Tree";
+import JSONModel from "sap/ui/model/json/JSONModel";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
+import type { IEquipmentHierarchyQuery, THierarchyItem } from "vss/com/rcl/model/EquipmentHierarchyQuery";
 import AbstractObjectPageExtension from "vss/com/rcl/templates/ObjectPage/AbstractObjectPageExtension";
 import type { TRootObjectKey } from "vss/com/rcl/types/EntitySet";
-import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 /**
  * @nonui5
  * @namespace vss.com.rcl.templates.ObjectPage

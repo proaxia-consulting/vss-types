@@ -1,6 +1,6 @@
 export declare class MonTableFormatter {
-    allocation(value: string): string;
-    remainingCapacity(value: string): string;
-    noAllocation(value: string): string;
+    allocation(this: void, value: string): string;
+    remainingCapacity(this: void, value: string): string;
+    noAllocation(this: void, value: string): string;
     private static formatValue;
 }

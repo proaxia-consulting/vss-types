@@ -1,5 +1,5 @@
 import type JSONModel from "sap/ui/model/json/JSONModel";
-import type { IAttachmentConfig, IAttachmentUserData, IAttachmentConfigMediaType } from "dbme/c/att/types";
+import type { IAttachmentConfig, IAttachmentConfigMediaType, IAttachmentUserData } from "dbme/c/att/types";
 export declare enum MediaType {
     video = "V",
     audio = "A"

@@ -1,9 +1,9 @@
-import AbstractObjectPageExtension from "vss/com/rcl/templates/ObjectPage/AbstractObjectPageExtension";
-import { RootEntity } from "pacg/com/dlv/model/Entity";
+import DeliveryRequiredPropertiesQuery from "vss/com/rcl/model/DeliveryRequiredPropertiesQuery";
 /**
+ * @deprecated use vss.com.rcl.model.DeliveryRequiredPropertiesQuery
+ *
  * @nonui5
- * @namespace pacg.com.dlv
+ * @namespace pacg.com.dlv.model
  */
-export default class RequiredPropertiesQuery extends AbstractObjectPageExtension<RootEntity> {
-    protected run(): void;
+export default class RequiredPropertiesQuery extends DeliveryRequiredPropertiesQuery {
 }

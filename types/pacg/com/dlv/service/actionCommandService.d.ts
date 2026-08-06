@@ -1,9 +1,7 @@
-import { ActionName } from "pacg/com/dlv/model/Enums";
-type TCallParamsOut = void;
+import DeliveryActionCommandAPI from "vss/com/rcl/model/DeliveryActionCommandAPI";
 /**
+ * @deprecated use vss.com.rcl.model.DeliveryActionCommandAPI
  * @nonui5
  */
-export default class actionCommandService {
-    actionExecute(actionName: ActionName, data: string): Promise<TCallParamsOut>;
+export default class actionCommandService extends DeliveryActionCommandAPI {
 }
-export {};

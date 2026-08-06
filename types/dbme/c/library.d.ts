@@ -2,9 +2,7 @@
  * @deprecated @since 1.7.0 Use dbme.c.Enums.libraryNamespace.common instead!
  */
 export declare const libraryNamespace: "dbme.c";
-declare const thisLib: {
-    [key: string]: unknown;
-};
+declare const thisLib: Record<string, unknown>;
 /**
  * @deprecated @since 1.7.0 Use the constants from the dbme.c.control.Enums instead!
  */

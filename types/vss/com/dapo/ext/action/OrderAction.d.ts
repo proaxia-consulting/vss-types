@@ -1,5 +1,5 @@
-import ExtensionAPI from "sap/fe/core/ExtensionAPI";
-import Context from "sap/ui/model/odata/v4/Context";
+import type ExtensionAPI from "sap/fe/core/ExtensionAPI";
+import type Context from "sap/ui/model/odata/v4/Context";
 /**
  * Generated event handler.
  *

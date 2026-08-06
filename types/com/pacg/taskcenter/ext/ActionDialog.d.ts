@@ -1,8 +1,8 @@
 import type { Button$PressEvent } from "sap/m/Button";
-import Event from "sap/ui/base/Event";
+import type Event from "sap/ui/base/Event";
 import ManagedObject from "sap/ui/base/ManagedObject";
-import View from "sap/ui/core/mvc/View";
-import Context from "sap/ui/model/odata/v4/Context";
+import type View from "sap/ui/core/mvc/View";
+import type Context from "sap/ui/model/odata/v4/Context";
 export type TActionDialogOptions = {
     ActionName: string;
     AcceptsComment?: boolean;

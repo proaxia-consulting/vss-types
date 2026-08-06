@@ -1,6 +1,6 @@
 export declare function isUrl(sUrl: string): boolean;
-export declare function getUrlParams(sUrl?: string): Record<string, string>;
-export declare function baseUrl(sUrl?: string): string;
+export declare function getUrlParams(url?: string, arrayToStringSeparator?: string): Record<string, string | string[]>;
+export declare function baseUrl(url?: string): string;
 /**
  * @namespace dbme.c
  */

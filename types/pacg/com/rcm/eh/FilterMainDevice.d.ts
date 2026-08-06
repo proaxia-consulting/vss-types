@@ -1,5 +1,5 @@
-import type Event from "sap/ui/base/Event";
 import { type MultiComboBox$SelectionFinishEvent } from "sap/m/MultiComboBox";
+import type Event from "sap/ui/base/Event";
 import type { IListReportController } from "vss/com/fe/ListReport";
 declare const FilterMainDevice: {
     onSelectionChange(this: IListReportController, event: Event): void;

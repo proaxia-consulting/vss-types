@@ -1,5 +1,5 @@
-import AppComponent from "vss/com/rcl/component/AppComponentAbstract";
 import InstanceManagerOverride from "dbme/c/util/InstanceManagerOverride";
+import AppComponent from "vss/com/rcl/component/AppComponentAbstract";
 /**
  * @namespace pacg.com.rfm
  */
@@ -8,7 +8,7 @@ export default class Component extends AppComponent {
         manifest: string;
     };
     private _instanceManager;
-    constructor(settings?: object);
+    constructor(...args: unknown[]);
     init(): void;
     getInstanceManager(): InstanceManagerOverride;
     exit(): void;

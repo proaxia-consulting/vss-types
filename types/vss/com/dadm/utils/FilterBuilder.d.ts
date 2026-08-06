@@ -1,4 +1,4 @@
-import FilterBar from "sap/fe/macros/filterBar/FilterBarAPI";
+import type FilterBar from "sap/fe/macros/filterBar/FilterBarAPI";
 import Filter from "sap/ui/model/Filter";
 export declare class FilterBuilder {
     private hierarchyId;
@@ -6,12 +6,12 @@ export declare class FilterBuilder {
     private selectedTimeFrom;
     private selectedTimeTo;
     private openCompleted;
-    private onlyAllocated;
+    private allocated;
     private onlyApproved;
     private filterBar;
     private columnFields;
     private rowFields;
-    constructor(hierarchyId: string, selectedDate: string, selectedTimeFrom: string, selectedTimeTo: string, openCompleted: boolean, onlyAllocated: boolean, onlyApproved: boolean, filterBar: FilterBar);
+    constructor(hierarchyId: string, selectedDate: string, selectedTimeFrom: string, selectedTimeTo: string, openCompleted: boolean, allocated: string, onlyApproved: boolean, filterBar: FilterBar);
     getColumnFilters(): Filter[];
     getRowFilters(): Filter[];
     columnFiltersChanged(filter: Filter[]): boolean;

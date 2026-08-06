@@ -1,6 +1,7 @@
-import Order from "vss/com/dama/controller/Order.controller";
-import { BorType, CounterType, ItemType } from "vss/com/dama/model/Enums";
-import { TCheckList, TCheckListRootOut, TMechOrderOut, TOrderEntity } from "vss/com/dama/types/Entity";
+import type Order from "vss/com/dama/controller/Order.controller";
+import type { CounterType, ItemPartIssueAction, ItemType } from "vss/com/dama/model/Enums";
+import { BorType } from "vss/com/dama/model/Enums";
+import type { TCheckList, TCheckListRootOut, TMechOrderOut, TOrderEntity } from "vss/com/dama/types/Entity";
 export type TPerson = {
     Person: string;
     Selected?: boolean;
@@ -36,6 +37,9 @@ export type TItemIn = {
     QuantityUom?: string;
     Delete?: boolean;
     CatalogId?: string;
+    IssuedQuantity?: number;
+    PartIssueStatus?: string;
+    IsPartIssued?: boolean;
 };
 export type TRecallIn = {
     RecallNo: string;
@@ -153,5 +157,6 @@ export default class actionCommandService {
     getVhcList(): Promise<TCheckListRootOut>;
     updateVhcList(checkLists: TCheckList[]): Promise<TCheckListRootOut>;
     getAttachmentCount(borKey: string, borType?: BorType): Promise<TAttachmentCountOut>;
+    updatePartsIssueAcceptance(items: TItemIn[], action: ItemPartIssueAction): Promise<TCallParamsOut>;
 }
 export {};

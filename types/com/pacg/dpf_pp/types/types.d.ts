@@ -74,5 +74,6 @@ export type TRouteArguments = {
     "?query"?: {
         tr_id?: string;
         tbpsp?: string;
+        "sap-client"?: string;
     };
 };

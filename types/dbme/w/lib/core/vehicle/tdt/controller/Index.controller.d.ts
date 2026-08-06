@@ -1,12 +1,12 @@
-import AbstractController from "dbme/w/lib/core/vehicle/tdt/controller/AbstractController";
 import type List from "sap/m/List";
+import type { ManagedObject$ModelContextChangeEvent } from "sap/ui/base/ManagedObject";
 import type SmartFilterBar from "sap/ui/comp/smartfilterbar/SmartFilterBar";
 import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
-import type { BreadCrumbLocalEntity } from "dbme/w/lib/core/vehicle/tdt/type/IEntity";
-import type { ManagedObject$ModelContextChangeEvent } from "sap/ui/base/ManagedObject";
 import type ODataListBinding from "sap/ui/model/odata/v2/ODataListBinding";
+import AbstractController from "dbme/w/lib/core/vehicle/tdt/controller/AbstractController";
+import type { BreadCrumbLocalEntity, ControlStateLocalEntity } from "dbme/w/lib/core/vehicle/tdt/type/IEntity";
 /**
- * @namespace dbme.w.lib.core.vehicle.tdt.controller
+ * @namespace dbme.srs.com.tdt.controller
  * @controller
  */
 export default class Index extends AbstractController {
@@ -22,7 +22,10 @@ export default class Index extends AbstractController {
             }, ODataListBinding>): void;
             onUpdateFinished(this: Index, event: import("sap/m/ListBase").ListBase$UpdateFinishedEvent): void;
             onListItemPress(this: Index, event: import("sap/m/ListItemBase").ListItemBase$PressEvent): void;
-            onListItemInputSelect(this: Index, event: import("sap/ui/base/Event").default<Record<string, unknown>, import("sap/m/RadioButton").default | import("sap/m/CheckBox").default>): void;
+            onCheckboxSelect(this: Index, event: import("sap/m/CheckBox").CheckBox$SelectEvent): void;
+            onRadioButtonSelect(this: Index, event: import("sap/m/RadioButton").RadioButton$SelectEvent): void;
+            onListItemInputSelect(this: Index, event: import("sap/ui/base/Event").default<{}, import("sap/m/RadioButton").default | import("sap/m/CheckBox").default>, controlType: "CheckBox" | "RadioButton"): void;
+            onButtonSelect(this: Index, contextPath: string, buttonType: "CheckBox" | "RadioButton", value: boolean): void;
         };
         navigation: {
             onNavigteBack(this: Index, event: import("sap/m/Button").Button$PressEvent): void;
@@ -40,10 +43,13 @@ export default class Index extends AbstractController {
     onModelContextChange(event: ManagedObject$ModelContextChangeEvent): void;
     getBreadCrumbs(): BreadCrumbLocalEntity;
     setBreadCrumbs(bc: BreadCrumbLocalEntity): void;
+    getControlState(contextPath: string): ControlStateLocalEntity;
+    setControlState(contextPath: string, control: ControlStateLocalEntity): void;
     getFilter(): SmartFilterBar;
     getItemsList(): List;
     getItemsListBinding(): ODataListBinding | undefined;
     setItemsListBinding(binding: ODataListBinding): this;
+    private _setItemsLocalBinding;
     private _initLocalModel;
     private _updateBreadCrumbs;
 }

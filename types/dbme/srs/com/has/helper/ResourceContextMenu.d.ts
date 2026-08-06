@@ -1,13 +1,13 @@
-import type TreeController from "dbme/srs/com/has/controller/Tree.controller";
-import type Event from "sap/ui/base/Event";
 import type { ListBase$BeforeOpenContextMenuEvent } from "sap/m/ListBase";
+import type { MenuItemBase$SelectEvent } from "sap/ui/unified/MenuItemBase";
+import type TreeController from "dbme/srs/com/has/controller/Tree.controller";
 declare const ResourceContextMenu: {
-    onBeforeOpenContextMenu(this: TreeController, oEvent: ListBase$BeforeOpenContextMenuEvent): void;
-    onShowResourceAssignmentList(this: TreeController, oEvent: Event): void;
-    onEditResourceImage(this: TreeController, oEvent: Event): void;
-    onEditResourceShow(this: TreeController, oEvent: Event): void;
-    onEditTeamShow(this: TreeController, oEvent: Event): void;
-    onResourceRemove(this: TreeController, oEvent: Event): void;
+    onBeforeOpenContextMenu(this: TreeController, event: ListBase$BeforeOpenContextMenuEvent): void;
+    onShowResourceAssignmentList(this: TreeController, event: MenuItemBase$SelectEvent): void;
+    onEditResourceImage(this: TreeController, event: MenuItemBase$SelectEvent): void;
+    onEditResourceShow(this: TreeController, event: MenuItemBase$SelectEvent): void;
+    onEditTeamShow(this: TreeController, event: MenuItemBase$SelectEvent): void;
+    onResourceRemove(this: TreeController, event: MenuItemBase$SelectEvent): void;
 };
 /**
  * @namespace dbme.srs.com.has.helper

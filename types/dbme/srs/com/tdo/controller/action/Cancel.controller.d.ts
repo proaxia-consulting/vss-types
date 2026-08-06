@@ -1,7 +1,7 @@
-import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
-import JSONModel from "sap/ui/model/json/JSONModel";
-import type Event from "sap/ui/base/Event";
 import type { Button$PressEvent } from "sap/m/Button";
+import type Event from "sap/ui/base/Event";
+import JSONModel from "sap/ui/model/json/JSONModel";
+import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
 /**
  * @namespace dbme.srs.com.tdo.controller.action
  */

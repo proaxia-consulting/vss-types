@@ -1,11 +1,12 @@
-import { TUserOrgData } from "com/pacg/taskcenter/types/EntitySet";
-import { IListReportExtensionAPI } from "vss/com/fe/ListReport";
+import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
+import type { TUserOrgData } from "com/pacg/taskcenter/types/EntitySet";
 /**
  * @namespace com.pacg.taskcenter.ext
  */
 export default class UserOrgDataDialog {
     static open(extApi: IListReportExtensionAPI): Promise<TUserOrgData>;
     static getUserOrgData(): Promise<TUserOrgData>;
+    static exit(): void;
     private static _formatOrgData;
     private static _createDialog;
     private static _dialogP;

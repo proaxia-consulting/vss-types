@@ -1,8 +1,8 @@
-import Context from "sap/ui/model/odata/v4/Context";
-import { IMonTableCols } from "vss/com/dadm/types/IEntity";
-import { DragSession } from "sap/ui/core/dnd/DragAndDrop";
-import DraggableText from "vss/com/dadm/control/DraggableText";
-import { AllocationOut } from "vss/com/dadm/types/service";
+import type { DragSession } from "sap/ui/core/dnd/DragAndDrop";
+import type Context from "sap/ui/model/odata/v4/Context";
+import type DraggableText from "vss/com/dadm/control/DraggableText";
+import type { IMonTableCols } from "vss/com/dadm/types/IEntity";
+import type { AllocationOut } from "vss/com/dadm/types/service";
 export declare class DragAndDropHandler {
     private columns;
     private allocLogic;

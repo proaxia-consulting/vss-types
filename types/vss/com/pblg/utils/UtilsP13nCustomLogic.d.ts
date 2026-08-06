@@ -1,15 +1,15 @@
-import { StateP13n } from "vss/com/pblg/library/Types";
-import Table from "sap/ui/table/Table";
-import { MetadataObject } from "sap/m/p13n/MetadataHelper";
-export declare function setColumnWidths(oColumnWidth: object): any;
-export declare function setColumnsOrder(oColumnWidth: any, oStateColumns: Array<any>): any;
+import type { MetadataObject } from "sap/m/p13n/MetadataHelper";
+import type Table from "sap/ui/table/Table";
+import type { StateP13n } from "vss/com/pblg/library/Types";
+export declare function setColumnWidths(oColumnWidth: object): Record<string, string>;
+export declare function setColumnsOrder(oColumnWidth: Record<string, string | MetadataObject[]>, oStateColumns: MetadataObject[]): Record<string, string | MetadataObject[]>;
 export declare function setSorter(aSorter: StateP13n["Sorter"], sSortOrder: string, sAffectedProperty: string): MetadataObject & {
     key?: string;
     sorted?: boolean;
     descending?: boolean;
 }[];
 export declare function setNewColumnPosition(aStateColumns: StateP13n["Columns"], sKey: string, iNewPos: int): MetadataObject[];
-export declare function setColumnWidth(oColumnWidth: StateP13n["ColumnWidth"], sKey: string, sWidth: string): Record<string, string>;
+export declare function setColumnWidth(oColumnWidth: StateP13n["ColumnWidth"], sKey: string, sWidth: string): Record<string, string | MetadataObject[]>;
 export declare function setDefaultColumnsOrderArray(aArray: (MetadataObject & {
     position?: int;
 })[]): {

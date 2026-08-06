@@ -1,7 +1,7 @@
 import Controller from "sap/ui/core/mvc/Controller";
-import AppComponent from "com/pacg/disc_appr/Component";
-import Model from "sap/ui/model/Model";
-import Router from "sap/ui/core/routing/Router";
+import type Router from "sap/ui/core/routing/Router";
+import type Model from "sap/ui/model/Model";
+import type AppComponent from "com/pacg/disc_appr/Component";
 /**
  * @namespace com.pacg.disc_appr.controller
  */

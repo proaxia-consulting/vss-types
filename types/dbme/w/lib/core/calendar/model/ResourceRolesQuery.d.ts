@@ -1,5 +1,5 @@
-import type { ICalendarController } from "dbme/w/lib/core/types/IController";
 import type { IPlanningCalendar } from "dbme/w/lib/core/types/ICalendar";
+import type { ICalendarController } from "dbme/w/lib/core/types/IController";
 import type { IntervalEntity, ResourceRoleEntity } from "dbme/w/lib/core/types/IEntity";
 /**
  * @namespace dbme.w.lib.core.calendar.model

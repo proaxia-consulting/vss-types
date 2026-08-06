@@ -1,10 +1,10 @@
+import type AppComponent from "sap/fe/core/AppComponent";
+import type PageController from "sap/fe/core/PageController";
+import type Event from "sap/ui/base/Event";
 import type IAppComponent from "vss/com/fe/IAppComponent";
 import type { IRoutingService } from "vss/com/fe/IAppComponent";
 import type IAppContainer from "vss/com/fe/IAppContainer";
 import AppComponentAbstract from "vss/com/rcl/component/AppComponentAbstract";
-import type Event from "sap/ui/base/Event";
-import type AppComponent from "sap/fe/core/AppComponent";
-import type PageController from "sap/fe/core/PageController";
 export type AppComponent$ControllerRegisteredParams = {
     key: string;
     controller: PageController;

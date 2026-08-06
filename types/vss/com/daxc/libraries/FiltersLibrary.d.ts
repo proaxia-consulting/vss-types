@@ -1,14 +1,15 @@
-import { TUserDefaultParameter } from "vss/com/daxc/types/CustomData";
-import Filter from "sap/ui/model/Filter";
-import { TSelectOption } from "vss/com/daxc/types/CustomData";
-export declare const SupportedValues: {
+import type Filter from "sap/ui/model/Filter";
+export declare const SupportedTaskCenterValues: {
     Plant: string;
     SalesOrganization: string;
-    Division: string;
     CompanyCode: string;
+    CompanyDataAuthRequired: string;
 };
-export declare function getFLPDefaultValues(): Promise<Array<TUserDefaultParameter>>;
-export declare function constructFiltersFromGlobalFilters(aObjectFilters: object[]): Filter[];
-export declare function constructFiltersFromFLPDefaultValues(aDefs: Array<TUserDefaultParameter>): Filter[];
-export declare function getFilterFromSelectOption(sPath: string, oSelectOption: TSelectOption): Filter;
-export declare function getGlobalFilters(aGlobalFiltersData: Array<any>): Filter[];
+export declare const SupportedValues: {
+    Division: string;
+    Plant: string;
+    SalesOrganization: string;
+    CompanyCode: string;
+    CompanyDataAuthRequired: string;
+};
+export declare function getValidFilters(aFilters: Filter[], aSupportedValues: string[]): Filter[];

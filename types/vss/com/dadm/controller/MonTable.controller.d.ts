@@ -1,7 +1,7 @@
-import BaseController from "vss/com/dadm/controller/BaseController.controller";
-import { Table$BeforeOpenContextMenuEvent } from "sap/ui/table/Table";
 import type Event from "sap/ui/base/Event";
-import type { IMonTableCols, IDemand } from "vss/com/dadm/types/IEntity";
+import type { Table$BeforeOpenContextMenuEvent } from "sap/ui/table/Table";
+import BaseController from "vss/com/dadm/controller/BaseController.controller";
+import type { IDemand, IMonTableCols } from "vss/com/dadm/types/IEntity";
 /**
  * @controller
  * @namespace vss.com.dadm.controller

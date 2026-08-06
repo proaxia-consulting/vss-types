@@ -1,4 +1,4 @@
-export { EntityAnnotation, FieldControlType as AnnotationFieldControlType, type FieldControlTypeType as AnnotationFieldControlTypeType } from "dbme/c/odata/v2/entityType";
+export { type FieldControlTypeType as AnnotationFieldControlTypeType, EntityAnnotation, FieldControlType as AnnotationFieldControlType } from "dbme/c/odata/v2/entityType";
 export declare const ModelName: {
     readonly Avatar: "avatar";
     readonly Calendar: "cal";
@@ -48,9 +48,12 @@ export declare const EntitySet: {
     readonly MileageUom: "CMNMileageUomSet";
     readonly MimeTypes: "CMNMimeTypeSet";
     readonly ModelCode: "CMNModelSet";
+    readonly OrderReason: "CMNOrderReasonSet";
     readonly OrderType: "CMNOrderTypeSet";
     readonly PlanningMode: "WPLPlanningModeSet";
     readonly PlannerSortVariant: "WPLSortVariantSet";
+    readonly PrefCallTime: "TDOPrefCallTimeSet";
+    readonly PrefCommMethod: "TDOPrefCommMethodSet";
     readonly Region: "CMNCountryRegionSet";
     readonly Resource: "CMNResourceSet";
     readonly ResourceAssignment: "HASAssignmentSet";
@@ -65,6 +68,9 @@ export declare const EntitySet: {
     readonly TreeNodeCreate: "HASTreeNodeCreateSet";
     readonly TodoAllocationProposal: "TDOAllocationProposalSet";
     readonly TodoBusinessOrderUserStatus: "TDOBusinessOrderUserStatusSet";
+    readonly TodoCommConsent: "TDOCommConsentSet";
+    readonly TodoCommConsentChannel: "TDOCommConsentChannelSet";
+    readonly TodoCommMethod: "TDOCommMethodSet";
     readonly TodoDecTreeItem: "TDODecisionTreeItemSet";
     readonly TodoLocation: "TDOLocationSet";
     readonly TodoLocationGroup: "TDOLocationGroupSet";
@@ -74,6 +80,7 @@ export declare const EntitySet: {
     readonly TodoOrderAction: "TDOActionSet";
     readonly TodoOrderAgreement: "TDOOrderAgreementSet";
     readonly TodoOrderAttachment: "TDOOrderAttachmentSet";
+    /** @deprecated Replaced with @see `EntitySet.TodoCommConsent`, @see `EntitySet.TodoCommConsentChannel`  */
     readonly TodoOrderCommChannel: "TDOCommChannel";
     readonly TodoOrderDemand: "TDODemandSet";
     readonly TodoOrderFields: "TDOScreenFieldSet";
@@ -81,6 +88,7 @@ export declare const EntitySet: {
     readonly TodoOrderNote: "TDOOrderNoteSet";
     readonly TodoOrderParameter: "TDOOrderParameterSet";
     readonly TodoOrderParameterDemand: "TDOOrderParameterDemandSet";
+    readonly TodoOrderReason: "TDOOrderReasonSet";
     readonly TodoVehiCust: "TDOVehicleCustomerSet";
     readonly TodoVehiCustSH: "TDOVehicleCustomerMDSet";
     readonly TodoResource: "TDOResourceSet";
@@ -130,3 +138,9 @@ export declare const UnitOfMeasure: {
     readonly Mile: "mile";
     readonly Km: "km";
 };
+export declare const DemandCallbacksObjectName = "demandCallbacks";
+export declare const DemandCallback: {
+    readonly remove: "onRemove";
+    readonly getSelected: "getSelected";
+};
+export type DemandCallbackType = (typeof DemandCallback)[keyof typeof DemandCallback];

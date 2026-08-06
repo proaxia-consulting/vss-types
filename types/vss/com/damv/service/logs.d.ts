@@ -1,5 +1,5 @@
-import MessageType from "sap/ui/core/message/MessageType";
-import { TOrderItem } from "vss/com/damv/service/massAssignVehiclesService";
+import type MessageType from "sap/ui/core/message/MessageType";
+import type { TOrderItem } from "vss/com/damv/service/massAssignVehiclesService";
 export type TSingleMessage = {
     field: string;
     id: string;

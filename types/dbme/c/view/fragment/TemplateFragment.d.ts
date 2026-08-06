@@ -1,5 +1,5 @@
+import type Control from "sap/ui/core/Control";
 import { type $XMLPreprocessorProcessSettings } from "sap/ui/core/util/XMLPreprocessor";
-import Control from "sap/ui/core/Control";
 declare const TemplateFragment: {
     load(fragmentName: string, settings: $XMLPreprocessorProcessSettings, extension?: string): Promise<Control | Control[]>;
 };

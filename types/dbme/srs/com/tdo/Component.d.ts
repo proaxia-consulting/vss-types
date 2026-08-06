@@ -1,9 +1,9 @@
 import UIComponent from "dbme/w/lib/core/ui/UIComponent";
-import type Route from "sap/ui/core/routing/Route";
-import { ComponentEvent } from "dbme/srs/com/tdo/model/Enums";
 import type Controller from "sap/ui/core/mvc/Controller";
+import type Route from "sap/ui/core/routing/Route";
 import type { Router$RouteMatchedEvent } from "sap/ui/core/routing/Router";
 import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import { ComponentEvent } from "dbme/srs/com/tdo/model/Enums";
 /**
  * @namespace dbme.srs.com.tdo
  */

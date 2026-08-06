@@ -1,4 +1,4 @@
-import { TActionCode } from "com/pacg/disc_appr/model/types";
+import type { TActionCode } from "com/pacg/disc_appr/model/types";
 declare const _default: {
     formatMessageIcon: (value: TActionCode) => string;
     formatMessageType: (value: TActionCode) => string;

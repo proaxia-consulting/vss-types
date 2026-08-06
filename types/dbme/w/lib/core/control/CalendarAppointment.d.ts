@@ -1,4 +1,4 @@
-import Event from "sap/ui/base/Event";
+import type Event from "sap/ui/base/Event";
 import BaseControl from "sap/ui/unified/CalendarAppointment";
 /**
  * @namespace dbme.w.lib.core.control

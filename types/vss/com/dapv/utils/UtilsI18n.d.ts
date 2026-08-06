@@ -1,4 +1,4 @@
-import ResourceBundle from "sap/base/i18n/ResourceBundle";
+import type ResourceBundle from "sap/base/i18n/ResourceBundle";
 export declare const oResourceBundle: ResourceBundle;
 export declare const i18nID: {
     Plant: string;
@@ -90,5 +90,24 @@ export declare const i18nID: {
     ATPResultTooltip: string;
     procurementDoneTooltip: string;
     procurementToBeDoneTooltip: string;
+    safetyStock: string;
+    safetyStockL: string;
+    delivDate: string;
+    matnr: string;
+    profitCenter: string;
+    purchasingGroup: string;
+    countryOrigin: string;
+    regionOrigin: string;
+    requested: string;
+    confirmed: string;
+    qty: string;
+    confStatus: string;
+    confStatusTooltip: string;
+    confirmedLater: string;
+    notConfirmed: string;
+    notFullyConfirmed: string;
+    requestedShort: string;
+    confirmedShort: string;
+    simulateSwap: string;
 };
 export declare function __(sKey: string): string;

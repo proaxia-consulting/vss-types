@@ -1,8 +1,8 @@
-import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
-import JSONModel from "sap/ui/model/json/JSONModel";
+import type { Button$PressEvent } from "sap/m/Button";
 import type Event from "sap/ui/base/Event";
 import type SmartForm from "sap/ui/comp/smartform/SmartForm";
-import type { Button$PressEvent } from "sap/m/Button";
+import JSONModel from "sap/ui/model/json/JSONModel";
+import AbstractBase from "dbme/srs/com/tdo/controller/AbstractBase.controller";
 import type { IFormAware } from "dbme/srs/com/tdo/types/IController";
 /**
  * @namespace dbme.srs.com.tdo.controller.action

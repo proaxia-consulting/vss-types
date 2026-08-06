@@ -1,4 +1,4 @@
-import ResourceBundle from "sap/base/i18n/ResourceBundle";
+import type ResourceBundle from "sap/base/i18n/ResourceBundle";
 export declare const oResourceBundle: ResourceBundle;
 export declare const i18nID: {
     appTitle: string;
@@ -46,6 +46,9 @@ export declare const i18nID: {
     PriorityDescription: string;
     salesOrg: string;
     OrderType: string;
+    matnr: string;
+    profitCenter: string;
+    purchasingGroup: string;
 };
 export declare function __(sKey: string, aParameters?: any[]): string;
 export declare function isLocalhost(): boolean;

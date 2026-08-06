@@ -1,7 +1,5 @@
 export declare const libraryNamespace = "dbme.s.lib";
-declare const thisLib: {
-    [key: string]: unknown;
-};
+declare const thisLib: Record<string, unknown>;
 export declare const Header: {
     readonly CONTENT_ID: "vgm-content-id";
 };

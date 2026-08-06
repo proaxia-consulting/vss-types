@@ -4,7 +4,7 @@ import type Control from "sap/ui/core/Control";
 type TSmartTableFieldMetadata = TODataEntityProperty & {
     template: Control;
 };
-export interface ISmartTable extends SmartTable {
+export type ISmartTable = {
     _aTableViewMetadata: TSmartTableFieldMetadata[];
-}
+} & SmartTable;
 export {};

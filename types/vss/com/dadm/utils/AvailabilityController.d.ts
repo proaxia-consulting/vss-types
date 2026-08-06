@@ -1,5 +1,5 @@
-import ODataModel from "sap/ui/model/odata/v4/ODataModel";
-import Control from "sap/ui/core/Control";
+import type Control from "sap/ui/core/Control";
+import type ODataModel from "sap/ui/model/odata/v4/ODataModel";
 export declare class AvailabilityController {
     private contexts;
     private busyModel;

@@ -1,7 +1,7 @@
-import { type IModelAwareController } from "dbme/w/lib/core/types/IController";
-import DependentFragment from "dbme/w/lib/core/util/DependentFragment";
 import type Dialog from "sap/m/Dialog";
 import type Event from "sap/ui/base/Event";
+import { type IModelAwareController } from "dbme/w/lib/core/types/IController";
+import DependentFragment from "dbme/w/lib/core/util/DependentFragment";
 /**
  * @nonui5
  */

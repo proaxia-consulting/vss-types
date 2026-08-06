@@ -1,10 +1,11 @@
-import ODataModel from "sap/ui/model/odata/v4/ODataModel";
-import IAppContainer, { IAnyTable } from "vss/com/fe/IAppContainer";
-import { IListReportExtensionAPI } from "vss/com/fe/ListReport";
-import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
-import { TMainConfig } from "vss/com/dama/types/Entity";
-import ticActionsLR from "vss/com/dama/utils/ticActionsLR";
-import ticActionsOVP from "vss/com/dama/utils/ticActionsOVP";
+import type ODataModel from "sap/ui/model/odata/v4/ODataModel";
+import type { IAnyTable } from "vss/com/fe/IAppContainer";
+import type IAppContainer from "vss/com/fe/IAppContainer";
+import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
+import type { TMainConfig } from "vss/com/dama/types/Entity";
+import type ticActionsLR from "vss/com/dama/utils/ticActionsLR";
+import type ticActionsOVP from "vss/com/dama/utils/ticActionsOVP";
 /**
  * @namespace vss.com.dama.utils
  */

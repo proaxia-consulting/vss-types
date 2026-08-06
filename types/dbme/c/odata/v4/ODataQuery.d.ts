@@ -1,6 +1,6 @@
-import Filter from "sap/ui/model/Filter";
-import Context from "sap/ui/model/odata/v4/Context";
-import ODataModel from "sap/ui/model/odata/v4/ODataModel";
+import type Filter from "sap/ui/model/Filter";
+import type Context from "sap/ui/model/odata/v4/Context";
+import type ODataModel from "sap/ui/model/odata/v4/ODataModel";
 /**
  * @namespace dbme.c.odata.v4
  */

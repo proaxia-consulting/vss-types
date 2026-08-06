@@ -1,4 +1,4 @@
-import StandardListItem from "sap/m/StandardListItem";
+import type StandardListItem from "sap/m/StandardListItem";
 import { ValueState } from "sap/ui/core/library";
 /**
  * @namespace vss.com.dama.model

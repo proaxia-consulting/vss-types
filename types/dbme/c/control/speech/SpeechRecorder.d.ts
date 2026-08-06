@@ -1,9 +1,9 @@
-import { Button$PressEvent } from "sap/m/Button";
+import type { Button$PressEvent } from "sap/m/Button";
+import type Event from "sap/ui/base/Event";
+import { type PropertyBindingInfo } from "sap/ui/base/ManagedObject";
 import Control, { type $ControlSettings } from "sap/ui/core/Control";
 import { type MetadataOptions } from "sap/ui/core/Element";
 import { type ISpeechRecognitionController } from "dbme/c/speech/SpeechRecognitionManager";
-import type Event from "sap/ui/base/Event";
-import { type PropertyBindingInfo } from "sap/ui/base/ManagedObject";
 export type $SpeechRecorderSettings = $ControlSettings & {
     /**
      * Can be triggered by calling method `abortRecording`.
@@ -106,6 +106,7 @@ export default class SpeechRecorder extends Control implements ISpeechRecognitio
     private _finalTranscript;
     isRecording(): boolean;
     constructor(mSettings?: $SpeechRecorderSettings);
+    constructor(sId?: string, mSettings?: $SpeechRecorderSettings);
     init(): void;
     onBeforeRendering(oEvent: jQuery.Event): void | undefined;
     abortRecording(): void;

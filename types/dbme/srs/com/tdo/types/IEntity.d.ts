@@ -1,5 +1,6 @@
 import type { DemandEntity } from "dbme/w/lib/core/types/IEntity";
-import type { MeasuringPointEntity } from "dbme/srs/com/tdo/measuringPoint/model/IEntity";
+import type { MeasuringPointEntity } from "dbme/srs/com/tdo/ext/measuringPoint/model/IEntity";
+import type { CommConsentChannelEntity, CommunicationConsentEntity } from "dbme/srs/com/tdo/ext/preferredComm/model/IEntity";
 export type TUISettings = {
     C_X_ATT_MAX_SIZE: string;
 };
@@ -16,23 +17,29 @@ export type TRouteData = {
 };
 /** @deprecated Use Record<string, unknown> instead! */
 export type TObject = Record<string, unknown>;
-export interface IEntity {
+export type IEntity = {
     __metadata?: {
         uri?: string;
         created?: {
             groupId?: string;
         };
     };
-}
-export interface IEntityNavigation {
+};
+export type IEntityNavigation = {
     results: IEntity[];
-}
-export interface IOrderTypeEntity {
+};
+export type IOrderTypeEntity = {
     ORDER_TYPE: string;
-}
-export interface IOrderEntity {
+};
+export type IOrderReasonEntity = {
+    ORDER_REASON: string;
+    ORDER_REASON_DESC?: string;
+    ORDER_REASON_DEFAULT?: boolean;
+};
+export type IOrderEntity = {
     WPO_DOCNR: string;
     ORDER_TYPE: string;
+    ORDER_REASON?: string;
     WLOHID: string;
     MAKE_CODE: string;
     MODEL_CODE: string;
@@ -50,6 +57,9 @@ export interface IOrderEntity {
     REQ_MAX_DUR_UOM?: string;
     CANCEL_REASON?: string;
     CANCEL_REASON_DESC?: string;
+    COMM_CHANNEL: string;
+    CALLING_TIME_ID: string;
+    BP_UPD?: string;
     CommChannelNav?: IEntity[];
     DemandsNav?: DemandEntity[];
     HistoryNav?: IEntity[];
@@ -58,19 +68,21 @@ export interface IOrderEntity {
     NoteNav?: IEntity[];
     AttachmentNav?: TOrderAttachment[];
     MeasuringPointNav?: MeasuringPointEntity[];
-}
+    CommunicationConsentNav?: CommunicationConsentEntity[];
+    CommConsentChannelNav?: CommConsentChannelEntity[];
+};
 export type TOrderAttachment = IEntity & {
     FILENAME: string;
     ATT_URL?: string;
 };
-export interface ITimeSlotEntity {
+export type ITimeSlotEntity = {
     WPO_DOCNR: string;
     TMSLTNO: string;
     START_TIME: string;
     END_TIME: string;
     APARAM_ID: string;
-}
-export interface IOrderParameterEntity {
+};
+export type IOrderParameterEntity = {
     APARAM_ID: string;
     APARAM_DESC: string;
     STATE: boolean;
@@ -80,8 +92,8 @@ export interface IOrderParameterEntity {
     PLANRL: boolean;
     TimeSlotsNav?: ITimeSlotEntity[];
     DemandsNav?: DemandEntity[];
-}
-export interface IAllocationProposalData extends IEntity {
+};
+export type IAllocationProposalData = {
     ParametersNav?: IOrderParameterEntity[];
     DemandsNav?: DemandEntity[];
     IntervalsNav?: IEntityNavigation;
@@ -96,13 +108,13 @@ export interface IAllocationProposalData extends IEntity {
     VISIT_DURATION?: number;
     DATA?: string;
     WPO_DOCNR?: string;
-}
-export interface ILocationEntity {
+} & IEntity;
+export type ILocationEntity = {
     HIERARCHY_ID: string;
     SELECTED: boolean;
     APLAN_MODE: string;
     UI_TITLE: string;
-}
+};
 export type TActionEntity = {
     FUNCTION: string;
     PARAMSTR: string;
@@ -149,6 +161,7 @@ export type TVehicleCustomerEntity = {
     MILEAGE?: number;
     MILEAGE_UOM?: string;
     REG_DATE_D?: Date;
+    ORDER_REASON?: string;
     ORDER_TYPE?: string;
     MAKE_CODE?: string;
     MODEL_CODE?: string;

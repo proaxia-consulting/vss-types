@@ -6,4 +6,6 @@ export default class Logger {
     static error(message: string, exception?: Error): void;
     static info(message: string, details?: string): void;
     static warning(message: string, exception?: Error): void;
+    private static getErrorString;
+    private static sanitize;
 }

@@ -1,5 +1,5 @@
-import type { ICalendarController } from "dbme/w/lib/core/types/IController";
 import type { Button$PressEvent } from "sap/m/Button";
+import type { ICalendarController } from "dbme/w/lib/core/types/IController";
 declare const CalClipboard: {
     onBtnAppointmentCopy(this: ICalendarController, oEvent: Button$PressEvent): void;
     onBtnAppointmentCut(this: ICalendarController, oEvent: Button$PressEvent): void;

@@ -1,14 +1,14 @@
-import type { IParentController } from "dbme/c/att/types";
 import type Dialog from "sap/m/Dialog";
 import UI5Element from "sap/ui/core/Element";
-export interface IAttachmentOpenAttachmentPopupParams {
+import type { IParentController } from "dbme/c/att/types";
+export type IAttachmentOpenAttachmentPopupParams = {
     parentController?: IParentController;
     objectType: string;
     objectKey: string;
     changeable?: boolean;
     onSave?: () => void;
     onCancel?: () => void;
-}
+};
 /**
  * @namespace dbme.c.att
  * @global

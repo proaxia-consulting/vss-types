@@ -12,3 +12,9 @@ export declare const LocalStorageID: {
 export declare const ControlId: {
     mediaContainers: string;
 };
+export declare const ModelName: {
+    readonly attachments: "att";
+    readonly i18n: "i18n";
+    readonly log: "DBMELog";
+    readonly ui: "ui";
+};

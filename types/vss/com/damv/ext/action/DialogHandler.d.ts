@@ -1,9 +1,10 @@
-import ODataContextBinding from "sap/ui/model/odata/v4/ODataContextBinding";
-import Context from "sap/ui/model/odata/v4/Context";
-import ExtensionAPI from "sap/fe/core/ExtensionAPI";
-import { ListItemBase$PressEvent } from "sap/m/ListItemBase";
-import { TAssignVehicleOut } from "vss/com/damv/service/actionService";
+import type ExtensionAPI from "sap/fe/core/ExtensionAPI";
+import type { ListItemBase$PressEvent } from "sap/m/ListItemBase";
+import type Context from "sap/ui/model/odata/v4/Context";
+import type ODataContextBinding from "sap/ui/model/odata/v4/ODataContextBinding";
+import type { TAssignVehicleOut } from "vss/com/damv/service/actionService";
 /**
+ * @nonui5
  * @namespace vss.com.damv.ext.action
  */
 export default class DialogHandler {

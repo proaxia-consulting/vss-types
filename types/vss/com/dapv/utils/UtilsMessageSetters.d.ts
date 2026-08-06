@@ -1,5 +1,5 @@
-import MessageItem from "sap/m/MessageItem";
-import Message from "sap/ui/core/message/Message";
+import type MessageItem from "sap/m/MessageItem";
+import type Message from "sap/ui/core/message/Message";
 export declare function setWritten(x: boolean): void;
 export declare function getWritten(): boolean;
 export declare function setGeneralMessages(x: Message[]): void;

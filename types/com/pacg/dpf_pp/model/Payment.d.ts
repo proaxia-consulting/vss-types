@@ -1,11 +1,12 @@
-import { TPaymentTransactionInfo, TPaymentParameter, TPaymentTransactionStatus } from "com/pacg/dpf_pp/types/types";
+import type { TPaymentParameter, TPaymentTransactionInfo, TPaymentTransactionStatus } from "com/pacg/dpf_pp/types/types";
 /**
  * @namespace com.pacg.dpf_pp.model
  */
 export default class Payment {
     private _transactionId;
     private _containerElementId;
-    constructor(_transactionId: string, _containerElementId: string);
+    private _sapClient?;
+    constructor(_transactionId: string, _containerElementId: string, _sapClient?: string);
     loadLibrary(): Promise<void>;
     initiatePayment(restoreSession?: boolean): Promise<TPaymentTransactionInfo>;
     finalizePayment(transByPmntSrvProv?: string): Promise<TPaymentTransactionStatus>;
@@ -28,7 +29,7 @@ export declare class PaymentFactory {
      * @param {string} transactionId id of the transaction
      * @returns {Promise<Payment>}
      */
-    static getPayment(transactionId?: string): Promise<Payment>;
+    static getPayment(transactionId?: string, sapClient?: string): Promise<Payment>;
     private static _factoryPromise;
     private static _factoryResolve;
     private static _payment;

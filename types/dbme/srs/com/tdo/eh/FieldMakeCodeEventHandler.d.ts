@@ -1,7 +1,6 @@
 import type Event from "sap/ui/base/Event";
 import type { IFormAware, ISrsController } from "dbme/srs/com/tdo/types/IController";
-interface IController extends ISrsController, IFormAware {
-}
+type IController = {} & ISrsController & IFormAware;
 declare const FieldMakeCodeEventHandler: {
     onInnerControlsCreated(this: IController, event: Event): void;
 };

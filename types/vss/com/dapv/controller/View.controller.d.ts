@@ -1,27 +1,29 @@
+import type Event from "sap/ui/base/Event";
 import Controller from "sap/ui/core/mvc/Controller";
-import { Route$MatchedEvent } from "sap/ui/core/routing/Route";
+import type OData4Model from "sap/ui/model/odata/v4/ODataModel";
 /**
  * @namespace vss.com.dapv.controller
  */
 export default class View extends Controller {
     onInit(): void;
     onBeforeRendering(): void;
-    private onTableRefresh;
+    onTableRefresh(): void;
     private getDialog;
-    private onCloseButtonOrgDataPress;
+    onCloseButtonOrgDataPress(): void;
     private setCustomFilters;
-    onRouteMatched(oEvent: Route$MatchedEvent): void;
-    private onVSSOrderValueHelpOpened;
-    private onDivisionValueHelpOpened;
-    private onButtonCentralizedSalesOrgPress;
+    onRouteMatched(): void;
+    onVSSOrderValueHelpOpened(oEvent: Event): void;
+    onDivisionValueHelpOpened(oEvent: Event): void;
+    onMaterialPlantValueHelpOpened(oEvent: Event): void;
+    onButtonCentralizedSalesOrgPress(): void;
     private getObjIdentifier;
     private getFilterBar;
     private getDefaultModel;
-    private getDefaultRequestModel;
-    private onColumnListItemPress;
-    private onButtonProcureMultiplePress;
+    getDefaultRequestModel(): OData4Model;
+    onColumnListItemPress(oEvent: Event): void;
+    onButtonProcureMultiplePress(): void;
     private getMainTable;
-    private onButtonProcureSinglePress;
-    private onButtonMessagePopoverPress;
-    private onVSSOrderLinkPress;
+    onButtonProcureSinglePress(oEvent: Event): void;
+    onButtonMessagePopoverPress(oEvent: Event): void;
+    onVSSOrderLinkPress(sOrderNumber: string): void;
 }

@@ -1,6 +1,6 @@
 import type ExtensionAPI from "sap/fe/templates/ObjectPage/ExtensionAPI";
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
-import View from "sap/ui/core/mvc/View";
+import type View from "sap/ui/core/mvc/View";
 /**
  * @namespace pacg.com.eqs.ext.controller
  * @controller

@@ -1,5 +1,5 @@
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
-import { IListReportExtension } from "vss/com/fe/ListReport";
+import type { IListReportExtension } from "vss/com/fe/ListReport";
 /**
  * overridesToOverride must be enabled in babel settings of transform-ui5
  * @link https://github.com/ui5-community/babel-plugin-transform-modules-ui5
@@ -12,16 +12,10 @@ export default class TaskListExtend extends ControllerExtension {
         onBeforeRendering(this: TaskListExtend & IListReportExtension): void;
         onAfterRendering(this: TaskListExtend & IListReportExtension): void;
         routing: {
-            onBeforeBinding(this: TaskListExtend & IListReportExtension, context: object, parameters: object): void;
-            onAfterBinding(this: TaskListExtend & IListReportExtension, context: object, parameters: object): void;
+            onBeforeBinding(this: TaskListExtend & IListReportExtension): void;
+            onAfterBinding(this: TaskListExtend & IListReportExtension): void;
         };
     };
     private _checkOrgDataAssigned;
-    private _setTaskListView;
-    private _getAppComponent;
-    private _readViewLayoutId;
-    private _readViewGroups;
     private _setIconTabs;
-    private _tabView;
-    private _filterBar;
 }

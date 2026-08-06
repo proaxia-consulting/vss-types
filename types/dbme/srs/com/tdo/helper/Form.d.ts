@@ -1,15 +1,15 @@
+import type MultiComboBox from "sap/m/MultiComboBox";
 import type SmartField from "sap/ui/comp/smartfield/SmartField";
-import Filter from "sap/ui/model/Filter";
-import type SmartForm from "sap/ui/comp/smartform/SmartForm";
 import type { SmartField$ChangeEvent } from "sap/ui/comp/smartfield/SmartField";
+import type SmartForm from "sap/ui/comp/smartform/SmartForm";
+import Filter from "sap/ui/model/Filter";
 import type ListBinding from "sap/ui/model/ListBinding";
 import type { IFormAware, IOrderAwareController, ISrsController } from "dbme/srs/com/tdo/types/IController";
 import type { IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
-import type MultiComboBox from "sap/m/MultiComboBox";
 type TFilterKeys = Record<string, Filter> | Record<string, unknown>;
-interface IController extends IOrderAwareController, IFormAware {
+type IController = {
     _reloadTabs?: CallableFunction;
-}
+} & IOrderAwareController & IFormAware;
 declare const Form: {
     applyFieldItemsFilter(field: SmartField | MultiComboBox, filters: Filter | Filter[]): Promise<ListBinding>;
     setFieldItemsFilter(smartForm: SmartForm, vFilterKeys: string[] | TFilterKeys, sTarget: string, checkVisibility?: boolean): Promise<ListBinding>;
@@ -25,6 +25,7 @@ declare const Form: {
     reloadModel(this: ISrsController, smartForm: SmartForm): Promise<void | ListBinding>;
     reloadBrand(this: ISrsController, smartForm: SmartForm): Promise<void | ListBinding>;
     reloadLocation(this: ISrsController, smartForm: SmartForm, orderData: IOrderEntity): Promise<void | ListBinding>;
+    reloadOrderReason(this: ISrsController, smartForm: SmartForm): Promise<void>;
 };
 export declare function filterInvalidFields(...fields: SmartField[]): SmartField[];
 /**

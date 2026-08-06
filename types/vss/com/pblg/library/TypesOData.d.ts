@@ -13,6 +13,7 @@ export type OrderIdentifierOData = {
 };
 export type OrderSubmitIdentifierOData = OrderIdentifierOData & AssignedQuantityOData & {
     StorageLocation: string;
+    StorageBin: string;
 };
 export type AssignedQuantityOData = {
     AssignedQuantity: string;

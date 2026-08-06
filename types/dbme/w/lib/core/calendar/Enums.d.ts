@@ -1,4 +1,4 @@
-export { EntitySet, type EntitySetType, ModelName, Uxfc, type UxfcType } from "dbme/w/lib/core/model/Enums";
+export { type EntitySetType, type UxfcType, EntitySet, ModelName, Uxfc } from "dbme/w/lib/core/model/Enums";
 export declare const PlanningMode: {
     readonly Manual: "M";
     readonly Rescheduling: "R";

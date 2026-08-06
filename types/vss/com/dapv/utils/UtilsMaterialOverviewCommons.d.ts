@@ -1,4 +1,4 @@
-import { SwapATPReservations } from "vss/com/dapv/entities/Entities";
+import type { SwapATPReservations } from "vss/com/dapv/entities/Entities";
 export declare function setSwapReservationsTable(x: SwapATPReservations[]): void;
 export declare function getSwapReservationsTable(): SwapATPReservations[];
 export declare function setVSSOrder(x: string): void;

@@ -1,6 +1,6 @@
-import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-import { TTicComplex } from "vss/com/dama/service/timeClockingService";
-import { TOrderEntity } from "vss/com/dama/types/Entity";
+import type ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import type { TTicComplex } from "vss/com/dama/service/timeClockingService";
+import type { TOrderEntity } from "vss/com/dama/types/Entity";
 /**
  * @namespace vss.com.dama.utils
  */

@@ -1,6 +1,6 @@
-import { IListReportExtensionAPI } from "vss/com/fe/ListReport";
-import { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
-import { TActionEntity, TScreenData } from "pacg/com/rfm/types/Entity";
+import type { IListReportExtensionAPI } from "vss/com/fe/ListReport";
+import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
+import type { TActionEntity, TScreenData } from "pacg/com/rfm/types/Entity";
 /**
  * @nonui5
  * @namespace pacg.com.rfm.model

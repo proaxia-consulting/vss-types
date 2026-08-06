@@ -1,5 +1,5 @@
-import { HandoverExtension } from "pacg/com/hdr/ext/HandoverExtension";
 import type Context from "sap/ui/model/odata/v4/Context";
+import { HandoverExtension } from "pacg/com/hdr/ext/HandoverExtension";
 export declare function reload(contextInfo: string): void;
 /**
  * @nonui5

@@ -1,12 +1,9 @@
-import Context from "sap/ui/model/odata/v4/Context";
-import ExtensionAPI from "sap/fe/templates/ListReport/ExtensionAPI";
-import { ActionName, ContextCheck } from "pacg/com/dlv/model/Enums";
-import Dialog from "sap/m/Dialog";
+declare const ActionHelper: {
+    executeActionOData(this: import("sap/fe/templates/ListReport/ExtensionAPI").default | import("sap/fe/templates/ObjectPage/ExtensionAPI").default, actionName: import("vss/com/rcl/model/DeliveryActionCommand").DeliveryActionType, selectedContexts: import("sap/ui/model/odata/v4/Context").default[], withDialog?: import("sap/m/Dialog").default | boolean, parameterValues?: import("vss/com/rcl/types/EntitySet").ActionParameter[]): Promise<void>;
+    executeAction(this: import("sap/fe/templates/ListReport/ExtensionAPI").default | import("sap/fe/templates/ObjectPage/ExtensionAPI").default, actionName: import("vss/com/rcl/model/DeliveryActionCommand").DeliveryActionType, selectedContexts: import("sap/ui/model/odata/v4/Context").default[], dialog?: import("sap/m/Dialog").default): void;
+};
 /**
- * @nonui5
+ * @deprecated use vss.com.rcl.model.DeliveryActionHandler instead
  * @namespace pacg.com.dlv.ext.action
  */
-export default class ActionHelper {
-    static executeAction(this: ExtensionAPI, actionName: ActionName, selectedContexts: Context[], dialog?: Dialog): void;
-    static isDeliveryCreated(selectedContexts: Context[], contextCheck?: ContextCheck): boolean;
-}
+export default ActionHelper;

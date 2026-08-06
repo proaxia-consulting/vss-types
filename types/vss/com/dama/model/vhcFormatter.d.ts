@@ -1,6 +1,7 @@
-import { IconColor, URI, ValueState } from "sap/ui/core/library";
-import { TConditionLimits } from "vss/com/dama/types/Entity";
-import Button from "sap/m/Button";
+import type Button from "sap/m/Button";
+import type { URI } from "sap/ui/core/library";
+import { IconColor, ValueState } from "sap/ui/core/library";
+import type { TConditionLimits } from "vss/com/dama/types/Entity";
 declare const vhcFormatter: {
     isRepairEnabled(this: Button, repairCode: string): void;
     getGeneralState(vhcStatus: number): ValueState;
