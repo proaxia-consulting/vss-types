@@ -1,4 +1,5 @@
 import type SrsController from "dbme/w/lib/core/controller/Base";
+import type { IDemandCallbacksMap } from "dbme/w/lib/core/types/IDemand";
 import type ColumnListItem from "sap/m/ColumnListItem";
 import type IconTabFilter from "sap/m/IconTabFilter";
 import type ListBase from "sap/m/ListBase";
@@ -66,6 +67,7 @@ export type ICreatedDemandData = {
         manually?: boolean;
         copy?: boolean;
         originType?: DemandOrigin;
+        callbacks?: IDemandCallbacksMap;
     };
     target: ColumnListItem;
 };

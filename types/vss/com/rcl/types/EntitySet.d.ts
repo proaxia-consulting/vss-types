@@ -38,7 +38,9 @@ export type TObjectCharacteristicsDisplay = {
     CharcInternalID: string;
     SequenceNumber: number;
     Icon: string;
-    CharcDescription: string;
+    Characteristic?: string;
+    CharcDescription?: string;
+    _Characteristic?: TCharcEntity;
     _Value?: TCMObjectCharcValueEntity[];
 };
 export type TCMObjectCharcValueEntity = {
