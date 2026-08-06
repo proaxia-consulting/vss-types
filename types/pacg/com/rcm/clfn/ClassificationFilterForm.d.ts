@@ -18,7 +18,7 @@ export default class ClassificationFilterForm {
     private _fieldMap;
     private _existingTokens?;
     private _existingKeys?;
-    private _existingSimple;
+    private _existingRanges;
     private _propagateFilterBarConditionsEnabled;
     private _createPromise;
     constructor(_model: ODataModel, _ctrl: IClassificationFilterController);

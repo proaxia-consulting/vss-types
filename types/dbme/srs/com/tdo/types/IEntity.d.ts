@@ -1,5 +1,5 @@
 import type { DemandEntity } from "dbme/w/lib/core/types/IEntity";
-import type { MeasuringPointEntity } from "dbme/srs/com/tdo/measuringPoint/model/IEntity";
+import type { MeasuringPointEntity } from "dbme/srs/com/tdo/ext/measuringPoint/model/IEntity";
 export type TUISettings = {
     C_X_ATT_MAX_SIZE: string;
 };
@@ -50,6 +50,7 @@ export type IOrderEntity = {
     REQ_MAX_DUR_UOM?: string;
     CANCEL_REASON?: string;
     CANCEL_REASON_DESC?: string;
+    BP_UPD?: string;
     CommChannelNav?: IEntity[];
     DemandsNav?: DemandEntity[];
     HistoryNav?: IEntity[];

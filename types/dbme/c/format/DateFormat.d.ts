@@ -38,7 +38,7 @@ export declare function dateLocal(sDateTime: string, sStyle?: string): string | 
 export declare function duration(iSeconds: string): string;
 export declare function jsDate(sDate: string | number | Date): Date | UI5Date | null;
 export declare function jsDateTime(sDate: string | number | Date, bUTC?: boolean): Date | UI5Date | null;
-export declare function getUTCDate(oDate?: Date | UI5Date): Date | UI5Date;
+export declare function getUTCDate(oDate?: UI5Date | Date): Date | UI5Date;
 export declare function getLocalByUTCDate(oDate: Date): Date | UI5Date | null;
 /**
  * Date formatting utilities

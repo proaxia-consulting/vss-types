@@ -1,8 +1,9 @@
 import Event from "sap/ui/base/Event";
-import { IDialog } from "../../types/ControllerInterface";
-import BaseDialog from "../BaseDialog";
+import { IDialog } from "vss/com/dama/types/ControllerInterface";
+import BaseDialog from "vss/com/dama/eh/BaseDialog";
 export default class JobPackage extends BaseDialog implements IDialog {
     private _initFilter;
+    private _packageData;
     setBeforeLoad(event: Event): void;
     setAfterLoad(event: Event): void;
     static onSave(this: JobPackage, event: Event): void;
