@@ -4,7 +4,7 @@ import type SmartFilterBar from "sap/ui/comp/smartfilterbar/SmartFilterBar";
 import type { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
 import type ODataListBinding from "sap/ui/model/odata/v2/ODataListBinding";
 import AbstractController from "dbme/srs/com/tdt/controller/AbstractController";
-import type { BreadCrumbLocalEntity } from "dbme/srs/com/tdt/type/IEntity";
+import type { BreadCrumbLocalEntity, ControlStateLocalEntity } from "dbme/srs/com/tdt/type/IEntity";
 /**
  * @namespace dbme.srs.com.tdt.controller
  * @controller
@@ -22,7 +22,10 @@ export default class Index extends AbstractController {
             }, ODataListBinding>): void;
             onUpdateFinished(this: Index, event: import("sap/m/ListBase").ListBase$UpdateFinishedEvent): void;
             onListItemPress(this: Index, event: import("sap/m/ListItemBase").ListItemBase$PressEvent): void;
-            onListItemInputSelect(this: Index, event: import("ui5").$EventTyped<{}, import("sap/m/RadioButton").default | import("sap/m/CheckBox").default>): void;
+            onCheckboxSelect(this: Index, event: import("ui5").$EventTyped<{}, import("sap/m/CheckBox").default>): void;
+            onRadioButtonSelect(this: Index, event: import("ui5").$EventTyped<{}, import("sap/m/RadioButton").default>): void;
+            onListItemInputSelect(this: Index, event: import("ui5").$EventTyped<{}, import("sap/m/RadioButton").default | import("sap/m/CheckBox").default>, controlType: "CheckBox" | "RadioButton"): void;
+            onButtonSelect(this: Index, contextPath: string, buttonType: "CheckBox" | "RadioButton", value: boolean): void;
         };
         navigation: {
             onNavigteBack(this: Index, event: import("sap/m/Button").Button$PressEvent): void;
@@ -40,10 +43,13 @@ export default class Index extends AbstractController {
     onModelContextChange(event: ManagedObject$ModelContextChangeEvent): void;
     getBreadCrumbs(): BreadCrumbLocalEntity;
     setBreadCrumbs(bc: BreadCrumbLocalEntity): void;
+    getControlState(contextPath: string): ControlStateLocalEntity;
+    setControlState(contextPath: string, control: ControlStateLocalEntity): void;
     getFilter(): SmartFilterBar;
     getItemsList(): List;
     getItemsListBinding(): ODataListBinding | undefined;
     setItemsListBinding(binding: ODataListBinding): this;
+    private _setItemsLocalBinding;
     private _initLocalModel;
     private _updateBreadCrumbs;
 }

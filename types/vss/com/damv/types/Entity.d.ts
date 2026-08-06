@@ -1,5 +1,6 @@
 import { ValueState } from "sap/ui/core/library";
 import { TAvailableOrderEntity, TEventsEntity, TPersonalEntity } from "../service/timeClockingService";
+import type { ItemType } from "vss/com/dama/model/Enums";
 export type TOrderEntity = {
     OrderID: string;
     Plant: string;
@@ -244,4 +245,11 @@ export type TRepairCode = {
     repairCodeDescr: string;
     packageId: string;
     selected: boolean;
+};
+export type TPackageInt = {
+    ItemType: ItemType;
+    OrderId: string;
+    PackageId: string;
+    PackageIdExt: string;
+    VariantId: string;
 };

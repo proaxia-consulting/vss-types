@@ -130,3 +130,9 @@ export declare const UnitOfMeasure: {
     readonly Mile: "mile";
     readonly Km: "km";
 };
+export declare const DemandCallbacksObjectName = "demandCallbacks";
+export declare const DemandCallback: {
+    readonly remove: "onRemove";
+    readonly getSelected: "getSelected";
+};
+export type DemandCallbackType = (typeof DemandCallback)[keyof typeof DemandCallback];

@@ -174,6 +174,7 @@ export declare enum ItemType {
     Labor = "LBR",
     ManualLabor = "MLBR",
     Package = "PCKG",
+    PackageVariant = "PCKV",
     Part = "PRT"
 }
 export declare enum CounterType {
