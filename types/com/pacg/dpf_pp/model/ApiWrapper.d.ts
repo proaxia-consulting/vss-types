@@ -9,7 +9,7 @@ export default class ApiWrapper {
     private _containerElementId;
     constructor(_integrationType: EIntegrationType, _apiSessionId: string, _containerElementId: string);
     attachErrorMessage(handler: (message: string) => void): void;
-    initLibrary(): Promise<void>;
+    initLibrary(sapClient?: string): Promise<void>;
     loadPaymentTypes(transactionId: string, parameters?: TPaymentParameter[]): Promise<string[]>;
     selectPaymentType(paymentTypeId: string): Promise<string | undefined>;
     get integrationType(): EIntegrationType;

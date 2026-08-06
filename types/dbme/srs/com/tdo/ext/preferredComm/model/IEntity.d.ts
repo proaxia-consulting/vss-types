@@ -7,6 +7,7 @@ export type CommunicationConsentEntity = TConsentUUID & {
     PURPOSE_TXT?: string;
     CONSENT_DESC?: string;
     ACTION?: string;
+    TRANSIENT?: boolean;
     CommConsentChannelNav?: CommConsentChannelEntity[];
 };
 type TConsentUUID = {

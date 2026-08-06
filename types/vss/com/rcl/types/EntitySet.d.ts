@@ -38,7 +38,9 @@ export type TObjectCharacteristicsDisplay = {
     CharcInternalID: string;
     SequenceNumber: number;
     Icon: string;
-    CharcDescription: string;
+    Characteristic?: string;
+    CharcDescription?: string;
+    _Characteristic?: TCharcEntity;
     _Value?: TCMObjectCharcValueEntity[];
 };
 export type TCMObjectCharcValueEntity = {
@@ -352,7 +354,8 @@ export type DeliveryEntity = {
     GoodsReceiptStatus: boolean;
     HandoverStatus: string;
     ManufacturerSerialNumber: string;
-    OrderQuantity: number;
+    OrderQuantity: string;
+    OrderQuantityDelivered: string;
     OrderQuantityUnit: string;
     RequestedDeliveryDate: string;
     SerialNumber: string;

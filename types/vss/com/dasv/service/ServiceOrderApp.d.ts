@@ -1,7 +1,7 @@
 import type ExtensionAPI from "sap/fe/core/ExtensionAPI";
 import type Context from "sap/ui/model/odata/v4/Context";
 import type { OrderEventResponseType, OrderEventType } from "vss/com/dasv/ext/fragment/OrderEventMenu";
-import type { VssOrderType_AddPackageParams, VssOrderType_AddRecallParams } from "vss/com/dasv/types/odata/serviceOrderApp/ComSapGatewaySrvdDbeDasvCOrderV0001Model";
+import type { VssOrderType_AddPackageParams, VssOrderType_AddRecallParams, VssOrderType_OrderEventsParams } from "vss/com/dasv/types/odata/serviceOrderApp/ComSapGatewaySrvdDbeDasvCOrderV0001Model";
 export default class ServiceOrderApp {
     private _api;
     static readonly ServiceName = "com.sap.gateway.srvd.dbe.dasv_c_order.v0001";
@@ -18,6 +18,8 @@ export default class ServiceOrderApp {
         AssignVehicle: string;
         ExecuteEvent: string;
         OrderEvents: string;
+        ExecuteItemEvent: string;
+        ExecuteJobEvent: string;
     };
     static readonly ServiceActionName: {
         AddOffer: string;
@@ -32,8 +34,9 @@ export default class ServiceOrderApp {
     RefreshJobItem(context: Context): Promise<void>;
     IsRelCustVehAssignment(context: Context): Promise<boolean>;
     AssignVehicle(context: Context): Promise<void>;
-    ExecuteGenericEvent(context: Context, event: OrderEventType): Promise<void>;
-    GetOrderEvents(context: Context): Promise<OrderEventResponseType>;
+    ExecuteGenericEvent(context: Context | Context[], event: OrderEventType, ActionName: string): Promise<void>;
+    ExecuteGenericItemEvent(context: Context | Context[], event: OrderEventType): Promise<void>;
+    GetOrderEvents(context: Context, params: VssOrderType_OrderEventsParams): Promise<OrderEventResponseType>;
     GetServicePath(actionName: string): string;
     BuildGenericActionPath(rapAction: string): string;
 }

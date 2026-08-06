@@ -14,16 +14,16 @@ export default class OPExtend extends ControllerExtension<ExtensionAPI> {
          */
         onInit(this: OPExtend): void;
         editFlow: {
-            onBeforeEdit: (mParameters: any) => void;
             onBeforeCreate: (mParameters: OrderItemContext) => Promise<void>;
             onBeforeSave: (this: OPExtend, mParameters: {
                 context?: Context;
             }) => Promise<never>;
             onAfterActionExecution: (this: OPExtend, actionName: string) => Promise<void>;
+            onAfterDelete: (this: OPExtend, mParameters: {
+                contexts?: Context[];
+            }) => Promise<void>;
         };
-        routing: {
-            onAfterBinding: (this: OPExtend, context: Context) => void;
-        };
+        routing: {};
     };
     openPartsSuperSession(parameters: OrderItemContext): Promise<void>;
     userConfirmCustomerAssignment(this: OPExtend, oResourceBundle: ResourceBundle): Promise<boolean>;

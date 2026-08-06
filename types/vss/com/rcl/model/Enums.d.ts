@@ -107,10 +107,9 @@ export declare const EntitySet: {
     readonly MainDeviceAccessoryCustom: "MainDeviceAccessoryCustom";
     readonly RentalEquipment: "RentalEquipment";
     readonly RentalEquipmentBase: "RentalEquipmentBase";
-    /** @deprecated Use vss.com.rcl.model.Enums.EntitySet.DeliveryItem or vss.com.rcl.model.Enums.EntitySet.OrderItem instead */
     readonly Delivery: "Delivery";
-    readonly DeliveryAction: "DeliveryAction";
     readonly DeliveryItem: "DeliveryItem";
+    readonly DeliveryAction: "DeliveryAction";
     readonly OrderItem: "OrderItem";
     readonly Handover: "Handover";
     readonly HandoverItem: "HandoverItem";

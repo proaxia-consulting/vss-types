@@ -10,7 +10,10 @@ declare const CalendarUtils: {
     getWeekDays(): string[];
     getMonths(): string[];
     adjustDateYmd(oDate: Date, oBaseDate?: Date): Date;
-    adjustYmd(oDate: DateBoundariesType, oBaseDate: DateBoundariesObjType): DateBoundariesType;
+    adjustYmd(oDate: DateBoundariesType, oBaseDate: DateBoundariesObjType): {
+        startDate: Date;
+        endDate: Date;
+    };
     getMaxDate(): Date;
 };
 /**

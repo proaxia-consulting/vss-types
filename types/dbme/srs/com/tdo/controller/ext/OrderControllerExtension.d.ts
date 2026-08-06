@@ -2,13 +2,14 @@ import type Event from "sap/ui/base/Event";
 import ManagedObject, { type $ManagedObjectSettings } from "sap/ui/base/ManagedObject";
 import type Context from "sap/ui/model/odata/v2/Context";
 import type { IOrderAwareController } from "dbme/srs/com/tdo/types/IController";
-import type { IEntity, IOrderEntity } from "dbme/srs/com/tdo/types/IEntity";
+import type { IEntity, IOrderEntity, TCommonError } from "dbme/srs/com/tdo/types/IEntity";
 import type { IScreen } from "dbme/srs/com/tdo/types/ITabsAware";
 export declare const Events: {
     readonly AfterAllocationProposalEntityCheck: "AfterAllocationProposalEntityCheck";
     readonly AfterBatchUpdate: "AfterBatchUpdate";
     readonly AfterTabDataCreate: "AfterTabDataCreate";
     readonly AfterEditCancel: "AfterEditCancel";
+    readonly AfterSaveError: "AfterSaveError";
     readonly AfterInit: "AfterInit";
     readonly AfterOrderContextCreate: "AfterOrderContextCreate";
     readonly AfterOrderEntityExpandProperties: "AfterOrderEntityExpandProperties";
@@ -61,6 +62,10 @@ export type OrderControllerExtension$BeforeBatchUpdateEventParameters = {
 export type OrderControllerExtension$BeforeBatchUpdateEvent = Event<OrderControllerExtension$BeforeBatchUpdateEventParameters, OrderControllerExtension>;
 export type OrderControllerExtension$AfterEditCancelEventParameters = {};
 export type OrderControllerExtension$AfterEditCancelEvent = Event<{}, OrderControllerExtension>;
+export type OrderControllerExtension$AfterSaveErrorEventParameters = {
+    error: TCommonError;
+};
+export type OrderControllerExtension$AfterSaveErrorEvent = Event<OrderControllerExtension$AfterSaveErrorEventParameters, OrderControllerExtension>;
 /**
  * @namespace dbme.srs.com.tdo.controller.ext
  */
@@ -87,6 +92,8 @@ export default class OrderControllerExtension extends ManagedObject {
     attachBeforeValidateFieldGroupIds: (handler: (event: OrderControllerExtension$BeforeValidateFieldGroupIdsEvent) => void, listener?: object) => this;
     fireAfterEditCancel: () => void;
     attachAfterEditCancel: (handler: (event: OrderControllerExtension$AfterEditCancelEvent) => void, listener?: object) => this;
+    fireAfterSaveError: (params: OrderControllerExtension$AfterSaveErrorEventParameters) => void;
+    attachAfterSaveError: (handler: (event: OrderControllerExtension$AfterSaveErrorEvent) => void, listener?: object) => this;
     protected _controller: IOrderAwareController;
     protected _objectMap?: Map<string, ManagedObject>;
     protected _initPromise: Promise<unknown>[];
@@ -117,6 +124,11 @@ export default class OrderControllerExtension extends ManagedObject {
                 };
             };
             AfterEditCancel: {};
+            AfterSaveError: {
+                parameters: {
+                    error: string;
+                };
+            };
             AfterInit: {};
             AfterOrderContextCreate: {
                 parameters: {

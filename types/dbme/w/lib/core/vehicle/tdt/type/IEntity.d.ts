@@ -31,4 +31,8 @@ export type BreadCrumbLocalEntity = {
     Current: BreadCrumbItemLocalEntity;
     Items: BreadCrumbItemLocalEntity[];
 };
+export type ControlStateLocalEntity = {
+    CheckBoxSelected?: boolean;
+    RadioBtnSelected?: boolean;
+};
 export {};

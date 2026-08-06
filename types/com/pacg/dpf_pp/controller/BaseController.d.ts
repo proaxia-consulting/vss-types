@@ -67,4 +67,5 @@ export default abstract class BaseController extends Controller {
      * Convenience method for main transaction model access
      */
     getMainModel(): JSONModel;
+    protected _sapClient?: string;
 }

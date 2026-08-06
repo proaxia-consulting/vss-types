@@ -11,11 +11,14 @@ import type { IObjectPageExtensionAPI } from "vss/com/fe/ObjectPage";
 export type OrderEventType = {
     VssEvent: string;
     RapAction: string;
-    Description: string;
     AutoSave: boolean;
+    Description: string;
+    SelectionLevel: string;
 };
 export type OrderEventResponseType = {
     value: OrderEventType[];
 };
-export declare function OpenMenu(this: IObjectPageExtensionAPI, context: Context | undefined): Promise<void>;
+export declare function OrderMenu(this: IObjectPageExtensionAPI, context: Context | undefined, selectedContexts: Context[]): Promise<void>;
+export declare function ItemMenu(this: IObjectPageExtensionAPI, pageContext: Context, selectedContexts: Context[]): Promise<void>;
+export declare function JobMenu(this: IObjectPageExtensionAPI, pageContext: Context, selectedContexts: Context[]): Promise<void>;
 export declare function onMenuSelected(this: IObjectPageExtensionAPI, event: Menu$ItemSelectedEvent): Promise<void>;

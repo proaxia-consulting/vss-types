@@ -19,5 +19,4 @@ export type CommConsentsJSONModel = {
 export declare const ConsentModel: {
     initializeUIModel(defaultData?: object): JSONModel;
     getModel(this: IDemandsAwareController): JSONModel;
-    resetChannelMap(this: IDemandsAwareController): void;
 };

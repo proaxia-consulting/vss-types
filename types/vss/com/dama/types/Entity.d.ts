@@ -1,4 +1,5 @@
 import type { ValueState } from "sap/ui/core/library";
+import type { ItemType } from "vss/com/dama/model/Enums";
 import type { TAvailableOrderEntity, TEventsEntity, TPersonalEntity } from "vss/com/dama/service/timeClockingService";
 export type TOrderEntity = {
     OrderID: string;
@@ -21,6 +22,7 @@ export type TOrderEntity = {
     Email: string;
     OrderTypeDescription?: string;
     LongText?: string;
+    PARTS_ISSUE?: boolean;
     _OrderJob?: TJobEntity[];
 };
 export type TJobEntity = {
@@ -36,7 +38,9 @@ export type TJobEntity = {
     EXECUTE_EVENT?: boolean;
     ATTACHMENT_COUNT?: number;
     EDIT_LABOR_QUAN: string;
+    /** @deprecated Use PARTS_ISSUE instead */
     PARTS_ACCEPTANCE?: boolean;
+    PARTS_ISSUE?: boolean;
     isChecklist?: Boolean;
 };
 export type TItemEntity = {
@@ -246,4 +250,11 @@ export type TRepairCode = {
     repairCodeDescr: string;
     packageId: string;
     selected: boolean;
+};
+export type TPackageInt = {
+    ItemType: ItemType;
+    OrderId: string;
+    PackageId: string;
+    PackageIdExt: string;
+    VariantId: string;
 };

@@ -40,8 +40,8 @@ export declare const EntitySet: {
     readonly RentalEquipment: "RentalEquipment";
     readonly RentalEquipmentBase: "RentalEquipmentBase";
     readonly Delivery: "Delivery";
-    readonly DeliveryAction: "DeliveryAction";
     readonly DeliveryItem: "DeliveryItem";
+    readonly DeliveryAction: "DeliveryAction";
     readonly OrderItem: "OrderItem";
     readonly Handover: "Handover";
     readonly HandoverItem: "HandoverItem";

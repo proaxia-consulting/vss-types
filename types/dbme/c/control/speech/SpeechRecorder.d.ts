@@ -106,6 +106,7 @@ export default class SpeechRecorder extends Control implements ISpeechRecognitio
     private _finalTranscript;
     isRecording(): boolean;
     constructor(mSettings?: $SpeechRecorderSettings);
+    constructor(sId?: string, mSettings?: $SpeechRecorderSettings);
     init(): void;
     onBeforeRendering(oEvent: jQuery.Event): void | undefined;
     abortRecording(): void;

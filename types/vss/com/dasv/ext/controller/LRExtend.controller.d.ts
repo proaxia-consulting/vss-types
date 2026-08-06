@@ -1,5 +1,6 @@
 import type ExtensionAPI from "sap/fe/templates/ListReport/ExtensionAPI";
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
+import type { IListReportExtension } from "vss/com/fe/ListReport";
 /**
  * @namespace vss.com.dasv.ext.controller
  * @controller
@@ -11,6 +12,6 @@ export default class LRExtend extends ControllerExtension<ExtensionAPI> {
          * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
          * @memberOf vss.com.dasv.ext.controller.LRExtend
          */
-        onInit(this: LRExtend): void;
+        onInit(this: IListReportExtension): void;
     };
 }

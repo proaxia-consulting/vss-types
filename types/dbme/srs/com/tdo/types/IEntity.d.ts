@@ -59,6 +59,7 @@ export type IOrderEntity = {
     CANCEL_REASON_DESC?: string;
     COMM_CHANNEL: string;
     CALLING_TIME_ID: string;
+    BP_UPD?: string;
     CommChannelNav?: IEntity[];
     DemandsNav?: DemandEntity[];
     HistoryNav?: IEntity[];

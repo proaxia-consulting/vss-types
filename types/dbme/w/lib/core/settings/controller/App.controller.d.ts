@@ -17,7 +17,7 @@ type INavContainerAwareController = {
 export default class App extends SrsController implements INavContainerAwareController {
     getOwnerComponent: () => AppComponent;
     static formatter: {
-        settingValue(entity: UIAppSettingsEntityBase): string | boolean | import("sap/ui/core/date/UI5Date").default | Date;
+        settingValue(entity: UIAppSettingsEntityBase): string | boolean | Date | import("sap/ui/core/date/UI5Date").default;
         SplitCommaToInt(sValue: string): number[];
         parseBoolean(sValue: string): boolean;
         matchingStatusToValueState(sValue: string): import("sap/ui/core/library").ValueState;
